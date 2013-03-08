@@ -369,7 +369,7 @@ public class FmRadioReceiver extends Activity {
                         mPauseMutex = true;
                         mFmReceiver.resume();
                         mMediaPlayer.start();
-                        pause.setBackgroundResource(R.drawable.pausebutton);
+                        pause.setBackgroundResource(R.layout.pausebutton);
                     } catch (IOException e) {
                         showToast("Unable to resume", Toast.LENGTH_LONG);
                     } catch (IllegalStateException e) {
@@ -382,7 +382,7 @@ public class FmRadioReceiver extends Activity {
                         mPauseMutex = true;
                         mMediaPlayer.pause();
                         mFmReceiver.pause();
-                        pause.setBackgroundResource(R.drawable.playbutton);
+                        pause.setBackgroundResource(R.layout.playbutton);
                     } catch (IOException e) {
                         showToast("Unable to pause", Toast.LENGTH_LONG);
                     } catch (IllegalStateException e) {
