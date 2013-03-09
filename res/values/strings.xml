@@ -10,4 +10,15 @@
     <string name="fmradio">FM RADIO</string>
     <string name="dashes">- - - -</string>
     <string name="no_stations">No stations available</string>
+    <string name="scanning_for_stations">Scanning for stations</string>
+
+    <!-- Errors and failure messages -->
+    <string name="unable_to_restart">Unable to restart the FM Radio</string>
+    <string name="unable_to_set_frequency">Unable to set the frequency</string>
+    <string name="unable_to_scan">Unable to start the scan</string>
+    <string name="unable_to_pause">Unable to pause</string>
+    <string name="unable_to_resume">Unable to resume</string>
+    <string name="unable_to_start_radio">Unable to start the radio receiver.</string>
+    <string name="unable_to_mediaplayer">Unable to start Android\'s MediaPlayer</string>
+    <string name="mediaplayer_busy">MediaPlayer busy. Please wait and try again.</string>
 </resources>

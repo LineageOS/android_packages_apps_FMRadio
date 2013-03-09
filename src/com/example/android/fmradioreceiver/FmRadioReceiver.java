@@ -27,6 +27,8 @@ import android.view.SubMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.*;
+import com.example.android.fmradioreceiver.utils.Constants;
+import com.example.android.fmradioreceiver.utils.Utils;
 import com.stericsson.hardware.fm.FakeFmReceiver;
 import com.stericsson.hardware.fm.FmBand;
 import com.stericsson.hardware.fm.FmReceiver;
@@ -35,9 +37,6 @@ import java.io.IOException;
 
 
 public class FmRadioReceiver extends Activity {
-
-    // The string to find in android logs
-    private static final String LOG_TAG = "FM Radio Demo App";
 
     // The 50kHz channel offset
     private static final int CHANNEL_OFFSET_50KHZ = 50;
@@ -156,10 +155,9 @@ public class FmRadioReceiver extends Activity {
                     try {
                         mFmReceiver.setFrequency(frequency[0]);
                         mFrequencyTextView.setText(mMenuAdapter.getItem(0).toString());
-                    } catch (IOException e) {
-                        showToast("Unable to set the receiver's frequency", Toast.LENGTH_LONG);
-                    } catch (IllegalArgumentException e) {
-                        showToast("Unable to set the receiver's frequency", Toast.LENGTH_LONG);
+                    } catch (Exception e) {
+                        Utils.debugFunc("onFullScan(). E.: " + e.getMessage(), Log.ERROR);
+                        showToast(R.string.unable_to_set_frequency, Toast.LENGTH_LONG);
                     }
                 }
             }
@@ -246,7 +244,7 @@ public class FmRadioReceiver extends Activity {
         try {
             mFmReceiver.reset();
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Unable to reset correctly", e);
+            Utils.debugFunc("Unable to reset correctly E.: " + e, Log.ERROR);
         }
         if (mMediaPlayer != null) {
             mMediaPlayer.release();
@@ -263,7 +261,8 @@ public class FmRadioReceiver extends Activity {
                 try {
                     mFmReceiver.startFullScan();
                 } catch (IllegalStateException e) {
-                    showToast("Unable to start the scan", Toast.LENGTH_LONG);
+                    showToast(R.string.unable_to_scan, Toast.LENGTH_LONG);
+                    Utils.debugFunc("initialBandscan(). E.: " + e.getMessage(), Log.ERROR);
                     return;
                 }
             }
@@ -283,6 +282,17 @@ public class FmRadioReceiver extends Activity {
     }
 
     /**
+     * Helper method to display toast
+     */
+    private void showToast(final int resourceID, final int duration) {
+        runOnUiThread(new Runnable() {
+            public void run() {
+                Toast.makeText(getApplicationContext(), getString(resourceID), duration).show();
+            }
+        });
+    }
+
+    /**
      * Starts the FM receiver and makes the buttons appear inactive
      */
     private void turnRadioOn() {
@@ -294,11 +304,10 @@ public class FmRadioReceiver extends Activity {
             ((ImageButton) findViewById(R.id.ScanDown)).setEnabled(false);
             ((ImageButton) findViewById(R.id.Pause)).setEnabled(false);
             ((ImageButton) findViewById(R.id.FullScan)).setEnabled(false);
-            showToast("Scanning initial stations", Toast.LENGTH_LONG);
-        } catch (IOException e) {
-            showToast("Unable to start the radio receiver.", Toast.LENGTH_LONG);
-        } catch (IllegalStateException e) {
-            showToast("Unable to start the radio receiver.", Toast.LENGTH_LONG);
+            showToast(R.string.scanning_for_stations, Toast.LENGTH_LONG);
+        } catch (Exception e) {
+            Utils.debugFunc("turnRadioOn(). E.: " + e.getMessage(), Log.ERROR);
+            showToast(R.string.unable_to_start_radio, Toast.LENGTH_LONG);
         }
     }
 
@@ -309,11 +318,12 @@ public class FmRadioReceiver extends Activity {
 
         mMediaPlayer = new MediaPlayer();
         try {
-            mMediaPlayer.setDataSource("fmradio://rx");
+            mMediaPlayer.setDataSource(Constants.MEDIA_SOURCE);
             mMediaPlayer.prepare();
             mMediaPlayer.start();
         } catch (IOException e) {
-            showToast("Unable to start the media player", Toast.LENGTH_LONG);
+            Utils.debugFunc("startAudio. E.: " + e.getMessage(), Log.ERROR);
+            showToast(R.string.unable_to_mediaplayer, Toast.LENGTH_LONG);
         }
     }
 
@@ -324,7 +334,7 @@ public class FmRadioReceiver extends Activity {
 
         mMenuAdapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item);
         mMenuAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
-        mMenuAdapter.add("No stations available");
+        mMenuAdapter.add(getString(R.string.no_stations));
         mFrequencyTextView = (TextView) findViewById(R.id.FrequencyTextView);
         mStationNameTextView = (TextView) findViewById(R.id.txtPsText);
 
@@ -335,7 +345,7 @@ public class FmRadioReceiver extends Activity {
                 try {
                     mFmReceiver.scanUp();
                 } catch (IllegalStateException e) {
-                    showToast("Unable to ScanUp", Toast.LENGTH_LONG);
+                    Utils.debugFunc("Unable to ScanUp", Log.ERROR);
                     return;
                 }
                 scanUp.setEnabled(false);
@@ -348,7 +358,7 @@ public class FmRadioReceiver extends Activity {
                 try {
                     mFmReceiver.scanDown();
                 } catch (IllegalStateException e) {
-                    showToast("Unable to ScanDown", Toast.LENGTH_LONG);
+                    Utils.debugFunc("Unable to ScanDown", Log.ERROR);
                     return;
                 }
                 scanDown.setEnabled(false);
@@ -364,10 +374,9 @@ public class FmRadioReceiver extends Activity {
                         mFmReceiver.resume();
                         mMediaPlayer.start();
                         pause.setImageResource(R.drawable.fm_volume_mute);
-                    } catch (IOException e) {
-                        showToast("Unable to resume", Toast.LENGTH_LONG);
-                    } catch (IllegalStateException e) {
-                        showToast("Unable to resume", Toast.LENGTH_LONG);
+                    } catch (Exception e) {
+                        Utils.debugFunc("Unable to resume. E.: " + e.getMessage(), Log.ERROR);
+                        showToast(R.string.unable_to_resume, Toast.LENGTH_LONG);
                     }
                     mPauseMutex = false;
                 } else if (mFmReceiver.getState() == FmReceiver.STATE_STARTED
@@ -377,16 +386,15 @@ public class FmRadioReceiver extends Activity {
                         mMediaPlayer.pause();
                         mFmReceiver.pause();
                         pause.setImageResource(R.drawable.fm_volume);
-                    } catch (IOException e) {
-                        showToast("Unable to pause", Toast.LENGTH_LONG);
-                    } catch (IllegalStateException e) {
-                        showToast("Unable to pause", Toast.LENGTH_LONG);
+                    } catch (Exception e) {
+                        Utils.debugFunc("Unable to pause. E.: " + e.getMessage(), Log.ERROR);
+                        showToast(R.string.unable_to_pause, Toast.LENGTH_LONG);
                     }
                     mPauseMutex = false;
                 } else if (mPauseMutex) {
-                    showToast("MediaPlayer busy. Please wait and try again.", Toast.LENGTH_LONG);
+                    showToast(R.string.mediaplayer_busy, Toast.LENGTH_LONG);
                 } else {
-                    Log.i(LOG_TAG, "No action: incorrect state - " + mFmReceiver.getState());
+                    Utils.debugFunc("No action: incorrect state - " + mFmReceiver.getState(), Log.WARN);
                 }
             }
         });
@@ -396,10 +404,11 @@ public class FmRadioReceiver extends Activity {
             public void onClick(View v) {
                 try {
                     fullScan.setEnabled(false);
-                    showToast("Scanning for stations", Toast.LENGTH_LONG);
+                    showToast(R.string.scanning_for_stations, Toast.LENGTH_LONG);
                     mFmReceiver.startFullScan();
                 } catch (IllegalStateException e) {
-                    showToast("Unable to start the scan", Toast.LENGTH_LONG);
+                    Utils.debugFunc("Scan error: " + e.getMessage(), Log.ERROR);
+                    showToast(R.string.unable_to_scan, Toast.LENGTH_LONG);
                 }
             }
         });
@@ -453,6 +462,7 @@ public class FmRadioReceiver extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getGroupId()) {
+
             case BAND_SELECTION_MENU:
                 switch (item.getItemId()) {
                     case BAND_US:
@@ -478,7 +488,8 @@ public class FmRadioReceiver extends Activity {
                 try {
                     mFmReceiver.reset();
                 } catch (IOException e) {
-                    showToast("Unable to restart the FM Radio", Toast.LENGTH_LONG);
+                    Utils.debugFunc("Unable to restart. E.: " + e.getMessage(), Log.ERROR);
+                    showToast(R.string.unable_to_restart, Toast.LENGTH_LONG);
                 }
                 if (mMediaPlayer != null) {
                     mMediaPlayer.release();
@@ -486,6 +497,7 @@ public class FmRadioReceiver extends Activity {
                 }
                 turnRadioOn();
                 break;
+
             case STATION_SELECTION_MENU:
                 try {
                     if (!mMenuAdapter.getItem(getSelectStationMenuItem(item)).toString().matches(
@@ -495,18 +507,17 @@ public class FmRadioReceiver extends Activity {
                         mFrequencyTextView.setText(mMenuAdapter.getItem(
                                 getSelectStationMenuItem(item)).toString());
                     }
-                } catch (IOException e) {
-                    showToast("Unable to set the frequency", Toast.LENGTH_LONG);
-                } catch (IllegalStateException e) {
-                    showToast("Unable to set the frequency", Toast.LENGTH_LONG);
-                } catch (IllegalArgumentException e) {
-                    showToast("Unable to set the frequency", Toast.LENGTH_LONG);
+                } catch (Exception e) {
+                    Utils.debugFunc("Set frequency failed! E.: " + e.getMessage(), Log.ERROR);
+                    showToast(R.string.unable_to_set_frequency, Toast.LENGTH_LONG);
                 }
 
                 break;
+
             default:
                 break;
         }
+
         return super.onOptionsItemSelected(item);
     }
 }
