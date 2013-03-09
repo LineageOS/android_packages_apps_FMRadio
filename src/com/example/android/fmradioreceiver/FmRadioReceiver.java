@@ -38,8 +38,6 @@ import java.io.IOException;
 
 public class FmRadioReceiver extends Activity {
 
-    // The 50kHz channel offset
-    private static final int CHANNEL_OFFSET_50KHZ = 50;
 
     // The base menu identifier
     private static final int BASE_OPTION_MENU = 0;
@@ -134,6 +132,7 @@ public class FmRadioReceiver extends Activity {
 
             // FullScan results
             public void onFullScan(int[] frequency, int[] signalStrength, boolean aborted) {
+                Utils.debugFunc("onFullScan(). aborted: " + aborted, Log.INFO);
                 ((ImageButton) findViewById(R.id.FullScan)).setEnabled(true);
                 showToast("Fullscan complete", Toast.LENGTH_LONG);
                 mMenuAdapter.clear();
@@ -142,8 +141,9 @@ public class FmRadioReceiver extends Activity {
                     return;
                 }
                 for (int i = 0; i < frequency.length; i++) {
+                    Utils.debugFunc("[item] freq: " + frequency[i] + ", signal: " + signalStrength[i], Log.INFO);
                     String a = Double.toString((double) frequency[i] / 1000);
-                    if (mFmBand.getChannelOffset() == CHANNEL_OFFSET_50KHZ) {
+                    if (mFmBand.getChannelOffset() == Constants.CHANNEL_OFFSET_50KHZ) {
                         a = String.format(a, "%.2f");
                     } else {
                         a = String.format(a, "%.1f");
@@ -164,8 +164,10 @@ public class FmRadioReceiver extends Activity {
 
             // Returns the new frequency.
             public void onScan(int tunedFrequency, int signalStrength, int scanDirection, boolean aborted) {
+                Utils.debugFunc("onScan(). freq: " + tunedFrequency + ", signal: " + signalStrength + ", dir: " + scanDirection + ", aborted? " + aborted, Log.INFO);
+
                 String a = Double.toString((double) tunedFrequency / 1000);
-                if (mFmBand.getChannelOffset() == CHANNEL_OFFSET_50KHZ) {
+                if (mFmBand.getChannelOffset() == Constants.CHANNEL_OFFSET_50KHZ) {
                     mFrequencyTextView.setText(String.format(a, "%.2f"));
                 } else {
                     mFrequencyTextView.setText(String.format(a, "%.1f"));
@@ -179,6 +181,7 @@ public class FmRadioReceiver extends Activity {
             // Receives the current frequency's RDS Data
             public void onRDSDataFound(Bundle rdsData, int frequency) {
                 if (rdsData.containsKey("PSN")) {
+                    Utils.debugFunc("onRDSDataFound(). PSN: " + rdsData.getString("PSN"), Log.INFO);
                     mStationNameTextView.setText(rdsData.getString("PSN"));
                 }
             }
@@ -187,6 +190,7 @@ public class FmRadioReceiver extends Activity {
         mReceiverStartedListener = new com.stericsson.hardware.fm.FmReceiver.OnStartedListener() {
 
             public void onStarted() {
+                Utils.debugFunc("onStarted()", Log.INFO);
                 // Activate all the buttons
                 ((ImageButton) findViewById(R.id.ScanUp)).setEnabled(true);
                 ((ImageButton) findViewById(R.id.ScanDown)).setEnabled(true);
@@ -256,6 +260,7 @@ public class FmRadioReceiver extends Activity {
      * Starts the initial bandscan in it's own thread
      */
     private void initialBandscan() {
+        Utils.debugFunc("initialBandscan()", Log.INFO);
         Thread bandscanThread = new Thread() {
             public void run() {
                 try {
@@ -296,6 +301,7 @@ public class FmRadioReceiver extends Activity {
      * Starts the FM receiver and makes the buttons appear inactive
      */
     private void turnRadioOn() {
+        Utils.debugFunc("turnRadioOn", Log.INFO);
 
         try {
             mFmReceiver.startAsync(mFmBand);
@@ -315,6 +321,7 @@ public class FmRadioReceiver extends Activity {
      * Starts the FM receiver and makes the buttons appear inactive
      */
     private void startAudio() {
+        Utils.debugFunc("startAudio()", Log.INFO);
 
         mMediaPlayer = new MediaPlayer();
         try {
@@ -331,6 +338,7 @@ public class FmRadioReceiver extends Activity {
      * Sets up the buttons and their listeners
      */
     private void setupButtons() {
+        Utils.debugFunc("setupButtons()", Log.INFO);
 
         mMenuAdapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item);
         mMenuAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
@@ -419,6 +427,7 @@ public class FmRadioReceiver extends Activity {
      * population of the station select menu
      */
     public boolean onPrepareOptionsMenu(Menu menu) {
+        Utils.debugFunc("onPrepareOptionsMenu()", Log.INFO);
         menu.clear();
         boolean result = super.onCreateOptionsMenu(menu);
         SubMenu subMenu = menu.addSubMenu(BASE_OPTION_MENU, FM_BAND, Menu.NONE,

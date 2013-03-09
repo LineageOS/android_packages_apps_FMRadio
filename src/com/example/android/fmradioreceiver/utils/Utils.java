@@ -21,7 +21,8 @@ public final class Utils {
                     Log.d(Constants.LOG_TAG, message);
                     break;
                 case Log.INFO:
-                    Log.i(Constants.LOG_TAG, message);
+                    // use this only to print development time info
+                    if (Constants.DEBUG_REALLY_VERBOSE) Log.i(Constants.LOG_TAG, message);
                     break;
                 case Log.VERBOSE:
                     Log.v(Constants.LOG_TAG, message);
