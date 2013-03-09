@@ -39,9 +39,6 @@ public class FmRadioReceiver extends Activity {
     // The string to find in android logs
     private static final String LOG_TAG = "FM Radio Demo App";
 
-    // The string to show that the station list is empty
-    private static final String EMPTY_STATION_LIST = "No stations available";
-
     // The 50kHz channel offset
     private static final int CHANNEL_OFFSET_50KHZ = 50;
 
@@ -138,11 +135,11 @@ public class FmRadioReceiver extends Activity {
 
             // FullScan results
             public void onFullScan(int[] frequency, int[] signalStrength, boolean aborted) {
-                ((Button) findViewById(R.id.FullScan)).setEnabled(true);
+                ((ImageButton) findViewById(R.id.FullScan)).setEnabled(true);
                 showToast("Fullscan complete", Toast.LENGTH_LONG);
                 mMenuAdapter.clear();
                 if (frequency.length == 0) {
-                    mMenuAdapter.add(EMPTY_STATION_LIST);
+                    mMenuAdapter.add(getString(R.string.no_stations));
                     return;
                 }
                 for (int i = 0; i < frequency.length; i++) {
@@ -175,8 +172,8 @@ public class FmRadioReceiver extends Activity {
                 } else {
                     mFrequencyTextView.setText(String.format(a, "%.1f"));
                 }
-                ((Button) findViewById(R.id.ScanUp)).setEnabled(true);
-                ((Button) findViewById(R.id.ScanDown)).setEnabled(true);
+                ((ImageButton) findViewById(R.id.ScanUp)).setEnabled(true);
+                ((ImageButton) findViewById(R.id.ScanDown)).setEnabled(true);
             }
         };
         mReceiverRdsDataFoundListener = new com.stericsson.hardware.fm.FmReceiver.OnRDSDataFoundListener() {
@@ -193,10 +190,10 @@ public class FmRadioReceiver extends Activity {
 
             public void onStarted() {
                 // Activate all the buttons
-                ((Button) findViewById(R.id.ScanUp)).setEnabled(true);
-                ((Button) findViewById(R.id.ScanDown)).setEnabled(true);
-                ((Button) findViewById(R.id.Pause)).setEnabled(true);
-                ((Button) findViewById(R.id.FullScan)).setEnabled(true);
+                ((ImageButton) findViewById(R.id.ScanUp)).setEnabled(true);
+                ((ImageButton) findViewById(R.id.ScanDown)).setEnabled(true);
+                ((ImageButton) findViewById(R.id.Pause)).setEnabled(true);
+                ((ImageButton) findViewById(R.id.FullScan)).setEnabled(true);
                 initialBandscan();
                 startAudio();
             }
@@ -492,7 +489,7 @@ public class FmRadioReceiver extends Activity {
             case STATION_SELECTION_MENU:
                 try {
                     if (!mMenuAdapter.getItem(getSelectStationMenuItem(item)).toString().matches(
-                            EMPTY_STATION_LIST)) {
+                            getString(R.string.no_stations))) {
                         mFmReceiver.setFrequency((int) (Double.valueOf(mMenuAdapter.getItem(
                                 getSelectStationMenuItem(item)).toString()) * 1000));
                         mFrequencyTextView.setText(mMenuAdapter.getItem(
