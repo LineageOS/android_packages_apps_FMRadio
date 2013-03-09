@@ -26,10 +26,12 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.*;
+import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 import com.example.android.fmradioreceiver.utils.Constants;
 import com.example.android.fmradioreceiver.utils.Utils;
-import com.stericsson.hardware.fm.FakeFmReceiver;
 import com.stericsson.hardware.fm.FmBand;
 import com.stericsson.hardware.fm.FmReceiver;
 
@@ -115,7 +117,9 @@ public class FmRadioReceiver extends Activity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.main);
-        mFmReceiver = new FakeFmReceiver();//TODO: correct for non-mock is (FmReceiver) getSystemService("fm_receiver");
+        mFmReceiver = (FmReceiver) getSystemService("fm_receiver"); //MOCK: new FakeFmReceiver();
+        // USE Mock class if you don't have access to device with an FM Chip
+        // (get mock framework from: https://github.com/pedronveloso/fm_mock_framework
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         mSelectedBand = settings.getInt("selectedBand", 1);
         mFmBand = new FmBand(mSelectedBand);
