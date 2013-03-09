@@ -14,6 +14,7 @@
      limitations under the License.
 -->
 <resources>
+
     <style name="preferencesTextStyle">
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">18sp</item>
@@ -23,8 +24,13 @@
         <item name="android:shadowRadius">1</item>
     </style>
 
-    <style name="fmapp_style" parent="android:style/Theme.Holo.Light">
+    <style name="fmapp_style" parent="android:style/Theme.Holo">
         <!-- nothing yet here -->
+    </style>
+
+    <!-- Generic highlight button style -->
+    <style name="HighlightButton">
+        <item name="android:background">?android:listChoiceBackgroundIndicator</item>
     </style>
 
     <!-- Notification bar button -->

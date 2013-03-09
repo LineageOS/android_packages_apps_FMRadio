@@ -17,91 +17,92 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true">
-            <ImageSwitcher android:id="@+id/is_1"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:padding="2dip"/>
-            <ImageSwitcher android:id="@+id/is_2"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:padding="2dip"/>
-            <TextView android:layout_width="fill_parent"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/FrequencyTextView"
-                      android:lines="1"
-                      android:textSize="40px"
-                      android:gravity="center"
-                      android:text="@string/dashes"
-                      android:layout_gravity="center"/>
-            <ImageSwitcher android:id="@+id/is_3"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:padding="2dip"/>
-            <ImageSwitcher android:id="@+id/is_4"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:padding="2dip"/>
-            <ImageSwitcher android:id="@+id/is_5"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:padding="2dip"/>
-        </LinearLayout>
-        <TextView android:layout_width="fill_parent"
-                  android:textColor="@color/cyan_neon_lighter"
-                  android:textSize="12dip"
-                  android:textStyle="bold"
-                  android:singleLine="true"
-                  android:ellipsize="marquee"
-                  android:layout_height="wrap_content"
-                  android:text="@string/fmradio"
-                  android:id="@+id/PSNTextView"
-                  android:gravity="center"/>
-        <TextView android:id="@+id/txtPsText"
-                  android:textColor="@color/cyan_neon_lighter"
-                  android:textSize="12dip"
-                  android:textStyle="bold"
-                  android:singleLine="true"
-                  android:ellipsize="marquee"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_marginTop="100dip"
-                  android:layout_marginLeft="6dip"/>
-        <TextView android:id="@+id/txtRadioText"
-                  android:textColor="@color/cyan_neon"
-                  android:textSize="12dip"
-                  android:singleLine="true"
-                  android:ellipsize="marquee"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_marginTop="100dip"
-                  android:layout_marginRight="6dip"
-                  android:layout_toRightOf="@id/txtPsText"/>
-        <ImageView android:id="@+id/imgMode"
-                   android:src="@drawable/fm_stereo"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_marginTop="12dip"
-                   android:layout_marginLeft="13dip"/>
-        <Button    android:layout_height="wrap_content"
-                   android:layout_gravity="left"
-                   android:layout_marginTop="12dip"
-                   android:layout_marginRight="13dip"
-                   android:layout_alignParentRight="true"
-                   android:layout_width="wrap_content"
-                   android:id="@+id/Pause"
-                   android:background="@layout/pausebutton" />
-    </RelativeLayout>
 
-    <!--<TextView
-            android:id="@+id/txtStatusMsg"
-            android:text="@string/statusMsgStopped"
-            android:textColor="@color/black"
-            android:textSize="16dip"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dip"/>-->
+            <ImageSwitcher
+                    android:id="@+id/is_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dip"/>
+
+            <ImageSwitcher
+                    android:id="@+id/is_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dip"/>
+
+            <TextView
+                    android:id="@+id/FrequencyTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:textColor="@color/cyan_neon_lighter"
+                    android:textSize="30sp"
+                    android:gravity="center"
+                    android:text="@string/dashes"
+                    android:layout_gravity="center"/>
+
+            <ImageSwitcher
+                    android:id="@+id/is_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dip"/>
+
+            <ImageSwitcher
+                    android:id="@+id/is_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dip"/>
+
+            <ImageSwitcher
+                    android:id="@+id/is_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dip"/>
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/txtPsText"
+                android:textColor="@color/cyan_neon_lighter"
+                android:textSize="12dip"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dip"
+                android:layout_marginLeft="6dip"/>
+
+        <TextView
+                android:id="@+id/txtRadioText"
+                android:textColor="@color/cyan_neon"
+                android:textSize="12dip"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dip"
+                android:layout_marginRight="6dip"
+                android:layout_toRightOf="@id/txtPsText"/>
+
+        <ImageView
+                android:id="@+id/imgMode"
+                android:src="@drawable/fm_stereo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dip"
+                android:layout_marginLeft="13dip"/>
+
+        <ImageButton
+                android:id="@+id/Pause"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="12dip"
+                android:layout_marginRight="13dip"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                style="@style/HighlightButton"
+                android:src="@drawable/fm_volume"/>
+    </RelativeLayout>
 
     <TextView
             style="?android:attr/listSeparatorTextViewStyle"
@@ -109,28 +110,42 @@
             android:layout_width="fill_parent"
             android:layout_height="3dip"/>
 
-    <LinearLayout android:id="@+id/TopRow"
-            android:layout_height="wrap_content"
+
+    <LinearLayout
             android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:gravity="center">
-    <LinearLayout android:layout_width="fill_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_weight="1"
-                  android:gravity="center">
-          <Button android:layout_height="wrap_content"
-                  android:layout_width="wrap_content"
-                  android:id="@+id/ScanDown"
-                  android:background="@layout/backwardbutton"/>
-          <Button android:layout_height="wrap_content"
-                  android:layout_width="wrap_content"
-                  android:id="@+id/FullScan"
-                  android:background="@layout/rescanbutton" />
-          <Button android:layout_height="wrap_content"
-                  android:layout_width="wrap_content"
-                  android:id="@+id/ScanUp"
-                  android:background="@layout/forwardbutton" />
+
+        <ImageButton
+                android:id="@+id/ScanDown"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/HighlightButton"
+                android:padding="@dimen/default_padding"
+                android:layout_margin="@dimen/default_padding"
+                android:src="@drawable/fm_autosearch_bwd"/>
+
+        <ImageButton
+                android:id="@+id/FullScan"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/HighlightButton"
+                android:padding="@dimen/default_padding"
+                android:layout_margin="@dimen/default_padding"
+                android:src="@drawable/refresh"/>
+
+        <ImageButton
+                android:id="@+id/ScanUp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/HighlightButton"
+                android:padding="@dimen/default_padding"
+                android:layout_margin="@dimen/default_padding"
+                android:src="@drawable/fm_autosearch_fwd"/>
+
     </LinearLayout>
-    </LinearLayout>
+
+
     <TextView
             style="?android:attr/listSeparatorTextViewStyle"
             android:background="@color/cyan_neon_darker"

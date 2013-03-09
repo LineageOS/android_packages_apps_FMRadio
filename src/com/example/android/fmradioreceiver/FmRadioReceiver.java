@@ -17,7 +17,6 @@
 package com.example.android.fmradioreceiver;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -27,10 +26,8 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
+import com.stericsson.hardware.fm.FakeFmReceiver;
 import com.stericsson.hardware.fm.FmBand;
 import com.stericsson.hardware.fm.FmReceiver;
 
@@ -124,7 +121,7 @@ public class FmRadioReceiver extends Activity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.main);
-        mFmReceiver = (FmReceiver) getSystemService("fm_receiver");
+        mFmReceiver = new FakeFmReceiver();//TODO: correct for non-mock is (FmReceiver) getSystemService("fm_receiver");
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         mSelectedBand = settings.getInt("selectedBand", 1);
         mFmBand = new FmBand(mSelectedBand);
@@ -209,9 +206,9 @@ public class FmRadioReceiver extends Activity {
         mFmReceiver.addOnRDSDataFoundListener(mReceiverRdsDataFoundListener);
         mFmReceiver.addOnStartedListener(mReceiverStartedListener);
 
-        if (!mRestart) {
+       /* if (!mRestart) {
             turnRadioOn();
-        }
+        } */
         mRestart = false;
     }
 
@@ -296,10 +293,10 @@ public class FmRadioReceiver extends Activity {
         try {
             mFmReceiver.startAsync(mFmBand);
             // Darken the the buttons
-            ((Button) findViewById(R.id.ScanUp)).setEnabled(false);
-            ((Button) findViewById(R.id.ScanDown)).setEnabled(false);
-            ((Button) findViewById(R.id.Pause)).setEnabled(false);
-            ((Button) findViewById(R.id.FullScan)).setEnabled(false);
+            ((ImageButton) findViewById(R.id.ScanUp)).setEnabled(false);
+            ((ImageButton) findViewById(R.id.ScanDown)).setEnabled(false);
+            ((ImageButton) findViewById(R.id.Pause)).setEnabled(false);
+            ((ImageButton) findViewById(R.id.FullScan)).setEnabled(false);
             showToast("Scanning initial stations", Toast.LENGTH_LONG);
         } catch (IOException e) {
             showToast("Unable to start the radio receiver.", Toast.LENGTH_LONG);
@@ -332,9 +329,9 @@ public class FmRadioReceiver extends Activity {
         mMenuAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         mMenuAdapter.add("No stations available");
         mFrequencyTextView = (TextView) findViewById(R.id.FrequencyTextView);
-        mStationNameTextView = (TextView) findViewById(R.id.PSNTextView);
+        mStationNameTextView = (TextView) findViewById(R.id.txtPsText);
 
-        final Button scanUp = (Button) findViewById(R.id.ScanUp);
+        final ImageButton scanUp = (ImageButton) findViewById(R.id.ScanUp);
         scanUp.setOnClickListener(new OnClickListener() {
 
             public void onClick(View v) {
@@ -347,7 +344,7 @@ public class FmRadioReceiver extends Activity {
                 scanUp.setEnabled(false);
             }
         });
-        final Button scanDown = (Button) findViewById(R.id.ScanDown);
+        final ImageButton scanDown = (ImageButton) findViewById(R.id.ScanDown);
         scanDown.setOnClickListener(new OnClickListener() {
 
             public void onClick(View v) {
@@ -360,7 +357,7 @@ public class FmRadioReceiver extends Activity {
                 scanDown.setEnabled(false);
             }
         });
-        final Button pause = (Button) findViewById(R.id.Pause);
+        final ImageButton pause = (ImageButton) findViewById(R.id.Pause);
         pause.setOnClickListener(new OnClickListener() {
 
             public void onClick(View v) {
@@ -369,7 +366,7 @@ public class FmRadioReceiver extends Activity {
                         mPauseMutex = true;
                         mFmReceiver.resume();
                         mMediaPlayer.start();
-                        pause.setBackgroundResource(R.layout.pausebutton);
+                        pause.setImageResource(R.drawable.fm_volume_mute);
                     } catch (IOException e) {
                         showToast("Unable to resume", Toast.LENGTH_LONG);
                     } catch (IllegalStateException e) {
@@ -382,7 +379,7 @@ public class FmRadioReceiver extends Activity {
                         mPauseMutex = true;
                         mMediaPlayer.pause();
                         mFmReceiver.pause();
-                        pause.setBackgroundResource(R.layout.playbutton);
+                        pause.setImageResource(R.drawable.fm_volume);
                     } catch (IOException e) {
                         showToast("Unable to pause", Toast.LENGTH_LONG);
                     } catch (IllegalStateException e) {
@@ -396,7 +393,7 @@ public class FmRadioReceiver extends Activity {
                 }
             }
         });
-        final Button fullScan = (Button) findViewById(R.id.FullScan);
+        final ImageButton fullScan = (ImageButton) findViewById(R.id.FullScan);
         fullScan.setOnClickListener(new OnClickListener() {
 
             public void onClick(View v) {
