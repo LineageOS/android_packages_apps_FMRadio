@@ -6,7 +6,6 @@
     <string name="band_eu">Europe</string>
     <string name="band_ja">Japan</string>
     <string name="band_ch">China</string>
-    <string name="station_select">Select Station</string>
     <string name="fmradio">FM RADIO</string>
     <string name="dashes">- - - -</string>
     <string name="no_stations">No stations available</string>

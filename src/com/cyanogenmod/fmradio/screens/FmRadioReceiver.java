@@ -28,16 +28,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.*;
 import com.cyanogenmod.fmradio.R;
+import com.cyanogenmod.fmradio.adapters.StationsAdapter;
 import com.cyanogenmod.fmradio.utils.Constants;
 import com.cyanogenmod.fmradio.utils.Utils;
-import com.stericsson.hardware.fm.FakeFmReceiver;
 import com.stericsson.hardware.fm.FmBand;
 import com.stericsson.hardware.fm.FmReceiver;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 
-public class FmRadioReceiver extends Activity implements OnClickListener {
+public class FmRadioReceiver extends Activity implements OnClickListener, AdapterView.OnItemClickListener {
 
 
     // The base menu identifier
@@ -45,9 +46,6 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
 
     // The band menu identifier
     private static final int BAND_SELECTION_MENU = 1;
-
-    // The station menu identifier
-    private static final int STATION_SELECTION_MENU = 2;
 
     // Handle to the Media Player that plays the audio from the selected station
     private MediaPlayer mMediaPlayer;
@@ -83,8 +81,6 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
     // errors
     private boolean mPauseMutex = false;
 
-    // Array of the available stations in MHz
-    private ArrayAdapter<CharSequence> mMenuAdapter;
 
     // The name of the storage string
     public static final String PREFS_NAME = "FMRadioPrefsFile";
@@ -100,16 +96,17 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
 
     public static final int BAND_CHINA = Menu.FIRST + 4;
 
-    public static final int STATION_SELECT = Menu.FIRST + 5;
-
-    public static final int STATION_SELECT_MENU_ITEMS = STATION_SELECT + 1;
 
     // The currently selected FM Radio band
     private int mSelectedBand;
 
     //visual components - things we are going to use often
-    ImageButton mBtnSeekUp, mBtnSeekDown, mBtnFullScan, mBtnMute;
-    ProgressBar mProgressScan;
+    private ImageButton mBtnSeekUp, mBtnSeekDown, mBtnFullScan, mBtnMute;
+    private ProgressBar mProgressScan;
+    //TODO : replace gallery with custom implemented widget?
+    private Gallery mGalStationsList;
+
+    private ArrayList<String> mStationList;
 
     /**
      * Required method from parent class
@@ -120,7 +117,7 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.main);
-        mFmReceiver = new FakeFmReceiver(); //MOCK:   (FmReceiver) getSystemService("fm_receiver")
+        mFmReceiver = (FmReceiver) getSystemService("fm_receiver"); //MOCK: new FakeFmReceiver();
         // USE Mock class if you don't have access to device with an FM Chip
         // (get mock framework from: https://github.com/pedronveloso/fm_mock_framework
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
@@ -143,12 +140,7 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
                 //stop progress animation
                 stopScanAnimation();
 
-                //refresh menu contents
-                mMenuAdapter.clear();
-                if (frequency.length == 0) {
-                    mMenuAdapter.add(getString(R.string.no_stations));
-                    return;
-                }
+                mStationList = new ArrayList<String>(frequency.length);
                 for (int i = 0; i < frequency.length; i++) {
                     Utils.debugFunc("[item] freq: " + frequency[i] + ", signal: " + signalStrength[i], Log.INFO);
                     String a = Double.toString((double) frequency[i] / 1000);
@@ -157,13 +149,19 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
                     } else {
                         a = String.format(a, "%.1f");
                     }
-                    mMenuAdapter.add(a);
+                    mStationList.add(a);
                 }
+
+                //fill stations list
+                mGalStationsList.setAdapter(new StationsAdapter(FmRadioReceiver.this, mStationList));
+                mGalStationsList.setOnItemClickListener(FmRadioReceiver.this);
+
+                //initialize playback of first station
                 if (mInit) {
                     mInit = false;
                     try {
                         mFmReceiver.setFrequency(frequency[0]);
-                        mFrequencyTextView.setText(mMenuAdapter.getItem(0).toString());
+                        mFrequencyTextView.setText(mStationList.get(0));
                     } catch (Exception e) {
                         Utils.debugFunc("onFullScan(). E.: " + e.getMessage(), Log.ERROR);
                         showToast(R.string.unable_to_set_frequency, Toast.LENGTH_LONG);
@@ -341,12 +339,11 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
     private void setupButtons() {
         Utils.debugFunc("setupButtons()", Log.INFO);
 
-        mMenuAdapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item);
-        mMenuAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
-        mMenuAdapter.add(getString(R.string.no_stations));
         mFrequencyTextView = (TextView) findViewById(R.id.FrequencyTextView);
         mStationNameTextView = (TextView) findViewById(R.id.tv_rds_text);
         mProgressScan = (ProgressBar) findViewById(R.id.scan_progressbar);
+
+        mGalStationsList = (Gallery) findViewById(R.id.gal_stations_list);
 
         mBtnSeekUp = (ImageButton) findViewById(R.id.btn_seek_up);
         mBtnSeekUp.setOnClickListener(this);
@@ -364,31 +361,31 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
     /**
      * Stops scanning animation
      */
-    private void stopScanAnimation(){
+    private void stopScanAnimation() {
         mProgressScan.setVisibility(View.GONE);
         mBtnFullScan.setVisibility(View.VISIBLE);
         mBtnFullScan.setEnabled(true);
     }
 
     /**
-         * Start scanning animation
+     * Start scanning animation
      */
-    private void startScanAnimation(){
+    private void startScanAnimation() {
         mProgressScan.setVisibility(View.VISIBLE);
         mBtnFullScan.setVisibility(View.GONE);
         mBtnFullScan.setEnabled(false);
     }
 
     /**
-         * If application is currently scanning, that scanning operation is
-         * canceled.
-         */
-        private void stopCurrentScan(){
-            if (mFmReceiver.getState()==FmReceiver.STATE_SCANNING){
-                Utils.debugFunc("There is a scan in progress. Stopping it.",Log.INFO);
-                mFmReceiver.stopScan();
-            }
+     * If application is currently scanning, that scanning operation is
+     * canceled.
+     */
+    private void stopCurrentScan() {
+        if (mFmReceiver.getState() == FmReceiver.STATE_SCANNING) {
+            Utils.debugFunc("There is a scan in progress. Stopping it.", Log.INFO);
+            mFmReceiver.stopScan();
         }
+    }
 
     /**
      * Sets up the options menu when the menu button is pushed, dynamic
@@ -408,29 +405,9 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
         subMenu.add(BAND_SELECTION_MENU, BAND_CHINA, Menu.NONE, R.string.band_ch);
         subMenu.setGroupCheckable(BAND_SELECTION_MENU, true, true);
         subMenu.getItem(mSelectedBand).setChecked(true);
-
-        subMenu = menu.addSubMenu(BASE_OPTION_MENU, STATION_SELECT, Menu.NONE,
-                R.string.station_select);
-        subMenu.setIcon(android.R.drawable.ic_menu_agenda);
-
-        // Dynamically populate the station select menu each time the option
-        // button is pushed
-        if (mMenuAdapter.isEmpty()) {
-            subMenu.setGroupEnabled(STATION_SELECTION_MENU, false);
-        } else {
-            subMenu.setGroupEnabled(STATION_SELECTION_MENU, true);
-            for (int i = 0; i < mMenuAdapter.getCount(); i++) {
-                subMenu.add(STATION_SELECTION_MENU, STATION_SELECT_MENU_ITEMS + i, Menu.NONE,
-                        mMenuAdapter.getItem(i));
-            }
-            subMenu.setGroupCheckable(STATION_SELECTION_MENU, true, true);
-        }
         return result;
     }
 
-    public int getSelectStationMenuItem(MenuItem item) {
-        return item.getItemId() - STATION_SELECT_MENU_ITEMS;
-    }
 
     /**
      * React to a selection in the option menu
@@ -475,22 +452,6 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
                 turnRadioOn();
                 break;
 
-            case STATION_SELECTION_MENU:
-                try {
-                    if (!mMenuAdapter.getItem(getSelectStationMenuItem(item)).toString().matches(
-                            getString(R.string.no_stations))) {
-                        mFmReceiver.setFrequency((int) (Double.valueOf(mMenuAdapter.getItem(
-                                getSelectStationMenuItem(item)).toString()) * 1000));
-                        mFrequencyTextView.setText(mMenuAdapter.getItem(
-                                getSelectStationMenuItem(item)).toString());
-                    }
-                } catch (Exception e) {
-                    Utils.debugFunc("Set frequency failed! E.: " + e.getMessage(), Log.ERROR);
-                    showToast(R.string.unable_to_set_frequency, Toast.LENGTH_LONG);
-                }
-
-                break;
-
             default:
                 break;
         }
@@ -499,13 +460,12 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
     }
 
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
 
             case R.id.btn_seek_down:
-                Utils.debugFunc("SeekDown pressed",Log.INFO);
+                Utils.debugFunc("SeekDown pressed", Log.INFO);
                 try {
                     v.setEnabled(false);
                     // stop current scan (if one is in progress)
@@ -520,7 +480,7 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
                 break;
 
             case R.id.btn_seek_up:
-                Utils.debugFunc("SeekUp pressed",Log.INFO);
+                Utils.debugFunc("SeekUp pressed", Log.INFO);
                 try {
                     v.setEnabled(false);
                     // stop current scan (if one is in progress)
@@ -535,7 +495,7 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
                 break;
 
             case R.id.btn_fullscan:
-                Utils.debugFunc("Fullscan pressed",Log.INFO);
+                Utils.debugFunc("Fullscan pressed", Log.INFO);
                 try {
                     mFmReceiver.startFullScan();
                     startScanAnimation();
@@ -547,7 +507,7 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
                 break;
 
             case R.id.btn_mute:
-                Utils.debugFunc("Mute pressed",Log.INFO);
+                Utils.debugFunc("Mute pressed", Log.INFO);
                 if (mFmReceiver.getState() == FmReceiver.STATE_PAUSED && !mPauseMutex) {
                     try {
                         mPauseMutex = true;
@@ -577,6 +537,18 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
                     Utils.debugFunc("No action: incorrect state - " + mFmReceiver.getState(), Log.WARN);
                 }
                 break;
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        //right now just handling gallery item clicks
+        try {
+            mFmReceiver.setFrequency((int) (Double.valueOf(mStationList.get(position)) * 1000));
+            mFrequencyTextView.setText(mStationList.get(position));
+        } catch (Exception e) {
+            Utils.debugFunc("Set frequency failed! E.: " + e.getMessage(), Log.ERROR);
+            showToast(R.string.unable_to_set_frequency, Toast.LENGTH_LONG);
         }
     }
 }

@@ -160,4 +160,18 @@
             android:background="@color/cyan_neon_darker"
             android:layout_width="fill_parent"
             android:layout_height="3dip"/>
+
+    <Gallery android:id="@+id/gal_stations_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_padding"
+            android:layout_marginBottom="@dimen/default_padding"
+            android:gravity="center_vertical"
+            android:spacing="40dip"/>
+
+    <TextView
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:background="@color/cyan_neon_darker"
+                android:layout_width="fill_parent"
+                android:layout_height="3dip"/>
 </LinearLayout>
