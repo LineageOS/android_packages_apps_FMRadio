@@ -1,0 +1,12 @@
+To-Do list
+
+* refactor (init)
+* decouple listeners from main classes
+* Implement Presets
+* Add resolution independent resources
+* Add notification bar support
+* Add Launcher Widget ?
+* Fix (mono/stereo) display
+* Add Preferences
+* Add About
+* Implement earplugs onStart verification
