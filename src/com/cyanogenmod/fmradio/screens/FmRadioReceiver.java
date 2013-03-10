@@ -26,10 +26,7 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import com.cyanogenmod.fmradio.R;
 import com.cyanogenmod.fmradio.utils.Constants;
 import com.cyanogenmod.fmradio.utils.Utils;
@@ -110,6 +107,10 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
     // The currently selected FM Radio band
     private int mSelectedBand;
 
+    //visual components - things we are going to use often
+    ImageButton mBtnSeekUp, mBtnSeekDown, mBtnFullScan, mBtnMute;
+    ProgressBar mProgressScan;
+
     /**
      * Required method from parent class
      *
@@ -139,8 +140,10 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
             // FullScan results
             public void onFullScan(int[] frequency, int[] signalStrength, boolean aborted) {
                 Utils.debugFunc("onFullScan(). aborted: " + aborted, Log.INFO);
-                ((ImageButton) findViewById(R.id.FullScan)).setEnabled(true);
-                showToast("Fullscan complete", Toast.LENGTH_LONG);
+                //stop progress animation
+                stopScanAnimation();
+
+                //refresh menu contents
                 mMenuAdapter.clear();
                 if (frequency.length == 0) {
                     mMenuAdapter.add(getString(R.string.no_stations));
@@ -172,14 +175,16 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
             public void onScan(int tunedFrequency, int signalStrength, int scanDirection, boolean aborted) {
                 Utils.debugFunc("onScan(). freq: " + tunedFrequency + ", signal: " + signalStrength + ", dir: " + scanDirection + ", aborted? " + aborted, Log.INFO);
 
+                stopScanAnimation();
+
                 String a = Double.toString((double) tunedFrequency / 1000);
                 if (mFmBand.getChannelOffset() == Constants.CHANNEL_OFFSET_50KHZ) {
                     mFrequencyTextView.setText(String.format(a, "%.2f"));
                 } else {
                     mFrequencyTextView.setText(String.format(a, "%.1f"));
                 }
-                ((ImageButton) findViewById(R.id.ScanUp)).setEnabled(true);
-                ((ImageButton) findViewById(R.id.ScanDown)).setEnabled(true);
+                mBtnSeekUp.setEnabled(true);
+                mBtnSeekDown.setEnabled(true);
             }
         };
         mReceiverRdsDataFoundListener = new com.stericsson.hardware.fm.FmReceiver.OnRDSDataFoundListener() {
@@ -198,10 +203,10 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
             public void onStarted() {
                 Utils.debugFunc("onStarted()", Log.INFO);
                 // Activate all the buttons
-                ((ImageButton) findViewById(R.id.ScanUp)).setEnabled(true);
-                ((ImageButton) findViewById(R.id.ScanDown)).setEnabled(true);
-                ((ImageButton) findViewById(R.id.Pause)).setEnabled(true);
-                ((ImageButton) findViewById(R.id.FullScan)).setEnabled(true);
+                mBtnSeekUp.setEnabled(true);
+                mBtnSeekDown.setEnabled(true);
+                mBtnMute.setEnabled(true);
+                mBtnFullScan.setEnabled(true);
                 initialBandscan();
                 startAudio();
             }
@@ -281,16 +286,6 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
         bandscanThread.start();
     }
 
-    /**
-     * Helper method to display toast
-     */
-    private void showToast(final String text, final int duration) {
-        runOnUiThread(new Runnable() {
-            public void run() {
-                Toast.makeText(getApplicationContext(), text, duration).show();
-            }
-        });
-    }
 
     /**
      * Helper method to display toast
@@ -312,10 +307,10 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
         try {
             mFmReceiver.startAsync(mFmBand);
             // Darken the the buttons
-            ((ImageButton) findViewById(R.id.ScanUp)).setEnabled(false);
-            ((ImageButton) findViewById(R.id.ScanDown)).setEnabled(false);
-            ((ImageButton) findViewById(R.id.Pause)).setEnabled(false);
-            ((ImageButton) findViewById(R.id.FullScan)).setEnabled(false);
+            mBtnSeekUp.setEnabled(false);
+            mBtnSeekDown.setEnabled(false);
+            mBtnMute.setEnabled(false);
+            mBtnFullScan.setEnabled(false);
             showToast(R.string.scanning_for_stations, Toast.LENGTH_LONG);
         } catch (Exception e) {
             Utils.debugFunc("turnRadioOn(). E.: " + e.getMessage(), Log.ERROR);
@@ -350,20 +345,50 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
         mMenuAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         mMenuAdapter.add(getString(R.string.no_stations));
         mFrequencyTextView = (TextView) findViewById(R.id.FrequencyTextView);
-        mStationNameTextView = (TextView) findViewById(R.id.txtPsText);
+        mStationNameTextView = (TextView) findViewById(R.id.tv_rds_text);
+        mProgressScan = (ProgressBar) findViewById(R.id.scan_progressbar);
 
-        final ImageButton scanUp = (ImageButton) findViewById(R.id.ScanUp);
-        scanUp.setOnClickListener(this);
+        mBtnSeekUp = (ImageButton) findViewById(R.id.btn_seek_up);
+        mBtnSeekUp.setOnClickListener(this);
 
-        final ImageButton scanDown = (ImageButton) findViewById(R.id.ScanDown);
-        scanDown.setOnClickListener(this);
+        mBtnSeekDown = (ImageButton) findViewById(R.id.btn_seek_down);
+        mBtnSeekDown.setOnClickListener(this);
 
-        final ImageButton pause = (ImageButton) findViewById(R.id.Pause);
-        pause.setOnClickListener(this);
+        mBtnMute = (ImageButton) findViewById(R.id.btn_mute);
+        mBtnMute.setOnClickListener(this);
 
-        final ImageButton fullScan = (ImageButton) findViewById(R.id.FullScan);
-        fullScan.setOnClickListener(this);
+        mBtnFullScan = (ImageButton) findViewById(R.id.btn_fullscan);
+        mBtnFullScan.setOnClickListener(this);
     }
+
+    /**
+     * Stops scanning animation
+     */
+    private void stopScanAnimation(){
+        mProgressScan.setVisibility(View.GONE);
+        mBtnFullScan.setVisibility(View.VISIBLE);
+        mBtnFullScan.setEnabled(true);
+    }
+
+    /**
+         * Start scanning animation
+     */
+    private void startScanAnimation(){
+        mProgressScan.setVisibility(View.VISIBLE);
+        mBtnFullScan.setVisibility(View.GONE);
+        mBtnFullScan.setEnabled(false);
+    }
+
+    /**
+         * If application is currently scanning, that scanning operation is
+         * canceled.
+         */
+        private void stopCurrentScan(){
+            if (mFmReceiver.getState()==FmReceiver.STATE_SCANNING){
+                Utils.debugFunc("There is a scan in progress. Stopping it.",Log.INFO);
+                mFmReceiver.stopScan();
+            }
+        }
 
     /**
      * Sets up the options menu when the menu button is pushed, dynamic
@@ -474,14 +499,19 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
     }
 
 
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
 
-            case R.id.ScanDown:
+            case R.id.btn_seek_down:
+                Utils.debugFunc("SeekDown pressed",Log.INFO);
                 try {
                     v.setEnabled(false);
+                    // stop current scan (if one is in progress)
+                    stopCurrentScan();
                     mFmReceiver.scanDown();
+                    startScanAnimation();
                 } catch (IllegalStateException e) {
                     v.setEnabled(true);
                     Utils.debugFunc("Unable to ScanDown. E.: " + e.getMessage(), Log.ERROR);
@@ -489,10 +519,14 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
                 }
                 break;
 
-            case R.id.ScanUp:
+            case R.id.btn_seek_up:
+                Utils.debugFunc("SeekUp pressed",Log.INFO);
                 try {
                     v.setEnabled(false);
+                    // stop current scan (if one is in progress)
+                    stopCurrentScan();
                     mFmReceiver.scanUp();
+                    startScanAnimation();
                 } catch (IllegalStateException e) {
                     v.setEnabled(true);
                     Utils.debugFunc("Unable to ScanUp. E.: " + e.getMessage(), Log.ERROR);
@@ -500,11 +534,11 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
                 }
                 break;
 
-            case R.id.FullScan:
+            case R.id.btn_fullscan:
+                Utils.debugFunc("Fullscan pressed",Log.INFO);
                 try {
-                    v.setEnabled(false);
-                    showToast(R.string.scanning_for_stations, Toast.LENGTH_LONG);
                     mFmReceiver.startFullScan();
+                    startScanAnimation();
                 } catch (IllegalStateException e) {
                     Utils.debugFunc("Scan error: " + e.getMessage(), Log.ERROR);
                     showToast(R.string.unable_to_scan, Toast.LENGTH_LONG);
@@ -512,14 +546,14 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
                 }
                 break;
 
-            case R.id.Pause:
-                ImageButton pause = (ImageButton) findViewById(R.id.Pause);
+            case R.id.btn_mute:
+                Utils.debugFunc("Mute pressed",Log.INFO);
                 if (mFmReceiver.getState() == FmReceiver.STATE_PAUSED && !mPauseMutex) {
                     try {
                         mPauseMutex = true;
                         mFmReceiver.resume();
                         mMediaPlayer.start();
-                        pause.setImageResource(R.drawable.fm_volume_mute);
+                        mBtnMute.setImageResource(R.drawable.fm_volume_mute);
                     } catch (Exception e) {
                         Utils.debugFunc("Unable to resume. E.: " + e.getMessage(), Log.ERROR);
                         showToast(R.string.unable_to_resume, Toast.LENGTH_LONG);
@@ -531,7 +565,7 @@ public class FmRadioReceiver extends Activity implements OnClickListener {
                         mPauseMutex = true;
                         mMediaPlayer.pause();
                         mFmReceiver.pause();
-                        pause.setImageResource(R.drawable.fm_volume);
+                        mBtnMute.setImageResource(R.drawable.fm_volume);
                     } catch (Exception e) {
                         Utils.debugFunc("Unable to pause. E.: " + e.getMessage(), Log.ERROR);
                         showToast(R.string.unable_to_pause, Toast.LENGTH_LONG);

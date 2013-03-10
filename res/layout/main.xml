@@ -61,7 +61,7 @@
         </LinearLayout>
 
         <TextView
-                android:id="@+id/txtPsText"
+                android:id="@+id/tv_ps_text"
                 android:textColor="@color/cyan_neon_lighter"
                 android:textSize="12dip"
                 android:textStyle="bold"
@@ -73,7 +73,7 @@
                 android:layout_marginLeft="6dip"/>
 
         <TextView
-                android:id="@+id/txtRadioText"
+                android:id="@+id/tv_rds_text"
                 android:textColor="@color/cyan_neon"
                 android:textSize="12dip"
                 android:singleLine="true"
@@ -82,10 +82,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="100dip"
                 android:layout_marginRight="6dip"
-                android:layout_toRightOf="@id/txtPsText"/>
+                android:layout_toRightOf="@id/tv_ps_text"/>
 
         <ImageView
-                android:id="@+id/imgMode"
+                android:id="@+id/iv_playback_mode"
                 android:src="@drawable/fm_stereo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
                 android:layout_marginLeft="13dip"/>
 
         <ImageButton
-                android:id="@+id/Pause"
+                android:id="@+id/btn_mute"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginTop="12dip"
@@ -117,7 +117,7 @@
             android:gravity="center">
 
         <ImageButton
-                android:id="@+id/ScanDown"
+                android:id="@+id/btn_seek_down"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 style="@style/HighlightButton"
@@ -126,7 +126,7 @@
                 android:src="@drawable/fm_autosearch_bwd"/>
 
         <ImageButton
-                android:id="@+id/FullScan"
+                android:id="@+id/btn_fullscan"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 style="@style/HighlightButton"
@@ -134,8 +134,17 @@
                 android:layout_margin="@dimen/default_padding"
                 android:src="@drawable/refresh"/>
 
+        <ProgressBar
+                android:id="@+id/scan_progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:visibility="gone"
+                android:layout_marginRight="@dimen/default_padding"
+                android:layout_marginLeft="@dimen/default_padding"/>
+
         <ImageButton
-                android:id="@+id/ScanUp"
+                android:id="@+id/btn_seek_up"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 style="@style/HighlightButton"
