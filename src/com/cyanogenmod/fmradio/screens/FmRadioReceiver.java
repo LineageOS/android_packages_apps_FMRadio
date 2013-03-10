@@ -33,13 +33,14 @@ import android.widget.Toast;
 import com.cyanogenmod.fmradio.R;
 import com.cyanogenmod.fmradio.utils.Constants;
 import com.cyanogenmod.fmradio.utils.Utils;
+import com.stericsson.hardware.fm.FakeFmReceiver;
 import com.stericsson.hardware.fm.FmBand;
 import com.stericsson.hardware.fm.FmReceiver;
 
 import java.io.IOException;
 
 
-public class FmRadioReceiver extends Activity {
+public class FmRadioReceiver extends Activity implements OnClickListener {
 
 
     // The base menu identifier
@@ -118,7 +119,7 @@ public class FmRadioReceiver extends Activity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.main);
-        mFmReceiver = (FmReceiver) getSystemService("fm_receiver"); //MOCK: new FakeFmReceiver();
+        mFmReceiver = new FakeFmReceiver(); //MOCK:   (FmReceiver) getSystemService("fm_receiver")
         // USE Mock class if you don't have access to device with an FM Chip
         // (get mock framework from: https://github.com/pedronveloso/fm_mock_framework
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
@@ -352,79 +353,16 @@ public class FmRadioReceiver extends Activity {
         mStationNameTextView = (TextView) findViewById(R.id.txtPsText);
 
         final ImageButton scanUp = (ImageButton) findViewById(R.id.ScanUp);
-        scanUp.setOnClickListener(new OnClickListener() {
+        scanUp.setOnClickListener(this);
 
-            public void onClick(View v) {
-                try {
-                    mFmReceiver.scanUp();
-                } catch (IllegalStateException e) {
-                    Utils.debugFunc("Unable to ScanUp", Log.ERROR);
-                    return;
-                }
-                scanUp.setEnabled(false);
-            }
-        });
         final ImageButton scanDown = (ImageButton) findViewById(R.id.ScanDown);
-        scanDown.setOnClickListener(new OnClickListener() {
+        scanDown.setOnClickListener(this);
 
-            public void onClick(View v) {
-                try {
-                    mFmReceiver.scanDown();
-                } catch (IllegalStateException e) {
-                    Utils.debugFunc("Unable to ScanDown", Log.ERROR);
-                    return;
-                }
-                scanDown.setEnabled(false);
-            }
-        });
         final ImageButton pause = (ImageButton) findViewById(R.id.Pause);
-        pause.setOnClickListener(new OnClickListener() {
+        pause.setOnClickListener(this);
 
-            public void onClick(View v) {
-                if (mFmReceiver.getState() == FmReceiver.STATE_PAUSED && mPauseMutex != true) {
-                    try {
-                        mPauseMutex = true;
-                        mFmReceiver.resume();
-                        mMediaPlayer.start();
-                        pause.setImageResource(R.drawable.fm_volume_mute);
-                    } catch (Exception e) {
-                        Utils.debugFunc("Unable to resume. E.: " + e.getMessage(), Log.ERROR);
-                        showToast(R.string.unable_to_resume, Toast.LENGTH_LONG);
-                    }
-                    mPauseMutex = false;
-                } else if (mFmReceiver.getState() == FmReceiver.STATE_STARTED
-                        && mPauseMutex != true) {
-                    try {
-                        mPauseMutex = true;
-                        mMediaPlayer.pause();
-                        mFmReceiver.pause();
-                        pause.setImageResource(R.drawable.fm_volume);
-                    } catch (Exception e) {
-                        Utils.debugFunc("Unable to pause. E.: " + e.getMessage(), Log.ERROR);
-                        showToast(R.string.unable_to_pause, Toast.LENGTH_LONG);
-                    }
-                    mPauseMutex = false;
-                } else if (mPauseMutex) {
-                    showToast(R.string.mediaplayer_busy, Toast.LENGTH_LONG);
-                } else {
-                    Utils.debugFunc("No action: incorrect state - " + mFmReceiver.getState(), Log.WARN);
-                }
-            }
-        });
         final ImageButton fullScan = (ImageButton) findViewById(R.id.FullScan);
-        fullScan.setOnClickListener(new OnClickListener() {
-
-            public void onClick(View v) {
-                try {
-                    fullScan.setEnabled(false);
-                    showToast(R.string.scanning_for_stations, Toast.LENGTH_LONG);
-                    mFmReceiver.startFullScan();
-                } catch (IllegalStateException e) {
-                    Utils.debugFunc("Scan error: " + e.getMessage(), Log.ERROR);
-                    showToast(R.string.unable_to_scan, Toast.LENGTH_LONG);
-                }
-            }
-        });
+        fullScan.setOnClickListener(this);
     }
 
     /**
@@ -533,5 +471,78 @@ public class FmRadioReceiver extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+            case R.id.ScanDown:
+                try {
+                    v.setEnabled(false);
+                    mFmReceiver.scanDown();
+                } catch (IllegalStateException e) {
+                    v.setEnabled(true);
+                    Utils.debugFunc("Unable to ScanDown. E.: " + e.getMessage(), Log.ERROR);
+                    return;
+                }
+                break;
+
+            case R.id.ScanUp:
+                try {
+                    v.setEnabled(false);
+                    mFmReceiver.scanUp();
+                } catch (IllegalStateException e) {
+                    v.setEnabled(true);
+                    Utils.debugFunc("Unable to ScanUp. E.: " + e.getMessage(), Log.ERROR);
+                    return;
+                }
+                break;
+
+            case R.id.FullScan:
+                try {
+                    v.setEnabled(false);
+                    showToast(R.string.scanning_for_stations, Toast.LENGTH_LONG);
+                    mFmReceiver.startFullScan();
+                } catch (IllegalStateException e) {
+                    Utils.debugFunc("Scan error: " + e.getMessage(), Log.ERROR);
+                    showToast(R.string.unable_to_scan, Toast.LENGTH_LONG);
+                    v.setEnabled(true);
+                }
+                break;
+
+            case R.id.Pause:
+                ImageButton pause = (ImageButton) findViewById(R.id.Pause);
+                if (mFmReceiver.getState() == FmReceiver.STATE_PAUSED && !mPauseMutex) {
+                    try {
+                        mPauseMutex = true;
+                        mFmReceiver.resume();
+                        mMediaPlayer.start();
+                        pause.setImageResource(R.drawable.fm_volume_mute);
+                    } catch (Exception e) {
+                        Utils.debugFunc("Unable to resume. E.: " + e.getMessage(), Log.ERROR);
+                        showToast(R.string.unable_to_resume, Toast.LENGTH_LONG);
+                    }
+                    mPauseMutex = false;
+                } else if (mFmReceiver.getState() == FmReceiver.STATE_STARTED
+                        && !mPauseMutex) {
+                    try {
+                        mPauseMutex = true;
+                        mMediaPlayer.pause();
+                        mFmReceiver.pause();
+                        pause.setImageResource(R.drawable.fm_volume);
+                    } catch (Exception e) {
+                        Utils.debugFunc("Unable to pause. E.: " + e.getMessage(), Log.ERROR);
+                        showToast(R.string.unable_to_pause, Toast.LENGTH_LONG);
+                    }
+                    mPauseMutex = false;
+                } else if (mPauseMutex) {
+                    showToast(R.string.mediaplayer_busy, Toast.LENGTH_LONG);
+                } else {
+                    Utils.debugFunc("No action: incorrect state - " + mFmReceiver.getState(), Log.WARN);
+                }
+                break;
+        }
     }
 }
