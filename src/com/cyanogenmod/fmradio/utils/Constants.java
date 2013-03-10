@@ -1,4 +1,4 @@
-package com.example.android.fmradioreceiver.utils;
+package com.cyanogenmod.fmradio.utils;
 
 /**
  * User: Pedro Veloso

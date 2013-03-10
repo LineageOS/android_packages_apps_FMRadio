@@ -1,4 +1,4 @@
-package com.example.android.fmradioreceiver.utils;
+package com.cyanogenmod.fmradio.utils;
 
 import android.util.Log;
 

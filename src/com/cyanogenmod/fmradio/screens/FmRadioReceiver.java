@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.fmradioreceiver;
+package com.cyanogenmod.fmradio.screens;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -30,8 +30,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.android.fmradioreceiver.utils.Constants;
-import com.example.android.fmradioreceiver.utils.Utils;
+import com.cyanogenmod.fmradio.R;
+import com.cyanogenmod.fmradio.utils.Constants;
+import com.cyanogenmod.fmradio.utils.Utils;
 import com.stericsson.hardware.fm.FmBand;
 import com.stericsson.hardware.fm.FmReceiver;
 
