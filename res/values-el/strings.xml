@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Ραδιόφωνο FM</string>
+    <string name="band_select">Επιλογή μπάντας</string>
+    <string name="band_us">ΗΠΑ</string>
+    <string name="band_eu">Ευρώπη</string>
+    <string name="band_ja">Ιαπωνία</string>
+    <string name="band_ch">Κίνα</string>
+    <string name="fmradio">ΡΑΔΙΟΦΩΝΟ FM</string>
+    <string name="dashes">- - - -</string>
+    <string name="no_stations">Δεν υπάρχουν διαθέσιμοι σταθμοί</string>
+    <string name="scanning_for_stations">Αναζήτηση σταθμών</string>
+    <string name="unable_to_restart">Δεν είναι δυνατή η επανεκκίνηση του ραδιοφώνου FM</string>
+    <string name="unable_to_set_frequency">Δεν είναι δυνατός ο ορισμός της συχνότητας</string>
+    <string name="unable_to_scan">Δεν είναι δυνατή η αναζήτηση</string>
+    <string name="unable_to_pause">Δεν είναι δυνατή η παύση</string>
+    <string name="unable_to_resume">Δεν είναι δυνατή η συνέχιση</string>
+    <string name="unable_to_start_radio">Δεν είναι δυνατή η εκκίνηση του ραδιοφωνικού δέκτη.</string>
+    <string name="unable_to_mediaplayer">Δεν είναι δυνατή η εκκίνηση του MediaPlayer του Android</string>
+    <string name="mediaplayer_busy">Το MediaPlayer είναι απασχολημένο. Παρακαλώ περιμένετε και προσπαθήστε ξανά.</string>
+</resources>
