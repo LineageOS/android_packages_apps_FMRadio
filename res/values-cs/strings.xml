@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FM Rádio</string>
+    <string name="band_select">Zvolte pásmo</string>
+    <string name="band_us">U.S</string>
+    <string name="band_eu">Evropa</string>
+    <string name="band_ja">Japonsko</string>
+    <string name="band_ch">Čína</string>
+    <string name="fmradio">FM RADIO</string>
+    <string name="no_stations">Žádné stanice</string>
+    <string name="scanning_for_stations">Vyhledávání stanic</string>
+
+    <string name="unable_to_restart">FM Rádio nelze restartovat</string>
+    <string name="unable_to_set_frequency">Nelze nastavit frekvenci</string>
+    <string name="unable_to_scan">Nelze spustit vyhledávání</string>
+    <string name="unable_to_pause">Nelze pozastavit</string>
+    <string name="unable_to_resume">Nelze pokračovat</string>
+    <string name="unable_to_start_radio">Nelze spustit přijímač rádia.</string>
+    <string name="unable_to_mediaplayer">Nelze spustit přehrávač médií Androida</string>
+    <string name="mediaplayer_busy">Přehrávač médií zaneprázdněn. Zkuste prosím později.</string>
+</resources>
