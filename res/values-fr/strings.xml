@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Radio FM</string>
+    <string name="band_select">Fréquences</string>
+    <string name="band_us">U.S</string>
+    <string name="band_eu">Europe</string>
+    <string name="band_ja">Japon</string>
+    <string name="band_ch">Chine</string>
+    <string name="fmradio">Radio FM</string>
+    <string name="dashes">- - - -</string>
+    <string name="no_stations">Pas de stations disponibles</string>
+    <string name="scanning_for_stations">Recherche de stations</string>
+    <string name="unable_to_restart">Impossible de redémarrer la radio FM</string>
+    <string name="unable_to_set_frequency">Impossible de définir la fréquence</string>
+    <string name="unable_to_scan">Impossible de démarrer la recherche</string>
+    <string name="unable_to_pause">Impossible de mettre en pause</string>
+    <string name="unable_to_resume">Impossible de reprendre la lecture</string>
+    <string name="unable_to_start_radio">Impossible de démarrer la réception radio</string>
+    <string name="unable_to_mediaplayer">Impossible de démarrer le lecteur multimédia d\'Android</string>
+    <string name="mediaplayer_busy">Lecteur multimédia occupé. Rééssayer ultérieurement</string>
+</resources>
