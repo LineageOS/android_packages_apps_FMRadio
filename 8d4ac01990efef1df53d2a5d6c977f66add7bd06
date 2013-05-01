@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAfX///48\u003d",
+        "filename": "res/values-es/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 2134
+      },
+      "writtenOn": "2013-05-01T13:11:46Z",
+      "side": 1,
+      "message": "@Jorge, \"Radio FM\" is since Gingerbread branch. IMHO this name is better to prevent confusion with radio telephony",
+      "revId": "8d4ac01990efef1df53d2a5d6c977f66add7bd06",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAfX///44\u003d",
+        "filename": "res/values-es/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 2134
+      },
+      "writtenOn": "2013-05-01T13:11:46Z",
+      "side": 1,
+      "message": "\"nuevamente\" is not necessary now, and message is more short.",
+      "revId": "8d4ac01990efef1df53d2a5d6c977f66add7bd06",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
