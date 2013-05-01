@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAfX///7Q\u003d",
+        "filename": "res/values-es/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2013-05-01T04:05:27Z",
+      "side": 1,
+      "message": "Just \"Radio\"",
+      "revId": "29b2f1f9fcc734d77be7e439a01493dafb5c26d0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAfX///7M\u003d",
+        "filename": "res/values-es/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2013-05-01T04:05:27Z",
+      "side": 1,
+      "message": "... reiniciar la aplicación.",
+      "revId": "29b2f1f9fcc734d77be7e439a01493dafb5c26d0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAAfX///7I\u003d",
+        "filename": "res/values-es/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2013-05-01T04:05:27Z",
+      "side": 1,
+      "message": "... Por favor, inténtalo nuevamente dentro de unos segundos.",
+      "revId": "29b2f1f9fcc734d77be7e439a01493dafb5c26d0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
