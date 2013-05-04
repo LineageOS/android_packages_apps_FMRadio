@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAfX//+k8\u003d",
+        "filename": "res/values-ru/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5574
+      },
+      "writtenOn": "2013-05-04T23:36:53Z",
+      "side": 1,
+      "message": "promazal! :)",
+      "revId": "54bcbe49ceba84366cf2ad9aa41d0fe97221f3ae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
