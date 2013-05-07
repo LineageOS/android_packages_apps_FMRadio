@@ -12,10 +12,8 @@ import java.util.ArrayList;
 
 /**
  * User: Pedro Veloso
- * Date: 3/10/13
- * Time: 4:17 PM
  */
-public class StationsAdapter extends BaseAdapter {
+public final class StationsAdapter extends BaseAdapter {
 
     private LayoutInflater mInflater;
     private ArrayList<String> stations = null;
