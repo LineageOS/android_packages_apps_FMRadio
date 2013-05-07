@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <string name="app_name">FM-Radio</string>
+    <string name="band_select">Velg bånd</string>
+    <string name="band_us">USA</string>
+    <string name="band_eu">Europa</string>
+    <string name="band_ja">Japan</string>
+    <string name="band_ch">Kina</string>
+    <string name="fmradio">FM-RADIO</string>
+    <string name="dashes">- - - -</string>
+    <string name="no_stations">Ingen tilgjengelige kanaler</string>
+    <string name="scanning_for_stations">Søker etter kanaler</string>
+    <string name="unable_to_restart">Kunne ikke starte FM-radioen på nytt</string>
+    <string name="unable_to_set_frequency">Kunne ikke angi frekvensen</string>
+    <string name="unable_to_scan">Kunne ikke starte skanningen</string>
+    <string name="unable_to_pause">Kunne ikke stanse</string>
+    <string name="unable_to_resume">Kunne ikke starte</string>
+    <string name="unable_to_start_radio">Kunne ikke starte radiomottakeren</string>
+    <string name="unable_to_mediaplayer">Kunne ikke starte mediespilleren</string>
+    <string name="mediaplayer_busy">Mediespilleren er opptatt</string>
+</resources>
