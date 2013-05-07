@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.cyanogenmod.fmradio"
-          android:versionCode="1"
-          android:versionName="1.0">
+          android:versionCode="2"
+          android:versionName="0.2">
 
     <uses-sdk
             android:minSdkVersion="14"
@@ -10,20 +10,26 @@
 
     <uses-permission android:name="com.stericsson.permission.FM_RADIO_TRANSMITTER"/>
     <uses-permission android:name="com.stericsson.permission.FM_RADIO_RECEIVER"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
 
     <application
             android:icon="@drawable/radio"
             android:theme="@style/fmapp_style"
             android:label="@string/app_name">
         <activity
-                android:name=".screens.FmRadioReceiver"
-                android:label="@string/app_name">
+                android:name=".screens.BandSelectionScreen"
+                android:noHistory="true"
+                android:configChanges="keyboard|orientation|screenSize|screenLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+                android:name=".screens.FmRadioReceiver"
+                android:label="@string/app_name"
+                android:configChanges="keyboard|screenSize|orientation|screenLayout"/>
+        <activity android:name=".screens.PreferencesScreen"/>
+
     </application>
-
-
 </manifest>
