@@ -13,7 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Radio FM</string>
     <string name="band_select">Fréquences</string>
     <string name="band_us">U.S</string>
