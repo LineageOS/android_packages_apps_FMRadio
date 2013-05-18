@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "hnb28Ng",
+        "filename": "res/values-nl/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 2881
+      },
+      "writtenOn": "2013-05-18T03:07:53Z",
+      "side": 1,
+      "message": "zonder \"busy\"",
+      "revId": "55d7054920f9bc490d6e03e14aee05c50f6ca893",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
