@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">FM Rádió</string>
+    <string name="band_select">Válasszon régiót</string>
+    <string name="band_us">U.S</string>
+    <string name="band_eu">Európa</string>
+    <string name="band_ja">Japán</string>
+    <string name="band_ch">Kína</string>
+    <string name="fmradio">FM RÁDIÓ</string>
+    <string name="dashes">- - - -</string>
+    <string name="no_stations">Nincs elérhető állomás</string>
+    <string name="scanning_for_stations">Állomások keresése</string>
+    <string name="unable_to_restart">Nem lehet újraindítani az FM Rádiót</string>
+    <string name="unable_to_set_frequency">Nem lehet beállítani a frekvenciát</string>
+    <string name="unable_to_scan">Nem lehet elindítani a keresést</string>
+    <string name="unable_to_pause">Nem lehet szüneteltetni</string>
+    <string name="unable_to_resume">Nem lehet folytatni</string>
+    <string name="unable_to_start_radio">Nem lehet elindítani a rádióvevőt.</string>
+    <string name="unable_to_mediaplayer">Nem lehet elindítani az Androidos médialejátszót</string>
+    <string name="mediaplayer_busy">A médialejátszó foglalt. Kérjük, próbálja meg később.</string>
+</resources>
