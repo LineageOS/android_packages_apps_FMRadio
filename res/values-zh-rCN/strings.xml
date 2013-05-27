@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">FM 收音机</string>
+    <string name="band_select">选择频段</string>
+    <string name="band_us">美国</string>
+    <string name="band_eu">欧洲</string>
+    <string name="band_ja">日本</string>
+    <string name="band_ch">中国</string>
+    <string name="fmradio">FM 收音机</string>
+    <string name="dashes">- - - -</string>
+    <string name="no_stations">没有找到可用的电台</string>
+    <string name="scanning_for_stations">正在扫描电台</string>
+    <string name="unable_to_restart">无法重启 FM 收音机</string>
+    <string name="unable_to_set_frequency">无法设定频率</string>
+    <string name="unable_to_scan">无法起始扫描</string>
+    <string name="unable_to_pause">无法暂停</string>
+    <string name="unable_to_resume">无法继续</string>
+    <string name="unable_to_start_radio">无法启动无线电接收器</string>
+    <string name="unable_to_mediaplayer">无法启动 Android 的媒体播放器</string>
+    <string name="mediaplayer_busy">媒体播放器目前正忙。请稍后重试。</string>
+</resources>
