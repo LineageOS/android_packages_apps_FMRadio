@@ -16,8 +16,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">FM Radio</string>
     <string name="band_select">Select Band</string>
-    <string name="band_select_title">Please select your FM region:\n(this screen will only be shown once, but you
-    can change this value later from the preferences menu.)</string>
+    <string name="band_select_title">Please select your FM region:\n(You can change this value later from the settings.)</string>
     <string name="proceed">Proceed</string>
     <string name="band_us">U.S.</string>
     <string name="band_eu">Europe</string>
@@ -37,12 +36,12 @@
     <string name="unable_to_start_radio">Unable to start the radio receiver.</string>
     <string name="unable_to_mediaplayer">Unable to start Android\'s MediaPlayer</string>
     <string name="mediaplayer_busy">MediaPlayer busy. Please wait and try again.</string>
-    <string name="earplugs_not_connected">Earplugs must be plugged in to use this application!</string>
+    <string name="earplugs_not_connected">You need to connect a wired headset to use this app.</string>
 
     <!-- Preferences -->
-    <string name="preferences">Preferences</string>
+    <string name="preferences">Settings</string>
     <string name="pref_notification_bar_title">Use Notification Control</string>
-    <string name="pref_print_debug_info_title">Output verbose logcat</string>
+    <string name="pref_print_debug_info_title">Verbose loggin</string>
 
     <!-- About -->
     <string name="about">About</string>
