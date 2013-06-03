@@ -6,7 +6,7 @@ To-Do list
 * Add resolution independent resources
 * Add notification bar support
 * Add Launcher Widget ?
-* Fix (mono/stereo) display
 * Add Preferences
 * Add About
-* Implement earplugs onStart verification
+* Restore play after call
+* Implement ability to play trough device speakers

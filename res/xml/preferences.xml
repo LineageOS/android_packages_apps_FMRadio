@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/preferences">
+
+        <CheckBoxPreference
+                android:key="use_notification_bar"
+                android:title="@string/pref_notification_bar_title"
+                android:defaultValue="true"/>
+
+
+        <CheckBoxPreference
+                android:key="print_debug_info"
+                android:title="@string/pref_print_debug_info_title"
+                android:defaultValue="false"/>
+
+
+        <PreferenceScreen
+                android:title="@string/about">
+            <intent android:action="android.intent.action.FM_ABOUT"/>
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+</PreferenceScreen>

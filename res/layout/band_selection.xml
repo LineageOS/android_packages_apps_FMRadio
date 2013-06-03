@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/band_select_title"
+                android:layout_margin="@dimen/default_padding"/>
+
+
+    <RadioGroup
+        android:id="@+id/rg_band"
+        android:layout_margin="@dimen/default_padding"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1">
+
+        <RadioButton
+            android:id="@+id/rb_usa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/band_us" />
+
+        <RadioButton
+                    android:id="@+id/rb_eu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/band_eu" />
+
+        <RadioButton
+                    android:id="@+id/rb_ch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/band_ch" />
+
+        <RadioButton
+                    android:id="@+id/rb_ja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/band_ja" />
+
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_margin="@dimen/default_padding"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:text="@string/proceed" />
+
+
+</LinearLayout>
