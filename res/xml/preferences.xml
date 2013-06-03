@@ -7,12 +7,10 @@
                 android:title="@string/pref_notification_bar_title"
                 android:defaultValue="true"/>
 
-
         <CheckBoxPreference
                 android:key="print_debug_info"
                 android:title="@string/pref_print_debug_info_title"
                 android:defaultValue="false"/>
-
 
         <PreferenceScreen
                 android:title="@string/about">
