@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "iByUZzU",
+        "filename": "res/values-de/strings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 4977
+      },
+      "writtenOn": "2013-06-04T14:34:24Z",
+      "side": 1,
+      "message": "Media Player",
+      "revId": "bde7567e6c514a3ac470a7c9f1d9306235c27cbd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
