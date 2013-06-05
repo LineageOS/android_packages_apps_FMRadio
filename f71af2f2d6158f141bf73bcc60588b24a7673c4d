@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "iBcEQBM",
+        "filename": "res/values-es/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2013-06-05T02:30:43Z",
+      "side": 1,
+      "message": "..más tarde en Ajustes)",
+      "revId": "f71af2f2d6158f141bf73bcc60588b24a7673c4d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iPcIrCo",
+        "filename": "res/values-es/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 3134
+      },
+      "writtenOn": "2013-06-05T02:30:43Z",
+      "side": 1,
+      "message": "What about:\n\n\"Conecta tus auriculares para usar esta aplicación.\"\n\nConnect is implicit for a wired headset.",
+      "revId": "f71af2f2d6158f141bf73bcc60588b24a7673c4d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
