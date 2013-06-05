@@ -16,11 +16,11 @@
 <resources>
     <string name="app_name">FM Rádio</string>
     <string name="band_select">Zvolte pásmo</string>
-    <string name="band_us">U.S</string>
+    <string name="band_select_title">Prosím zvolte kraj pro příjem FM rádia:\n(tuto hodnotu je možné později změnit)</string>
+    <string name="proceed">Pokračovat</string>
     <string name="band_eu">Evropa</string>
     <string name="band_ja">Japonsko</string>
     <string name="band_ch">Čína</string>
-    <string name="fmradio">FM RADIO</string>
     <string name="no_stations">Žádné stanice</string>
     <string name="scanning_for_stations">Vyhledávání stanic</string>
 
@@ -30,6 +30,13 @@
     <string name="unable_to_pause">Nelze pozastavit</string>
     <string name="unable_to_resume">Nelze pokračovat</string>
     <string name="unable_to_start_radio">Nelze spustit přijímač rádia.</string>
-    <string name="unable_to_mediaplayer">Nelze spustit přehrávač médií Androida</string>
+    <string name="unable_to_mediaplayer">Nelze spustit přehrávač médií systému Android</string>
     <string name="mediaplayer_busy">Přehrávač médií zaneprázdněn. Zkuste prosím později.</string>
+    <string name="earplugs_not_connected">Tato aplikace vyžaduje připojená drátová sluchátka.</string>
+
+    <string name="preferences">Nastavení</string>
+    <string name="pref_notification_bar_title">Použít ovládání v oznamovací liště</string>
+    <string name="pref_print_debug_info_title">Podrobné zaznamenávání</string>
+
+    <string name="about">O aplikaci\u2026</string>
 </resources>
