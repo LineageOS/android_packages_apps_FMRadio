@@ -41,7 +41,7 @@
     <!-- Preferences -->
     <string name="preferences">Settings</string>
     <string name="pref_notification_bar_title">Use Notification Control</string>
-    <string name="pref_print_debug_info_title">Verbose loggin</string>
+    <string name="pref_print_debug_info_title">Verbose logging</string>
 
     <!-- About -->
     <string name="about">About</string>
