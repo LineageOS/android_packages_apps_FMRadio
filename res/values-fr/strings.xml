@@ -16,6 +16,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Radio FM</string>
     <string name="band_select">Fréquences</string>
+    <string name="band_select_title">Sélectionner votre région :\n(Vous pouvez modifier cette valeur plus tard dans les paramètres.)</string>
+    <string name="proceed">Continuer</string>
     <string name="band_us">U.S</string>
     <string name="band_eu">Europe</string>
     <string name="band_ja">Japon</string>
@@ -32,4 +34,9 @@
     <string name="unable_to_start_radio">Impossible de démarrer la réception radio</string>
     <string name="unable_to_mediaplayer">Impossible de démarrer le lecteur multimédia d\'Android</string>
     <string name="mediaplayer_busy">Lecteur multimédia occupé. Rééssayer ultérieurement</string>
+    <string name="earplugs_not_connected">Vous devez connecter un casque filaire pour utiliser cette application.</string>
+    <string name="preferences">Paramètres</string>
+    <string name="pref_notification_bar_title">Utiliser le contrôle de notification</string>
+    <string name="pref_print_debug_info_title">Verbose loggin</string>
+    <string name="about">À propos</string>
 </resources>
