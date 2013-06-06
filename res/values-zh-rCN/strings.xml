@@ -16,6 +16,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">FM 收音机</string>
     <string name="band_select">选择频段</string>
+    <string name="band_select_title">请选择您的 FM 区域：\n(您可以以后在设置内更改此选项。)</string>
+    <string name="proceed">继续</string>
     <string name="band_us">美国</string>
     <string name="band_eu">欧洲</string>
     <string name="band_ja">日本</string>
@@ -32,4 +34,9 @@
     <string name="unable_to_start_radio">无法启动无线电接收器</string>
     <string name="unable_to_mediaplayer">无法启动 Android 的媒体播放器</string>
     <string name="mediaplayer_busy">媒体播放器目前正忙。请稍后重试。</string>
+    <string name="earplugs_not_connected">您需要连接一副有线耳机才能使用此应用。</string>
+    <string name="preferences">设置</string>
+    <string name="pref_notification_bar_title">使用通知控制</string>
+    <string name="pref_print_debug_info_title">详细日志记录</string>
+    <string name="about">About</string>
 </resources>
