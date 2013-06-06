@@ -16,6 +16,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Ραδιόφωνο FM</string>
     <string name="band_select">Επιλογή μπάντας</string>
+    <string name="band_select_title">Παρακαλώ επιλέξτε την περιοχή FM σας:\n(Μπορείτε να αλλάξετε αυτή την τιμή αργότερα από τις ρυθμίσεις.)</string>
+    <string name="proceed">Συνέχεια</string>
     <string name="band_us">ΗΠΑ</string>
     <string name="band_eu">Ευρώπη</string>
     <string name="band_ja">Ιαπωνία</string>
@@ -32,4 +34,9 @@
     <string name="unable_to_start_radio">Δεν είναι δυνατή η εκκίνηση του ραδιοφωνικού δέκτη.</string>
     <string name="unable_to_mediaplayer">Δεν είναι δυνατή η εκκίνηση του MediaPlayer του Android</string>
     <string name="mediaplayer_busy">Το MediaPlayer είναι απασχολημένο. Παρακαλώ περιμένετε και προσπαθήστε ξανά.</string>
+    <string name="earplugs_not_connected">Για να χρησιμοποιήσετε αυτή την εφαρμογή πρέπει να συνδέσετε ενσύρματα ακουστικά.</string>
+    <string name="preferences">Ρυθμίσεις</string>
+    <string name="pref_notification_bar_title">Έλεγχος από την μπάρα ειδοποιήσεων</string>
+    <string name="pref_print_debug_info_title">Λεπτομερής καταγραφή</string>
+    <string name="about">Σχετικά</string>
 </resources>
