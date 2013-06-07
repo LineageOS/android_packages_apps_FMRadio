@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "iN0CaW8",
+        "filename": "res/values-fr/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1850
+      },
+      "writtenOn": "2013-06-07T02:12:49Z",
+      "side": 1,
+      "message": "Si la deuxième personne est utilisée, \"Sélectionnez\". Et \"pourrez\" à la place de \"pouvez\" puisqu\u0027on parle de \"plus tard\".",
+      "revId": "989484cc35dc549e2dd42b4920bbc20d3cee3cc3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
