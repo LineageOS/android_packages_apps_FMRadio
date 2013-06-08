@@ -16,6 +16,41 @@
       "revId": "989484cc35dc549e2dd42b4920bbc20d3cee3cc3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iDJBjww",
+        "filename": "res/values-fr/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4617
+      },
+      "writtenOn": "2013-06-08T17:01:21Z",
+      "side": 1,
+      "message": "\"... (Cette valeur pourra être modifiée ultérieurement.)\" + espace insécable avant les deux points.",
+      "parentUuid": "iN0CaW8",
+      "revId": "989484cc35dc549e2dd42b4920bbc20d3cee3cc3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iBJGiyM",
+        "filename": "res/values-fr/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 4617
+      },
+      "writtenOn": "2013-06-08T17:01:21Z",
+      "side": 1,
+      "message": "Connexion à un casque filaire requise pour utiliser l\u0027application",
+      "revId": "989484cc35dc549e2dd42b4920bbc20d3cee3cc3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
