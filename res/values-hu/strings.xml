@@ -16,6 +16,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">FM Rádió</string>
     <string name="band_select">Válasszon régiót</string>
+    <string name="band_select_title">Kérjük, válasszon FM régiót:\n(Később is módosíthatja a beállítások menüpontban.)</string>
+    <string name="proceed">Folytasd</string>
     <string name="band_us">U.S</string>
     <string name="band_eu">Európa</string>
     <string name="band_ja">Japán</string>
@@ -32,4 +34,9 @@
     <string name="unable_to_start_radio">Nem lehet elindítani a rádióvevőt.</string>
     <string name="unable_to_mediaplayer">Nem lehet elindítani az Androidos médialejátszót</string>
     <string name="mediaplayer_busy">A médialejátszó foglalt. Kérjük, próbálja meg később.</string>
+    <string name="earplugs_not_connected">Csatlakoztasson fülhallgatót az alkalmazás használatához.</string>
+    <string name="preferences">Beállítások</string>
+    <string name="pref_notification_bar_title">Értesítési rendszer használata</string>
+    <string name="pref_print_debug_info_title">Részletes naplózás</string>
+    <string name="about">Névjegy</string>
 </resources>
