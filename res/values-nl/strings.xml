@@ -16,6 +16,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">FM-radio</string>
     <string name="band_select">FM-band selecteren</string>
+    <string name="band_select_title">Uw FM-regio selecteren:\n(Dit kan later in Instellingen worden gewijzigd)</string>
+    <string name="proceed">Verder</string>
     <string name="band_us">VS</string>
     <string name="band_eu">Europa</string>
     <string name="band_ja">Japan</string>
@@ -32,4 +34,9 @@
     <string name="unable_to_start_radio">Kan FM-ontvanger niet starten</string>
     <string name="unable_to_mediaplayer">Kan MediaPlayer niet starten</string>
     <string name="mediaplayer_busy">MediaPlayer is bezig. Probeer het later opnieuw.</string>
+    <string name="earplugs_not_connected">Om FM-radio te kunnen gebruiken, dient een bedrade headset te worden aangesloten.</string>
+    <string name="preferences">Instellingen</string>
+    <string name="pref_notification_bar_title">Bediening in meldingspaneel</string>
+    <string name="pref_print_debug_info_title">Uitgebreide logboekregistratie</string>
+    <string name="about">Over</string>
 </resources>
