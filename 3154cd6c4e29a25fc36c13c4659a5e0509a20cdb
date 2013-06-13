@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "iHS7bw8",
+        "filename": "res/values-nl/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 2881
+      },
+      "writtenOn": "2013-06-13T18:35:22Z",
+      "side": 1,
+      "message": "\"Instellingen\" is een aparte app (de Android instellingen), maar dit zijn de instellingen van FM-radio...dus moet niet met een hoofdletter vind ik.",
+      "parentUuid": "iNkm9hU",
+      "revId": "3154cd6c4e29a25fc36c13c4659a5e0509a20cdb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "iLkjQgU",
         "filename": "res/values-nl/strings.xml",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2013-06-13T14:40:15Z",
       "side": 1,
       "message": "Ik zou zeggen \u0027Doorgaan\u0027",
+      "revId": "3154cd6c4e29a25fc36c13c4659a5e0509a20cdb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iBRB0ws",
+        "filename": "res/values-nl/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 2881
+      },
+      "writtenOn": "2013-06-13T18:35:22Z",
+      "side": 1,
+      "message": "Ik heb de app zelf niet in mijn CM, maar dit is een knop gok ik....dan is korter beter zou ik zeggen",
+      "parentUuid": "iLkjQgU",
       "revId": "3154cd6c4e29a25fc36c13c4659a5e0509a20cdb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
