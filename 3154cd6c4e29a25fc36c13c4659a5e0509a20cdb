@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "iNkm9hU",
+        "filename": "res/values-nl/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 2597
+      },
+      "writtenOn": "2013-06-13T14:40:15Z",
+      "side": 1,
+      "message": "- in de instellingen \u003e\u003e in Instellingen\n- gewijzigd worden \u003e\u003e worden gewijzigd (AOSP gebruikt de \u0027modernere\u0027 schrijfwijze)",
+      "revId": "3154cd6c4e29a25fc36c13c4659a5e0509a20cdb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iLkjQgU",
+        "filename": "res/values-nl/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 2597
+      },
+      "writtenOn": "2013-06-13T14:40:15Z",
+      "side": 1,
+      "message": "Ik zou zeggen \u0027Doorgaan\u0027",
+      "revId": "3154cd6c4e29a25fc36c13c4659a5e0509a20cdb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iJkgfvk",
+        "filename": "res/values-nl/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 2597
+      },
+      "writtenOn": "2013-06-13T14:40:15Z",
+      "side": 1,
+      "message": "- Om FM-radio te kunnen gebruiken, dient een bedrade headset te worden aangesloten",
+      "revId": "3154cd6c4e29a25fc36c13c4659a5e0509a20cdb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
