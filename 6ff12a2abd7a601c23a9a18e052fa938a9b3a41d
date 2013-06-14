@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "iBno6.E",
+        "filename": "res/values-af/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 3269
+      },
+      "writtenOn": "2013-06-14T20:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "iNm5UzA",
+      "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "iLm2nzs",
         "filename": "res/values-af/strings.xml",
         "patchSetId": 2
@@ -122,6 +140,24 @@
     },
     {
       "key": {
+        "uuid": "iPnkFw4",
+        "filename": "res/values-af/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 3269
+      },
+      "writtenOn": "2013-06-14T20:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "iDmBb0s",
+      "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "iPmT96E",
         "filename": "res/values-af/strings.xml",
         "patchSetId": 2
@@ -133,6 +169,24 @@
       "writtenOn": "2013-06-14T19:45:09Z",
       "side": 1,
       "message": "Kan nie frekwensie instel nie",
+      "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iNnxU88",
+        "filename": "res/values-af/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 3269
+      },
+      "writtenOn": "2013-06-14T20:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "iPmT96E",
       "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -156,6 +210,24 @@
     },
     {
       "key": {
+        "uuid": "iLnun.o",
+        "filename": "res/values-af/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 3269
+      },
+      "writtenOn": "2013-06-14T20:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "iLmNf30",
+      "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "iJnpmx0",
         "filename": "res/values-af/strings.xml",
         "patchSetId": 2
@@ -167,6 +239,24 @@
       "writtenOn": "2013-06-14T19:45:09Z",
       "side": 1,
       "message": "Kan nie pouseer nie",
+      "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iJm6u.A",
+        "filename": "res/values-af/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 3269
+      },
+      "writtenOn": "2013-06-14T20:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "iJnpmx0",
       "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -190,6 +280,24 @@
     },
     {
       "key": {
+        "uuid": "iHm-59A",
+        "filename": "res/values-af/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 3269
+      },
+      "writtenOn": "2013-06-14T20:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "iHnuxyM",
+      "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "iFnzAws",
         "filename": "res/values-af/strings.xml",
         "patchSetId": 2
@@ -201,6 +309,24 @@
       "writtenOn": "2013-06-14T19:45:09Z",
       "side": 1,
       "message": "Media speler",
+      "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iFm0I-E",
+        "filename": "res/values-af/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 3269
+      },
+      "writtenOn": "2013-06-14T20:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "iFnzAws",
       "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
@@ -224,6 +350,24 @@
     },
     {
       "key": {
+        "uuid": "iDm5b.o",
+        "filename": "res/values-af/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 3269
+      },
+      "writtenOn": "2013-06-14T20:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "iDn4T.U",
+      "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "iBneq20",
         "filename": "res/values-af/strings.xml",
         "patchSetId": 2
@@ -235,6 +379,24 @@
       "writtenOn": "2013-06-14T19:45:09Z",
       "side": 1,
       "message": "oorfone",
+      "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iBnPy4A",
+        "filename": "res/values-af/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 3269
+      },
+      "writtenOn": "2013-06-14T20:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "iBneq20",
       "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
