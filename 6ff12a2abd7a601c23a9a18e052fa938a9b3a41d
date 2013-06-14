@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "iLlGn70",
+        "filename": "res/values-af/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1576
+      },
+      "writtenOn": "2013-06-14T21:58:56Z",
+      "side": 1,
+      "message": "In Afrikaans we refer to if as the \"Verenigde State van Amerika\" or \"V.S.A.\" - at least that is how I remember it from the 80\u0027 and the 90\u0027s. Seems there are several options - http://glosbe.com/en/af/U.S.A.\n\nI personally prefer with V.S.A. though.",
+      "parentUuid": "iNkacxc",
+      "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "iHmH52E",
         "filename": "res/values-af/strings.xml",
         "patchSetId": 2
