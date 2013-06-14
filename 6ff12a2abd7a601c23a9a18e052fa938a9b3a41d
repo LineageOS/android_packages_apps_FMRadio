@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "iNkacxc",
+        "filename": "res/values-af/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 3269
+      },
+      "writtenOn": "2013-06-14T20:23:36Z",
+      "side": 1,
+      "message": "Not sure about A, Is it not Verenigte State \u003d United States? so VS? The English one in values is U.S.?",
+      "parentUuid": "iJmCu1E",
+      "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "iHmH52E",
         "filename": "res/values-af/strings.xml",
         "patchSetId": 2
@@ -240,6 +258,24 @@
     },
     {
       "key": {
+        "uuid": "iFndQ0E",
+        "filename": "res/values-af/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 3269
+      },
+      "writtenOn": "2013-06-14T20:23:36Z",
+      "side": 1,
+      "message": "Maybe Kennisgewings-laai?",
+      "parentUuid": "iPna13c",
+      "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "iNnnEz8",
         "filename": "res/values-af/strings.xml",
         "patchSetId": 2
@@ -251,6 +287,24 @@
       "writtenOn": "2013-06-14T19:45:09Z",
       "side": 1,
       "message": "?? what is this supposed to mean?",
+      "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iJnT2zg",
+        "filename": "res/values-af/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 3269
+      },
+      "writtenOn": "2013-06-14T20:23:36Z",
+      "side": 1,
+      "message": "Verbose logging, Better word for verbose?",
+      "parentUuid": "iNnnEz8",
       "revId": "6ff12a2abd7a601c23a9a18e052fa938a9b3a41d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
