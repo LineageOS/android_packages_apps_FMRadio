@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "iPBi5Nc",
+        "filename": "res/values-nl/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 2597
+      },
+      "writtenOn": "2013-06-20T16:26:42Z",
+      "side": 1,
+      "message": "https://github.com/CyanogenMod/android_packages_apps_CMFileManager/blob/cm-10.1/res/values-nl/strings.xml#L379",
+      "parentUuid": "iHS7bw8",
+      "revId": "3154cd6c4e29a25fc36c13c4659a5e0509a20cdb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "iLkjQgU",
         "filename": "res/values-nl/strings.xml",
         "patchSetId": 2
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "Ik heb de app zelf niet in mijn CM, maar dit is een knop gok ik....dan is korter beter zou ik zeggen",
       "parentUuid": "iLkjQgU",
+      "revId": "3154cd6c4e29a25fc36c13c4659a5e0509a20cdb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iBBmeO0",
+        "filename": "res/values-nl/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 2597
+      },
+      "writtenOn": "2013-06-20T16:26:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "iBRB0ws",
       "revId": "3154cd6c4e29a25fc36c13c4659a5e0509a20cdb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
