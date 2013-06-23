@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Rádio FM</string>
+    <string name="band_select">Selecionar Banda</string>
+    <string name="band_select_title">Por favor selecione sua região FM:\n(Você pode mudar este valor mais tarde nas configurações.)</string>
+    <string name="proceed">Avançar</string>
+    <string name="band_us">E.U.A.</string>
+    <string name="band_eu">Europa</string>
+    <string name="band_ja">Japão</string>
+    <string name="band_ch">China</string>
+    <string name="fmradio">RÁDIO FM</string>
+    <string name="dashes">- - - -</string>
+    <string name="no_stations">Nenhuma estação disponível</string>
+    <string name="scanning_for_stations">Buscando estações</string>
+    <string name="unable_to_restart">Não foi possível reiniciar o Rádio FM</string>
+    <string name="unable_to_set_frequency">Não foi possível definir a frequência</string>
+    <string name="unable_to_scan">Não foi possível iniciar a busca</string>
+    <string name="unable_to_pause">Não foi possível pausar</string>
+    <string name="unable_to_resume">Não foi possível continuar</string>
+    <string name="unable_to_start_radio">Não foi possível iniciar o receptor de rádio.</string>
+    <string name="unable_to_mediaplayer">Não foi possível inciar o MediaPlayer do Android</string>
+    <string name="mediaplayer_busy">MediaPlayer ocupado: Por favor esperar e tentar novamente.</string>
+    <string name="earplugs_not_connected">Você precisa conectar um fone de ouvido com fio para usar este aplicativo.</string>
+    <string name="preferences">Configurações</string>
+    <string name="pref_notification_bar_title">Controle de Notificação de Uso</string>
+    <string name="pref_print_debug_info_title">Log detalhado</string>
+    <string name="about">Sobre</string>
+</resources>
