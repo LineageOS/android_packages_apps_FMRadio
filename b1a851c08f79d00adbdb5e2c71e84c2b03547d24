@@ -16,6 +16,24 @@
       "revId": "b1a851c08f79d00adbdb5e2c71e84c2b03547d24",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dae975fb_74dde66f",
+        "filename": "res/values-de/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 4977
+      },
+      "writtenOn": "2013-08-09T20:23:08Z",
+      "side": 1,
+      "message": "Um UKW-Radio zu benutzen, muessen kabelgebundene Kopfhoerer angeschlossen werden.",
+      "parentUuid": "dae975fb_3193f0fc",
+      "revId": "b1a851c08f79d00adbdb5e2c71e84c2b03547d24",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
