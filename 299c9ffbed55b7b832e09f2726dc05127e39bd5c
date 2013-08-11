@@ -33,6 +33,24 @@
       "revId": "299c9ffbed55b7b832e09f2726dc05127e39bd5c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dae975fb_b73a30e6",
+        "filename": "res/values-de/strings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 4977
+      },
+      "writtenOn": "2013-08-11T00:15:37Z",
+      "side": 1,
+      "message": "Asche auf mein Haupt. Das ist auf meinen Mist gewachsen. :(",
+      "parentUuid": "dae975fb_f462f615",
+      "revId": "299c9ffbed55b7b832e09f2726dc05127e39bd5c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
