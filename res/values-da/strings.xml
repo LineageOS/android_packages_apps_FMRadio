@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">FM-radio</string>
+    <string name="band_select">Vælg bånd</string>
+    <string name="band_select_title">Vælg venligst din FM-region:\n(Du kan ændre denne værdi fra indstillinger senere.)</string>
+    <string name="proceed">Fortsæt</string>
+    <string name="band_us">USA</string>
+    <string name="band_eu">Europa</string>
+    <string name="band_ja">Japan</string>
+    <string name="band_ch">Kina</string>
+    <string name="fmradio">FM-RADIO</string>
+    <string name="dashes">- - - -</string>
+    <string name="no_stations">Ingen stationer tilgængelige</string>
+    <string name="scanning_for_stations">Scanner efter stationer</string>
+    <string name="unable_to_restart">Kan ikke genstarte FM-radioen</string>
+    <string name="unable_to_set_frequency">Kan ikke angive frekvensen</string>
+    <string name="unable_to_scan">Kan ikke starte scanning</string>
+    <string name="unable_to_pause">Kan ikke pause</string>
+    <string name="unable_to_resume">Kan ikke genoptage</string>
+    <string name="unable_to_start_radio">Kan ikke starte radiomodtageren.</string>
+    <string name="unable_to_mediaplayer">Kan ikke starte Androids Medieafspiller</string>
+    <string name="mediaplayer_busy">Medieafspiller optaget. Vent lidt og prøv igen.</string>
+    <string name="earplugs_not_connected">Du skal tilslutte et sæt kablede hovedtelefoner for at bruge denne app.</string>
+    <string name="preferences">Indstillinger</string>
+    <string name="pref_notification_bar_title">Brug underretningskontrol</string>
+    <string name="pref_print_debug_info_title">Udvidet logning</string>
+    <string name="about">Om</string>
+</resources>
