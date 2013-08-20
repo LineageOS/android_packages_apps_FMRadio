@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baee8101_0a12efb4",
+        "filename": "res/values-da/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 2809
+      },
+      "writtenOn": "2013-08-20T23:53:11Z",
+      "side": 1,
+      "message": "Are you missing a \".\" after the sentence as the line above end tle line below?",
+      "revId": "91b1327b1ca38b6e27f1f6b3685785f310649b27",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
