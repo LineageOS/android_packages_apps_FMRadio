@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baee8101_05a53603",
+        "filename": "res/values-fi/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 2597
+      },
+      "writtenOn": "2013-08-24T00:08:27Z",
+      "side": 1,
+      "message": "Please use a standard \u0027n\u0027 there",
+      "revId": "6803833ea758e96668af86c5840e293cfd552bf1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
