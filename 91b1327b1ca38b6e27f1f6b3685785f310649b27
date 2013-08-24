@@ -16,6 +16,24 @@
       "revId": "91b1327b1ca38b6e27f1f6b3685785f310649b27",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baee8101_08b66d8a",
+        "filename": "res/values-da/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 3386
+      },
+      "writtenOn": "2013-08-24T20:34:12Z",
+      "side": 1,
+      "message": "The source does not have a \".\" here. Look: https://github.com/CyanogenMod/android_packages_apps_FMRadio/blob/cm-10.2/res/values/strings.xml",
+      "parentUuid": "baee8101_0a12efb4",
+      "revId": "91b1327b1ca38b6e27f1f6b3685785f310649b27",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
