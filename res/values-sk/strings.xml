@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">FM Rádio</string>
+    <string name="band_select">Vyberte pásmo</string>
+    <string name="band_select_title">Prosím, vyberte Váš FM región:\n(Túto hodnotu môžete neskôr zmeniť v nastaveniach.)</string>
+    <string name="proceed">Pokračovať</string>
+    <string name="band_us">Spojené štáty</string>
+    <string name="band_eu">Európa</string>
+    <string name="band_ja">Japonsko</string>
+    <string name="band_ch">Čína</string>
+    <string name="fmradio">FM RÁDIO</string>
+    <string name="no_stations">Žiadne stanice</string>
+    <string name="scanning_for_stations">Vyhľadávanie staníc</string>
+    <string name="unable_to_restart">Nemožno reštartovať FM Rádio</string>
+    <string name="unable_to_set_frequency">Nemožno nastaviť frekvenciu</string>
+    <string name="unable_to_scan">Nemožno spustiť vyhľadávanie</string>
+    <string name="unable_to_pause">Nemožno pozastaviť</string>
+    <string name="unable_to_resume">Nemožno pokračovať</string>
+    <string name="unable_to_start_radio">Nemožno spustiť prijímač rádia.</string>
+    <string name="unable_to_mediaplayer">Nemožno spustiť Android prehrávač médií</string>
+    <string name="mediaplayer_busy">Prehrávač médií je zaneprázdnený. Prosím počkajte a skúste znova.</string>
+    <string name="earplugs_not_connected">Pre použitie tejto aplikácie je potrebné pripojiť slúchadlá.</string>
+    <string name="preferences">Nastavenia</string>
+    <string name="pref_notification_bar_title">Použiť oznámenie na ovládanie</string>
+    <string name="pref_print_debug_info_title">Podrobné zaznamenávanie</string>
+    <string name="about">O aplikácii</string>
+</resources>
