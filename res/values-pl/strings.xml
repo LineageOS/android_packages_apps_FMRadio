@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Radio FM</string>
+    <string name="band_select">Wybierz pasmo</string>
+    <string name="band_select_title">Proszę wybrać region FM:\n(Opcję tę można później edytować w ustawieniach aplikacji.)</string>
+    <string name="proceed">Kontynuuj</string>
+    <string name="band_us">USA</string>
+    <string name="band_eu">Europa</string>
+    <string name="band_ja">Japonia</string>
+    <string name="band_ch">Chiny</string>
+    <string name="fmradio">RADIO FM</string>
+    <string name="dashes">- - - -</string>
+    <string name="no_stations">Brak dostępnych stacji</string>
+    <string name="scanning_for_stations">Wyszukiwanie stacji</string>
+
+    <!-- Errors and failure messages -->
+    <string name="unable_to_restart">Ponowne uruchomienie Radia FM nie powiodło się.</string>
+    <string name="unable_to_set_frequency">Ustawienie częstotliwości nie powiodło się.</string>
+    <string name="unable_to_scan">Nie udało się zainicjować skanowania.</string>
+    <string name="unable_to_pause">Nie udało się zatrzymać odtwarzania.</string>
+    <string name="unable_to_resume">Nie udało się wznowić odtwarzania.</string>
+    <string name="unable_to_start_radio">Nie można uruchomić odbiornika radiowego.</string>
+    <string name="unable_to_mediaplayer">Nie można uruchomić systemowego odtwarzacza multimediów.</string>
+    <string name="mediaplayer_busy">Odtwarzacz multimediów jest zajęty. Proszę spróbować ponownie za chwilę.</string>
+    <string name="earplugs_not_connected">Aby korzystać z tej aplikacji, konieczne jest podłączenie przewodowego zestawu słuchawkowego.</string>
+
+    <!-- Preferences -->
+    <string name="preferences">Ustawienia</string>
+    <string name="pref_notification_bar_title">Panel sterowania na pasku powiadomień</string>
+    <string name="pref_print_debug_info_title">Tworzenie pełnych dzienników</string>
+
+    <!-- About -->
+    <string name="about">O aplikacji</string>
+</resources>
