@@ -335,7 +335,8 @@ public class FmRecordActivity extends Activity implements
                         // Check storage free space
                         String recordingSdcard = FmUtils.getDefaultStoragePath();
                         if (!FmUtils.hasEnoughSpace(recordingSdcard)) {
-                            // Need record above 1s avoid stop called before start
+                            // Need to record more than 1s.
+                            // Avoid calling MediaRecorder.stop() before native record starts.
                             if (recordTime > 1000) {
                                 // Insufficient storage
                                 mService.stopRecordingAsync();
