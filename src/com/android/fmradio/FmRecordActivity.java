@@ -388,6 +388,10 @@ public class FmRecordActivity extends Activity implements
         switch (errorType) {
             case FmRecorder.ERROR_SDCARD_NOT_PRESENT:
                 showString = getString(R.string.toast_sdcard_missing);
+                returnResult(null, showString);
+                finish();
+                break;
+
             case FmRecorder.ERROR_SDCARD_INSUFFICIENT_SPACE:
                 showString = getString(R.string.toast_sdcard_insufficient_space);
                 returnResult(null, showString);
@@ -396,9 +400,6 @@ public class FmRecordActivity extends Activity implements
 
             case FmRecorder.ERROR_RECORDER_INTERNAL:
                 showString = getString(R.string.toast_recorder_internal_error);
-            case FmListener.NOT_AUDIO_FOCUS:
-                showString = getString(R.string.not_available);
-                showSaveDialog();
                 Toast.makeText(mContext, showString, Toast.LENGTH_SHORT).show();
                 break;
 
