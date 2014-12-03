@@ -81,9 +81,9 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
     // Broadcast messages from other sounder APP to FM service
     private static final String SOUND_POWER_DOWN_MSG = "com.android.music.musicservicecommand";
-    private static final String FM_SEEK_PREVIOUS = "com.medaitek.fmradio.seek.previous";
-    private static final String FM_SEEK_NEXT = "com.medaitek.fmradio.seek.next";
-    private static final String FM_TURN_OFF = "com.medaitek.fmradio.turnoff";
+    private static final String FM_SEEK_PREVIOUS = "fmradio.seek.previous";
+    private static final String FM_SEEK_NEXT = "fmradio.seek.next";
+    private static final String FM_TURN_OFF = "fmradio.turnoff";
     private static final String CMDPAUSE = "pause";
 
     // HandlerThread Keys
