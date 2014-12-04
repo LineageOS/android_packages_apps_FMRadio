@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="6295623783273502721">"एफएम रेडियो"</string>
+    <string name="toast_station_searched" msgid="4804871039582320419">"उपलब्ध स्टेशनहरू खोजी गरियो:"</string>
+    <string name="toast_cannot_search" msgid="8816492120732683772">"उपलब्ध स्टेशन खोजी गर्न सकिएन।"</string>
+    <string name="optmenu_speaker" msgid="3726411287495057671">"स्पिकर"</string>
+    <string name="optmenu_earphone" msgid="5400875884296655508">"इयरफोन"</string>
+    <string name="save" msgid="7204164791719833151">"बचत गर्नुहोस्"</string>
+    <string name="toast_sdcard_missing" msgid="3707819946661311504">"तपाईंको एसडी कार्ड छैन!"</string>
+    <string name="toast_sdcard_insufficient_space" msgid="1150004976629615550">"एसडि कार्डमा अपर्याप्त खाली ठाँउ!"</string>
+    <string name="toast_recorder_internal_error" msgid="8218803072221129182">"रेकर्डरमा आन्तरिक त्रुटि फेला पर्‌‍यो!"</string>
+    <string name="btn_save_recording" msgid="7888937971238580699">"बचत गर्नुहोस्"</string>
+    <string name="btn_discard_recording" msgid="4316913232405323087">"वेवास्ता गर्नुहोस्"</string>
+    <string name="edit_recording_name_hint" msgid="3582848435650002280">"यहाँ फाइलको नाम टाइप गर्नुहोस्"</string>
+    <string name="already_exists" msgid="3665755106404888637">"पहिले नै अवस्थित छ"</string>
+    <string name="not_available" msgid="6709882926236090124">"हाल उपलब्ध छैन"</string>
+    <string name="talk_prev_station" msgid="8940546148820098004">"अघिल्लो स्टेशन"</string>
+    <string name="talk_decrease" msgid="6796562419095928389">"फ्रीक्वेन्सी घटाउनुहोस्"</string>
+    <string name="talk_increase" msgid="7207549524364881559">"फ्रीक्वेन्सी बढाउनुहोस्"</string>
+    <string name="talk_next_station" msgid="2711772562090360378">"अर्को स्टेशन"</string>
+    <string name="talk_add_favorite" msgid="1560744966239678417">"मनपर्नेमा थप्नुहोस्"</string>
+    <string name="talk_start_recording" msgid="2081128687917550957">"रेकर्डिङ सुरू गर्नुहोस्"</string>
+    <string name="more" msgid="8975740653205119861">"थप"</string>
+    <string name="recording_tips" msgid="9013420338482370789">"रेकर्डिङ हुँदै..."</string>
+    <string name="fm_symbol" msgid="2254633383284842986">"एफएम"</string>
+    <string name="fm_turn_on" msgid="407678074231499621">"एफएम रेडियो प्ले वा बन्द गर्नुहोस्"</string>
+    <string name="fm_over_start_record" msgid="2072548132520550718">"रेकर्डिङ सुरू गर्नुहोस्"</string>
+    <string name="fm_over_record_list" msgid="8958996187616432424">"बचत गरिएका रेकर्डिङहरू"</string>
+    <string name="fm_station_list_menu_refresh" msgid="1351081387336325789">"नवीकरण गर्नुहोस्"</string>
+    <string name="fm_no_headset_text" msgid="6831656307562812248">"सुन्न सुरू गर्न, हेडफोन (एन्टिनाको रूपमा प्रयोग गरिएको) प्लग इन गर्नुहोस्।"</string>
+    <string name="station_title" msgid="4027617747760605320">"रेडियो स्टेशनहरू"</string>
+    <string name="station_searching_tips" msgid="6970095710072278870">"स्टेशनहरू प्राप्त गर्दै"</string>
+    <string name="station_empty_text" msgid="6847327406626186898">"कुनै स्टेशनहरू फेला परेन"</string>
+    <string name="minutes_label" msgid="3225846493097986594">"M"</string>
+    <string name="seconds_label" msgid="3998011734682420096">"S"</string>
+    <string name="timer_default" msgid="8062388403825907344">"00"</string>
+    <string name="record_title" msgid="8695283158200902780">"रेकर्डिङ"</string>
+    <string name="record_notification_message" msgid="4999850730062263290">"रेकर्डिङ चलिरहेको छ"</string>
+    <string name="stop_record" msgid="4787351642158009287">"रेकर्डिंङ रोक्नुहोस्"</string>
+    <string name="save_dialog_title" msgid="6977508764748097072">"रेकर्डिङ बचत गर्ने?"</string>
+    <string name="save_dialog_caption" msgid="8618327604827517841">"रेकर्डिङहरू सुन्न, संगीत बजाउनुहोस् अनुप्रयोग खोल्नुहोस्।"</string>
+    <string name="favorites" msgid="2732520024474501799">"मनपर्नेहरू"</string>
+    <string name="rename" msgid="1770973764866255260">"पुन:नामाकरण गर्नुहोस्"</string>
+    <string name="station_rename_hint" msgid="4291305834497293746">"स्टेशनको नाम प्रविष्ट गर्नुहोस्"</string>
+    <string name="remove_favorite" msgid="3128670507986192468">"मनपर्ने हटाउनुहोस्"</string>
+    <string name="toast_record_saved" msgid="2543677492878715874">"रेकर्डिङ बचत भयो"</string>
+    <string name="toast_record_not_saved" msgid="6526674547687611282">"रेकर्डिङ बचत भएन"</string>
+    <string name="toast_listen" msgid="2014315478895754055">"सुन्नुहोस्"</string>
+    <string name="toast_station_renamed" msgid="2185292052267585710">"स्टेशन पुन: नामाकरण गरिएको छ"</string>
+</resources>
