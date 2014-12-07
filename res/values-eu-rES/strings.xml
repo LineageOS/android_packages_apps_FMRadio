@@ -32,8 +32,8 @@
     <string name="already_exists" msgid="3665755106404888637">"lehendik dago"</string>
     <string name="not_available" msgid="6709882926236090124">"Ez dago erabilgarri"</string>
     <string name="talk_prev_station" msgid="8940546148820098004">"Aurreko irrati-katea"</string>
-    <string name="talk_decrease" msgid="6796562419095928389">"Txikitu maiztasuna"</string>
-    <string name="talk_increase" msgid="7207549524364881559">"Handitu maiztasuna"</string>
+    <string name="talk_decrease" msgid="6796562419095928389">"Txikitu irrati-maiztasuna"</string>
+    <string name="talk_increase" msgid="7207549524364881559">"Handitu irrati-maiztasuna"</string>
     <string name="talk_next_station" msgid="2711772562090360378">"Hurrengo irrati-katea"</string>
     <string name="talk_add_favorite" msgid="1560744966239678417">"Gehitu gogokoetan"</string>
     <string name="talk_start_recording" msgid="2081128687917550957">"Hasi grabatzen"</string>
