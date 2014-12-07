@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="6295623783273502721">"FM ရေဒီယို"</string>
+    <string name="toast_station_searched" msgid="4804871039582320419">"နားထောင်နိုင်သော အသံလွှင့်ရုံများ ရှာတွေ့၏−"</string>
+    <string name="toast_cannot_search" msgid="8816492120732683772">"နားထောင်နိုင်သော အသံလွှင့်ရုံ ရှာမတွေ့ပါ။"</string>
+    <string name="optmenu_speaker" msgid="3726411287495057671">"စပီကာ"</string>
+    <string name="optmenu_earphone" msgid="5400875884296655508">"နားကြပ်"</string>
+    <string name="save" msgid="7204164791719833151">"သိမ်းဆည်းရန်"</string>
+    <string name="toast_sdcard_missing" msgid="3707819946661311504">"သင့် SD ကဒ် ရှာမတွေ့ပါ!"</string>
+    <string name="toast_sdcard_insufficient_space" msgid="1150004976629615550">"SD ကဒ် နေရာ မလုံလောက်ပါ!"</string>
+    <string name="toast_recorder_internal_error" msgid="8218803072221129182">"အသံဖမ်းစက်တွင်း တစ်ခုခု မှားနေသည်!"</string>
+    <string name="btn_save_recording" msgid="7888937971238580699">"သိမ်းဆည်းရန်"</string>
+    <string name="btn_discard_recording" msgid="4316913232405323087">"ဖျက်သိမ်းရန်"</string>
+    <string name="edit_recording_name_hint" msgid="3582848435650002280">"ဤတွင် ဖိုင်အမည် ရိုက်ပါ။"</string>
+    <string name="already_exists" msgid="3665755106404888637">"ရှိပြီးဖြစ်၏"</string>
+    <string name="not_available" msgid="6709882926236090124">"လောလောဆယ် မရနိုင်ပါ။"</string>
+    <string name="talk_prev_station" msgid="8940546148820098004">"ယခင် အသံလွှင့်ရုံ"</string>
+    <string name="talk_decrease" msgid="6796562419095928389">"ရေဒီယိုလှိုင်း လျှော့ရန်"</string>
+    <string name="talk_increase" msgid="7207549524364881559">"ရေဒီယိုလှိုင်း တိုးရန်"</string>
+    <string name="talk_next_station" msgid="2711772562090360378">"အသံလွှင့်ရုံ နောက်တစ်ခု"</string>
+    <string name="talk_add_favorite" msgid="1560744966239678417">"စိတ်ကြိုက်များသို့ ထည့်ရန်"</string>
+    <string name="talk_start_recording" msgid="2081128687917550957">"အသံ စ ဖမ်းရန်"</string>
+    <string name="more" msgid="8975740653205119861">"နောက်ထပ်"</string>
+    <string name="recording_tips" msgid="9013420338482370789">"အသံဖမ်းနေခြင်း…"</string>
+    <string name="fm_symbol" msgid="2254633383284842986">"FM"</string>
+    <string name="fm_turn_on" msgid="407678074231499621">"FM ရေဒီယို ဖွင့် သို့ ပိတ်ရန်"</string>
+    <string name="fm_over_start_record" msgid="2072548132520550718">"စတင် အသံသွင်းရန်"</string>
+    <string name="fm_over_record_list" msgid="8958996187616432424">"အသံသွင်းပြီး သိမ်းထားခြင်းများ"</string>
+    <string name="fm_station_list_menu_refresh" msgid="1351081387336325789">"ပြန်လည်ဆန်းသစ်ရန်"</string>
+    <string name="fm_no_headset_text" msgid="6831656307562812248">"စတင်နားထောင်ရန်၊ နားကြပ်အား ပလပ်တပ်ပါ (အင်တာနာအဖြစ် သုံးရန်)။"</string>
+    <string name="station_title" msgid="4027617747760605320">"ရေဒီယို အသံလွှင့်ရုံ"</string>
+    <string name="station_searching_tips" msgid="6970095710072278870">"အသံလွှင့်ရုံများ ရယူနေခြင်း"</string>
+    <string name="station_empty_text" msgid="6847327406626186898">"အသံလွှင့်ရုံများ မတွေ့ပါ။"</string>
+    <string name="minutes_label" msgid="3225846493097986594">"သန်း"</string>
+    <string name="seconds_label" msgid="3998011734682420096">"S"</string>
+    <string name="timer_default" msgid="8062388403825907344">"၀၀"</string>
+    <string name="record_title" msgid="8695283158200902780">"အသံဖမ်းနေခြင်း"</string>
+    <string name="record_notification_message" msgid="4999850730062263290">"အသံဖမ်းနေစဉ်"</string>
+    <string name="stop_record" msgid="4787351642158009287">"အသံဖမ်းခြင်း ရပ်ရန်"</string>
+    <string name="save_dialog_title" msgid="6977508764748097072">"အသံသွင်းထားခြင်းအား သိမ်းမည်လား?"</string>
+    <string name="save_dialog_caption" msgid="8618327604827517841">"အသံသွင်းထားသည်များ နားထောင်ရန်၊ Play Music app အား ဖွင့်ပါ။"</string>
+    <string name="favorites" msgid="2732520024474501799">"အကြိုက်ဆုံး"</string>
+    <string name="rename" msgid="1770973764866255260">"အမည်ပြောင်းရန်"</string>
+    <string name="station_rename_hint" msgid="4291305834497293746">"အသံလွှင့်ရုံအမည် ရိုက်ထည့်ရန်"</string>
+    <string name="remove_favorite" msgid="3128670507986192468">"စိတ်ကြိုက်များမှ ဖယ်ရန်"</string>
+    <string name="toast_record_saved" msgid="2543677492878715874">"အသံဖမ်းခြင်းအား သိမ်းထား၏။"</string>
+    <string name="toast_record_not_saved" msgid="6526674547687611282">"အသံဖမ်းခြင်းအား သိမ်းမထားပါ။"</string>
+    <string name="toast_listen" msgid="2014315478895754055">"နားထောင်ရန်"</string>
+    <string name="toast_station_renamed" msgid="2185292052267585710">"အသံလွှင့်ရုံအား နာမည်ပြောင်းထား၏။"</string>
+</resources>
