@@ -21,7 +21,7 @@
     <string name="toast_station_searched" msgid="4804871039582320419">"جستجوی ایستگاه‌های در دسترس:"</string>
     <string name="toast_cannot_search" msgid="8816492120732683772">"نمی‌توان ایستگاه در دسترس را جستجو کرد."</string>
     <string name="optmenu_speaker" msgid="3726411287495057671">"بلندگو"</string>
-    <string name="optmenu_earphone" msgid="5400875884296655508">"گوشی تلفن"</string>
+    <string name="optmenu_earphone" msgid="5400875884296655508">"گوشی داخل گوش"</string>
     <string name="save" msgid="7204164791719833151">"ذخیره‌"</string>
     <string name="toast_sdcard_missing" msgid="3707819946661311504">"‏کارت SD شما وجود ندارد!"</string>
     <string name="toast_sdcard_insufficient_space" msgid="1150004976629615550">"‏فضای کارت SD کافی نیست!"</string>

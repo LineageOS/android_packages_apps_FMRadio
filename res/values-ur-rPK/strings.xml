@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="6295623783273502721">"‏FM ریڈیو"</string>
+    <string name="toast_station_searched" msgid="4804871039582320419">"تلاش کردہ دستیاب اسٹیشنز:"</string>
+    <string name="toast_cannot_search" msgid="8816492120732683772">"دستیاب اسٹیشن تلاش نہیں کر سکتے۔"</string>
+    <string name="optmenu_speaker" msgid="3726411287495057671">"اسپیکر"</string>
+    <string name="optmenu_earphone" msgid="5400875884296655508">"ایئرفون"</string>
+    <string name="save" msgid="7204164791719833151">"محفوظ کریں"</string>
+    <string name="toast_sdcard_missing" msgid="3707819946661311504">"‏آپ کا SD کارڈ غائب ہے!"</string>
+    <string name="toast_sdcard_insufficient_space" msgid="1150004976629615550">"‏SD کارڈ میں ناکافی جگہ!"</string>
+    <string name="toast_recorder_internal_error" msgid="8218803072221129182">"ریکارڈر میں ایک داخلی خرابی پیش آگئی!"</string>
+    <string name="btn_save_recording" msgid="7888937971238580699">"محفوظ کریں"</string>
+    <string name="btn_discard_recording" msgid="4316913232405323087">"مسترد کریں"</string>
+    <string name="edit_recording_name_hint" msgid="3582848435650002280">"فائل کا نام یہاں ٹائپ کریں"</string>
+    <string name="already_exists" msgid="3665755106404888637">"پہلے سے موجود ہے"</string>
+    <string name="not_available" msgid="6709882926236090124">"فی الحال دستیاب نہیں ہے"</string>
+    <string name="talk_prev_station" msgid="8940546148820098004">"پچھلا اسٹیشن"</string>
+    <string name="talk_decrease" msgid="6796562419095928389">"فریکوئنسی کم کریں"</string>
+    <string name="talk_increase" msgid="7207549524364881559">"فریکوئنسی زیادہ کریں"</string>
+    <string name="talk_next_station" msgid="2711772562090360378">"اگلا اسٹیشن"</string>
+    <string name="talk_add_favorite" msgid="1560744966239678417">"پسندیدہ میں شامل کریں"</string>
+    <string name="talk_start_recording" msgid="2081128687917550957">"ریکارڈنگ شروع کریں"</string>
+    <string name="more" msgid="8975740653205119861">"مزید"</string>
+    <string name="recording_tips" msgid="9013420338482370789">"ریکارڈ کیا جا رہا ہے…"</string>
+    <string name="fm_symbol" msgid="2254633383284842986">"FM"</string>
+    <string name="fm_turn_on" msgid="407678074231499621">"‏FM ریڈیو چلائیں یا روکیں"</string>
+    <string name="fm_over_start_record" msgid="2072548132520550718">"ریکارڈنگ شروع کریں"</string>
+    <string name="fm_over_record_list" msgid="8958996187616432424">"محفوظ کردہ ریکارڈنگز"</string>
+    <string name="fm_station_list_menu_refresh" msgid="1351081387336325789">"ریفریش کریں"</string>
+    <string name="fm_no_headset_text" msgid="6831656307562812248">"سننا شروع کرنے کیلئے، ہیڈ فونز پلگ ان کریں (جو اینٹینا کے بطور استعمال ہوتے ہیں)۔"</string>
+    <string name="station_title" msgid="4027617747760605320">"ریڈیو اسٹیشنز"</string>
+    <string name="station_searching_tips" msgid="6970095710072278870">"اسٹیشنز موصول ہو رہے ہیں"</string>
+    <string name="station_empty_text" msgid="6847327406626186898">"کوئی اسٹیشنز نہیں ملے"</string>
+    <string name="minutes_label" msgid="3225846493097986594">"M"</string>
+    <string name="seconds_label" msgid="3998011734682420096">"S"</string>
+    <string name="timer_default" msgid="8062388403825907344">"00"</string>
+    <string name="record_title" msgid="8695283158200902780">"ریکارڈنگ"</string>
+    <string name="record_notification_message" msgid="4999850730062263290">"ریکارڈنگ ہو رہی ہے"</string>
+    <string name="stop_record" msgid="4787351642158009287">"ریکارڈنگ روکیں"</string>
+    <string name="save_dialog_title" msgid="6977508764748097072">"ریکارڈنگ محفوظ کریں؟"</string>
+    <string name="save_dialog_caption" msgid="8618327604827517841">"‏ریکارڈنگز سننے کیلئے، Play Music ایپ کھولیں۔"</string>
+    <string name="favorites" msgid="2732520024474501799">"پسندیدہ"</string>
+    <string name="rename" msgid="1770973764866255260">"نام بدلیں"</string>
+    <string name="station_rename_hint" msgid="4291305834497293746">"اسٹیشن کا نام درج کریں"</string>
+    <string name="remove_favorite" msgid="3128670507986192468">"پسندیدہ سے ہٹائیں"</string>
+    <string name="toast_record_saved" msgid="2543677492878715874">"ریکارڈنگ محفوظ ہوگئی"</string>
+    <string name="toast_record_not_saved" msgid="6526674547687611282">"ریکارڈنگ محفوظ نہیں ہوئی"</string>
+    <string name="toast_listen" msgid="2014315478895754055">"سنیں"</string>
+    <string name="toast_station_renamed" msgid="2185292052267585710">"اسٹیشن کا نام تبدیل کر دیا گیا ہے"</string>
+</resources>
