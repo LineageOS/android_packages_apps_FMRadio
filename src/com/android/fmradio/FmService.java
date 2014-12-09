@@ -2031,6 +2031,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                  */
                 @Override
                 public void onAudioFocusChange(int focusChange) {
+                    Log.d(TAG, "onAudioFocusChange " + focusChange);
                     switch (focusChange) {
                         case AudioManager.AUDIOFOCUS_LOSS:
                             synchronized (this) {
@@ -2051,6 +2052,13 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                         case AudioManager.AUDIOFOCUS_GAIN:
                             synchronized (this) {
                                 updateAudioFocusAync(AudioManager.AUDIOFOCUS_GAIN);
+                            }
+                            break;
+
+                        case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
+                            synchronized (this) {
+                                updateAudioFocusAync(
+                                        AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK);
                             }
                             break;
 
@@ -2132,6 +2140,11 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                     bundle.putFloat(FM_FREQUENCY, FmUtils.computeFrequency(mCurrentStation));
                     handlePowerUp(bundle);
                 }
+                setMute(false);
+                break;
+
+            case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
+                setMute(true);
                 break;
 
             default:
