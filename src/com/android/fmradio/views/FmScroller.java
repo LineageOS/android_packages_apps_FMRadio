@@ -1097,7 +1097,7 @@ public class FmScroller extends FrameLayout {
         // Text view
         private TextView mFrequencyText;
 
-        private TextView mFmDescrptionText;
+        private TextView mFmDescriptionText;
 
         private TextView mStationNameText;
 
@@ -1133,7 +1133,7 @@ public class FmScroller extends FrameLayout {
             mFullHeight = mDisplayMetrics.heightPixels - mStatusBarHeight;
 
             mFrequencyText = (TextView) findViewById(R.id.station_value);
-            mFmDescrptionText = (TextView) findViewById(R.id.text_fm);
+            mFmDescriptionText = (TextView) findViewById(R.id.text_fm);
             mStationNameText = (TextView) findViewById(R.id.station_name);
             mStationRdsText = (TextView) findViewById(R.id.station_rds);
             mControlView = findViewById(R.id.rl_imgbtnpart);
@@ -1159,11 +1159,15 @@ public class FmScroller extends FrameLayout {
             protected int mTargetHeight;
 
             // start text size and margin
+            protected float mFmDescriptionTextSizeStart;
+
             protected float mFrequencyStartTextSize;
 
             protected float mStationNameTextSizeStart;
 
-            protected float mFmDescrptionMarginTopStart;
+            protected float mFmDescriptionMarginTopStart;
+
+            protected float mFmDescriptionStartPaddingLeft;
 
             protected float mFrequencyMarginTopStart;
 
@@ -1174,11 +1178,13 @@ public class FmScroller extends FrameLayout {
             protected float mControlViewMarginTopStart;
 
             // target text size and margin
+            protected float mFmDescriptionTextSizeTarget;
+
             protected float mFrequencyTextSizeTarget;
 
             protected float mStationNameTextSizeTarget;
 
-            protected float mFmDescrptionMarginTopTarget;
+            protected float mFmDescriptionMarginTopTarget;
 
             protected float mFrequencyMarginTopTarget;
 
@@ -1195,7 +1201,7 @@ public class FmScroller extends FrameLayout {
             protected float mPlayButtonHeight;
 
             // Padding adjust rate as linear
-            protected float mFmDescrptionPaddingRate;
+            protected float mFmDescriptionPaddingRate;
 
             protected float mFrequencyPaddingRate;
 
@@ -1210,6 +1216,8 @@ public class FmScroller extends FrameLayout {
 
             // Text size adjust rate as linear
             // adjust from first to target critical height
+            protected float mFmDescriptionTextSizeRate;
+
             protected float mFrequencyTextSizeRate;
 
             // adjust before first critical height
@@ -1219,11 +1227,12 @@ public class FmScroller extends FrameLayout {
                 Resources res = mContext.getResources();
                 mTargetHeight = mFirstTargetHeight;
                 // init start
+                mFmDescriptionTextSizeStart = res.getDimension(R.dimen.fm_description_text_size);
                 mFrequencyStartTextSize = res.getDimension(R.dimen.fm_frequency_text_size_start);
                 mStationNameTextSizeStart = res
                         .getDimension(R.dimen.fm_station_name_text_size_start);
                 // first view, margin refer to parent
-                mFmDescrptionMarginTopStart = res
+                mFmDescriptionMarginTopStart = res
                         .getDimension(R.dimen.fm_description_margin_top_start) + mActionBarHeight;
                 mFrequencyMarginTopStart = res.getDimension(R.dimen.fm_frequency_margin_top_start);
                 mStationNameMarginTopStart = res
@@ -1235,13 +1244,17 @@ public class FmScroller extends FrameLayout {
                 // init target
                 mFrequencyTextSizeTarget = res
                         .getDimension(R.dimen.fm_frequency_text_size_first_target);
+                mFmDescriptionTextSizeTarget = mFrequencyTextSizeTarget;
                 mStationNameTextSizeTarget = res
                         .getDimension(R.dimen.fm_station_name_text_size_first_target);
-                mFmDescrptionMarginTopTarget = res
+                mFmDescriptionMarginTopTarget = res
                         .getDimension(R.dimen.fm_description_margin_top_first_target);
+                mFmDescriptionStartPaddingLeft = mFrequencyText.getPaddingLeft();
                 // first view, margin refer to parent if not in landscape
                 if (!mIsLandscape) {
-                    mFmDescrptionMarginTopTarget += mActionBarHeight;
+                    mFmDescriptionMarginTopTarget += mActionBarHeight;
+                } else {
+                    mFrequencyMarginTopStart += mActionBarHeight + mFmDescriptionTextSizeStart;
                 }
                 mFrequencyMarginTopTarget = res
                         .getDimension(R.dimen.fm_frequency_margin_top_first_target);
@@ -1253,12 +1266,14 @@ public class FmScroller extends FrameLayout {
                         .getDimension(R.dimen.fm_control_buttons_margin_top_first_target);
                 // init text size and margin adjust rate
                 int scrollHeight = mFullHeight - mTargetHeight;
+                mFmDescriptionTextSizeRate =
+                        (mFmDescriptionTextSizeStart - mFmDescriptionTextSizeTarget) / scrollHeight;
                 mFrequencyTextSizeRate = (mFrequencyStartTextSize - mFrequencyTextSizeTarget)
                         / scrollHeight;
                 mStationNameTextSizeRate = (mStationNameTextSizeStart - mStationNameTextSizeTarget)
                         / scrollHeight;
-                mFmDescrptionPaddingRate =
-                        (mFmDescrptionMarginTopStart - mFmDescrptionMarginTopTarget)
+                mFmDescriptionPaddingRate =
+                        (mFmDescriptionMarginTopStart - mFmDescriptionMarginTopTarget)
                         / scrollHeight;
                 mFrequencyPaddingRate = (mFrequencyMarginTopStart - mFrequencyMarginTopTarget)
                         / scrollHeight;
@@ -1286,9 +1301,9 @@ public class FmScroller extends FrameLayout {
                 float lastHeight = 0;
                 float newTextSize;
                 // 1.FM description (margin)
-                newMargin = getNewSize(currentHeight, mTargetHeight, mFmDescrptionMarginTopTarget,
-                        mFmDescrptionPaddingRate);
-                lastHeight = setNewPadding(mFmDescrptionText, newMargin);
+                newMargin = getNewSize(currentHeight, mTargetHeight, mFmDescriptionMarginTopTarget,
+                        mFmDescriptionPaddingRate);
+                lastHeight = setNewPadding(mFmDescriptionText, newMargin);
                 // 2. frequency text (text size and margin)
                 newTextSize = getNewSize(currentHeight, mTargetHeight, mFrequencyTextSizeTarget,
                         mFrequencyTextSizeRate);
@@ -1322,27 +1337,48 @@ public class FmScroller extends FrameLayout {
                 float newMargin = 0;
                 float lastHeight = 0;
                 float newTextSize;
-                // 1. FM description (alpha and margin)
-                float alpha = 0f;
-                int offset = (int) ((mFullHeight - currentHeight) / mDensity);// dip
-                if (offset <= 0) {
-                    alpha = 1f;
-                } else if (offset <= 16) {
-                    alpha = 1 - offset / 16f;
-                }
-                mFmDescrptionText.setAlpha(alpha);
-                newMargin = getNewSize(currentHeight, mTargetHeight, mFmDescrptionMarginTopTarget,
-                        mFmDescrptionPaddingRate);
-                lastHeight = setNewPadding(mFmDescrptionText, newMargin);
-                // 2. frequency text (text size and margin)
+                // 1. FM description (color, alpha and margin)
+                newMargin = getNewSize(currentHeight, mTargetHeight, mFmDescriptionMarginTopTarget,
+                        mFmDescriptionPaddingRate);
+                setNewPadding(mFmDescriptionText, newMargin);
+
+                newTextSize = getNewSize(currentHeight, mTargetHeight, mFmDescriptionTextSizeTarget,
+                        mFmDescriptionTextSizeRate);
+                mFmDescriptionText.setTextSize(newTextSize / mDensity);
+                boolean reachTop = (mSecondTargetHeight == getHeaderHeight());
+                mFmDescriptionText.setTextColor(reachTop ? Color.WHITE
+                        : getResources().getColor(R.color.text_fm_color));
+                mFmDescriptionText.setAlpha(reachTop ? 0.87f : 1.0f);
+
+                // 2. frequency text (text size, padding and margin)
                 newTextSize = getNewSize(currentHeight, mTargetHeight, mFrequencyTextSizeTarget,
                         mFrequencyTextSizeRate);
                 mFrequencyText.setTextSize(newTextSize / mDensity);
                 newMargin = getNewSize(currentHeight, mTargetHeight, mFrequencyMarginTopTarget,
                         mFrequencyPaddingRate);
-                lastHeight = setNewPadding(mFrequencyText, newMargin + lastHeight);
+                // Move frequency text like "103.7" from middle to action bar in landscape,
+                // or opposite direction. For example:
+                // *************************          *************************
+                // *                       *          * FM 103.7              *
+                // * FM                    *   <-->   *                       *
+                // * 103.7                 *          *                       *
+                // *************************          *************************
+                // "FM", "103.7" and other subviews are in a RelativeLayout (id actionbar_parent)
+                // in main_header.xml. The position is controlled by the padding of each subview.
+                // Because "FM" and "103.7" move up, we need to change the padding top and change
+                // the padding left of "103.7".
+                // The padding between "FM" and "103.7" is 0.2 (e.g. paddingRate) times
+                // the length of "FM" string length.
+                float paddingRate = 0.2f;
+                float addPadding = (((1 + paddingRate) * computeFmDescriptionWidth())
+                        * (mFullHeight - currentHeight)) / (mFullHeight - mTargetHeight);
+                mFrequencyText.setPadding((int) (addPadding + mFmDescriptionStartPaddingLeft),
+                        (int) (newMargin), mFrequencyText.getPaddingRight(),
+                        mFrequencyText.getPaddingBottom());
+                lastHeight = newMargin + lastHeight + mFrequencyText.getTextSize();
                 // If frequency text move to action bar, change it to bold
                 setNewTypefaceForFrequencyText();
+
                 // 3. station name (text size and margin)
                 newTextSize = getNewSize(currentHeight, mTargetHeight, mStationNameTextSizeTarget,
                         mStationNameTextSizeRate);
@@ -1385,6 +1421,12 @@ public class FmScroller extends FrameLayout {
                         mPlayButtonPaddingRate);
                 setNewPadding(mPlayButtonView, newMargin);
             }
+
+            // Compute the text "FM" width
+            private float computeFmDescriptionWidth() {
+                Paint paint = mFmDescriptionText.getPaint();
+                return (float) paint.measureText(mFmDescriptionText.getText().toString());
+            }
         }
 
         private class SecondRangeAdjuster extends FirstRangeAdjuster {
@@ -1396,7 +1438,7 @@ public class FmScroller extends FrameLayout {
                         .getDimension(R.dimen.fm_frequency_text_size_first_target);
                 mStationNameTextSizeStart = res
                         .getDimension(R.dimen.fm_station_name_text_size_first_target);
-                mFmDescrptionMarginTopStart = res
+                mFmDescriptionMarginTopStart = res
                         .getDimension(R.dimen.fm_description_margin_top_first_target)
                         + mActionBarHeight;// first view, margin refer to parent
                 mFrequencyMarginTopStart = res
@@ -1412,7 +1454,7 @@ public class FmScroller extends FrameLayout {
                         .getDimension(R.dimen.fm_frequency_text_size_second_target);
                 mStationNameTextSizeTarget = res
                         .getDimension(R.dimen.fm_station_name_text_size_second_target);
-                mFmDescrptionMarginTopTarget = res
+                mFmDescriptionMarginTopTarget = res
                         .getDimension(R.dimen.fm_description_margin_top_second_target);
                 mFrequencyMarginTopTarget = res
                         .getDimension(R.dimen.fm_frequency_margin_top_second_target);
@@ -1430,8 +1472,9 @@ public class FmScroller extends FrameLayout {
                 mStationNameTextSizeRate =
                         (mStationNameTextSizeStart - mStationNameTextSizeTarget)
                         / scrollHeight;
-                mFmDescrptionPaddingRate =
-                        (mFmDescrptionMarginTopStart - mFmDescrptionMarginTopTarget)
+                mFmDescriptionPaddingRate =
+                        (mFmDescriptionMarginTopStart - mFmDescriptionMarginTopTarget)
+
                         / scrollHeight;
                 mFrequencyPaddingRate = (mFrequencyMarginTopStart - mFrequencyMarginTopTarget)
                         / scrollHeight;
@@ -1463,10 +1506,10 @@ public class FmScroller extends FrameLayout {
                 } else if (offset <= 16) {
                     alpha = 1 - offset / 16f;
                 }
-                mFmDescrptionText.setAlpha(alpha);
-                newMargin = getNewSize(currentHeight, mTargetHeight, mFmDescrptionMarginTopTarget,
-                        mFmDescrptionPaddingRate);
-                lastHeight = setNewPadding(mFmDescrptionText, newMargin);
+                mFmDescriptionText.setAlpha(alpha);
+                newMargin = getNewSize(currentHeight, mTargetHeight, mFmDescriptionMarginTopTarget,
+                        mFmDescriptionPaddingRate);
+                lastHeight = setNewPadding(mFmDescriptionText, newMargin);
                 // 2. frequency text (text size and margin)
                 newTextSize = getNewSize(currentHeight, mTargetHeight, mFrequencyTextSizeTarget,
                         mFrequencyTextSizeRate);
