@@ -31,8 +31,8 @@
     <!-- first region target text size and margin -->
     <dimen name="fm_frequency_text_size_first_target">20dp</dimen>
     <dimen name="fm_station_name_text_size_first_target">14dp</dimen>
-    <dimen name="fm_description_margin_top_first_target">0dp</dimen>
-    <dimen name="fm_frequency_margin_top_first_target">0dp</dimen>
+    <dimen name="fm_description_margin_top_first_target">10dp</dimen>
+    <dimen name="fm_frequency_margin_top_first_target">10dp</dimen>
     <dimen name="fm_station_name_margin_top_first_target">8dp</dimen>
     <dimen name="fm_station_rds_margin_top_first_target">-14dp</dimen>
     <dimen name="fm_control_buttons_margin_top_first_target">8dp</dimen>
