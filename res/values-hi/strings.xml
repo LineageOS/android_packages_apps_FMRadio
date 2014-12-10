@@ -27,7 +27,7 @@
     <string name="toast_sdcard_insufficient_space" msgid="1150004976629615550">"अपर्याप्त SD कार्ड स्थान!"</string>
     <string name="toast_recorder_internal_error" msgid="8218803072221129182">"रिकॉर्डर में कोई आंतरिक त्रुटि हुई!"</string>
     <string name="btn_save_recording" msgid="7888937971238580699">"सहेजें"</string>
-    <string name="btn_discard_recording" msgid="4316913232405323087">"हटाएं"</string>
+    <string name="btn_discard_recording" msgid="4316913232405323087">"छोड़ें"</string>
     <string name="edit_recording_name_hint" msgid="3582848435650002280">"फ़ाइल का नाम यहां लिखें"</string>
     <string name="already_exists" msgid="3665755106404888637">"पहले से मौजूद है"</string>
     <string name="not_available" msgid="6709882926236090124">"वर्तमान में उपलब्ध नहीं"</string>
