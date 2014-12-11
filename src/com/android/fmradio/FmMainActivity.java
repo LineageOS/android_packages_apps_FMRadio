@@ -240,11 +240,11 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                     refreshPlayButton(true);
                     break;
 
-                case FmListener.MSGID_SWITCH_ANNTENNA:
+                case FmListener.MSGID_SWITCH_ANTENNA:
                     bundle = msg.getData();
-                    boolean hasAnntenna = bundle.getBoolean(FmListener.KEY_IS_SWITCH_ANNTENNA);
+                    boolean hasAntenna = bundle.getBoolean(FmListener.KEY_IS_SWITCH_ANTENNA);
                     // if receive headset plug out, need set headset mode on ui
-                    if (hasAnntenna) {
+                    if (hasAntenna) {
                         playMainAnimation();
                     } else {
                         mMenuItemHeadset.setIcon(R.drawable.btn_fm_headset_selector);

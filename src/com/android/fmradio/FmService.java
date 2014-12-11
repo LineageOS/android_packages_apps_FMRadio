@@ -1022,11 +1022,11 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
      */
     public void switchAntennaAsync(int antenna) {
         final int bundleSize = 1;
-        mFmServiceHandler.removeMessages(FmListener.MSGID_SWITCH_ANNTENNA);
+        mFmServiceHandler.removeMessages(FmListener.MSGID_SWITCH_ANTENNA);
 
         Bundle bundle = new Bundle(bundleSize);
-        bundle.putInt(FmListener.SWITCH_ANNTENNA_VALUE, antenna);
-        Message msg = mFmServiceHandler.obtainMessage(FmListener.MSGID_SWITCH_ANNTENNA);
+        bundle.putInt(FmListener.SWITCH_ANTENNA_VALUE, antenna);
+        Message msg = mFmServiceHandler.obtainMessage(FmListener.MSGID_SWITCH_ANTENNA);
         msg.setData(bundle);
         mFmServiceHandler.sendMessage(msg);
     }
@@ -2413,9 +2413,9 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                     break;
 
                 // switch antenna
-                case FmListener.MSGID_SWITCH_ANNTENNA:
+                case FmListener.MSGID_SWITCH_ANTENNA:
                     bundle = msg.getData();
-                    int value = bundle.getInt(FmListener.SWITCH_ANNTENNA_VALUE);
+                    int value = bundle.getInt(FmListener.SWITCH_ANTENNA_VALUE);
 
                     // if ear phone insert, need dismiss plugin earphone
                     // dialog
@@ -2424,8 +2424,8 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                     if (0 == value) {
                         // powerUpAsync(FMRadioUtils.computeFrequency(mCurrentStation));
                         bundle.putInt(FmListener.CALLBACK_FLAG,
-                                FmListener.MSGID_SWITCH_ANNTENNA);
-                        bundle.putBoolean(FmListener.KEY_IS_SWITCH_ANNTENNA, true);
+                                FmListener.MSGID_SWITCH_ANTENNA);
+                        bundle.putBoolean(FmListener.KEY_IS_SWITCH_ANTENNA, true);
                         notifyActivityStateChanged(bundle);
                     } else {
                         // ear phone plug out, and recorder state is not
@@ -2433,8 +2433,8 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                         // show dialog.
                         if (mRecordState != FmRecorder.STATE_PLAYBACK) {
                             bundle.putInt(FmListener.CALLBACK_FLAG,
-                                    FmListener.MSGID_SWITCH_ANNTENNA);
-                            bundle.putBoolean(FmListener.KEY_IS_SWITCH_ANNTENNA, false);
+                                    FmListener.MSGID_SWITCH_ANTENNA);
+                            bundle.putBoolean(FmListener.KEY_IS_SWITCH_ANTENNA, false);
                             notifyActivityStateChanged(bundle);
                         }
                     }
@@ -2593,8 +2593,8 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         if (!isAntennaAvailable()) {
             Log.d(TAG, "handlePowerUp, earphone is not ready");
             bundle = new Bundle(2);
-            bundle.putInt(FmListener.CALLBACK_FLAG, FmListener.MSGID_SWITCH_ANNTENNA);
-            bundle.putBoolean(FmListener.KEY_IS_SWITCH_ANNTENNA, false);
+            bundle.putInt(FmListener.CALLBACK_FLAG, FmListener.MSGID_SWITCH_ANTENNA);
+            bundle.putBoolean(FmListener.KEY_IS_SWITCH_ANTENNA, false);
             notifyActivityStateChanged(bundle);
             return;
         }
