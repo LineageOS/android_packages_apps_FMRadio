@@ -227,6 +227,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                     bundle = msg.getData();
                     boolean isPowerup = (mService.getPowerStatus() == FmService.POWER_UP);
                     int station = bundle.getInt(FmListener.KEY_TUNE_TO_STATION);
+                    mCurrentStation = station;
                     refreshStationUI(station);
                     if (isPowerup) {
                         refreshImageButton(true);
