@@ -55,7 +55,7 @@
     <string name="record_notification_message" msgid="4999850730062263290">"Aufnahme läuft"</string>
     <string name="stop_record" msgid="4787351642158009287">"Aufzeichnung beenden"</string>
     <string name="save_dialog_title" msgid="6977508764748097072">"Aufnahme speichern?"</string>
-    <string name="save_dialog_caption" msgid="8618327604827517841">"Um Aufnahmen anzuhören, öffnen Sie die Play Music App."</string>
+    <string name="save_dialog_caption" msgid="8618327604827517841">"Um Aufnahmen anzuhören, öffnen Sie die Play Musik App."</string>
     <string name="favorites" msgid="2732520024474501799">"Favoriten"</string>
     <string name="rename" msgid="1770973764866255260">"Umbenennen"</string>
     <string name="station_rename_hint" msgid="4291305834497293746">"Sendernamen eingeben"</string>
