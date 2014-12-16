@@ -48,9 +48,9 @@ public interface FmListener {
     int LISTEN_SPEAKER_MODE_CHANGED = 0x00101000; // 1052672
 
     // Bundle keys
-    String SWITCH_ANNTENNA_VALUE = "switch_anntenna_value";
+    String SWITCH_ANTENNA_VALUE = "switch_antenna_value";
     String CALLBACK_FLAG = "callback_flag";
-    String KEY_IS_SWITCH_ANNTENNA = "key_is_switch_anntenna";
+    String KEY_IS_SWITCH_ANTENNA = "key_is_switch_antenna";
     String KEY_IS_TUNE = "key_is_tune";
     String KEY_TUNE_TO_STATION = "key_tune_to_station";
     String KEY_IS_SEEK = "key_is_seek";
@@ -79,7 +79,7 @@ public interface FmListener {
     int MSGID_UPDATE_RDS = 1;
     int MSGID_UPDATE_CURRENT_STATION = 2;
     int MSGID_ANTENNA_UNAVAILABE = 3;
-    int MSGID_SWITCH_ANNTENNA = 4;
+    int MSGID_SWITCH_ANTENNA = 4;
     int MSGID_SET_RDS_FINISHED = 5;
     int MSGID_SET_CHANNEL_FINISHED = 6;
     int MSGID_SET_MUTE_FINISHED = 7;
