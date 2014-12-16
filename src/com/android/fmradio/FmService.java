@@ -2518,9 +2518,10 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                     //bundle.putInt(FmListener.KEY_TUNE_TO_STATION, scanTuneStation);
                     bundle.putInt(FmListener.KEY_STATION_NUM, result[1]);
                     bundle.putBoolean(FmListener.KEY_IS_SCAN, isScan);
+
+                    mIsScanning = false;
                     // Only notify the newest request activity
                     notifyCurrentActivityStateChanged(bundle);
-                    mIsScanning = false;
                     break;
 
                 // audio focus changed
