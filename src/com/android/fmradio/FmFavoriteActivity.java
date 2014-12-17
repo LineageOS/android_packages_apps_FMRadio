@@ -551,7 +551,9 @@ public class FmFavoriteActivity extends Activity {
             if (FmRecorder.STATE_RECORDING != mService.getRecorderState()) {
                 mService.removeNotification();
             }
-            if ((0 == mMyAdapter.getCount()) || FmUtils.isFirstEnterStationList(mContext)) {
+            // FmUtils.isFirstEnterStationList() must be called at the first time.
+            // After it is called, it will save status to SharedPreferences.
+            if (FmUtils.isFirstEnterStationList(mContext) || (0 == mMyAdapter.getCount())) {
                 refreshMenuItem(false);
                 mLvFavorites.setEmptyView(mSearchTips);
                 mSearchProgress.setIndeterminate(true);
