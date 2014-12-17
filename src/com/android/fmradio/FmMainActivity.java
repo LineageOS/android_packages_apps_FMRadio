@@ -245,10 +245,18 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                     boolean hasAntenna = bundle.getBoolean(FmListener.KEY_IS_SWITCH_ANTENNA);
                     // if receive headset plug out, need set headset mode on ui
                     if (hasAntenna) {
-                        playMainAnimation();
+                        if (mIsActivityForeground) {
+                            playMainAnimation();
+                        } else {
+                            changeToMainLayout();
+                        }
                     } else {
                         mMenuItemHeadset.setIcon(R.drawable.btn_fm_headset_selector);
-                        playNoHeadsetAnimation();
+                        if (mIsActivityForeground) {
+                            playNoHeadsetAnimation();
+                        } else {
+                            changeToNoHeadsetLayout();
+                        }
                     }
                     break;
 
@@ -1144,10 +1152,6 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
             Log.e(TAG, "playMainAnimation, mService is null");
             return;
         }
-        if (!mService.isActivityForeground()) {
-            Log.e(TAG, "playMainAnimation, activity is background");
-            return;
-        }
         if (mMainLayout.isShown()) {
             Log.w(TAG, "playMainAnimation, main layout has already shown");
             return;
@@ -1169,10 +1173,6 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
     private void playNoHeadsetAnimation() {
         if (null == mService) {
             Log.e(TAG, "playNoHeadsetAnimation, mService is null");
-            return;
-        }
-        if (!mService.isActivityForeground()) {
-            Log.e(TAG, "playNoHeadsetAnimation, activity is background");
             return;
         }
         if (mNoHeadsetLayout.isShown()) {
