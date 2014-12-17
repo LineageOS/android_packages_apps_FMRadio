@@ -1629,6 +1629,9 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                         byte[] byteLRText = FmNative.getLrText();
                         if (null != byteLRText) {
                             String rds = new String(byteLRText).trim();
+                            if (!mRtTextString.equals(rds)) {
+                                updatePlayingNotification();
+                            }
                             setLRText(rds);
                             ContentValues values = null;
                             if (FmStation.isStationExist(mContext, mCurrentStation)) {
