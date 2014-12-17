@@ -856,8 +856,6 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         if (isRdsSupported()) {
             ret = FmNative.setRds(on);
         }
-        setPs("");
-        setLRText("");
         return ret;
     }
 
