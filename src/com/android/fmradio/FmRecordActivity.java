@@ -159,7 +159,7 @@ public class FmRecordActivity extends Activity implements
         }
     }
 
-    private void updateNotification(long recordTime) {
+    private void updateRecordingNotification(long recordTime) {
         if (mNotificationBuilder == null) {
             Intent intent = new Intent();
             intent.setClass(mContext, FmRecordActivity.class);
@@ -178,6 +178,13 @@ public class FmRecordActivity extends Activity implements
                     .setLargeIcon(largeIcon)
                     .addAction(R.drawable.btn_fm_rec_stop_enabled, getText(R.string.stop_record),
                             pendingIntent);
+
+            Intent cIntent = new Intent();
+            cIntent.setClass(mContext, FmRecordActivity.class);
+            cIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            PendingIntent contentPendingIntent = PendingIntent.getActivity(mContext, 0, cIntent,
+                    PendingIntent.FLAG_UPDATE_CURRENT);
+            mNotificationBuilder.setContentIntent(contentPendingIntent);
         }
         // Format record time to show on title
         Date date = new Date(recordTime);
@@ -348,7 +355,7 @@ public class FmRecordActivity extends Activity implements
 
                 case MSG_UPDATE_NOTIFICATION:
                     if (mService != null) {
-                        updateNotification(mService.getRecordTime());
+                        updateRecordingNotification(mService.getRecordTime());
                     }
                     mHandler.sendEmptyMessageDelayed(MSG_UPDATE_NOTIFICATION, 1000);
                     break;
