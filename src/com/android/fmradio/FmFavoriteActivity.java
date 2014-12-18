@@ -491,7 +491,7 @@ public class FmFavoriteActivity extends Activity {
                     mService.updatePlayingNotification();
                     if (searchedNum == 0) {
                         Toast.makeText(mContext, getString(R.string.toast_cannot_search),
-                                Toast.LENGTH_SHORT);
+                                Toast.LENGTH_SHORT).show();
                         // searched station is zero, if db has station, should not use empty.
                         if (mMyAdapter.getCount() == 0) {
                             View emptyView = (View) findViewById(R.id.empty_tips);
