@@ -1236,7 +1236,10 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     private MediaSession.Callback mSessionCallback;
 
     private void createMediaSession() {
-        VolumeProvider vp = new VolumeProvider(VolumeProvider.VOLUME_CONTROL_RELATIVE, 15, 7) {
+        int max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int current = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+        VolumeProvider vp = new VolumeProvider(
+                VolumeProvider.VOLUME_CONTROL_RELATIVE, max, current) {
             public void onSetVolumeTo(int volume) {
                 mPatchVolume = computeGainVolume(volume);
                 adjustAudioGain(mPatchVolume);
