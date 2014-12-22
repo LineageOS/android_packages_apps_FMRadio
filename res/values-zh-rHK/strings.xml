@@ -48,7 +48,7 @@
     <string name="station_title" msgid="4027617747760605320">"電台"</string>
     <string name="station_searching_tips" msgid="6970095710072278870">"正在取得電台"</string>
     <string name="station_empty_text" msgid="6847327406626186898">"未找到任何電台"</string>
-    <string name="minutes_label" msgid="3225846493097986594">"分鐘"</string>
+    <string name="minutes_label" msgid="3225846493097986594">"分"</string>
     <string name="seconds_label" msgid="3998011734682420096">"秒"</string>
     <string name="timer_default" msgid="8062388403825907344">"00"</string>
     <string name="record_title" msgid="8695283158200902780">"正在錄音"</string>
