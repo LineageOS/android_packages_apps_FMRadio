@@ -210,6 +210,9 @@ public class FmRecordActivity extends Activity implements
     protected void onResume() {
         super.onResume();
         mIsInBackground = false;
+        if (null != mService) {
+            mService.setFmRecordActivityForeground(true);
+        }
         // Show save dialog if record has stopped and never show it before.
         if (isStopRecording() && !isSaveDialogShown()) {
             showSaveDialog();
@@ -226,6 +229,9 @@ public class FmRecordActivity extends Activity implements
     protected void onPause() {
         super.onPause();
         mIsInBackground = true;
+        if (null != mService) {
+            mService.setFmRecordActivityForeground(false);
+        }
         // Stop refreshing timer text
         mHandler.removeMessages(FmListener.MSGID_REFRESH);
         // Show notification when switch to background
@@ -302,6 +308,7 @@ public class FmRecordActivity extends Activity implements
         public void onServiceConnected(ComponentName name, android.os.IBinder service) {
             mService = ((FmService.ServiceBinder) service).getService();
             mService.registerFmRadioListener(mFmListener);
+            mService.setFmRecordActivityForeground(!mIsInBackground);
             // 1. If have stopped recording, we need check whether need show save dialog again.
             // Because when stop recording in background, we need show it when switch to foreground.
             if (isStopRecording()) {
