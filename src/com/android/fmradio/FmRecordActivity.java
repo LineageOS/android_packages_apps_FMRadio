@@ -361,6 +361,9 @@ public class FmRecordActivity extends Activity implements
                             if (recordTime > 1000) {
                                 // Insufficient storage
                                 mService.stopRecordingAsync();
+                                Toast.makeText(FmRecordActivity.this,
+                                        R.string.toast_sdcard_insufficient_space,
+                                        Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
