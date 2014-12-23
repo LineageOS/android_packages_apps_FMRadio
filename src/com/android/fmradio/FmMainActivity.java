@@ -246,6 +246,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                     // if receive headset plug out, need set headset mode on ui
                     if (hasAntenna) {
                         if (mIsActivityForeground) {
+                            cancelNoHeadsetAnimation();
                             playMainAnimation();
                         } else {
                             changeToMainLayout();
@@ -253,6 +254,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                     } else {
                         mMenuItemHeadset.setIcon(R.drawable.btn_fm_headset_selector);
                         if (mIsActivityForeground) {
+                            cancelMainAnimation();
                             playNoHeadsetAnimation();
                         } else {
                             changeToNoHeadsetLayout();
@@ -394,10 +396,11 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
 
         @Override
         public void onAnimationEnd(Animation animation) {
+            if (!isAntennaAvailable()) {
+                return;
+            }
             changeToMainLayout();
-            mNoEarPhoneTxt.clearAnimation();
-            mNoHeadsetImgView.clearAnimation();
-            mNoEarphoneTextLayout.clearAnimation();
+            cancelMainAnimation();
             Animation anim = AnimationUtils.loadAnimation(mContext,
                     R.anim.main_alpha_in);
             mMainLayout.startAnimation(anim);
@@ -420,9 +423,11 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
 
         @Override
         public void onAnimationEnd(Animation animation) {
+            if (isAntennaAvailable()) {
+                return;
+            }
             changeToNoHeadsetLayout();
-            mMainLayout.clearAnimation();
-            mBtnPlayContainer.clearAnimation();
+            cancelNoHeadsetAnimation();
             Animation anim = AnimationUtils.loadAnimation(mContext,
                     R.anim.noeaphone_alpha_in);
             mNoHeadsetLayout.startAnimation(anim);
@@ -1177,6 +1182,15 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
     }
 
     /*
+     * clear main layout animation
+     */
+    private void cancelMainAnimation() {
+        mNoEarPhoneTxt.clearAnimation();
+        mNoHeadsetImgView.clearAnimation();
+        mNoEarphoneTextLayout.clearAnimation();
+    }
+
+    /*
      * play change to no headset layout animation
      */
     private void playNoHeadsetAnimation() {
@@ -1192,6 +1206,14 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         mMainLayout.startAnimation(animation);
         animation.setAnimationListener(new NoHeadsetAlpaInListener());
         mBtnPlayContainer.startAnimation(animation);
+    }
+
+    /*
+     * clear no headset layout animation
+     */
+    private void cancelNoHeadsetAnimation() {
+        mMainLayout.clearAnimation();
+        mBtnPlayContainer.clearAnimation();
     }
 
     /**
