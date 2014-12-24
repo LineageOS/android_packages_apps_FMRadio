@@ -989,7 +989,8 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
             // if power down by other app, should disable station list, over
             // menu
             mMenuItemStationlList.setEnabled(enabled);
-            mMenuItemHeadset.setEnabled(enabled);
+            // If BT headset is in use, need to disable speaker/earphone switching menu.
+            mMenuItemHeadset.setEnabled(enabled && !mService.isBluetoothHeadsetInUse());
         }
     }
 
