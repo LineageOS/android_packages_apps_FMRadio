@@ -908,11 +908,10 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         // TODO it's on UI thread, change to sub thread
         if (FmStation.isFavoriteStation(mContext, mCurrentStation)) {
             mButtonAddToFavorite.setImageResource(R.drawable.btn_fm_favorite_on_selector);
-            mTextStationName.setText(FmStation.getStationName(mContext, mCurrentStation));
         } else {
             mButtonAddToFavorite.setImageResource(R.drawable.btn_fm_favorite_off_selector);
-            mTextStationName.setText("");
         }
+        mTextStationName.setText(FmStation.getStationName(mContext, mCurrentStation));
     }
 
     /**
