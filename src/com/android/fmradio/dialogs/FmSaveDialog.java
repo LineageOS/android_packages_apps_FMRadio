@@ -32,6 +32,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.fmradio.FmRecorder;
+import com.android.fmradio.FmService;
 import com.android.fmradio.R;
 
 import java.io.File;
@@ -96,6 +97,8 @@ public class FmSaveDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         if (savedInstanceState != null) {
             mRecordingNameToSave = savedInstanceState.getString("record_file_name");
+            mDefaultRecordingName = savedInstanceState.getString("record_default_name");
+            mRecordingSdcard = FmService.getRecordingSdcard();
         }
         setStyle(STYLE_NO_TITLE, 0);
         View view =  getActivity().getLayoutInflater().inflate(R.layout.save_dialog, null);
@@ -151,6 +154,7 @@ public class FmSaveDialog extends DialogFragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putString("record_file_name", mRecordingNameToSave);
+        outState.putString("record_default_name", mDefaultRecordingName);
         super.onSaveInstanceState(outState);
     }
 
