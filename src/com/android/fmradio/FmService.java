@@ -97,6 +97,9 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     // Notification id
     private static final int NOTIFICATION_ID = 1;
 
+    // ignore audio data
+    private static final int AUDIO_IGNORED_NUM = 3;
+
     // Set audio policy for FM
     // should check AUDIO_POLICY_FORCE_FOR_MEDIA in audio_policy.h
     private static final int FOR_PROPRIETARY = 1;
@@ -425,35 +428,48 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     }
 
     class RenderThread extends Thread {
+        private int mCurrentFrame = 0;
+        private boolean isAudioFrameNeedIgnore() {
+            return mCurrentFrame < AUDIO_IGNORED_NUM;
+        }
+
         @Override
         public void run() {
             try {
                 byte[] buffer = new byte[RECORD_BUF_SIZE];
                 while (!Thread.interrupted()) {
-                    boolean render = isRender();
-                    if (render) {
+                    if (isRender()) {
+                        if (mAudioRecord.getRecordingState() == AudioRecord.RECORDSTATE_STOPPED) {
+                            mAudioRecord.startRecording();
+                        }
                         // need rendering
                         if (mAudioTrack.getPlayState() == AudioTrack.PLAYSTATE_STOPPED) {
                             mAudioTrack.play();
                         }
-                        if (mAudioRecord.getRecordingState() == AudioRecord.RECORDSTATE_STOPPED) {
-                            mAudioRecord.startRecording();
-                        }
                         int size = mAudioRecord.read(buffer, 0, RECORD_BUF_SIZE);
+                        // check whether need to ignore first 3 frames audio data from AudioRecord
+                        // to avoid pop noise.
+                        if (isAudioFrameNeedIgnore()) {
+                            mCurrentFrame += 1;
+                            Log.d(TAG, "EYES ignore " + mCurrentFrame);
+                            continue ;
+                        }
                         byte[] tmpBuf = new byte[size];
                         System.arraycopy(buffer, 0, tmpBuf, 0, size);
                         // write to audio track
-                        mAudioTrack.write(tmpBuf, 0, tmpBuf.length);
-                    } else {
-                        // only status wait for render
-                        // stop all
-                        if (mAudioRecord.getRecordingState() == AudioRecord.RECORDSTATE_RECORDING) {
-                            mAudioRecord.stop();
+                        if (isRender()) {
+                            mAudioTrack.write(tmpBuf, 0, tmpBuf.length);
                         }
-
+                    } else {
+                        mCurrentFrame = 0;
                         // Do not stop audio track to keep the native audio patch
                         if (mAudioTrack.getPlayState() == AudioTrack.PLAYSTATE_PLAYING) {
                             mAudioTrack.stop();
+                        }
+
+                        // only status wait for render stop all
+                        if (mAudioRecord.getRecordingState() == AudioRecord.RECORDSTATE_RECORDING) {
+                            mAudioRecord.stop();
                         }
 
                         //enableFmAudio(true);
