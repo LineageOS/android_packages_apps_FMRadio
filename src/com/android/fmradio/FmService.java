@@ -1636,7 +1636,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
             return;
         }
         String stationName = "";
-        String ratioText = "";
+        String radioText = "";
         ContentResolver resolver = mContext.getContentResolver();
         Cursor cursor = null;
         try {
@@ -1652,7 +1652,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                 if (TextUtils.isEmpty(stationName)) {
                     stationName = cursor.getString(cursor.getColumnIndex(Station.PROGRAM_SERVICE));
                 }
-                ratioText = cursor.getString(cursor.getColumnIndex(Station.RADIO_TEXT));
+                radioText = cursor.getString(cursor.getColumnIndex(Station.RADIO_TEXT));
 
             } else {
                 Log.d(TAG, "showPlayingNotification, cursor is null");
@@ -1697,9 +1697,9 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
             stationName = getString(R.string.app_name);
         }
         mNotificationBuilder.setContentTitle(stationName);
-        if (!TextUtils.isEmpty(ratioText)) {
-            mNotificationBuilder.setContentText(ratioText);
-        }
+        // If radio text is "" or null, we also need to update notification.
+        mNotificationBuilder.setContentText(radioText);
+        Log.d(TAG, "showPlayingNotification PS:" + stationName + ", RT:" + radioText);
 
         Notification n = mNotificationBuilder.build();
         n.flags &= ~Notification.FLAG_NO_CLEAR;
