@@ -33,8 +33,6 @@ import android.graphics.Bitmap;
 import android.media.AudioDevicePort;
 import android.media.AudioDevicePortConfig;
 import android.media.AudioFormat;
-import android.media.AudioGain;
-import android.media.AudioGainConfig;
 import android.media.AudioManager;
 import android.media.AudioManager.OnAudioFocusChangeListener;
 import android.media.AudioManager.OnAudioPortUpdateListener;
@@ -46,11 +44,6 @@ import android.media.AudioRecord;
 import android.media.AudioSystem;
 import android.media.AudioTrack;
 import android.media.MediaRecorder;
-import android.media.VolumeProvider;
-import android.media.session.MediaController;
-import android.media.session.MediaSession;
-import android.media.session.MediaSessionManager;
-import android.media.session.PlaybackState;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.Bundle;
@@ -61,7 +54,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-import android.os.ResultReceiver;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -174,6 +166,8 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     private boolean mIsFmMainForeground = true;
     // FmFavoriteActivity foreground
     private boolean mIsFmFavoriteForground = false;
+    // FmRecordActivity foreground
+    private boolean mIsFmRecordForground = false;
     // Instance variables
     private Context mContext = null;
     private AudioManager mAudioManager = null;
@@ -369,20 +363,12 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
      * @param isSpeaker true if set FM audio from speaker
      */
     public void setSpeakerPhoneOn(boolean isSpeaker) {
-        // TODO it's on UI thread, change to sub thread
-        if (isSpeaker) {
-            releaseAudioPatch();
-        }
+        Log.d(TAG, "setSpeakerPhoneOn " + isSpeaker);
         setForceUse(isSpeaker);
-
-        if (isSpeaker) {
-            startRender();
-        } else {
-            enableFmAudio(true);
-        }
     }
 
     private synchronized void startRender() {
+        Log.d(TAG, "startRender");
         mIsRender = true;
         synchronized (mRenderLock) {
             mRenderLock.notify();
@@ -390,6 +376,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     }
 
     private synchronized void stopRender() {
+        Log.d(TAG, "stopRender");
         mIsRender = false;
     }
 
@@ -418,8 +405,6 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
     AudioDevicePort mAudioSource = null;
     AudioDevicePort mAudioSink = null;
-    private int mPatchVolume = 0;
-    private int mPatchVolumeStep = 300;
 
     private boolean isRendering() {
         return mIsRender;
@@ -429,7 +414,6 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         if (mAudioTrack.getPlayState() == AudioTrack.PLAYSTATE_STOPPED) {
             ArrayList<AudioPatch> patches = new ArrayList<AudioPatch>();
             mAudioManager.listAudioPatches(patches);
-            Log.e(TAG, "startAudioTrack, patches count:" + patches.size());
             mAudioTrack.play();
         }
     }
@@ -1226,84 +1210,6 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
         initAudioRecordSink();
         createRenderThread();
-
-        int v = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-        mPatchVolume = computeGainVolume(v);
-    }
-
-    private MediaSession mSession;
-    private PlaybackState mPlaybackState;
-    private MediaSession.Callback mSessionCallback;
-
-    private void createMediaSession() {
-        int max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-        int current = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-        VolumeProvider vp = new VolumeProvider(
-                VolumeProvider.VOLUME_CONTROL_RELATIVE, max, current) {
-            public void onSetVolumeTo(int volume) {
-                mPatchVolume = computeGainVolume(volume);
-                adjustAudioGain(mPatchVolume);
-            }
-
-            public void onAdjustVolume(int direction) {
-                if (direction == 0) {
-                    return;
-                }
-
-                int current = getCurrentVolume() + direction;
-                if (current <= getMaxVolume() && current >= 0) {
-                    setCurrentVolume(current);
-                    mAudioManager.adjustStreamVolume(AudioManager.STREAM_MUSIC, direction, 0);
-                    int v = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-                    if (direction > 0) {
-                        volumeUp();
-                    } else {
-                        volumeDown();
-                    }
-                }
-            }
-        };
-
-        mSessionCallback = new SessionCb();
-        PlaybackState.Builder psBob = new PlaybackState.Builder();
-        mPlaybackState = psBob.setState(PlaybackState.STATE_PLAYING, 0, 0).build();
-        MediaSessionManager man = (MediaSessionManager) mContext
-                         .getSystemService(Context.MEDIA_SESSION_SERVICE);
-        mSession = new MediaSession(mContext, "OneMedia");
-        MediaController controller = mSession.getController();
-        mSession.setCallback(mSessionCallback);
-        mSession.setPlaybackState(mPlaybackState);
-        mSession.setFlags(MediaSession.FLAG_HANDLES_MEDIA_BUTTONS
-                | MediaSession.FLAG_HANDLES_TRANSPORT_CONTROLS);
-        mSession.setActive(true);
-        mSession.setPlaybackToRemote(vp);
-    }
-
-    private class SessionCb extends MediaSession.Callback {
-        @Override
-        public void onPlay() {
-        }
-
-        @Override
-        public void onPause() {
-        }
-
-        @Override
-        public void onCommand(String command, Bundle args, ResultReceiver cb) {
-            super.onCommand(command, args, cb);
-        }
-
-        @Override
-        public boolean onMediaButtonEvent(Intent intent) {
-            return super.onMediaButtonEvent(intent);
-        }
-    }
-
-    private void releaseMediaSession() {
-        if (mSession != null) {
-            mSession.release();
-            mSession = null;
-        }
     }
 
     private void registerAudioPortUpdateListener() {
@@ -1328,6 +1234,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     }
 
     private synchronized void createAudioPatch() {
+        Log.d(TAG, "createAudioPatch");
         if (mAudioPatch != null) {
             Log.d(TAG, "createAudioPatch, mAudioPatch is not null, return");
             return;
@@ -1358,47 +1265,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                     new AudioPortConfig[] {sourceConfig},
                     new AudioPortConfig[] {sinkConfig});
             mAudioPatch = audioPatchArray[0];
-            adjustAudioGain(mPatchVolume);
-            createMediaSession();
         }
-    }
-
-    private void adjustAudioGain(int volume) {
-        if (mAudioPatch == null || mAudioSource == null || mAudioSink == null) {
-            return;
-        }
-
-        AudioGainConfig sinkGainConfig = null;
-        if (mAudioSink.gains().length > 0) {
-            AudioGain sinkGain = null;
-            for (AudioGain gain : mAudioSink.gains()) {
-                if ((gain.mode() & AudioGain.MODE_JOINT) != 0) {
-                    sinkGain = gain;
-                    break;
-                }
-            }
-
-            // NOTE: we only change the source gain in MODE_JOINT here.
-            if (sinkGain != null) {
-                int numChannels = 0;
-                for (int mask = sinkGain.channelMask(); mask > 0; mask >>= 1) {
-                    numChannels += (mask & 1);
-                }
-                int[] gainValues = new int[numChannels];
-                Arrays.fill(gainValues, volume);
-                sinkGainConfig = sinkGain.buildConfig(AudioGain.MODE_JOINT,
-                        0x08, gainValues, 0);
-            }
-        }
-
-        AudioDevicePortConfig sinkConfig = mAudioSink.buildConfig(SAMPLE_RATE,
-                CHANNEL_CONFIG, AUDIO_FORMAT, sinkGainConfig);
-        mAudioManager.setAudioPortGain(mAudioSink, sinkGainConfig);
-    }
-
-    // 0 ~ 15
-    private int computeGainVolume(int streamVolume) {
-        return 0 - (15 - streamVolume) * mPatchVolumeStep;
     }
 
     private FmOnAudioPortUpdateListener mAudioPortUpdateListener = null;
@@ -1410,28 +1277,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
          */
         @Override
         public void onAudioPortListUpdate(AudioPort[] portList) {
-            if (mPowerStatus != POWER_UP) {
-                Log.d(TAG, "onAudioPortListUpdate, not power up, return");
-                return;
-            }
-            if (!mIsAudioFocusHeld) {
-                Log.d(TAG, "onAudioPortListUpdate, current not available return."
-                        + "mIsAudioFocusHeld:" + mIsAudioFocusHeld);
-                return;
-            }
-
-            if (mAudioPatch != null) {
-                startAudioTrack();
-                ArrayList<AudioPatch> patches = new ArrayList<AudioPatch>();
-                mAudioManager.listAudioPatches(patches);
-                if (isPatchMixerToEarphone(patches)) {
-                    stopAudioTrack();
-                    stopRender();
-                } else {
-                    releaseAudioPatch();
-                    startRender();
-                }
-            }
+            // Ingore audio port update
         }
 
         /**
@@ -1453,11 +1299,9 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
             }
 
             if (mAudioPatch != null) {
-                startAudioTrack();
                 ArrayList<AudioPatch> patches = new ArrayList<AudioPatch>();
                 mAudioManager.listAudioPatches(patches);
                 if (isPatchMixerToEarphone(patches)) {
-                    stopAudioTrack();
                     stopRender();
                 } else {
                     releaseAudioPatch();
@@ -1485,9 +1329,9 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
     private synchronized void releaseAudioPatch() {
         if (mAudioPatch != null) {
+            Log.d(TAG, "releaseAudioPatch");
             mAudioManager.releaseAudioPatch(mAudioPatch);
             mAudioPatch = null;
-            releaseMediaSession();
         }
         mAudioSource = null;
         mAudioSink = null;
@@ -1528,7 +1372,6 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         }
         exitRenderThread();
         releaseAudioPatch();
-        releaseMediaSession();
         unregisterAudioPortUpdateListener();
         super.onDestroy();
     }
@@ -2622,7 +2465,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
      * check FM is foreground or background
      */
     public boolean isActivityForeground() {
-        return (mIsFmMainForeground || mIsFmFavoriteForground);
+        return (mIsFmMainForeground || mIsFmFavoriteForground || mIsFmRecordForground);
     }
 
     /**
@@ -2639,6 +2482,14 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
      */
     public void setFmFavoriteForeground(boolean isForeground) {
         mIsFmFavoriteForground = isForeground;
+    }
+
+    /**
+     * mark FmRecordActivity activity is foreground or not
+     * @param isForeground
+     */
+    public void setFmRecordActivityForeground(boolean isForeground) {
+        mIsFmRecordForground = isForeground;
     }
 
     /**
@@ -2701,20 +2552,6 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     public void onTaskRemoved(Intent rootIntent) {
         exitFm();
         super.onTaskRemoved(rootIntent);
-    }
-
-    private void volumeUp() {
-        if (mPatchVolume < 0) {
-            mPatchVolume += mPatchVolumeStep;
-        }
-        adjustAudioGain(mPatchVolume);
-    }
-
-    private void volumeDown() {
-        if (mPatchVolume > -4500) {
-            mPatchVolume -= mPatchVolumeStep;
-        }
-        adjustAudioGain(mPatchVolume);
     }
 
     private boolean firstPlaying(float frequency) {
