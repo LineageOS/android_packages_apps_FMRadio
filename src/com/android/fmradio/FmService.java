@@ -165,9 +165,9 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     // FmMainActivity foreground
     private boolean mIsFmMainForeground = true;
     // FmFavoriteActivity foreground
-    private boolean mIsFmFavoriteForground = false;
+    private boolean mIsFmFavoriteForeground = false;
     // FmRecordActivity foreground
-    private boolean mIsFmRecordForground = false;
+    private boolean mIsFmRecordForeground = false;
     // Instance variables
     private Context mContext = null;
     private AudioManager mAudioManager = null;
@@ -2465,7 +2465,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
      * check FM is foreground or background
      */
     public boolean isActivityForeground() {
-        return (mIsFmMainForeground || mIsFmFavoriteForground || mIsFmRecordForground);
+        return (mIsFmMainForeground || mIsFmFavoriteForeground || mIsFmRecordForeground);
     }
 
     /**
@@ -2481,7 +2481,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
      * @param isForeground
      */
     public void setFmFavoriteForeground(boolean isForeground) {
-        mIsFmFavoriteForground = isForeground;
+        mIsFmFavoriteForeground = isForeground;
     }
 
     /**
@@ -2489,7 +2489,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
      * @param isForeground
      */
     public void setFmRecordActivityForeground(boolean isForeground) {
-        mIsFmRecordForground = isForeground;
+        mIsFmRecordForeground = isForeground;
     }
 
     /**
