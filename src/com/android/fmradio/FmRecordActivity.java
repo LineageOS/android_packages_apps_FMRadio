@@ -410,6 +410,12 @@ public class FmRecordActivity extends Activity implements
                 Toast.makeText(mContext, showString, Toast.LENGTH_SHORT).show();
                 break;
 
+            case FmRecorder.ERROR_SDCARD_WRITE_FAILED:
+                showString = getString(R.string.toast_recorder_internal_error);
+                returnResult(null, showString);
+                finish();
+                break;
+
             default:
                 Log.w(TAG, "handleRecordError, invalid record error");
                 break;
