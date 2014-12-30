@@ -322,6 +322,12 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                     boolean isSpeakerMode = bundle.getBoolean(FmListener.KEY_IS_SPEAKER_MODE);
                     break;
 
+                case FmListener.LISTEN_RECORDSTATE_CHANGED:
+                    if (mService != null) {
+                        mService.updatePlayingNotification();
+                    }
+                    break;
+
                 default:
                     break;
             }
