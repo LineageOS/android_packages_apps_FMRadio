@@ -511,6 +511,9 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                 // TODO it's on UI thread, change to sub thread
                 if (FmStation.isFavoriteStation(mContext, frequency)) {
                     FmStation.removeFromFavorite(mContext, frequency);
+                    if (mCurrentStation == frequency) {
+                        mTextStationName.setText(FmStation.getStationName(mContext, frequency));
+                    }
                     mButtonAddToFavorite.setImageResource(R.drawable.btn_fm_favorite_off_selector);
                     // Notify scroller
                     mScroller.onRemoveFavorite();
