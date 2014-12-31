@@ -316,6 +316,7 @@ public class FmStation {
     public static void removeFromFavorite(Context context, int frequency) {
         ContentValues values = new ContentValues(1);
         values.put(Station.IS_FAVORITE, false);
+        values.put(Station.STATION_NAME, "");
         context.getContentResolver().update(
                 Station.CONTENT_URI,
                 values,
