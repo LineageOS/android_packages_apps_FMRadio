@@ -55,8 +55,10 @@ import java.util.Locale;
  */
 public class FmRecordActivity extends Activity implements
         FmSaveDialog.OnRecordingDialogClickListener {
-    private static final String TAG = "FmRecordActivity/Record";
+    private static final String TAG = "FmRecordActivity";
 
+    private static final String FM_STOP_RECORDING = "fmradio.stop.recording";
+    private static final String FM_ENTER_RECORD_SCREEN = "fmradio.enter.record.screen";
     private static final String TAG_SAVE_RECORDINGD = "SaveRecording";
     private static final int MSG_UPDATE_NOTIFICATION = 1000;
     private Context mContext;
@@ -161,9 +163,8 @@ public class FmRecordActivity extends Activity implements
 
     private void updateRecordingNotification(long recordTime) {
         if (mNotificationBuilder == null) {
-            Intent intent = new Intent();
+            Intent intent = new Intent(FM_STOP_RECORDING);
             intent.setClass(mContext, FmRecordActivity.class);
-            intent.putExtra("is_from_notification", true);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, intent,
                     PendingIntent.FLAG_UPDATE_CURRENT);
@@ -179,7 +180,7 @@ public class FmRecordActivity extends Activity implements
                     .addAction(R.drawable.btn_fm_rec_stop_enabled, getText(R.string.stop_record),
                             pendingIntent);
 
-            Intent cIntent = new Intent();
+            Intent cIntent = new Intent(FM_ENTER_RECORD_SCREEN);
             cIntent.setClass(mContext, FmRecordActivity.class);
             cIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent contentPendingIntent = PendingIntent.getActivity(mContext, 0, cIntent,
@@ -199,10 +200,16 @@ public class FmRecordActivity extends Activity implements
 
     @Override
     public void onNewIntent(Intent intent) {
-        // If start by notification, need stop recording
-        if (intent != null && intent.getBooleanExtra("is_from_notification", false)
-                && mService != null & !isStopRecording()) {
-            mService.stopRecordingAsync();
+        if (intent != null && intent.getAction() != null) {
+            String action = intent.getAction();
+            if (FM_STOP_RECORDING.equals(action)) {
+                // If click stop button in notification, need to stop recording
+                if (mService != null && !isStopRecording()) {
+                    mService.stopRecordingAsync();
+                }
+            } else if (FM_ENTER_RECORD_SCREEN.equals(action)) {
+                // Just enter record screen, do nothing
+            }
         }
     }
 
