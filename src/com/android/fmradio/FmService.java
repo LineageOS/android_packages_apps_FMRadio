@@ -21,6 +21,8 @@ import android.app.Notification;
 import android.app.Notification.BigTextStyle;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothProfile;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -368,6 +370,17 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     public void setSpeakerPhoneOn(boolean isSpeaker) {
         Log.d(TAG, "setSpeakerPhoneOn " + isSpeaker);
         setForceUse(isSpeaker);
+    }
+
+    /**
+     * Check if BT headset is connected
+     * @return true if current is playing with BT headset
+     */
+    public boolean isBluetoothHeadsetInUse() {
+        BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
+        int a2dpState = btAdapter.getProfileConnectionState(BluetoothProfile.HEADSET);
+        return (BluetoothProfile.STATE_CONNECTED == a2dpState
+                || BluetoothProfile.STATE_CONNECTING == a2dpState);
     }
 
     private synchronized void startRender() {
