@@ -435,7 +435,7 @@ public class FmRecordActivity extends Activity implements
         if (recordName != null) {
             intent.setData(Uri.parse("file://" + FmService.getRecordingSdcard()
                     + File.separator + FmRecorder.FM_RECORD_FOLDER + File.separator
-                    + recordName + FmRecorder.RECORDING_FILE_EXTENSION));
+                    + Uri.encode(recordName) + FmRecorder.RECORDING_FILE_EXTENSION));
         }
         setResult(RESULT_OK, intent);
     }
