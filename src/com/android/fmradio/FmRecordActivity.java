@@ -61,6 +61,7 @@ public class FmRecordActivity extends Activity implements
     private static final String FM_ENTER_RECORD_SCREEN = "fmradio.enter.record.screen";
     private static final String TAG_SAVE_RECORDINGD = "SaveRecording";
     private static final int MSG_UPDATE_NOTIFICATION = 1000;
+    private static final int TIME_BASE = 60;
     private Context mContext;
     private TextView mMintues;
     private TextView mSeconds;
@@ -226,6 +227,7 @@ public class FmRecordActivity extends Activity implements
         }
         // Trigger to refreshing timer text if still in record
         if (!isStopRecording()) {
+            mHandler.removeMessages(FmListener.MSGID_REFRESH);
             mHandler.sendEmptyMessage(FmListener.MSGID_REFRESH);
         }
         // Clear notification, it only need show when in background
@@ -331,6 +333,7 @@ public class FmRecordActivity extends Activity implements
             }
             mPlayIndicator.startAnimation();
             mStopRecordButton.setEnabled(true);
+            mHandler.removeMessages(FmListener.MSGID_REFRESH);
             mHandler.sendEmptyMessage(FmListener.MSGID_REFRESH);
         };
 
@@ -340,6 +343,14 @@ public class FmRecordActivity extends Activity implements
         };
     };
 
+    private String addPaddingForString(long time) {
+        StringBuilder builder = new StringBuilder();
+        if (time >= 0 && time < 10) {
+            builder.append("0");
+        }
+        return builder.append(time).toString();
+    }
+
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -347,11 +358,9 @@ public class FmRecordActivity extends Activity implements
                 case FmListener.MSGID_REFRESH:
                     if (mService != null) {
                         long recordTime = mService.getRecordTime();
-                        Date date = new Date(recordTime);
-                        SimpleDateFormat format = new SimpleDateFormat("mm:ss");
-                        String[] timeText = format.format(date).split(":");
-                        mMintues.setText(timeText[0]);
-                        mSeconds.setText(timeText[1]);
+                        recordTime = recordTime / 1000L;
+                        mMintues.setText(addPaddingForString(recordTime / TIME_BASE));
+                        mSeconds.setText(addPaddingForString(recordTime % TIME_BASE));
 
                         // Check storage free space
                         String recordingSdcard = FmUtils.getDefaultStoragePath();
