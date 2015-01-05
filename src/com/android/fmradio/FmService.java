@@ -384,7 +384,21 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     }
 
     private synchronized void startRender() {
-        Log.d(TAG, "startRender");
+        Log.d(TAG, "startRender " + AudioSystem.getForceUse(FOR_PROPRIETARY));
+        // Stop old AudioRecord and create a new AudioRecord
+        // when plugging out and then plugging in wired headset.
+        // Otherwise, reading data from old AudioRecord will be blocked.
+        if (AudioSystem.getForceUse(FOR_PROPRIETARY) ==
+                AudioSystem.FORCE_SPEAKER && mIsSpeakerUsed) {
+            if (mAudioRecord != null) {
+                mAudioRecord.stop();
+            }
+            if (mAudioTrack != null) {
+                mAudioTrack.stop();
+            }
+            initAudioRecordSink();
+        }
+
         mIsRender = true;
         synchronized (mRenderLock) {
             mRenderLock.notify();
@@ -466,6 +480,11 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                             mCurrentFrame += 1;
                             Log.d(TAG, "EYES ignore " + mCurrentFrame);
                             continue ;
+                        }
+                        if (size <= 0) {
+                            Log.e(TAG, "RenderThread read data from AudioRecord "
+                                    + "error size: " + size);
+                            continue;
                         }
                         byte[] tmpBuf = new byte[size];
                         System.arraycopy(buffer, 0, tmpBuf, 0, size);
@@ -1640,6 +1659,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
             AudioPortConfig sinkConfig = sinks[0];
             AudioPort sourcePort = sourceConfig.port();
             AudioPort sinkPort = sinkConfig.port();
+            Log.d(TAG, "isPatchMixerToEarphone " + sourcePort + " ====> " + sinkPort);
             if (sourcePort instanceof AudioMixPort && sinkPort instanceof AudioDevicePort) {
                 deviceCount++;
                 int type = ((AudioDevicePort) sinkPort).type();
