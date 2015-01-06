@@ -454,6 +454,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
             mButtonAddToFavorite.setImageResource(R.drawable.btn_fm_favorite_off_selector);
             // Notify scroller
             mScroller.onRemoveFavorite();
+            mTextStationName.setText(FmStation.getStationName(mContext, mCurrentStation));
         } else {
             // Add the station to favorite
             if (FmStation.isStationExist(mContext, mCurrentStation)) {
