@@ -32,6 +32,7 @@
         android:singleLine="true"
         android:alpha="0.87"
         android:hint="@string/station_rename_hint"
+        android:maxLength="60"
         android:textSize="16dp"
         android:textColor="@color/black_color" />
 </LinearLayout>
