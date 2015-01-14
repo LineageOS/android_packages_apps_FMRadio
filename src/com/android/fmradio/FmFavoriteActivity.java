@@ -557,6 +557,7 @@ public class FmFavoriteActivity extends Activity {
                 refreshMenuItem(false);
                 mLvFavorites.setEmptyView(mSearchTips);
                 mSearchProgress.setIndeterminate(true);
+                mMyAdapter.swipResult(null);
                 mService.startScanAsync();
             } else {
                 boolean isScan = mService.isScanning();
