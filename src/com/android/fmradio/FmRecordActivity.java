@@ -258,6 +258,7 @@ public class FmRecordActivity extends Activity implements
         mHandler.removeMessages(MSG_UPDATE_NOTIFICATION);
         if (mService != null) {
             mService.removeNotification();
+            mService.updatePlayingNotification();
         }
     }
 
@@ -357,24 +358,11 @@ public class FmRecordActivity extends Activity implements
             switch (msg.what) {
                 case FmListener.MSGID_REFRESH:
                     if (mService != null) {
-                        long recordTime = mService.getRecordTime();
-                        recordTime = recordTime / 1000L;
-                        mMintues.setText(addPaddingForString(recordTime / TIME_BASE));
-                        mSeconds.setText(addPaddingForString(recordTime % TIME_BASE));
-
-                        // Check storage free space
-                        String recordingSdcard = FmUtils.getDefaultStoragePath();
-                        if (!FmUtils.hasEnoughSpace(recordingSdcard)) {
-                            // Need to record more than 1s.
-                            // Avoid calling MediaRecorder.stop() before native record starts.
-                            if (recordTime > 1000) {
-                                // Insufficient storage
-                                mService.stopRecordingAsync();
-                                Toast.makeText(FmRecordActivity.this,
-                                        R.string.toast_sdcard_insufficient_space,
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        }
+                        long recordTimeInMillis = mService.getRecordTime();
+                        long recordTimeInSec = recordTimeInMillis / 1000L;
+                        mMintues.setText(addPaddingForString(recordTimeInSec / TIME_BASE));
+                        mSeconds.setText(addPaddingForString(recordTimeInSec % TIME_BASE));
+                        checkStorageSpaceAndStop();
                     }
                     mHandler.sendEmptyMessageDelayed(FmListener.MSGID_REFRESH, 1000);
                     break;
@@ -382,6 +370,7 @@ public class FmRecordActivity extends Activity implements
                 case MSG_UPDATE_NOTIFICATION:
                     if (mService != null) {
                         updateRecordingNotification(mService.getRecordTime());
+                        checkStorageSpaceAndStop();
                     }
                     mHandler.sendEmptyMessageDelayed(MSG_UPDATE_NOTIFICATION, 1000);
                     break;
@@ -414,6 +403,24 @@ public class FmRecordActivity extends Activity implements
             }
         };
     };
+
+    private void checkStorageSpaceAndStop() {
+        long recordTimeInMillis = mService.getRecordTime();
+        long recordTimeInSec = recordTimeInMillis / 1000L;
+        // Check storage free space
+        String recordingSdcard = FmUtils.getDefaultStoragePath();
+        if (!FmUtils.hasEnoughSpace(recordingSdcard)) {
+            // Need to record more than 1s.
+            // Avoid calling MediaRecorder.stop() before native record starts.
+            if (recordTimeInSec >= 1) {
+                // Insufficient storage
+                mService.stopRecordingAsync();
+                Toast.makeText(FmRecordActivity.this,
+                        R.string.toast_sdcard_insufficient_space,
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
     private void handleRecordError(int errorType) {
         Log.d(TAG, "handleRecordError, errorType = " + errorType);
