@@ -251,6 +251,11 @@ public class FmRecordActivity extends Activity implements
         // If have stopped recording, need not show notification
         if (!isStopRecording()) {
             mHandler.sendEmptyMessage(MSG_UPDATE_NOTIFICATION);
+        } else if (isSaveDialogShown()) {
+            // Only when save dialog is shown and FM radio is back to background,
+            // it is necessary to update playing notification.
+            // Otherwise, FmMainActivity will update playing notification.
+            mService.updatePlayingNotification();
         }
     }
 
