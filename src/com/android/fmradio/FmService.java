@@ -100,7 +100,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     private static final int NOTIFICATION_ID = 1;
 
     // ignore audio data
-    private static final int AUDIO_IGNORED_NUM = 3;
+    private static final int AUDIO_FRAMES_TO_IGNORE_COUNT = 3;
 
     // Set audio policy for FM
     // should check AUDIO_POLICY_FORCE_FOR_MEDIA in audio_policy.h
@@ -457,7 +457,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     class RenderThread extends Thread {
         private int mCurrentFrame = 0;
         private boolean isAudioFrameNeedIgnore() {
-            return mCurrentFrame < AUDIO_IGNORED_NUM;
+            return mCurrentFrame < AUDIO_FRAMES_TO_IGNORE_COUNT;
         }
 
         @Override
@@ -466,10 +466,13 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                 byte[] buffer = new byte[RECORD_BUF_SIZE];
                 while (!Thread.interrupted()) {
                     if (isRender()) {
+                        // Speaker mode or BT a2dp mode will come here and keep reading and writing.
+                        // If we want FM sound output from speaker or BT a2dp, we must record data
+                        // to AudioRecrd and write data to AudioTrack.
                         if (mAudioRecord.getRecordingState() == AudioRecord.RECORDSTATE_STOPPED) {
                             mAudioRecord.startRecording();
                         }
-                        // need rendering
+
                         if (mAudioTrack.getPlayState() == AudioTrack.PLAYSTATE_STOPPED) {
                             mAudioTrack.play();
                         }
@@ -478,7 +481,6 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                         // to avoid pop noise.
                         if (isAudioFrameNeedIgnore()) {
                             mCurrentFrame += 1;
-                            Log.d(TAG, "EYES ignore " + mCurrentFrame);
                             continue ;
                         }
                         if (size <= 0) {
@@ -488,23 +490,23 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                         }
                         byte[] tmpBuf = new byte[size];
                         System.arraycopy(buffer, 0, tmpBuf, 0, size);
-                        // write to audio track
+                        // Check again to avoid noises, because mIsRender may be changed
+                        // while AudioRecord is reading.
                         if (isRender()) {
                             mAudioTrack.write(tmpBuf, 0, tmpBuf.length);
                         }
                     } else {
+                        // Earphone mode will come here and wait.
                         mCurrentFrame = 0;
-                        // Do not stop audio track to keep the native audio patch
+
                         if (mAudioTrack.getPlayState() == AudioTrack.PLAYSTATE_PLAYING) {
                             mAudioTrack.stop();
                         }
 
-                        // only status wait for render stop all
                         if (mAudioRecord.getRecordingState() == AudioRecord.RECORDSTATE_RECORDING) {
                             mAudioRecord.stop();
                         }
 
-                        //enableFmAudio(true);
                         synchronized (mRenderLock) {
                             mRenderLock.wait();
                         }
@@ -1274,7 +1276,11 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         }
     }
 
-    private void initAudioRecordSink() {
+    // This function may be called in different threads.
+    // Need to add "synchronized" to make sure mAudioRecord and mAudioTrack are the newest.
+    // Thread 1: onCreate() or startRender()
+    // Thread 2: onAudioPatchListUpdate() or startRender()
+    private synchronized void initAudioRecordSink() {
         mAudioRecord = new AudioRecord(MediaRecorder.AudioSource.FM_TUNER,
                 SAMPLE_RATE, CHANNEL_CONFIG, AUDIO_FORMAT, RECORD_BUF_SIZE);
         mAudioTrack = new AudioTrack(AudioManager.STREAM_MUSIC,
@@ -1336,19 +1342,26 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         @Override
         public void onAudioPatchListUpdate(AudioPatch[] patchList) {
             if (mPowerStatus != POWER_UP) {
-                Log.d(TAG, "onAudioPortListUpdate, not power up");
+                Log.d(TAG, "onAudioPatchListUpdate, not power up");
                 return;
             }
 
             if (!mIsAudioFocusHeld) {
-                Log.d(TAG, "onAudioPortListUpdate, Current not available return."
-                        + "mIsAudioFocusHeld:" + mIsAudioFocusHeld);
+                Log.d(TAG, "onAudioPatchListUpdate no audio focus");
                 return;
             }
 
             if (mAudioPatch != null) {
                 ArrayList<AudioPatch> patches = new ArrayList<AudioPatch>();
                 mAudioManager.listAudioPatches(patches);
+                // When BT or WFD is connected, native will remove the patch (mixer -> device).
+                // Need to recreate AudioRecord and AudioTrack for this case.
+                if (isPatchMixerToDeviceRemoved(patches)) {
+                    Log.d(TAG, "onAudioPatchListUpdate reinit for BT or WFD connected");
+                    initAudioRecordSink();
+                    startRender();
+                    return;
+                }
                 if (isPatchMixerToEarphone(patches)) {
                     stopRender();
                 } else {
@@ -1673,6 +1686,26 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
             return true;
         }
         return false;
+    }
+
+    // Check whether the patch (mixer -> device) is removed by native.
+    // If no patch (mixer -> device), return true.
+    private boolean isPatchMixerToDeviceRemoved(ArrayList<AudioPatch> patches) {
+        boolean noMixerToDevice = true;
+        for (AudioPatch patch : patches) {
+            AudioPortConfig[] sources = patch.sources();
+            AudioPortConfig[] sinks = patch.sinks();
+            AudioPortConfig sourceConfig = sources[0];
+            AudioPortConfig sinkConfig = sinks[0];
+            AudioPort sourcePort = sourceConfig.port();
+            AudioPort sinkPort = sinkConfig.port();
+
+            if (sourcePort instanceof AudioMixPort && sinkPort instanceof AudioDevicePort) {
+                noMixerToDevice = false;
+                break;
+            }
+        }
+        return noMixerToDevice;
     }
 
     /**
