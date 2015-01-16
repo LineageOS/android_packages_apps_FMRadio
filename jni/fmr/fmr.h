@@ -34,7 +34,7 @@
 
 #include "fm.h"
 
-#define FM_LIB_USE_XLOG
+#undef FM_LIB_USE_XLOG
 
 #ifdef FM_LIB_USE_XLOG
 #include <cutils/xlog.h>
@@ -48,6 +48,17 @@
 #define LOGW(...) XLOGW(__VA_ARGS__)
 #undef LOGE
 #define LOGE(...) XLOGE(__VA_ARGS__)
+#else
+#undef LOGV
+#define LOGV(...) ALOGV(__VA_ARGS__)
+#undef LOGD
+#define LOGD(...) ALOGD(__VA_ARGS__)
+#undef LOGI
+#define LOGI(...) ALOGI(__VA_ARGS__)
+#undef LOGW
+#define LOGW(...) ALOGW(__VA_ARGS__)
+#undef LOGE
+#define LOGE(...) ALOGE(__VA_ARGS__)
 #endif
 
 #define CUST_LIB_NAME "libfmcust.so"
