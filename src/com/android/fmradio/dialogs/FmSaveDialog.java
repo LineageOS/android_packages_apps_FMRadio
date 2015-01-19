@@ -62,6 +62,8 @@ public class FmSaveDialog extends DialogFragment {
 
     private String mRecordingFileName = null;
 
+    private String mTempRecordingName = null;
+
     /**
      * FM record dialog fragment, because fragment manager need empty
      * constructor to instantiated this dialog fragment when configuration
@@ -79,7 +81,8 @@ public class FmSaveDialog extends DialogFragment {
      */
     public FmSaveDialog(String sdcard, String defaultName, String recordingName) {
         mRecordingSdcard = sdcard;
-        mDefaultRecordingName = defaultName;
+        mTempRecordingName = defaultName + FmRecorder.RECORDING_FILE_EXTENSION;
+        mDefaultRecordingName = recordingName;
         mRecordingNameToSave = recordingName;
     }
 
@@ -205,12 +208,13 @@ public class FmSaveDialog extends DialogFragment {
         @Override
         public void onClick(View v) {
 
+            File recordingFolderPath = new File(mRecordingSdcard, "FM Recording");
+
             switch (v.getId()) {
                 case R.id.save_dialog_button_save:
                 String msg = null;
                 // Check the recording name whether exist
                 mRecordingNameToSave = mRecordingNameEditText.getText().toString().trim();
-                File recordingFolderPath = new File(mRecordingSdcard, "FM Recording");
                 File recordingFileToSave = new File(recordingFolderPath, mRecordingNameToSave
                                 + FmRecorder.RECORDING_FILE_EXTENSION);
 
@@ -234,6 +238,11 @@ public class FmSaveDialog extends DialogFragment {
 
                 case R.id.save_dialog_button_discard:
                     dismissAllowingStateLoss();
+                    // here need delete discarded recording file
+                    File needToDelete = new File(recordingFolderPath, mTempRecordingName);
+                    if (needToDelete.exists()) {
+                        needToDelete.delete();
+                    }
                     break;
 
                 default:
