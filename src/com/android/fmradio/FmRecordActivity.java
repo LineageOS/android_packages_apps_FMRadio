@@ -505,13 +505,14 @@ public class FmRecordActivity extends Activity implements
         }
         String sdcard = FmService.getRecordingSdcard();
         String recordingName = mService.getRecordingName();
+        String saveName = null;
         if (TextUtils.isEmpty(mStationName.getText())) {
-            recordingName = FmRecorder.RECORDING_FILE_PREFIX +  "_" + recordingName;
+            saveName = FmRecorder.RECORDING_FILE_PREFIX +  "_" + recordingName;
         } else {
-            recordingName = FmRecorder.RECORDING_FILE_PREFIX + "_" + mStationName.getText() + "_"
+            saveName = FmRecorder.RECORDING_FILE_PREFIX + "_" + mStationName.getText() + "_"
                     + recordingName;
         }
-        FmSaveDialog newFragment = new FmSaveDialog(sdcard, recordingName, recordingName);
+        FmSaveDialog newFragment = new FmSaveDialog(sdcard, recordingName, saveName);
         newFragment.show(mFragmentManager, TAG_SAVE_RECORDINGD);
         mFragmentManager.executePendingTransactions();
         mHandler.removeMessages(FmListener.MSGID_REFRESH);
