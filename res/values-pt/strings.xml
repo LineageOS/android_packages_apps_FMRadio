@@ -43,7 +43,7 @@
     <string name="fm_turn_on" msgid="407678074231499621">"Reproduzir ou parar rádio FM"</string>
     <string name="fm_over_start_record" msgid="2072548132520550718">"Iniciar gravação"</string>
     <string name="fm_over_record_list" msgid="8958996187616432424">"Gravações salvas"</string>
-    <string name="fm_station_list_menu_refresh" msgid="1351081387336325789">"Iniciar gravação"</string>
+    <string name="fm_station_list_menu_refresh" msgid="1351081387336325789">"Atualizar"</string>
     <string name="fm_no_headset_text" msgid="6831656307562812248">"Para começar a ouvir, conecte os fones de ouvido (usados como antena)."</string>
     <string name="station_title" msgid="4027617747760605320">"Estações de rádio"</string>
     <string name="station_searching_tips" msgid="6970095710072278870">"Captando estações"</string>

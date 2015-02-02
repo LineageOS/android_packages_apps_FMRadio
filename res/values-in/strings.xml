@@ -18,7 +18,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="6295623783273502721">"Radio FM"</string>
-    <string name="toast_station_searched" msgid="4804871039582320419">"Mencari stasiun radio yang tersedia:"</string>
+    <string name="toast_station_searched" msgid="4804871039582320419">"Stasiun radio yang saat ini tersedia:"</string>
     <string name="toast_cannot_search" msgid="8816492120732683772">"Gagal mencari stasiun radio yang tersedia."</string>
     <string name="optmenu_speaker" msgid="3726411287495057671">"Speaker"</string>
     <string name="optmenu_earphone" msgid="5400875884296655508">"Earphone"</string>
