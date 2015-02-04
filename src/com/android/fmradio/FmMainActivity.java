@@ -1024,7 +1024,6 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
     private void refreshPopupMenuItem(boolean enabled) {
         if (null != mMenuItemStationlList) {
             mMenuItemStartRecord.setEnabled(enabled);
-            mMenuItemRecordList.setEnabled(enabled);
         }
     }
 
@@ -1159,7 +1158,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         mButtonPlay.setOnClickListener(mButtonClickListener);
     }
 
-    /*
+    /**
      * play main animation
      */
     private void playMainAnimation() {
@@ -1182,7 +1181,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         mNoEarphoneTextLayout.startAnimation(animation);
     }
 
-    /*
+    /**
      * clear main layout animation
      */
     private void cancelMainAnimation() {
@@ -1191,7 +1190,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         mNoEarphoneTextLayout.clearAnimation();
     }
 
-    /*
+    /**
      * play change to no headset layout animation
      */
     private void playNoHeadsetAnimation() {
@@ -1209,7 +1208,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         mBtnPlayContainer.startAnimation(animation);
     }
 
-    /*
+    /**
      * clear no headset layout animation
      */
     private void cancelNoHeadsetAnimation() {
