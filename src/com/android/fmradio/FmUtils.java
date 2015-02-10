@@ -29,6 +29,7 @@ import android.view.View.MeasureSpec;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.Locale;
 
 /**
@@ -138,9 +139,8 @@ public class FmUtils {
      */
     public static String formatStation(int station) {
         float frequency = (float) station / CONVERT_RATE;
-        String result = String.format(Locale.ENGLISH, "%.1f",
-                Float.valueOf(frequency));
-        return result;
+        DecimalFormat decimalFormat = new DecimalFormat("0.0");
+        return decimalFormat.format(frequency);
     }
 
     /**
