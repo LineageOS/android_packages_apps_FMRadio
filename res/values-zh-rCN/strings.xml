@@ -18,7 +18,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="6295623783273502721">"FM 电台"</string>
-    <string name="toast_station_searched" msgid="4804871039582320419">"搜索到以下可收听的电台："</string>
+    <string name="toast_station_searched" msgid="4804871039582320419">"搜索到的可收听电台数量："</string>
     <string name="toast_cannot_search" msgid="8816492120732683772">"搜不到可收听的电台。"</string>
     <string name="optmenu_speaker" msgid="3726411287495057671">"扬声器"</string>
     <string name="optmenu_earphone" msgid="5400875884296655508">"耳机"</string>
@@ -59,7 +59,7 @@
     <string name="favorites" msgid="2732520024474501799">"收藏"</string>
     <string name="rename" msgid="1770973764866255260">"重命名"</string>
     <string name="station_rename_hint" msgid="4291305834497293746">"输入电台名称"</string>
-    <string name="remove_favorite" msgid="3128670507986192468">"从收藏中移除"</string>
+    <string name="remove_favorite" msgid="3128670507986192468">"取消收藏"</string>
     <string name="toast_record_saved" msgid="2543677492878715874">"录音已保存"</string>
     <string name="toast_record_not_saved" msgid="6526674547687611282">"录音未保存"</string>
     <string name="toast_listen" msgid="2014315478895754055">"收听"</string>

@@ -46,7 +46,7 @@
     <string name="fm_station_list_menu_refresh" msgid="1351081387336325789">"Actualiser"</string>
     <string name="fm_no_headset_text" msgid="6831656307562812248">"Pour écouter la radio, branchez un casque (utilisé comme une antenne)."</string>
     <string name="station_title" msgid="4027617747760605320">"Radios"</string>
-    <string name="station_searching_tips" msgid="6970095710072278870">"Obtention des radios en cours…"</string>
+    <string name="station_searching_tips" msgid="6970095710072278870">"Paramétrage des radios en cours…"</string>
     <string name="station_empty_text" msgid="6847327406626186898">"Aucune radio trouvée."</string>
     <string name="minutes_label" msgid="3225846493097986594">"M"</string>
     <string name="seconds_label" msgid="3998011734682420096">"S"</string>

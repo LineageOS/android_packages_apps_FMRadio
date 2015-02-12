@@ -21,7 +21,7 @@
     <string name="toast_station_searched" msgid="4804871039582320419">"Wyszukane dostępne stacje:"</string>
     <string name="toast_cannot_search" msgid="8816492120732683772">"Nie można wyszukać dostępnych stacji."</string>
     <string name="optmenu_speaker" msgid="3726411287495057671">"Głośnik"</string>
-    <string name="optmenu_earphone" msgid="5400875884296655508">"Słuchawka"</string>
+    <string name="optmenu_earphone" msgid="5400875884296655508">"Słuchawki"</string>
     <string name="save" msgid="7204164791719833151">"Zapisz"</string>
     <string name="toast_sdcard_missing" msgid="3707819946661311504">"Brak karty SD."</string>
     <string name="toast_sdcard_insufficient_space" msgid="1150004976629615550">"Zbyt mało pamięci na karcie SD."</string>
@@ -60,8 +60,8 @@
     <string name="rename" msgid="1770973764866255260">"Zmień nazwę"</string>
     <string name="station_rename_hint" msgid="4291305834497293746">"Wpisz nazwę stacji"</string>
     <string name="remove_favorite" msgid="3128670507986192468">"Usuń z ulubionych"</string>
-    <string name="toast_record_saved" msgid="2543677492878715874">"Nagranie zapisane"</string>
-    <string name="toast_record_not_saved" msgid="6526674547687611282">"Nagranie niezapisane"</string>
+    <string name="toast_record_saved" msgid="2543677492878715874">"Nagranie zostało zapisane"</string>
+    <string name="toast_record_not_saved" msgid="6526674547687611282">"Nagranie nie zostało zapisane"</string>
     <string name="toast_listen" msgid="2014315478895754055">"POSŁUCHAJ"</string>
     <string name="toast_station_renamed" msgid="2185292052267585710">"Nazwa stacji została zmieniona"</string>
 </resources>

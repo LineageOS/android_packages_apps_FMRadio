@@ -26,7 +26,7 @@
     <string name="toast_sdcard_missing" msgid="3707819946661311504">"നിങ്ങളുടെ SD കാർഡ് കാണുന്നില്ല!"</string>
     <string name="toast_sdcard_insufficient_space" msgid="1150004976629615550">"SD കാർഡിൽ ഇടം അപര്യാപ്‌തമാണ്!"</string>
     <string name="toast_recorder_internal_error" msgid="8218803072221129182">"റെക്കോർഡറിൽ ഒരു ആന്തരിക പിശകുണ്ടായി!"</string>
-    <string name="btn_save_recording" msgid="7888937971238580699">"സംരക്ഷിക്കുക"</string>
+    <string name="btn_save_recording" msgid="7888937971238580699">"സംരക്ഷിക്കൂ"</string>
     <string name="btn_discard_recording" msgid="4316913232405323087">"നിരസിക്കുക"</string>
     <string name="edit_recording_name_hint" msgid="3582848435650002280">"ഫയലിന്റെ പേര് ഇവിടെ ടൈപ്പുചെയ്യുക"</string>
     <string name="already_exists" msgid="3665755106404888637">"ഇതിനകം നിലവിലുണ്ട്"</string>
@@ -45,7 +45,7 @@
     <string name="fm_over_record_list" msgid="8958996187616432424">"സംരക്ഷിച്ച റെക്കോർഡിംഗുകൾ"</string>
     <string name="fm_station_list_menu_refresh" msgid="1351081387336325789">"പുതുക്കുക"</string>
     <string name="fm_no_headset_text" msgid="6831656307562812248">"കേൾക്കുന്നതിന്, ഹെഡ്‌ഫോണുകൾ പ്ലഗ്ഗുചെയ്യുക (ആന്റിനയായി ഉപയോഗിക്കുന്നു)."</string>
-    <string name="station_title" msgid="4027617747760605320">"റേഡിയോ സ്‌റ്റേഷനുകൾ"</string>
+    <string name="station_title" msgid="4027617747760605320">"റേഡിയോ സ്‌റ്റേഷൻ"</string>
     <string name="station_searching_tips" msgid="6970095710072278870">"സ്‌റ്റേഷനുകൾ ലഭ്യമാക്കുന്നു"</string>
     <string name="station_empty_text" msgid="6847327406626186898">"സ്‌റ്റേഷനുകളൊന്നും കണ്ടെത്തിയില്ല"</string>
     <string name="minutes_label" msgid="3225846493097986594">"മി."</string>

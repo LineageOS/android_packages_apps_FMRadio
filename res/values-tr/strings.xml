@@ -18,7 +18,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="6295623783273502721">"FM Radyo"</string>
-    <string name="toast_station_searched" msgid="4804871039582320419">"Kullanılabilir istasyonları arandı:"</string>
+    <string name="toast_station_searched" msgid="4804871039582320419">"Kullanılabilir istasyonlar arandı:"</string>
     <string name="toast_cannot_search" msgid="8816492120732683772">"Kullanılabilir istasyonlar aranamıyor."</string>
     <string name="optmenu_speaker" msgid="3726411287495057671">"Hoparlör"</string>
     <string name="optmenu_earphone" msgid="5400875884296655508">"Kulaklık"</string>
@@ -27,7 +27,7 @@
     <string name="toast_sdcard_insufficient_space" msgid="1150004976629615550">"SD kartta yeterli yer yok!"</string>
     <string name="toast_recorder_internal_error" msgid="8218803072221129182">"Kaydedicide dahili bir hata oluştu!"</string>
     <string name="btn_save_recording" msgid="7888937971238580699">"Kaydet"</string>
-    <string name="btn_discard_recording" msgid="4316913232405323087">"Kapat"</string>
+    <string name="btn_discard_recording" msgid="4316913232405323087">"SİL"</string>
     <string name="edit_recording_name_hint" msgid="3582848435650002280">"Dosya adını buraya yazın"</string>
     <string name="already_exists" msgid="3665755106404888637">"zaten var"</string>
     <string name="not_available" msgid="6709882926236090124">"Şu anda kullanılamıyor"</string>
@@ -42,7 +42,7 @@
     <string name="fm_symbol" msgid="2254633383284842986">"FM"</string>
     <string name="fm_turn_on" msgid="407678074231499621">"FM radyoyu çal veya durdur"</string>
     <string name="fm_over_start_record" msgid="2072548132520550718">"Kaydı başlat"</string>
-    <string name="fm_over_record_list" msgid="8958996187616432424">"Saklanan kayıtlar"</string>
+    <string name="fm_over_record_list" msgid="8958996187616432424">"Kayıtlar"</string>
     <string name="fm_station_list_menu_refresh" msgid="1351081387336325789">"Yenile"</string>
     <string name="fm_no_headset_text" msgid="6831656307562812248">"Dinlemeye başlamak için kulaklıkları girişe takın (anten olarak kullanılır)."</string>
     <string name="station_title" msgid="4027617747760605320">"Radyo İstasyonları"</string>
@@ -51,17 +51,17 @@
     <string name="minutes_label" msgid="3225846493097986594">"Dk"</string>
     <string name="seconds_label" msgid="3998011734682420096">"Sn"</string>
     <string name="timer_default" msgid="8062388403825907344">"00"</string>
-    <string name="record_title" msgid="8695283158200902780">"Kayıt"</string>
+    <string name="record_title" msgid="8695283158200902780">"Kaydediliyor"</string>
     <string name="record_notification_message" msgid="4999850730062263290">"Kayıt devam ediyor"</string>
     <string name="stop_record" msgid="4787351642158009287">"KAYDI DURDUR"</string>
-    <string name="save_dialog_title" msgid="6977508764748097072">"Kayıt saklansın mı?"</string>
+    <string name="save_dialog_title" msgid="6977508764748097072">"Kaydedilsin mi?"</string>
     <string name="save_dialog_caption" msgid="8618327604827517841">"Kayıtları dinlemek için Play Müzik uygulamasını açın."</string>
     <string name="favorites" msgid="2732520024474501799">"Favoriler"</string>
     <string name="rename" msgid="1770973764866255260">"Yeniden adlandır"</string>
     <string name="station_rename_hint" msgid="4291305834497293746">"İstasyonun adını girin"</string>
     <string name="remove_favorite" msgid="3128670507986192468">"Favori listesinden kaldır"</string>
-    <string name="toast_record_saved" msgid="2543677492878715874">"Kayıt saklandı"</string>
-    <string name="toast_record_not_saved" msgid="6526674547687611282">"Kayıt saklanamadı"</string>
+    <string name="toast_record_saved" msgid="2543677492878715874">"Kaydedildi"</string>
+    <string name="toast_record_not_saved" msgid="6526674547687611282">"Kaydedilmedi"</string>
     <string name="toast_listen" msgid="2014315478895754055">"DİNLE"</string>
     <string name="toast_station_renamed" msgid="2185292052267585710">"İstasyonun adı değiştirildi"</string>
 </resources>

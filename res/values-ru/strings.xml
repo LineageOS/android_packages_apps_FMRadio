@@ -21,7 +21,7 @@
     <string name="toast_station_searched" msgid="4804871039582320419">"Доступные радиостанции:"</string>
     <string name="toast_cannot_search" msgid="8816492120732683772">"Нет доступных станций"</string>
     <string name="optmenu_speaker" msgid="3726411287495057671">"Динамик"</string>
-    <string name="optmenu_earphone" msgid="5400875884296655508">"Наушник"</string>
+    <string name="optmenu_earphone" msgid="5400875884296655508">"Наушники"</string>
     <string name="save" msgid="7204164791719833151">"Сохранить"</string>
     <string name="toast_sdcard_missing" msgid="3707819946661311504">"Нет SD-карты"</string>
     <string name="toast_sdcard_insufficient_space" msgid="1150004976629615550">"Недостаточно места на SD-карте"</string>
