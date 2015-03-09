@@ -149,7 +149,7 @@ public class FmRecorder implements MediaRecorder.OnErrorListener, MediaRecorder.
             mRecorder = new MediaRecorder();
             mRecorder.setOnErrorListener(this);
             mRecorder.setOnInfoListener(this);
-            mRecorder.setAudioSource(MediaRecorder.AudioSource.FM_TUNER);
+            mRecorder.setAudioSource(MediaRecorder.AudioSource.RADIO_TUNER);
             mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
             mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
             final int samplingRate = 44100;
