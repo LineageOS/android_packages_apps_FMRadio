@@ -61,6 +61,7 @@ public class FmUtils {
     private static final String FM_LOCATION_LATITUDE = "fm_location_latitude";
     private static final String FM_LOCATION_LONGITUDE = "fm_location_longitude";
     private static final String FM_IS_FIRST_TIME_PLAY = "fm_is_first_time_play";
+    private static final String FM_IS_SPEAKER_MODE = "fm_is_speaker_mode";
     private static final String FM_IS_FIRST_ENTER_STATION_LIST = "fm_is_first_enter_station_list";
     // StorageManager For FM record
     private static StorageManager sStorageManager = null;
@@ -297,5 +298,28 @@ public class FmUtils {
         Bitmap largeIcon = Bitmap.createBitmap(iconLayout.getDrawingCache());
         iconLayout.destroyDrawingCache();
         return largeIcon;
+    }
+
+    /**
+     * Get whether speaker mode is in use when audio focus lost.
+     * @param context the Context
+     * @return true for speaker mode, false for non speaker mode
+     */
+    public static boolean getIsSpeakerModeOnFocusLost(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        return prefs.getBoolean(FM_IS_SPEAKER_MODE, false);
+    }
+
+    /**
+     * Set whether speaker mode is in use.
+     * @param context the Context
+     * @param isSpeaker speaker state
+     */
+    public static void setIsSpeakerModeOnFocusLost(Context context, boolean isSpeaker) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(FM_IS_SPEAKER_MODE, isSpeaker);
+        editor.commit();
     }
 }
