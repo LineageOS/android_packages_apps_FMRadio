@@ -44,7 +44,7 @@
     <string name="fm_over_start_record" msgid="2072548132520550718">"ចាប់ផ្តើមថត"</string>
     <string name="fm_over_record_list" msgid="8958996187616432424">"ការថតដែលបានរក្សាទុក"</string>
     <string name="fm_station_list_menu_refresh" msgid="1351081387336325789">"ផ្ទុកឡើងវិញ"</string>
-    <string name="fm_no_headset_text" msgid="6831656307562812248">"ដើម្បីចា់ប់ផ្តើមស្តាប់ ដោតកាសចូល (ប្រើជាអង់តែន)។"</string>
+    <string name="fm_no_headset_text" msgid="6831656307562812248">"ដើម្បី​ស្តាប់ សូម​ដោត​កាស​ចូល (ប្រើ​ជា​អង់តែន)។"</string>
     <string name="station_title" msgid="4027617747760605320">"ស្ថានីយវិទ្យុ"</string>
     <string name="station_searching_tips" msgid="6970095710072278870">"ចាប់យកស្ថានីយ៍"</string>
     <string name="station_empty_text" msgid="6847327406626186898">"មិនមានស្ថានីយ៍ត្រូវបានរកឃើញទេ"</string>
