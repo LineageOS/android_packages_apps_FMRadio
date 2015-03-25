@@ -1927,6 +1927,10 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
      * @return true, success; false, fail;
      */
     public boolean requestAudioFocus() {
+        if (FmUtils.getIsSpeakerModeOnFocusLost(mContext)) {
+            setForceUse(true);
+            FmUtils.setIsSpeakerModeOnFocusLost(mContext, false);
+        }
         if (mIsAudioFocusHeld) {
             return true;
         }
@@ -2034,6 +2038,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                     }
                 }
                 handlePowerDown();
+                forceToHeadsetMode();
                 break;
 
             case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
@@ -2055,9 +2060,14 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                     }
                 }
                 handlePowerDown();
+                forceToHeadsetMode();
                 break;
 
             case AudioManager.AUDIOFOCUS_GAIN:
+                if (FmUtils.getIsSpeakerModeOnFocusLost(mContext)) {
+                    setForceUse(true);
+                    FmUtils.setIsSpeakerModeOnFocusLost(mContext, false);
+                }
                 if ((mPowerStatus != POWER_UP) && mPausedByTransientLossOfFocus) {
                     final int bundleSize = 1;
                     mFmServiceHandler.removeMessages(FmListener.MSGID_POWERUP_FINISHED);
@@ -2075,6 +2085,14 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
             default:
                 break;
+        }
+    }
+
+    private void forceToHeadsetMode() {
+        if (mIsSpeakerUsed && isHeadSetIn()) {
+            AudioSystem.setForceUse(FOR_PROPRIETARY, AudioSystem.FORCE_NONE);
+            // save user's option to shared preferences.
+            FmUtils.setIsSpeakerModeOnFocusLost(mContext, true);
         }
     }
 
