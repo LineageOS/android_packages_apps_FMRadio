@@ -390,9 +390,13 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
        // because input/output device may be changed.
        if (mAudioRecord != null) {
            mAudioRecord.stop();
+           mAudioRecord.release();
+           mAudioRecord = null;
        }
        if (mAudioTrack != null) {
            mAudioTrack.stop();
+           mAudioTrack.release();
+           mAudioTrack = null;
        }
        initAudioRecordSink();
 
@@ -1284,11 +1288,12 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                 SAMPLE_RATE, CHANNEL_CONFIG, AUDIO_FORMAT, RECORD_BUF_SIZE, AudioTrack.MODE_STREAM);
     }
 
-    private synchronized void createAudioPatch() {
+    private synchronized int createAudioPatch() {
         Log.d(TAG, "createAudioPatch");
+        int status = AudioManager.SUCCESS;
         if (mAudioPatch != null) {
             Log.d(TAG, "createAudioPatch, mAudioPatch is not null, return");
-            return;
+            return status;
         }
 
         mAudioSource = null;
@@ -1312,11 +1317,12 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                     .activeConfig();
             AudioDevicePortConfig sinkConfig = (AudioDevicePortConfig) mAudioSink.activeConfig();
             AudioPatch[] audioPatchArray = new AudioPatch[] {null};
-            mAudioManager.createAudioPatch(audioPatchArray,
+            status = mAudioManager.createAudioPatch(audioPatchArray,
                     new AudioPortConfig[] {sourceConfig},
                     new AudioPortConfig[] {sinkConfig});
             mAudioPatch = audioPatchArray[0];
         }
+        return status;
     }
 
     private FmOnAudioPortUpdateListener mAudioPortUpdateListener = null;
@@ -1369,9 +1375,14 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                 ArrayList<AudioPatch> patches = new ArrayList<AudioPatch>();
                 mAudioManager.listAudioPatches(patches);
                 if (isPatchMixerToEarphone(patches)) {
+                    int status;
                     stopAudioTrack();
                     stopRender();
-                    createAudioPatch();
+                    status = createAudioPatch();
+                    if (status != AudioManager.SUCCESS){
+                       Log.d(TAG, "onAudioPatchListUpdate: fallback as createAudioPatch failed");
+                       startRender();
+                    }
                 }
             }
         }
@@ -1645,9 +1656,14 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
             mAudioManager.listAudioPatches(patches);
             if (mAudioPatch == null) {
                 if (isPatchMixerToEarphone(patches)) {
+                    int status;
                     stopAudioTrack();
                     stopRender();
-                    createAudioPatch();
+                    status = createAudioPatch();
+                    if (status != AudioManager.SUCCESS){
+                       Log.d(TAG, "enableFmAudio: fallback as createAudioPatch failed");
+                       startRender();
+                    }
                 } else {
                     startRender();
                 }
