@@ -719,7 +719,7 @@ public class FmScroller extends FrameLayout {
         private float getRefreshRate() {
             DisplayInfo di = DisplayManagerGlobal.getInstance().getDisplayInfo(
                     Display.DEFAULT_DISPLAY);
-            return di.refreshRate;
+            return di.getMode().getRefreshRate();
         }
 
         public long getFrameIntervalMs() {
