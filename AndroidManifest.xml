@@ -23,7 +23,8 @@
     <!-- FM uses AudioPatch which is new in sdk 21 -->
     <uses-sdk
         android:minSdkVersion="21"
-        android:targetSdkVersion="21" />
+        android:targetSdkVersion="21"
+        android:usesCleartextTraffic="false" />
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
