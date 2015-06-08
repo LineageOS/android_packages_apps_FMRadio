@@ -56,6 +56,9 @@ import android.widget.Toast;
 import com.android.fmradio.FmService.OnExitListener;
 import com.android.fmradio.FmStation.Station;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
+
 /**
  * This class interact with user, provider edit station information, such as add
  * to favorite, edit favorite, delete from favorite
@@ -132,8 +135,9 @@ public class FmFavoriteActivity extends Activity {
                 TextView textView = (TextView) view.findViewById(R.id.lv_station_freq);
                 float frequency = 0;
                 try {
-                    frequency = Float.parseFloat(textView.getText().toString());
-                } catch (NumberFormatException e) {
+                    NumberFormat nf = NumberFormat.getInstance();
+                    frequency = nf.parse(textView.getText().toString()).floatValue();
+                } catch (ParseException e) {
                     e.printStackTrace();
                 }
                 Intent intentResult = new Intent();
