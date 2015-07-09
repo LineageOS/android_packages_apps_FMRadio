@@ -271,12 +271,12 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
             } else if (Intent.ACTION_HEADSET_PLUG.equals(action)) {
                 // switch antenna should not impact audio focus status
                 mValueHeadSetPlug = (intent.getIntExtra("state", -1) == HEADSET_PLUG_IN) ? 0 : 1;
-                switchAntennaAsync(mValueHeadSetPlug);
 
                 // Avoid Service is killed,and receive headset plug in
                 // broadcast again
                 if (!mIsServiceInited) {
                     Log.d(TAG, "onReceive, mIsServiceInited is false");
+                    switchAntennaAsync(mValueHeadSetPlug);
                     return;
                 }
                 /*
@@ -306,6 +306,8 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                     bundle.putBoolean(FmListener.KEY_IS_SPEAKER_MODE, false);
                     notifyActivityStateChanged(bundle);
                 }
+
+                switchAntennaAsync(mValueHeadSetPlug);
             }
         }
     }
