@@ -23,8 +23,8 @@
     <string name="optmenu_speaker" msgid="3726411287495057671">"Reproduktor"</string>
     <string name="optmenu_earphone" msgid="5400875884296655508">"Slúchadlo"</string>
     <string name="save" msgid="7204164791719833151">"Uložiť"</string>
-    <string name="toast_sdcard_missing" msgid="3707819946661311504">"Chýba SD karta"</string>
-    <string name="toast_sdcard_insufficient_space" msgid="1150004976629615550">"Nedostatok voľného miesta na SD karte"</string>
+    <string name="toast_sdcard_missing" msgid="3707819946661311504">"Chýba karta SD"</string>
+    <string name="toast_sdcard_insufficient_space" msgid="1150004976629615550">"Nedostatok voľného miesta na karte SD"</string>
     <string name="toast_recorder_internal_error" msgid="8218803072221129182">"V zaznamenávacom zariadení sa vyskytla vnútorná chyba"</string>
     <string name="btn_save_recording" msgid="7888937971238580699">"Uložiť"</string>
     <string name="btn_discard_recording" msgid="4316913232405323087">"Zahodiť"</string>

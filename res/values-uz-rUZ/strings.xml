@@ -31,10 +31,10 @@
     <string name="edit_recording_name_hint" msgid="3582848435650002280">"Fayl nomini kiriting"</string>
     <string name="already_exists" msgid="3665755106404888637">"allaqachon mavjud"</string>
     <string name="not_available" msgid="6709882926236090124">"Hozirda mavjud emas"</string>
-    <string name="talk_prev_station" msgid="8940546148820098004">"Avvalgi radiokanal"</string>
+    <string name="talk_prev_station" msgid="8940546148820098004">"Avvalgi radiostansiya"</string>
     <string name="talk_decrease" msgid="6796562419095928389">"Chastotani kamaytirish"</string>
     <string name="talk_increase" msgid="7207549524364881559">"Chastotani ko‘paytirish"</string>
-    <string name="talk_next_station" msgid="2711772562090360378">"Keyingi radiokanal"</string>
+    <string name="talk_next_station" msgid="2711772562090360378">"Keyingi radiostansiya"</string>
     <string name="talk_add_favorite" msgid="1560744966239678417">"Sevimlilarga qo‘shish"</string>
     <string name="talk_start_recording" msgid="2081128687917550957">"Yozib olishni boshlash"</string>
     <string name="more" msgid="8975740653205119861">"Ko‘proq"</string>
@@ -47,7 +47,7 @@
     <string name="fm_no_headset_text" msgid="6831656307562812248">"Radio tinglashni boshlash uchun quloqchinlarni suqing (antenna sifatida ishlatiladi)."</string>
     <string name="station_title" msgid="4027617747760605320">"Radiostansiyalar"</string>
     <string name="station_searching_tips" msgid="6970095710072278870">"Radiostansiyalarni aniqlash"</string>
-    <string name="station_empty_text" msgid="6847327406626186898">"Hech qanday radiokanal topilmadi"</string>
+    <string name="station_empty_text" msgid="6847327406626186898">"Hech qanday radiostansiya aniqlanmadi"</string>
     <string name="minutes_label" msgid="3225846493097986594">"D"</string>
     <string name="seconds_label" msgid="3998011734682420096">"S"</string>
     <string name="timer_default" msgid="8062388403825907344">"00"</string>
@@ -58,10 +58,10 @@
     <string name="save_dialog_caption" msgid="8618327604827517841">"Saqlab olingan yozuvlarni eshitish uchun “Play Musiqa” ilovasini oching."</string>
     <string name="favorites" msgid="2732520024474501799">"Sevimlilar"</string>
     <string name="rename" msgid="1770973764866255260">"Qayta nomlash"</string>
-    <string name="station_rename_hint" msgid="4291305834497293746">"Radiokanal nomini kiriting"</string>
+    <string name="station_rename_hint" msgid="4291305834497293746">"Radiostansiya nomini kiriting"</string>
     <string name="remove_favorite" msgid="3128670507986192468">"Sevimlilardan olib tashlash"</string>
     <string name="toast_record_saved" msgid="2543677492878715874">"Yozuv saqlandi"</string>
     <string name="toast_record_not_saved" msgid="6526674547687611282">"Yozuv saqlanmadi"</string>
     <string name="toast_listen" msgid="2014315478895754055">"TINGLASH"</string>
-    <string name="toast_station_renamed" msgid="2185292052267585710">"Radiokanal qayta nomlandi"</string>
+    <string name="toast_station_renamed" msgid="2185292052267585710">"Radiostansiya qayta nomlandi"</string>
 </resources>
