@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_1bb18fe2",
+        "filename": "src/com/android/fmradio/FmFavoriteActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-03-18T16:57:18Z",
+      "side": 1,
+      "message": "replace moveToFirst with moveToPosition",
+      "revId": "775e8267245bf81eb13b66beed960da4335e9f85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
