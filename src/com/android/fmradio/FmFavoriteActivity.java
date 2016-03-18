@@ -127,19 +127,13 @@ public class FmFavoriteActivity extends Activity {
              */
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Set the selected frequency to main UI and finish the
-                // favorite manager.
-                TextView textView = (TextView) view.findViewById(R.id.lv_station_freq);
-                float frequency = 0;
-                try {
-                    frequency = Float.parseFloat(textView.getText().toString());
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
+                int frequency = mMyAdapter.getStationFreq(position);
+                if (frequency != -1) {
+                    Intent intentResult = new Intent();
+                    intentResult.putExtra(ACTIVITY_RESULT, frequency);
+                    setResult(RESULT_OK, intentResult);
+                    finish();
                 }
-                Intent intentResult = new Intent();
-                intentResult.putExtra(ACTIVITY_RESULT, FmUtils.computeStation(frequency));
-                setResult(RESULT_OK, intentResult);
-                finish();
             }
         });
 
@@ -367,6 +361,15 @@ public class FmFavoriteActivity extends Activity {
                 });
             }
             return convertView;
+        }
+
+        private int getStationFreq(int position) {
+            if (mCursor != null && mCursor.moveToPosition(position)) {
+                final int stationFreq = mCursor.getInt(mCursor
+                        .getColumnIndex(FmStation.Station.FREQUENCY));
+                return stationFreq;
+            }
+            return -1;
         }
     }
 
