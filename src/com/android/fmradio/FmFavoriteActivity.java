@@ -132,7 +132,11 @@ public class FmFavoriteActivity extends Activity {
                 TextView textView = (TextView) view.findViewById(R.id.lv_station_freq);
                 float frequency = 0;
                 try {
-                    frequency = Float.parseFloat(textView.getText().toString());
+                    String station = textView.getText().toString();
+                    if (station != null) {
+                        station = station.replace(",", ".");
+                    }
+                    frequency = Float.parseFloat(station);
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                 }
