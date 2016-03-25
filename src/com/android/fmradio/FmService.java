@@ -56,6 +56,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
+import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -463,6 +464,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
         @Override
         public void run() {
+            Process.setThreadPriority(Process.THREAD_PRIORITY_AUDIO);
             try {
                 byte[] buffer = new byte[RECORD_BUF_SIZE];
                 while (!Thread.interrupted()) {
