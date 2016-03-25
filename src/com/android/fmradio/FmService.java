@@ -503,6 +503,8 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                         mCurrentFrame = 0;
 
                         if (mAudioTrack.getPlayState() == AudioTrack.PLAYSTATE_PLAYING) {
+                            mAudioTrack.pause();
+                            mAudioTrack.flush();
                             mAudioTrack.stop();
                         }
 
