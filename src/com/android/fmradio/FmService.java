@@ -410,6 +410,9 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     private synchronized void stopRender() {
         Log.d(TAG, "stopRender");
         mIsRender = false;
+        // HACK: Set volume to 0 to squelch any output between the call to
+        // stopRender and the render thread calling AudioTrack.stop
+        mAudioTrack.setVolume(0.0f);
     }
 
     private synchronized void createRenderThread() {
