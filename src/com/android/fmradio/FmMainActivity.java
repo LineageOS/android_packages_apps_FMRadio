@@ -826,7 +826,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                             "com.google.android.music.ui.TrackContainerActivity");
                     playMusicIntent.setType("vnd.android.cursor.dir/playlist");
                     startActivity(playMusicIntent);
-                } catch (ActivityNotFoundException e1) {
+                } catch (IllegalArgumentException | ActivityNotFoundException e1) {
                     try {
                         playMusicIntent = new Intent(Intent.ACTION_VIEW);
                         playMusicIntent.putExtras(extras);
@@ -883,7 +883,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                                         "com.google.android.music.AudioPreview");
                                 playMusicIntent.setDataAndType(playUri, "audio/3gpp");
                                 startActivity(playMusicIntent);
-                            } catch (ActivityNotFoundException e1) {
+                            } catch (IllegalArgumentException | ActivityNotFoundException e1) {
                                 try {
                                     playMusicIntent = new Intent(Intent.ACTION_VIEW);
                                     playMusicIntent.setDataAndType(playUri, "audio/3gpp");
