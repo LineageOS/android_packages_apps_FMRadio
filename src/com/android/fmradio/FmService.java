@@ -2675,6 +2675,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     @Override
     public void onTaskRemoved(Intent rootIntent) {
         exitFm();
+        stopSelf();
         super.onTaskRemoved(rootIntent);
     }
 
