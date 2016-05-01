@@ -44,7 +44,7 @@
     <string name="fm_over_start_record" msgid="2072548132520550718">"Opname starten"</string>
     <string name="fm_over_record_list" msgid="8958996187616432424">"Opgeslagen opnamen"</string>
     <string name="fm_station_list_menu_refresh" msgid="1351081387336325789">"Vernieuwen"</string>
-    <string name="fm_no_headset_text" msgid="6831656307562812248">"Als u wilt luisteren, sluit u een hoofdtelefoon aan (wordt gebruikt als antenne)."</string>
+    <string name="fm_no_headset_text" msgid="6831656307562812248">"Als je wilt luisteren, sluit je een hoofdtelefoon aan (wordt gebruikt als antenne)."</string>
     <string name="station_title" msgid="4027617747760605320">"Radiozenders"</string>
     <string name="station_searching_tips" msgid="6970095710072278870">"Zenders ophalen"</string>
     <string name="station_empty_text" msgid="6847327406626186898">"Geen zenders gevonden"</string>
@@ -55,7 +55,7 @@
     <string name="record_notification_message" msgid="4999850730062263290">"Opname bezig"</string>
     <string name="stop_record" msgid="4787351642158009287">"OPNAME STOPPEN"</string>
     <string name="save_dialog_title" msgid="6977508764748097072">"Opname opslaan?"</string>
-    <string name="save_dialog_caption" msgid="8618327604827517841">"Als u opnamen wilt beluisteren, opent u de Play Music-app."</string>
+    <string name="save_dialog_caption" msgid="8618327604827517841">"Als je opnamen wilt beluisteren, open je de Play Music-app."</string>
     <string name="favorites" msgid="2732520024474501799">"Favorieten"</string>
     <string name="rename" msgid="1770973764866255260">"Naam wijzigen"</string>
     <string name="station_rename_hint" msgid="4291305834497293746">"Zendernaam opgeven"</string>
