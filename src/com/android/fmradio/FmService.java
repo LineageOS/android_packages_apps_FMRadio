@@ -134,7 +134,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     // RT String
     private String mRtTextString = "";
     // Notification target class name
-    private String mTargetClassName = FmMainActivity.class.getName();
+    private String mTargetClassName = "com.android.fmradio.FmMainActivity";
     // RDS thread use to receive the information send by station
     private Thread mRdsThread = null;
     // record whether RDS thread exit
