@@ -28,6 +28,7 @@
          [CHAR LIMIT=NONE] -->
   <!-- Dialog "Save" button to save the FM recording [CHAR LIMIT=20] -->
   <!-- Dialog "Discard" button to discard the FM recording [CHAR LIMIT=20] -->
+  <string name="btn_discard_recording">Адхіліць</string>
   <!-- EditText hint for save recording dialog [CHAR LIMIT=50] -->
   <!-- Toast message shown when we save the recording name which is already exists
          [CHAR LIMIT=50] -->
@@ -46,6 +47,7 @@
   <!-- Title of a menu item to start recording FM sound [CHAR LIMIT=30] -->
   <!-- Title of a menu item to see the saved recordings in play music  [CHAR LIMIT=30] -->
   <!-- Title of a menu item to refresh the station list  [CHAR LIMIT=30] -->
+  <string name="fm_station_list_menu_refresh">Абнавіць</string>
   <!-- The tips shown when without an earphone or plug out the earphone [CHAR LIMIT=NONE] -->
   <!-- Actionbar title for station list. It will show in the action bar [CHAR LIMIT=50] -->
   <!-- The tips shown when we refresh in station list [CHAR LIMIT=50] -->
