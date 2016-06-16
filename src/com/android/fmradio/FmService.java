@@ -396,7 +396,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
            mAudioRecord.release();
            mAudioRecord = null;
        }
-       if (mAudioTrack != null && mAudioTrack.getState() == AudioTrack.STATE_INITIALIZED) {
+       if (mAudioTrack != null) {
            mAudioTrack.stop();
            mAudioTrack.release();
            mAudioTrack = null;
@@ -448,8 +448,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     }
 
     private void startAudioTrack() {
-        if (mAudioTrack.getState() == AudioTrack.STATE_INITIALIZED
-                && mAudioTrack.getPlayState() == AudioTrack.PLAYSTATE_STOPPED) {
+        if (mAudioTrack.getPlayState() == AudioTrack.PLAYSTATE_STOPPED) {
             ArrayList<AudioPatch> patches = new ArrayList<AudioPatch>();
             mAudioManager.listAudioPatches(patches);
             mAudioTrack.play();
@@ -478,13 +477,11 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                         // Speaker mode or BT a2dp mode will come here and keep reading and writing.
                         // If we want FM sound output from speaker or BT a2dp, we must record data
                         // to AudioRecrd and write data to AudioTrack.
-                        if (mAudioRecord.getRecordingState() == AudioRecord.RECORDSTATE_STOPPED
-                                && mAudioRecord.getState() == AudioRecord.STATE_INITIALIZED) {
+                        if (mAudioRecord.getRecordingState() == AudioRecord.RECORDSTATE_STOPPED) {
                             mAudioRecord.startRecording();
                         }
 
-                        if (mAudioTrack.getPlayState() == AudioTrack.PLAYSTATE_STOPPED
-                                && mAudioTrack.getState() == AudioTrack.STATE_INITIALIZED) {
+                        if (mAudioTrack.getPlayState() == AudioTrack.PLAYSTATE_STOPPED) {
                             mAudioTrack.play();
                         }
                         int size = mAudioRecord.read(buffer, 0, RECORD_BUF_SIZE);
