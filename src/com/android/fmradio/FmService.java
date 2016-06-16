@@ -389,6 +389,16 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     private synchronized void startRender() {
         Log.d(TAG, "startRender " + AudioSystem.getForceUse(FOR_PROPRIETARY));
 
+        mRenderThread.interrupt();
+        synchronized (mRenderLock) {
+            mRenderLock.notify();
+        }
+        try {
+            mRenderThread.join();
+        } catch (InterruptedException ie) {
+            Log.e(TAG, "Failed to join render thread");
+        }
+
        // need to create new audio record and audio play back track,
        // because input/output device may be changed.
        if (mAudioRecord != null) {
@@ -404,6 +414,8 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
        initAudioRecordSink();
 
         mIsRender = true;
+        mRenderThread = new RenderThread();
+        mRenderThread.start();
         synchronized (mRenderLock) {
             mRenderLock.notify();
         }
