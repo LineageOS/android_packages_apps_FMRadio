@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_36af1d7e",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-06-16T21:12:04Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand the logic here? Shouldn\u0027t interrupting the render thread be sufficient to shut it down?",
+      "range": {
+        "startLine": 433,
+        "startChar": 12,
+        "endLine": 433,
+        "endChar": 33
+      },
+      "revId": "1bc32f43b9dc334fd24b6cdf8b5efce822157c3e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
