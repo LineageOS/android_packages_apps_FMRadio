@@ -22,6 +22,30 @@
       "revId": "1bc32f43b9dc334fd24b6cdf8b5efce822157c3e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_b6c22d33",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 13956
+      },
+      "writtenOn": "2016-06-16T21:15:26Z",
+      "side": 1,
+      "message": "Add it just in case the thread stucks in waiting for mRenderLock.",
+      "parentUuid": "5faad753_36af1d7e",
+      "range": {
+        "startLine": 433,
+        "startChar": 12,
+        "endLine": 433,
+        "endChar": 33
+      },
+      "revId": "1bc32f43b9dc334fd24b6cdf8b5efce822157c3e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
