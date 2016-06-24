@@ -1237,7 +1237,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         if (null != mFmRecorder) {
             return mFmRecorder.getState();
         }
-        return FmRecorder.STATE_INVALID;
+        return FmRecorder.STATE_IDLE;
     }
 
     /**
