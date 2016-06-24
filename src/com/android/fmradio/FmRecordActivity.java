@@ -75,6 +75,7 @@ public class FmRecordActivity extends Activity implements
     private FragmentManager mFragmentManager;
     private boolean mIsInBackground = false;
     private int mRecordState = FmRecorder.STATE_INVALID;
+    private boolean mRecordingStarted = false;
     private int mCurrentStation = FmUtils.DEFAULT_STATION;
     private Notification.Builder mNotificationBuilder = null;
 
@@ -109,11 +110,13 @@ public class FmRecordActivity extends Activity implements
         if (savedInstanceState != null) {
             mCurrentStation = savedInstanceState.getInt(FmStation.CURRENT_STATION);
             mRecordState = savedInstanceState.getInt("last_record_state");
+            mRecordingStarted = savedInstanceState.getBoolean("recording_started", false);
         } else {
             Intent intent = getIntent();
             mCurrentStation = intent.getIntExtra(FmStation.CURRENT_STATION,
                     FmUtils.DEFAULT_STATION);
             mRecordState = intent.getIntExtra("last_record_state", FmRecorder.STATE_INVALID);
+            mRecordingStarted = intent.getBooleanExtra("recording_started", false);
         }
         bindService(new Intent(this, FmService.class), mServiceConnection,
                 Context.BIND_AUTO_CREATE);
@@ -225,20 +228,60 @@ public class FmRecordActivity extends Activity implements
     protected void onResume() {
         super.onResume();
         mIsInBackground = false;
-        if (null != mService) {
-            mService.setFmRecordActivityForeground(true);
+
+        onResumeWithService();
+    }
+
+    private void onResumeWithService() {
+
+        if (null == mService) {
+            // service not yet connected
+            return;
         }
-        // Show save dialog if record has stopped and never show it before.
-        if (isStopRecording() && !isSaveDialogShown()) {
-            showSaveDialog();
+
+        if (mIsInBackground) {
+            // not resumed yet
+            return;
         }
-        // Trigger to refreshing timer text if still in record
-        if (!isStopRecording()) {
-            mHandler.removeMessages(FmListener.MSGID_REFRESH);
-            mHandler.sendEmptyMessage(FmListener.MSGID_REFRESH);
-        }
-        // Clear notification, it only need show when in background
+
+        mCurrentStation = mService.getFrequency();
+        mRecordState = mService.getRecorderState();
+
+        mService.setFmRecordActivityForeground(true);
         removeNotification();
+        switch (mRecordState) {
+            case FmRecorder.STATE_IDLE:
+                if (!mRecordingStarted) {
+                    // start the new recording
+                    mRecordingStarted = true;
+                    mService.startRecordingAsync();
+                    break;
+                }
+
+                // recording was stopped while we were away
+                if (!isSaveDialogShown()) {
+                    showSaveDialog();
+                    break;
+                }
+
+                Log.wtf(TAG, "returned to FmRecordActivity after save dialog");
+                finish();
+                return;
+
+            case FmRecorder.STATE_RECORDING:
+                break;
+
+            case FmRecorder.STATE_INVALID:
+            default:
+                Log.wtf(TAG, "Unexpected state: " + mRecordState);
+                finish();
+                return;
+        }
+
+        mPlayIndicator.startAnimation();
+        mStopRecordButton.setEnabled(true);
+        mHandler.removeMessages(FmListener.MSGID_REFRESH);
+        mHandler.sendEmptyMessage(FmListener.MSGID_REFRESH);
     }
 
     @Override
@@ -278,6 +321,7 @@ public class FmRecordActivity extends Activity implements
     protected void onSaveInstanceState(Bundle outState) {
         outState.putInt(FmStation.CURRENT_STATION, mCurrentStation);
         outState.putInt("last_record_state", mRecordState);
+        outState.putBoolean("recording_started", mRecordingStarted);
         super.onSaveInstanceState(outState);
     }
 
@@ -332,24 +376,8 @@ public class FmRecordActivity extends Activity implements
         public void onServiceConnected(ComponentName name, android.os.IBinder service) {
             mService = ((FmService.ServiceBinder) service).getService();
             mService.registerFmRadioListener(mFmListener);
-            mService.setFmRecordActivityForeground(!mIsInBackground);
-            // 1. If have stopped recording, we need check whether need show save dialog again.
-            // Because when stop recording in background, we need show it when switch to foreground.
-            if (isStopRecording()) {
-                if (!isSaveDialogShown()) {
-                    showSaveDialog();
-                }
-                return;
-            }
-            // 2. If not start recording, start it directly, this case happen when start this
-            // activity from main fm activity.
-            if (!isStartRecording()) {
-                mService.startRecordingAsync();
-            }
-            mPlayIndicator.startAnimation();
-            mStopRecordButton.setEnabled(true);
-            mHandler.removeMessages(FmListener.MSGID_REFRESH);
-            mHandler.sendEmptyMessage(FmListener.MSGID_REFRESH);
+
+            onResumeWithService();
         };
 
         @Override
@@ -390,20 +418,23 @@ public class FmRecordActivity extends Activity implements
                     break;
 
                 case FmListener.LISTEN_RECORDSTATE_CHANGED:
-                    // State change from STATE_INVALID to STATE_RECORDING mean begin recording
+                    // State change from STATE_IDLE to STATE_RECORDING mean begin recording
                     // State change from STATE_RECORDING to STATE_IDLE mean stop recording
                     int newState = mService.getRecorderState();
                     Log.d(TAG, "handleMessage, record state changed: newState = " + newState
                             + ", mRecordState = " + mRecordState);
-                    if (mRecordState == FmRecorder.STATE_INVALID
+                    if (mRecordState == FmRecorder.STATE_IDLE
                             && newState == FmRecorder.STATE_RECORDING) {
-                        mRecordState = FmRecorder.STATE_RECORDING;
+                        Log.d(TAG, "Recording started");
                     } else if (mRecordState == FmRecorder.STATE_RECORDING
                             && newState == FmRecorder.STATE_IDLE) {
-                        mRecordState = FmRecorder.STATE_IDLE;
+                        Log.d(TAG, "Recording stopped");
                         mPlayIndicator.stopAnimation();
                         showSaveDialog();
+                    } else {
+                        Log.e(TAG, "Unexpected recording state: " + newState);
                     }
+                    mRecordState = newState;
                     break;
 
                 case FmListener.LISTEN_RECORDERROR:
@@ -494,6 +525,7 @@ public class FmRecordActivity extends Activity implements
             int flag = bundle.getInt(FmListener.CALLBACK_FLAG);
             if (flag == FmListener.MSGID_FM_EXIT) {
                 mHandler.removeCallbacksAndMessages(null);
+                mRecordState = FmRecorder.STATE_IDLE;
             }
 
             // remove tag message first, avoid too many same messages in queue.
