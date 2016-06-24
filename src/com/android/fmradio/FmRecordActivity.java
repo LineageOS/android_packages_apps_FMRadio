@@ -142,9 +142,14 @@ public class FmRecordActivity extends Activity implements
                 mStationName.setText(stationName);
                 mRadioText.setText(radioText);
                 int id = cursor.getInt(cursor.getColumnIndex(Station._ID));
-                resolver.registerContentObserver(
-                        ContentUris.withAppendedId(Station.CONTENT_URI, id), false,
-                        mContentObserver);
+
+                if (mWatchedId != id) {
+                    resolver.unregisterContentObserver(mContentObserver);
+                    resolver.registerContentObserver(
+                            ContentUris.withAppendedId(Station.CONTENT_URI, id),
+                            false, mContentObserver);
+                    mWatchedId = id;
+                }
                 // If no station name and no radio text, hide the view
                 if ((!TextUtils.isEmpty(stationName))
                         || (!TextUtils.isEmpty(radioText))) {
@@ -471,6 +476,7 @@ public class FmRecordActivity extends Activity implements
         setResult(RESULT_OK, intent);
     }
 
+    private int mWatchedId = -1;
     private final ContentObserver mContentObserver = new ContentObserver(new Handler()) {
         public void onChange(boolean selfChange) {
             updateUi();
