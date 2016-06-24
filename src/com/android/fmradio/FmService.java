@@ -1750,7 +1750,6 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     private void showPlayingNotification() {
         if (isActivityForeground() || mIsScanning
                 || (getRecorderState() == FmRecorder.STATE_RECORDING)) {
-            Log.w(TAG, "showPlayingNotification, do not show main notification.");
             return;
         }
         String stationName = "";
