@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_0443b9b0",
+        "filename": "src/com/android/fmradio/FmRecordActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 940
+      },
+      "writtenOn": "2016-06-24T19:47:40Z",
+      "side": 1,
+      "message": "Won\u0027t this fail the first time since you never registered an observer ?",
+      "revId": "5fcc0e5e2c605326f1f3b7a4c67d9e8abee9857a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
