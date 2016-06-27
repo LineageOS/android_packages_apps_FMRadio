@@ -39,6 +39,24 @@
       "revId": "552defb391b03af6d9d6c47b659722c911a3e19e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_cd6821bc",
+        "filename": "src/com/android/fmradio/FmRecordActivity.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 14090
+      },
+      "writtenOn": "2016-06-27T22:10:37Z",
+      "side": 1,
+      "message": "onResumeWithService() gets run only once, either from onResume() or onServiceConnected(). onServiceConnected() should happen soon after onCreate() \n\nI combined the contents of both the methods and run it here once.\n\nI suppose the stop record button and playing indicator was left enabled after the service was connected, so that doesn\u0027t have to be here, but I think it makes it a little more readable.",
+      "parentUuid": "3fa7e38b_6d7a4d89",
+      "revId": "552defb391b03af6d9d6c47b659722c911a3e19e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
