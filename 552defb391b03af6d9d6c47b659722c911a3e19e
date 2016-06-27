@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_ad3125ef",
+        "filename": "src/com/android/fmradio/FmRecordActivity.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-06-27T21:50:38Z",
+      "side": 1,
+      "message": "Any reason this shouldn\u0027t just be a boolean?",
+      "range": {
+        "startLine": 78,
+        "startChar": 12,
+        "endLine": 78,
+        "endChar": 15
+      },
+      "revId": "552defb391b03af6d9d6c47b659722c911a3e19e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_6d7a4d89",
+        "filename": "src/com/android/fmradio/FmRecordActivity.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-06-27T21:50:38Z",
+      "side": 1,
+      "message": "I\u0027m still a little unclear on the flow here, you call onResumeWithService in onResume and in onServiceConnected, but the original control flow didn\u0027t look like both actually call all the actions of onResumeWithService.",
+      "revId": "552defb391b03af6d9d6c47b659722c911a3e19e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
