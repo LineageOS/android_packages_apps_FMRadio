@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_ad8da57c",
+        "filename": "src/com/android/fmradio/FmRecordActivity.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-06-27T22:30:09Z",
+      "side": 1,
+      "message": "There should be convenience functions which let you stick boolean objects directly into this.",
+      "range": {
+        "startLine": 114,
+        "startChar": 51,
+        "endLine": 114,
+        "endChar": 57
+      },
+      "revId": "9b2e379a57e52daef081b563af03f6277ba77840",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
