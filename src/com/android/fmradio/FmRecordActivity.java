@@ -75,7 +75,7 @@ public class FmRecordActivity extends Activity implements
     private FragmentManager mFragmentManager;
     private boolean mIsInBackground = false;
     private int mLastRecordState = FmRecorder.STATE_INVALID;
-    private int mRecordingStarted = 0;
+    private boolean mRecordingStarted = false;
     private int mCurrentStation = FmUtils.DEFAULT_STATION;
     private Notification.Builder mNotificationBuilder = null;
     private String mRecordingName = null;
@@ -111,14 +111,14 @@ public class FmRecordActivity extends Activity implements
         if (savedInstanceState != null) {
             mCurrentStation = savedInstanceState.getInt(FmStation.CURRENT_STATION);
             mLastRecordState = savedInstanceState.getInt("last_record_state");
-            mRecordingStarted = savedInstanceState.getInt("recording_started", 0);
+            mRecordingStarted = savedInstanceState.getInt("recording_started", 0) != 0;
             mRecordingName = savedInstanceState.getString("recording_name", "");
         } else {
             Intent intent = getIntent();
             mCurrentStation = intent.getIntExtra(FmStation.CURRENT_STATION,
                     FmUtils.DEFAULT_STATION);
             mLastRecordState = intent.getIntExtra("last_record_state", FmRecorder.STATE_INVALID);
-            mRecordingStarted = intent.getIntExtra("recording_started", 0);
+            mRecordingStarted = intent.getIntExtra("recording_started", 0) != 0;
             mRecordingName = intent.getStringExtra("recording_name");
         }
         bindService(new Intent(this, FmService.class), mServiceConnection,
@@ -231,14 +231,21 @@ public class FmRecordActivity extends Activity implements
     protected void onResume() {
         super.onResume();
         mIsInBackground = false;
-        if (null == mService) {
-            return;
-        }
 
         onResumeWithService();
     }
 
     private void onResumeWithService() {
+
+        if (null == mService) {
+            // service not yet connected
+            return;
+        }
+
+        if (mIsInBackground) {
+            // not resumed yet
+            return;
+        }
 
         mCurrentStation = mService.getFrequency();
         mLastRecordState = mService.getRecorderState();
@@ -247,9 +254,9 @@ public class FmRecordActivity extends Activity implements
         removeNotification();
         switch (mLastRecordState) {
             case FmRecorder.STATE_IDLE:
-                if (mRecordingStarted == 0) {
+                if (!mRecordingStarted) {
                     // start the new recording
-                    mRecordingStarted = 1;
+                    mRecordingStarted = true;
                     mService.startRecordingAsync();
                     break;
                 }
@@ -317,7 +324,7 @@ public class FmRecordActivity extends Activity implements
     protected void onSaveInstanceState(Bundle outState) {
         outState.putInt(FmStation.CURRENT_STATION, mCurrentStation);
         outState.putInt("last_record_state", mLastRecordState);
-        outState.putInt("recording_started", mRecordingStarted);
+        outState.putInt("recording_started", mRecordingStarted ? 1 : 0);
         outState.putString("recording_name", mRecordingName);
         super.onSaveInstanceState(outState);
     }
@@ -374,9 +381,7 @@ public class FmRecordActivity extends Activity implements
             mService = ((FmService.ServiceBinder) service).getService();
             mService.registerFmRadioListener(mFmListener);
 
-            if (!mIsInBackground) {
-                onResumeWithService();
-            }
+            onResumeWithService();
         };
 
         @Override
