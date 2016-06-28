@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_d87c5d22",
+        "filename": "src/com/android/fmradio/FmRecordActivity.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 13956
+      },
+      "writtenOn": "2016-06-28T18:48:39Z",
+      "side": 1,
+      "message": "Just wonder in what situation we need to save mRecordingStarted in onSaveInstanceState.\nIt will never set to false unless this Activity is re-created.",
+      "revId": "a7db4dc6a01e5f756257907e3000538134497b7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
