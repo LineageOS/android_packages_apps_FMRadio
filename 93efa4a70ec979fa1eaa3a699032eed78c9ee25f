@@ -16,6 +16,24 @@
       "revId": "93efa4a70ec979fa1eaa3a699032eed78c9ee25f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_f89359a2",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 1380,
+      "author": {
+        "id": 13956
+      },
+      "writtenOn": "2016-06-28T15:43:07Z",
+      "side": 0,
+      "message": "ok i got it, startRender will call initAudioRecordSink, it is duplicated here.",
+      "parentUuid": "3fa7e38b_ed207db3",
+      "revId": "93efa4a70ec979fa1eaa3a699032eed78c9ee25f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
