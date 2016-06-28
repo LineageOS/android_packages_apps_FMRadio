@@ -248,7 +248,14 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
             String command = intent.getStringExtra("command");
             Log.d(TAG, "onReceive, action = " + action + " / command = " + command);
             // other app want FM stop, stop FM
-            if ((SOUND_POWER_DOWN_MSG.equals(action) && CMDPAUSE.equals(command))) {
+
+            if (CMDPAUSE.equals(command)) {
+                // need remove all messages, make power down will be execute
+                mFmServiceHandler.removeCallbacksAndMessages(null);
+                Log.d(TAG, "Stopping FM playback");
+                powerDownAsync();
+            } else if (SOUND_POWER_DOWN_MSG.equals(action)) {
+                // phone shut down, so exit FM
                 // need remove all messages, make power down will be execute
                 mFmServiceHandler.removeCallbacksAndMessages(null);
                 exitFm();
@@ -690,6 +697,10 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     private boolean powerDown() {
         if (mPowerStatus == POWER_DOWN) {
             return true;
+        }
+
+        if (mFmRecorder != null) {
+            stopRecording();
         }
 
         setMute(true);
