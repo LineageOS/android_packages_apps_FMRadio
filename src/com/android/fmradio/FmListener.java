@@ -72,6 +72,9 @@ public interface FmListener {
     // For change speaker/earphone mode
     String KEY_IS_SPEAKER_MODE = "key_is_speaker_mode";
 
+    // Exit FM
+    String KEY_WAS_RECORDING_AT_EXIT = "key_was_recording_at_exit";
+
     /**
      * handle message: call back from service to activity
      */

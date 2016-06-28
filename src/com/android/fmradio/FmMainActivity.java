@@ -298,7 +298,11 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                     break;
 
                 case FmListener.MSGID_FM_EXIT:
-                    finish();
+                    bundle = msg.getData();
+                    // keep this activity if we were recording at the time of exit
+                    if (!bundle.getBoolean(FmListener.KEY_WAS_RECORDING_AT_EXIT)) {
+                        finish();
+                    }
                     break;
 
                 case FmListener.LISTEN_RDSSTATION_CHANGED:

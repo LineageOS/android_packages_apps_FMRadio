@@ -1476,10 +1476,12 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     private void exitFm() {
         mIsAudioFocusHeld = false;
         // Stop FM recorder if it is working
+        boolean recording = false;
         if (null != mFmRecorder) {
             synchronized (mStopRecordingLock) {
                 int fmState = mFmRecorder.getState();
                 if (FmRecorder.STATE_RECORDING == fmState) {
+                    recording = true;
                     mFmRecorder.stopRecording();
                 }
             }
@@ -1492,7 +1494,14 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
         mFmServiceHandler.removeCallbacksAndMessages(null);
         mFmServiceHandler.removeMessages(FmListener.MSGID_FM_EXIT);
-        mFmServiceHandler.sendEmptyMessage(FmListener.MSGID_FM_EXIT);
+
+        final int bundleSize = 2; // + 1 for CALLBACK_FLAG set in FmRadioServiceHandler
+        Bundle bundle = new Bundle(bundleSize);
+        bundle.putBoolean(FmListener.KEY_WAS_RECORDING_AT_EXIT, recording);
+
+        Message msg = mFmServiceHandler.obtainMessage(FmListener.MSGID_FM_EXIT);
+        msg.setData(bundle);
+        mFmServiceHandler.sendMessage(msg);
     }
 
     @Override
@@ -2414,8 +2423,9 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                     powerDown();
                     closeDevice();
 
-                    bundle = new Bundle(1);
+                    bundle = msg.getData();
                     bundle.putInt(FmListener.CALLBACK_FLAG, FmListener.MSGID_FM_EXIT);
+
                     notifyActivityStateChanged(bundle);
                     // Finish favorite when exit FM
                     if (sExitListener != null) {
