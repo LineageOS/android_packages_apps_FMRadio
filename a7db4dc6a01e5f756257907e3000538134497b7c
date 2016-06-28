@@ -16,6 +16,24 @@
       "revId": "a7db4dc6a01e5f756257907e3000538134497b7c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_588e2d28",
+        "filename": "src/com/android/fmradio/FmRecordActivity.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 14090
+      },
+      "writtenOn": "2016-06-28T18:51:25Z",
+      "side": 1,
+      "message": "It\u0027s saved in onSaveInstanceState() so that the value can be restored (in onCreate() with savedInstanceState !\u003d null) if the activity is destroyed and re-created.",
+      "parentUuid": "3fa7e38b_d87c5d22",
+      "revId": "a7db4dc6a01e5f756257907e3000538134497b7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
