@@ -34,6 +34,24 @@
       "revId": "93efa4a70ec979fa1eaa3a699032eed78c9ee25f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_f846f921",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 1380,
+      "author": {
+        "id": 14090
+      },
+      "writtenOn": "2016-06-28T16:21:49Z",
+      "side": 0,
+      "message": "As mentioned in the commit message, this call was redundant. It creates two new AudioTrack and AudioRecord instances that are stopped in startRender() and re-created.",
+      "parentUuid": "3fa7e38b_ed207db3",
+      "revId": "93efa4a70ec979fa1eaa3a699032eed78c9ee25f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
