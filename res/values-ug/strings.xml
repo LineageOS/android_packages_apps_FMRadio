@@ -17,11 +17,14 @@
 -->
 <resources>
   <!-- Application name shown in Launcher [CHAR LIMIT=20] -->
+  <string name="app_name">FM رادىيو</string>
   <!-- Toast message shown after we refresh radio stations successfully [CHAR LIMIT=50] -->
   <!-- Toast message shown after we refresh radio stations failed [CHAR LIMIT=50] -->
   <!-- Title of a menu item to change FM sound output to speaker [CHAR LIMIT=20] -->
+  <string name="optmenu_speaker">ياڭراتقۇ</string>
   <!-- Title of a menu item to change FM sound output to earphone [CHAR LIMIT=20] -->
   <!-- Dialog "Save" button to save a new station name [CHAR LIMIT=20] -->
+  <string name="save">ساقلاڭ</string>
   <!-- Toast message shown when we record without sdcard [CHAR LIMIT=50] -->
   <!-- Toast message shown when we record but sdcard has no free space [CHAR LIMIT=50] -->
   <!-- Toast message shown when record or playback record has some internal error
