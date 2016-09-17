@@ -14,4 +14,6 @@
 
 LOCAL_PATH:= $(call my-dir)
 
+ifeq ($(TARGET_USES_ALTERNATE_FM), true)
 include $(call all-makefiles-under,$(LOCAL_PATH))
+endif
