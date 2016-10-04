@@ -1826,15 +1826,18 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
             Intent intent = new Intent(FM_SEEK_PREVIOUS);
             intent.setClass(mContext, FmService.class);
             PendingIntent pIntent = PendingIntent.getService(mContext, 0, intent, 0);
-            mNotificationBuilder.addAction(R.drawable.btn_fm_prevstation, "", pIntent);
+            mNotificationBuilder.addAction(R.drawable.btn_fm_prevstation,
+                    getString(R.string.notif_previous), pIntent);
             intent = new Intent(FM_TURN_OFF);
             intent.setClass(mContext, FmService.class);
             pIntent = PendingIntent.getService(mContext, 0, intent, 0);
-            mNotificationBuilder.addAction(R.drawable.btn_fm_rec_stop_enabled, "", pIntent);
+            mNotificationBuilder.addAction(R.drawable.btn_fm_rec_stop_enabled,
+                    getString(R.string.notif_stop), pIntent);
             intent = new Intent(FM_SEEK_NEXT);
             intent.setClass(mContext, FmService.class);
             pIntent = PendingIntent.getService(mContext, 0, intent, 0);
-            mNotificationBuilder.addAction(R.drawable.btn_fm_nextstation, "", pIntent);
+            mNotificationBuilder.addAction(R.drawable.btn_fm_nextstation,
+                    getString(R.string.notif_next) , pIntent);
         }
         mNotificationBuilder.setContentIntent(pAIntent);
         Bitmap largeIcon = FmUtils.createNotificationLargeIcon(mContext,
