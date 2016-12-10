@@ -14,4 +14,6 @@
 
 LOCAL_PATH:= $(call my-dir)
 
+ifneq ($(TARGET_PROVIDES_FMRADIO_JNI),true)
 include $(call all-makefiles-under,$(LOCAL_PATH))
+endif
