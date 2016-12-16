@@ -22,11 +22,13 @@
   <!-- Title of a menu item to change FM sound output to speaker [CHAR LIMIT=20] -->
   <!-- Title of a menu item to change FM sound output to earphone [CHAR LIMIT=20] -->
   <!-- Dialog "Save" button to save a new station name [CHAR LIMIT=20] -->
+  <string name="save">Konservi</string>
   <!-- Toast message shown when we record without sdcard [CHAR LIMIT=50] -->
   <!-- Toast message shown when we record but sdcard has no free space [CHAR LIMIT=50] -->
   <!-- Toast message shown when record or playback record has some internal error
          [CHAR LIMIT=NONE] -->
   <!-- Dialog "Save" button to save the FM recording [CHAR LIMIT=20] -->
+  <string name="btn_save_recording">Konservi</string>
   <!-- Dialog "Discard" button to discard the FM recording [CHAR LIMIT=20] -->
   <!-- EditText hint for save recording dialog [CHAR LIMIT=50] -->
   <!-- Toast message shown when we save the recording name which is already exists
@@ -52,6 +54,7 @@
   <!-- The tips shown when we refresh in station list but no stations found [CHAR LIMIT=50] -->
   <!-- It means "minutes" that shown in record screen [CHAR LIMIT=2] -->
   <!-- It means "seconds" that shown in record screen [CHAR LIMIT=2] -->
+  <string name="seconds_label">S</string>
   <!-- The default number for record screen. It will show "00M 00S" [CHAR LIMIT=2] -->
   <!-- Actionbar title for recording FM. It will show in the action bar [CHAR LIMIT=20] -->
   <!-- The text shown in notification when currently is recording [CHAR LIMIT=50] -->
