@@ -22,6 +22,7 @@
   <!-- Title of a menu item to change FM sound output to speaker [CHAR LIMIT=20] -->
   <!-- Title of a menu item to change FM sound output to earphone [CHAR LIMIT=20] -->
   <!-- Dialog "Save" button to save a new station name [CHAR LIMIT=20] -->
+  <string name="save">Guardar</string>
   <!-- Toast message shown when we record without sdcard [CHAR LIMIT=50] -->
   <!-- Toast message shown when we record but sdcard has no free space [CHAR LIMIT=50] -->
   <!-- Toast message shown when record or playback record has some internal error
@@ -33,12 +34,15 @@
          [CHAR LIMIT=50] -->
   <!-- Toast message shown when FM power up failed [CHAR LIMIT=30] -->
   <!-- Talkback message for previous station button [CHAR LIMIT=30] -->
+  <string name="talk_prev_station">Emisora previa</string>
   <!-- Talkback message for decrease frequency button [CHAR LIMIT=30] -->
   <!-- Talkback message for increase frequency button [CHAR LIMIT=30] -->
   <!-- Talkback message for next station button [CHAR LIMIT=30] -->
+  <string name="talk_next_station">Emisora siguiente</string>
   <!-- Talkback message for next station button [CHAR LIMIT=30] -->
   <!-- Talkback message for start recording button [CHAR LIMIT=30] -->
   <!-- Talkback message for favorit card more menu [CHAR LIMIT=30] -->
+  <string name="more">"Más"</string>
   <!-- The tips shown when we start recording [CHAR LIMIT=30] -->
   <!-- The text "FM" shown in FM main screen [CHAR LIMIT=30] -->
   <!-- Talkback message for the floating button which will play or stop FM sound
@@ -46,19 +50,26 @@
   <!-- Title of a menu item to start recording FM sound [CHAR LIMIT=30] -->
   <!-- Title of a menu item to see the saved recordings in play music  [CHAR LIMIT=30] -->
   <!-- Title of a menu item to refresh the station list  [CHAR LIMIT=30] -->
+  <string name="fm_station_list_menu_refresh">Refrescar</string>
   <!-- The tips shown when without an earphone or plug out the earphone [CHAR LIMIT=NONE] -->
   <!-- Actionbar title for station list. It will show in the action bar [CHAR LIMIT=50] -->
+  <string name="station_title">Emisores de radio</string>
   <!-- The tips shown when we refresh in station list [CHAR LIMIT=50] -->
+  <string name="station_searching_tips">Consiguiendo emisores</string>
   <!-- The tips shown when we refresh in station list but no stations found [CHAR LIMIT=50] -->
+  <string name="station_empty_text">Nun s\'alcontraron emisores</string>
   <!-- It means "minutes" that shown in record screen [CHAR LIMIT=2] -->
   <!-- It means "seconds" that shown in record screen [CHAR LIMIT=2] -->
   <!-- The default number for record screen. It will show "00M 00S" [CHAR LIMIT=2] -->
   <!-- Actionbar title for recording FM. It will show in the action bar [CHAR LIMIT=20] -->
   <!-- The text shown in notification when currently is recording [CHAR LIMIT=50] -->
   <!-- Stop recording button shown when currently is recording [CHAR LIMIT=20] -->
+  <string name="stop_record">PARAR GRABACIÓN</string>
   <!-- Title of save dialog shown when stop recording [CHAR LIMIT=40] -->
+  <string name="save_dialog_title">¿Guardar grabación?</string>
   <!-- Tips of save dialog shown when stop recording [CHAR LIMIT=NONE] -->
   <!-- Title of favorite area shown when we have favorite stations [CHAR LIMIT=50] -->
+  <string name="favorites">Favoritos</string>
   <!-- Title of a menu in favorite card more menu. It means rename a station [CHAR LIMIT=50] -->
   <!-- EditText hint for rename station dialog [CHAR LIMIT=50] -->
   <!-- Title of a menu in favorite card more menu. It means remove a station from favorite
@@ -68,4 +79,5 @@
   <!-- Button in snackbar shown we save a recording. It will enter play music to listen recording
          [CHAR LIMIT=12] -->
   <!-- Snackbar message shown after we rename a favorite station [CHAR LIMIT=50] -->
+  <string name="toast_station_renamed">Renomóse la emisora</string>
 </resources>
