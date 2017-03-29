@@ -29,6 +29,7 @@
          [CHAR LIMIT=NONE] -->
   <string name="toast_recorder_internal_error">¡Asocedió un fallu internu na grabadora!</string>
   <!-- Dialog "Save" button to save the FM recording [CHAR LIMIT=20] -->
+  <string name="btn_save_recording">Guardar</string>
   <!-- Dialog "Discard" button to discard the FM recording [CHAR LIMIT=20] -->
   <!-- EditText hint for save recording dialog [CHAR LIMIT=50] -->
   <!-- Toast message shown when we save the recording name which is already exists
@@ -77,6 +78,7 @@
   <!-- Title of a menu in favorite card more menu. It means remove a station from favorite
          [CHAR LIMIT=50] -->
   <!-- Snackbar message shown after we save a recording [CHAR LIMIT=50] -->
+  <string name="toast_record_saved">Guardóse la grabación</string>
   <!-- Snackbar message shown after we discard a recording [CHAR LIMIT=50] -->
   <!-- Button in snackbar shown we save a recording. It will enter play music to listen recording
          [CHAR LIMIT=12] -->
