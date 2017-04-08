@@ -31,7 +31,8 @@ LOCAL_SHARED_LIBRARIES := \
     libmedia \
 
 LOCAL_MODULE := libfmjni
-
+ifneq ($(BOARD_HAVE_BCM_FM), true)
 ifneq ($(BOARD_USES_QCOM_HARDWARE),true)
 include $(BUILD_SHARED_LIBRARY)
+endif
 endif
