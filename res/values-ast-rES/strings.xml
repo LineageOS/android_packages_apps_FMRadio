@@ -20,6 +20,7 @@
   <!-- Toast message shown after we refresh radio stations successfully [CHAR LIMIT=50] -->
   <!-- Toast message shown after we refresh radio stations failed [CHAR LIMIT=50] -->
   <!-- Title of a menu item to change FM sound output to speaker [CHAR LIMIT=20] -->
+  <string name="optmenu_speaker">Altavoz</string>
   <!-- Title of a menu item to change FM sound output to earphone [CHAR LIMIT=20] -->
   <!-- Dialog "Save" button to save a new station name [CHAR LIMIT=20] -->
   <string name="save">Guardar</string>
@@ -31,10 +32,12 @@
   <!-- Dialog "Save" button to save the FM recording [CHAR LIMIT=20] -->
   <string name="btn_save_recording">Guardar</string>
   <!-- Dialog "Discard" button to discard the FM recording [CHAR LIMIT=20] -->
+  <string name="btn_discard_recording">Escartar</string>
   <!-- EditText hint for save recording dialog [CHAR LIMIT=50] -->
   <!-- Toast message shown when we save the recording name which is already exists
          [CHAR LIMIT=50] -->
   <!-- Toast message shown when FM power up failed [CHAR LIMIT=30] -->
+  <string name="not_available">Anguaño non disponible</string>
   <!-- Talkback message for previous station button [CHAR LIMIT=30] -->
   <string name="talk_prev_station">Emisora previa</string>
   <!-- Talkback message for decrease frequency button [CHAR LIMIT=30] -->
