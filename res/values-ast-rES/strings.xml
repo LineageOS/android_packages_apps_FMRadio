@@ -85,6 +85,7 @@
   <!-- Snackbar message shown after we discard a recording [CHAR LIMIT=50] -->
   <!-- Button in snackbar shown we save a recording. It will enter play music to listen recording
          [CHAR LIMIT=12] -->
+  <string name="toast_listen">SENTIR</string>
   <!-- Snackbar message shown after we rename a favorite station [CHAR LIMIT=50] -->
   <string name="toast_station_renamed">Renomóse la emisora</string>
 </resources>
