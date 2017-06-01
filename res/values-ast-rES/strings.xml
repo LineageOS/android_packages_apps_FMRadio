@@ -17,6 +17,7 @@
 -->
 <resources>
   <!-- Application name shown in Launcher [CHAR LIMIT=20] -->
+  <string name="app_name">Radio FM</string>
   <!-- Toast message shown after we refresh radio stations successfully [CHAR LIMIT=50] -->
   <!-- Toast message shown after we refresh radio stations failed [CHAR LIMIT=50] -->
   <!-- Title of a menu item to change FM sound output to speaker [CHAR LIMIT=20] -->
@@ -41,7 +42,9 @@
   <!-- Talkback message for previous station button [CHAR LIMIT=30] -->
   <string name="talk_prev_station">Emisora previa</string>
   <!-- Talkback message for decrease frequency button [CHAR LIMIT=30] -->
+  <string name="talk_decrease">Amenorgar frecuencia</string>
   <!-- Talkback message for increase frequency button [CHAR LIMIT=30] -->
+  <string name="talk_increase">Aumentar frecuencia</string>
   <!-- Talkback message for next station button [CHAR LIMIT=30] -->
   <string name="talk_next_station">Emisora siguiente</string>
   <!-- Talkback message for next station button [CHAR LIMIT=30] -->
