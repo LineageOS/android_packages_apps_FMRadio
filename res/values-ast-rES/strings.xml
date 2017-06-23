@@ -68,7 +68,9 @@
   <!-- The tips shown when we refresh in station list but no stations found [CHAR LIMIT=50] -->
   <string name="station_empty_text">Nun s\'alcontraron emisores</string>
   <!-- It means "minutes" that shown in record screen [CHAR LIMIT=2] -->
+  <string name="minutes_label">M</string>
   <!-- It means "seconds" that shown in record screen [CHAR LIMIT=2] -->
+  <string name="seconds_label">S</string>
   <!-- The default number for record screen. It will show "00M 00S" [CHAR LIMIT=2] -->
   <!-- Actionbar title for recording FM. It will show in the action bar [CHAR LIMIT=20] -->
   <!-- The text shown in notification when currently is recording [CHAR LIMIT=50] -->
