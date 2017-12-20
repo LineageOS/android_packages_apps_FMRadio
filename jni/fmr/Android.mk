@@ -32,7 +32,6 @@ LOCAL_SHARED_LIBRARIES := \
     liblog
 
 LOCAL_MODULE := libfmjni
+LOCAL_MODULE_TAGS := optional
 
-ifneq ($(BOARD_USES_QCOM_HARDWARE),true)
 include $(BUILD_SHARED_LIBRARY)
-endif
