@@ -28,10 +28,9 @@ LOCAL_C_INCLUDES := $(JNI_H_INCLUDE) \
 LOCAL_SHARED_LIBRARIES := \
     libcutils \
     libdl \
-    libmedia \
+    libmedia
 
 LOCAL_MODULE := libfmjni
+LOCAL_MODULE_TAGS := optional
 
-ifneq ($(BOARD_USES_QCOM_HARDWARE),true)
 include $(BUILD_SHARED_LIBRARY)
-endif
