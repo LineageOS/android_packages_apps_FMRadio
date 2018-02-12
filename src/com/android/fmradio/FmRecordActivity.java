@@ -186,7 +186,7 @@ public class FmRecordActivity extends Activity implements
                     .setContentText(getText(R.string.record_notification_message))
                     .setShowWhen(false)
                     .setAutoCancel(true)
-                    .setSmallIcon(R.drawable.ic_launcher)
+                    .setSmallIcon(R.mipmap.ic_launcher)
                     .setLargeIcon(largeIcon)
                     .addAction(R.drawable.btn_fm_rec_stop_enabled, getText(R.string.stop_record),
                             pendingIntent);
