@@ -19,7 +19,7 @@
   <!-- Application name shown in Launcher [CHAR LIMIT=20] -->
   <string name="app_name">Rádio FM</string>
   <!-- Toast message shown after we refresh radio stations successfully [CHAR LIMIT=50] -->
-  <string name="toast_station_searched">Pesquisar estações disponíveis:</string>
+  <string name="toast_station_searched">Pesquisa de estações disponíveis:</string>
   <!-- Toast message shown after we refresh radio stations failed [CHAR LIMIT=50] -->
   <string name="toast_cannot_search">Não é possível pesquisar a estação disponível.</string>
   <!-- Title of a menu item to change FM sound output to speaker [CHAR LIMIT=20] -->
@@ -55,7 +55,7 @@
   <!-- Talkback message for next station button [CHAR LIMIT=30] -->
   <string name="talk_next_station">Estação seguinte</string>
   <!-- Talkback message for next station button [CHAR LIMIT=30] -->
-  <string name="talk_add_favorite">Adicionar ao favorito</string>
+  <string name="talk_add_favorite">Adicionar aos favoritos</string>
   <!-- Talkback message for start recording button [CHAR LIMIT=30] -->
   <string name="talk_start_recording">Iniciar gravação</string>
   <!-- Talkback message for favorit card more menu [CHAR LIMIT=30] -->

@@ -27,6 +27,7 @@
   <!-- Toast message shown when record or playback record has some internal error
          [CHAR LIMIT=NONE] -->
   <!-- Dialog "Save" button to save the FM recording [CHAR LIMIT=20] -->
+  <string name="btn_save_recording">Salvar</string>
   <!-- Dialog "Discard" button to discard the FM recording [CHAR LIMIT=20] -->
   <!-- EditText hint for save recording dialog [CHAR LIMIT=50] -->
   <!-- Toast message shown when we save the recording name which is already exists

@@ -15,4 +15,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources></resources>
+<resources>
+  <string name="notif_previous">Aurrekoa</string>
+  <string name="notif_stop">Gelditu</string>
+  <string name="notif_next">Hurrengoa</string>
+</resources>

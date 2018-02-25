@@ -15,4 +15,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources></resources>
+<resources>
+  <string name="notif_previous">이전</string>
+  <string name="notif_stop">중지</string>
+  <string name="notif_next">다음</string>
+</resources>

@@ -15,4 +15,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources></resources>
+<resources>
+  <string name="notif_previous">Prejšnja</string>
+  <string name="notif_stop">Ustavi</string>
+  <string name="notif_next">Naslednja</string>
+</resources>
