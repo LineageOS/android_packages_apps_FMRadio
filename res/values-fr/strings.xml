@@ -92,7 +92,6 @@
   <!-- The text shown in notification when currently is recording [CHAR LIMIT=50] -->
   <string name="record_notification_message">Enregistrement en cours…</string>
   <!-- Stop recording button shown when currently is recording [CHAR LIMIT=20] -->
-  <string name="stop_record">ARRÊTER ENREGISTREMENT</string>
   <!-- Title of save dialog shown when stop recording [CHAR LIMIT=40] -->
   <string name="save_dialog_title">Sauvegarder l\'enregistrement ?</string>
   <!-- Tips of save dialog shown when stop recording [CHAR LIMIT=NONE] -->
