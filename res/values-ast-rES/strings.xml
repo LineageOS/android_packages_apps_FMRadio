@@ -86,7 +86,7 @@
   <!-- The text shown in notification when currently is recording [CHAR LIMIT=50] -->
   <string name="record_notification_message">Grabación en cursu</string>
   <!-- Stop recording button shown when currently is recording [CHAR LIMIT=20] -->
-  <string name="stop_record">PARAR GRABACIÓN</string>
+  <string name="stop_record">DEXAR DE GRABAR</string>
   <!-- Title of save dialog shown when stop recording [CHAR LIMIT=40] -->
   <string name="save_dialog_title">¿Guardar grabación?</string>
   <!-- Tips of save dialog shown when stop recording [CHAR LIMIT=NONE] -->
