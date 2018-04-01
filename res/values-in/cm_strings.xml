@@ -15,4 +15,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources></resources>
+<resources>
+  <string name="notif_previous">Sebelumnya</string>
+  <string name="notif_stop">Hentikan</string>
+  <string name="notif_next">Berikutnya</string>
+</resources>
