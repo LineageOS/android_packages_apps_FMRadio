@@ -100,7 +100,7 @@
   <!-- Title of favorite area shown when we have favorite stations [CHAR LIMIT=50] -->
   <string name="favorites">Favoritos</string>
   <!-- Title of a menu in favorite card more menu. It means rename a station [CHAR LIMIT=50] -->
-  <string name="rename">Cambiar nombre</string>
+  <string name="rename">Renombrar</string>
   <!-- EditText hint for rename station dialog [CHAR LIMIT=50] -->
   <string name="station_rename_hint">Ingresar nombre de estación</string>
   <!-- Title of a menu in favorite card more menu. It means remove a station from favorite
@@ -114,5 +114,5 @@
          [CHAR LIMIT=12] -->
   <string name="toast_listen">ESCUCHAR</string>
   <!-- Snackbar message shown after we rename a favorite station [CHAR LIMIT=50] -->
-  <string name="toast_station_renamed">Se cambió el nombre de la estación.</string>
+  <string name="toast_station_renamed">La estación ha sido renombrada</string>
 </resources>
