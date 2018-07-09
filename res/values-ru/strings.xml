@@ -59,7 +59,7 @@
   <!-- Talkback message for start recording button [CHAR LIMIT=30] -->
   <string name="talk_start_recording">Начать запись</string>
   <!-- Talkback message for favorit card more menu [CHAR LIMIT=30] -->
-  <string name="more">"Ещё"</string>
+  <string name="more">"Еще"</string>
   <!-- The tips shown when we start recording [CHAR LIMIT=30] -->
   <string name="recording_tips">Запись…</string>
   <!-- The text "FM" shown in FM main screen [CHAR LIMIT=30] -->
