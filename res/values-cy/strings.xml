@@ -21,7 +21,7 @@
   <!-- Toast message shown after we refresh radio stations successfully [CHAR LIMIT=50] -->
   <string name="toast_station_searched">Wedi canfod gorsafoedd ar gael:</string>
   <!-- Toast message shown after we refresh radio stations failed [CHAR LIMIT=50] -->
-  <string name="toast_cannot_search">Methu chwilio am orsafoedd ar gael.</string>
+  <string name="toast_cannot_search">Methu â chwilio am orsafoedd ar gael.</string>
   <!-- Title of a menu item to change FM sound output to speaker [CHAR LIMIT=20] -->
   <string name="optmenu_speaker">Seinydd</string>
   <!-- Title of a menu item to change FM sound output to earphone [CHAR LIMIT=20] -->
