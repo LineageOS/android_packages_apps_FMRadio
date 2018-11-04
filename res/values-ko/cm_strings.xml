@@ -16,7 +16,7 @@
      limitations under the License.
 -->
 <resources>
-  <string name="notif_previous">이전</string>
-  <string name="notif_stop">중지</string>
-  <string name="notif_next">다음</string>
+    <string name="notif_previous">이전</string>
+    <string name="notif_stop">중지</string>
+    <string name="notif_next">다음</string>
 </resources>

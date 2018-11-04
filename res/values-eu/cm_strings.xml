@@ -16,7 +16,7 @@
      limitations under the License.
 -->
 <resources>
-  <string name="notif_previous">Aurrekoa</string>
-  <string name="notif_stop">Gelditu</string>
-  <string name="notif_next">Hurrengoa</string>
+    <string name="notif_previous">Aurrekoa</string>
+    <string name="notif_stop">Gelditu</string>
+    <string name="notif_next">Hurrengoa</string>
 </resources>

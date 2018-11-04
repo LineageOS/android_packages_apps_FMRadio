@@ -16,7 +16,7 @@
      limitations under the License.
 -->
 <resources>
-  <string name="notif_previous">Попередня</string>
-  <string name="notif_stop">Зупинити</string>
-  <string name="notif_next">Наступна</string>
+    <string name="notif_previous">Попередня</string>
+    <string name="notif_stop">Зупинити</string>
+    <string name="notif_next">Наступна</string>
 </resources>
