@@ -23,6 +23,7 @@
     <!-- Title of a menu item to change FM sound output to earphone [CHAR LIMIT=20] -->
     <!-- Dialog "Save" button to save a new station name [CHAR LIMIT=20] -->
     <!-- Toast message shown when we record without sdcard [CHAR LIMIT=50] -->
+    <string name="toast_sdcard_missing">Mae dy gerdyn SD ar goll!</string>
     <!-- Toast message shown when we record but sdcard has no free space [CHAR LIMIT=50] -->
     <!-- Toast message shown when record or playback record has some internal error
          [CHAR LIMIT=NONE] -->
@@ -38,12 +39,14 @@
     <!-- Talkback message for next station button [CHAR LIMIT=30] -->
     <!-- Talkback message for next station button [CHAR LIMIT=30] -->
     <!-- Talkback message for start recording button [CHAR LIMIT=30] -->
+    <string name="talk_start_recording">Dechrau recordio</string>
     <!-- Talkback message for favorit card more menu [CHAR LIMIT=30] -->
     <!-- The tips shown when we start recording [CHAR LIMIT=30] -->
     <!-- The text "FM" shown in FM main screen [CHAR LIMIT=30] -->
     <!-- Talkback message for the floating button which will play or stop FM sound
          [CHAR LIMIT=30] -->
     <!-- Title of a menu item to start recording FM sound [CHAR LIMIT=30] -->
+    <string name="fm_over_start_record">Dechrau recordio</string>
     <!-- Title of a menu item to see the saved recordings in play music  [CHAR LIMIT=30] -->
     <!-- Title of a menu item to refresh the station list  [CHAR LIMIT=30] -->
     <!-- The tips shown when without an earphone or plug out the earphone [CHAR LIMIT=NONE] -->
@@ -56,6 +59,7 @@
     <!-- Actionbar title for recording FM. It will show in the action bar [CHAR LIMIT=20] -->
     <!-- The text shown in notification when currently is recording [CHAR LIMIT=50] -->
     <!-- Stop recording button shown when currently is recording [CHAR LIMIT=20] -->
+    <string name="stop_record">STOPIO RECORDIO</string>
     <!-- Title of save dialog shown when stop recording [CHAR LIMIT=40] -->
     <!-- Tips of save dialog shown when stop recording [CHAR LIMIT=NONE] -->
     <!-- Title of favorite area shown when we have favorite stations [CHAR LIMIT=50] -->
@@ -68,4 +72,5 @@
     <!-- Button in snackbar shown we save a recording. It will enter play music to listen recording
          [CHAR LIMIT=12] -->
     <!-- Snackbar message shown after we rename a favorite station [CHAR LIMIT=50] -->
+    <string name="toast_station_renamed">Mae\'r orsaf wedi ei hailenwi</string>
 </resources>
