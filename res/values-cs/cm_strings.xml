@@ -16,7 +16,7 @@
      limitations under the License.
 -->
 <resources>
-  <string name="notif_previous">Předchozí</string>
-  <string name="notif_stop">Zastavit</string>
-  <string name="notif_next">Další</string>
+    <string name="notif_previous">Předchozí</string>
+    <string name="notif_stop">Zastavit</string>
+    <string name="notif_next">Další</string>
 </resources>

@@ -15,4 +15,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources></resources>
+<resources>
+    <string name="notif_previous">Anterior</string>
+    <string name="notif_stop">Parar</string>
+    <string name="notif_next">Siguiente</string>
+</resources>

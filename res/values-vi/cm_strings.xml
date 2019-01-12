@@ -16,7 +16,7 @@
      limitations under the License.
 -->
 <resources>
-  <string name="notif_previous">Trước</string>
-  <string name="notif_stop">Dừng</string>
-  <string name="notif_next">Tiếp theo</string>
+    <string name="notif_previous">Trước</string>
+    <string name="notif_stop">Dừng</string>
+    <string name="notif_next">Tiếp theo</string>
 </resources>

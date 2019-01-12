@@ -16,7 +16,7 @@
      limitations under the License.
 -->
 <resources>
-  <string name="notif_previous">Προηγούμενο</string>
-  <string name="notif_stop">Διακοπή</string>
-  <string name="notif_next">Επόμενο</string>
+    <string name="notif_previous">Προηγούμενο</string>
+    <string name="notif_stop">Διακοπή</string>
+    <string name="notif_next">Επόμενο</string>
 </resources>
