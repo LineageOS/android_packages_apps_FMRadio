@@ -37,9 +37,11 @@ LOCAL_PROGUARD_ENABLED := disabled
 LOCAL_PRIVILEGED_MODULE := true
 
 LOCAL_STATIC_ANDROID_LIBRARIES := \
-    android-support-v7-cardview \
+    android-support-v7-cardview
 
-LOCAL_RESOURCE_DIR = $(LOCAL_PATH)/res
+LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, res)
+
+LOCAL_USE_AAPT2 := true
 
 LOCAL_AAPT_FLAGS := --auto-add-overlay
 
