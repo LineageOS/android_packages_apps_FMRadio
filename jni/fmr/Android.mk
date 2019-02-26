@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifneq ($(BOARD_HAVE_QCOM_FM),true)
+ifneq ($(filter true,$(BOARD_HAVE_QCOM_FM) $(BOARD_HAVE_MTK_FM)),)
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -36,4 +36,4 @@ LOCAL_MODULE := libfmjni
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
-endif # BOARD_HAVE_QCOM_FM
+endif # BOARD_HAVE_QCOM_FM, BOARD_HAVE_MTK_FM
