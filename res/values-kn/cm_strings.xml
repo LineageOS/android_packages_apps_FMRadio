@@ -15,4 +15,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources></resources>
+<resources>
+    <string name="notif_previous">ಹಿಂದಿನ</string>
+    <string name="notif_stop">ನಿಲ್ಲಿಸು</string>
+    <string name="notif_next">ಮುಂದಿನ</string>
+</resources>
