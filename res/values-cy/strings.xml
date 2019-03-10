@@ -17,6 +17,8 @@
 -->
 <resources>
     <string name="app_name">Radio FM</string>
+    <string name="toast_station_searched">Wedi canfod gorsafoedd ar gael:</string>
+    <string name="toast_cannot_search">Methu â chwilio am orsafoedd ar gael.</string>
     <string name="optmenu_speaker">Seinydd</string>
     <string name="optmenu_earphone">Clustffôn</string>
     <string name="save">Cadw</string>
