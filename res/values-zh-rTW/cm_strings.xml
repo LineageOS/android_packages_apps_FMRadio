@@ -16,7 +16,7 @@
      limitations under the License.
 -->
 <resources>
-  <string name="notif_previous">上一個</string>
-  <string name="notif_stop">停止</string>
-  <string name="notif_next">下一個</string>
+    <string name="notif_previous">上一個</string>
+    <string name="notif_stop">停止</string>
+    <string name="notif_next">下一個</string>
 </resources>
