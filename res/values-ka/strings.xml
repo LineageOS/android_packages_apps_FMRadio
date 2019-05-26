@@ -27,7 +27,7 @@
     <string name="toast_recorder_internal_error">შიდა შეცდომა ჩამწერი!</string>
     <string name="btn_save_recording">შენახვა</string>
     <string name="btn_discard_recording">გაუქმება</string>
-    <string name="edit_recording_name_hint">ტიპი ფაილის სახელი აქ</string>
+    <string name="edit_recording_name_hint">სახელი აკრიფეთ აქ</string>
     <string name="already_exists">უკვე არსებობს</string>
     <string name="not_available">ამჟამად არ არის ხელმისაწვდომი</string>
     <string name="talk_prev_station">წინა სადგური</string>
