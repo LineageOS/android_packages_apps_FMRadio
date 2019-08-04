@@ -50,7 +50,7 @@
     <string name="minutes_label">M</string>
     <string name="seconds_label">S</string>
     <string name="timer_default">00</string>
-    <string name="record_title">Optagelse</string>
+    <string name="record_title">Optager</string>
     <string name="record_notification_message">Optagelse i gang</string>
     <string name="stop_record">STOP OPTAGELSE</string>
     <string name="save_dialog_title">Vil du gemme optagelsen?</string>
@@ -59,8 +59,8 @@
     <string name="rename">Omdøb</string>
     <string name="station_rename_hint">Indtast stationens navn</string>
     <string name="remove_favorite">Fjern favorit</string>
-    <string name="toast_record_saved">Optagelsen blev gemt</string>
-    <string name="toast_record_not_saved">Optagelsen blev ikke gemt</string>
+    <string name="toast_record_saved">Optagelse gemt</string>
+    <string name="toast_record_not_saved">Optagelse ikke gemt</string>
     <string name="toast_listen">LYT</string>
     <string name="toast_station_renamed">Stationen er blevet omdøbt</string>
 </resources>
