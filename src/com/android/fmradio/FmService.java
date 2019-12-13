@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.fmradio;
+package com.lineageos.fmradio;
 
 import android.app.ActivityManager;
 import android.app.Notification;
@@ -60,7 +60,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.fmradio.FmStation.Station;
+import com.lineageos.fmradio.FmStation.Station;
 
 import java.util.ArrayList;
 import java.util.Arrays;
