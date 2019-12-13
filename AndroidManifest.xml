@@ -16,10 +16,10 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.fmradio"
+    package="com.lineageos.fmradio"
     android:sharedUserId="android.uid.system"
     android:versionCode="2"
-    android:versionName="2.0" >
+    android:versionName="2.0.1" >
 
     <!-- FM uses AudioPatch which is new in sdk 21 -->
     <uses-sdk
@@ -70,13 +70,13 @@
             android:name=".FmService"
             android:exported="false" >
             <intent-filter>
-                <action android:name="com.android.fmradio.IFmRadioService" />
+                <action android:name="com.lineageos.fmradio.IFmRadioService" />
             </intent-filter>
         </service>
 
         <provider
             android:name=".FmProvider"
-            android:authorities="com.android.fmradio"
+            android:authorities="com.lineageos.fmradio"
             android:exported="false" >
         </provider>
 
