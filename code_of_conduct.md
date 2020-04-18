@@ -1,8 +1,3 @@
-+++
-version = "2.0"
-aliases = ["/version/2/0"]
-+++
-
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge
