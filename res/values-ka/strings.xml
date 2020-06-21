@@ -48,7 +48,7 @@
     <string name="station_empty_text">არ სადგურები გამოჩენას</string>
     <string name="minutes_label">ო</string>
     <string name="seconds_label">სამხრ.</string>
-    <string name="timer_default">22°</string>
+    <string name="timer_default">00</string>
     <string name="record_title">ჩანაწერი</string>
     <string name="record_notification_message">ჩაწერა მიმდინარეობს</string>
     <string name="stop_record">STOP ჩაწერა</string>
