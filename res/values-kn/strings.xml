@@ -33,6 +33,7 @@
     <string name="talk_decrease">ತರಂಗಾಂತರ ತಗ್ಗಿಸು</string>
     <string name="talk_increase">ತರಂಗಾಂತರ ಹೆಚ್ಚಿಸು</string>
     <string name="talk_next_station">ಮುಂದಿನ ಕೇಂದ್ರ</string>
+    <string name="talk_add_favorite">ಮೆಚ್ಚಿನದಕ್ಕೆ ಸೇರಿಸು</string>
     <string name="talk_start_recording">ಧ್ವನಿಮುದ್ರಣವನ್ನು ಪ್ರಾರಂಭಿಸು</string>
     <string name="more">"ಇನ್ನಷ್ಟು"</string>
     <string name="recording_tips">ಮುದ್ರಣವಾಗುತ್ತಿದೆ…</string>
