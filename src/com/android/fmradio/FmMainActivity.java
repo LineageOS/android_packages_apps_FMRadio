@@ -33,6 +33,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.os.SystemProperties;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -242,7 +243,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
 
                 case FmListener.MSGID_SWITCH_ANTENNA:
                     bundle = msg.getData();
-                    boolean hasAntenna = bundle.getBoolean(FmListener.KEY_IS_SWITCH_ANTENNA);
+                    boolean hasAntenna = bundle.getBoolean(FmListener.KEY_IS_SWITCH_ANTENNA) || SystemProperties.get("ro.vendor.mtk_fm_short_antenna_support").equals("1");
                     // if receive headset plug out, need set headset mode on ui
                     if (hasAntenna) {
                         if (mIsActivityForeground) {
@@ -852,6 +853,9 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
      * @return true or false indicate antenna available or not
      */
     private boolean isAntennaAvailable() {
+        if (SystemProperties.get("ro.vendor.mtk_fm_short_antenna_support").equals("1")) {
+            return true; // Support wireless FM Radio on MTK chips
+        }
         return mAudioManager.isWiredHeadsetOn();
     }
 
