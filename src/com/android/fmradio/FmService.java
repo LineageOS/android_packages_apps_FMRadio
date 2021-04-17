@@ -57,6 +57,7 @@ import android.os.Message;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.os.Process;
+import android.os.SystemProperties;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -363,6 +364,9 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
      * @return true, antenna available; false, antenna not available
      */
     public boolean isAntennaAvailable() {
+        if (SystemProperties.get("ro.vendor.mtk_fm_short_antenna_support").equals("1")) {
+            return true; // Support wireless FM Radio on MTK chips
+        }
         return mAudioManager.isWiredHeadsetOn();
     }
 
