@@ -22,6 +22,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.os.Environment;
 import android.os.StatFs;
+import android.os.SystemProperties;
 import android.os.storage.StorageManager;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -321,5 +322,9 @@ public class FmUtils {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(FM_IS_SPEAKER_MODE, isSpeaker);
         editor.commit();
+    }
+
+    public static boolean hasMtkFmShortAntennaSupport() {
+        return SystemProperties.get("ro.vendor.mtk_fm_short_antenna_support").equals("1");
     }
 }
