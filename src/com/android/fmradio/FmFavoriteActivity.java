@@ -33,6 +33,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
+import android.os.SystemProperties;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
@@ -513,7 +514,7 @@ public class FmFavoriteActivity extends Activity {
                     bundle = msg.getData();
                     boolean isHeadset = bundle.getBoolean(FmListener.KEY_IS_SWITCH_ANTENNA);
                     // if receive headset plugout, need set headset mode on ui
-                    if (!isHeadset) {
+                    if (!isHeadset && !SystemProperties.get("ro.vendor.mtk_fm_short_antenna_support").equals("1")) {
                         finish();
                     }
                     break;
