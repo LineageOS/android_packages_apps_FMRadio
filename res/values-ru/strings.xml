@@ -23,7 +23,7 @@
     <string name="save">Сохранить</string>
     <string name="toast_sdcard_missing">Нет SD-карты</string>
     <string name="toast_sdcard_insufficient_space">Недостаточно места на SD-карте</string>
-    <string name="toast_recorder_internal_error">Внутренняя ошибка диктофона</string>
+    <string name="toast_recorder_internal_error">Произошла внутренняя ошибка диктофона!</string>
     <string name="btn_save_recording">Сохранить</string>
     <string name="btn_discard_recording">Не сохранять</string>
     <string name="edit_recording_name_hint">Введите здесь название файла</string>
