@@ -21,7 +21,7 @@
     <string name="optmenu_speaker">Lautsprecher</string>
     <string name="optmenu_earphone">Kopfhörer</string>
     <string name="save">Speichern</string>
-    <string name="toast_sdcard_missing">Ihre SD-Karte fehlt.</string>
+    <string name="toast_sdcard_missing">Deine SD-Karte fehlt.</string>
     <string name="toast_sdcard_insufficient_space">Nicht genügend Speicherplatz auf der SD-Karte</string>
     <string name="toast_recorder_internal_error">Im Rekorder ist ein interner Fehler aufgetreten.</string>
     <string name="btn_save_recording">Speichern</string>
@@ -42,7 +42,7 @@
     <string name="fm_over_start_record">Aufnahme starten</string>
     <string name="fm_over_record_list">Gespeicherte Aufnahmen</string>
     <string name="fm_station_list_menu_refresh">Aktualisieren</string>
-    <string name="fm_no_headset_text">Um Radio zu hören, stecken Sie Kopfhörer ein, die als Antenne verwendet werden.</string>
+    <string name="fm_no_headset_text">Um Radio zu hören, stecke Kopfhörer ein, die als Antenne verwendet werden.</string>
     <string name="station_title">Radiosender</string>
     <string name="station_searching_tips">Sender werden gesucht</string>
     <string name="station_empty_text">Keine Sender gefunden</string>
@@ -53,7 +53,7 @@
     <string name="record_notification_message">Aufnahme läuft</string>
     <string name="stop_record">Aufzeichnung beenden</string>
     <string name="save_dialog_title">Aufnahme speichern?</string>
-    <string name="save_dialog_caption">Um Aufnahmen anzuhören, öffnen Sie die Play Musik App.</string>
+    <string name="save_dialog_caption">Um Aufnahmen anzuhören, öffne die Play Musik App.</string>
     <string name="favorites">Favoriten</string>
     <string name="rename">Umbenennen</string>
     <string name="station_rename_hint">Sendernamen eingeben</string>
