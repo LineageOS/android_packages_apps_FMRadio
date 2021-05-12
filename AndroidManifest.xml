@@ -51,7 +51,8 @@
             android:label="@string/app_name"
             android:launchMode="standard"
             android:theme="@style/AppTheme"
-            android:usesCleartextTraffic="false" >
+            android:usesCleartextTraffic="false"
+            android:configChanges="uiMode" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -59,7 +60,7 @@
         </activity>
         <activity
             android:name=".FmFavoriteActivity"
-            android:configChanges="screenSize"
+            android:configChanges="screenSize|uiMode
             android:label="@string/station_title"
             android:launchMode="singleTask"
             android:theme="@style/LightTheme"
@@ -84,7 +85,8 @@
             android:name=".FmRecordActivity"
             android:label="@string/record_title"
             android:theme="@style/LightTheme"
-            android:launchMode="singleTask" >
+            android:launchMode="singleTask"
+            android:configChanges="uiMode" >
         </activity>
     </application>
 
