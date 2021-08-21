@@ -42,7 +42,7 @@
     <string name="fm_over_start_record">Tòisich air clàradh</string>
     <string name="fm_over_record_list">Clàraidhean air an sàbhaladh</string>
     <string name="fm_station_list_menu_refresh">Ath-nuadhaich</string>
-    <string name="fm_no_headset_text">Airson èisteachd, ceangail headphones ris (’ga cleachdadh mar aerial).</string>
+    <string name="fm_no_headset_text">Airson èisteachd, ceangail cluais-fhònaichean ris (’gan cleachdadh mar iadhaire).</string>
     <string name="station_title">Stèiseanan rèidio</string>
     <string name="station_searching_tips">A’ faighinn nan stèiseanan</string>
     <string name="station_empty_text">Cha deach stèisean a lorg</string>
@@ -53,7 +53,7 @@
     <string name="record_notification_message">Tha rud ’ga chlàradh</string>
     <string name="stop_record">CUIR STAD AIR A’ CHLÀRADH</string>
     <string name="save_dialog_title">A bheil thu airson an clàradh a shàbhaladh?</string>
-    <string name="save_dialog_caption">Airson èisteachd ri clàraidhean, fosgail an aplacaid Play Music.</string>
+    <string name="save_dialog_caption">Airson èisteachd ri clàraidhean, fosgail aplacaid a’ chiùil.</string>
     <string name="favorites">Annsachdan</string>
     <string name="rename">Thoir ainm ùr air</string>
     <string name="station_rename_hint">Cuir a-steach ainm an stèisein</string>
