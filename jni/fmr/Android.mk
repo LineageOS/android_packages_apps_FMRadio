@@ -15,6 +15,7 @@
 ifneq ($(BOARD_HAVE_QCOM_FM),true)
 ifneq ($(BOARD_HAVE_BCM_FM),true)
 ifneq ($(BOARD_HAVE_SLSI_FM),true)
+ifneq ($(BOARD_HAVE_MTK_FM),true)
 
 LOCAL_PATH := $(call my-dir)
 
@@ -40,6 +41,7 @@ LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
 
+endif # BOARD_HAVE_MTK_FM
 endif # BOARD_HAVE_SLSI_FM
 endif # BOARD_HAVE_BCM_FM
 endif # BOARD_HAVE_QCOM_FM
