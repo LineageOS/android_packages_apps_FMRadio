@@ -16,6 +16,24 @@
       "message": "packages/apps/FMRadio/src/com/android/fmradio/FmService.java:366: error: cannot find symbol hasMtkFmShortAntennaSupport\nSame for FmFavoriteActivity.java and FmMainActivity.java",
       "revId": "ac00c2c297ae0fc005c984bfe7d1b85982236f94",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b09836ab_809accbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-04-06T16:21:38Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "f8fe1341_460c4b2a",
+      "revId": "ac00c2c297ae0fc005c984bfe7d1b85982236f94",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
