@@ -15,6 +15,17 @@
      limitations under the License.
 -->
 <resources>
+    <string name="toast_station_searched">Даступныя станцыі:</string>
+    <string name="toast_recorder_internal_error">Адбылася ўнутраная памылка дыктафона!</string>
     <string name="btn_discard_recording">Адхіліць</string>
+    <string name="recording_tips">Адбываецца запіс…</string>
     <string name="fm_station_list_menu_refresh">Абнавіць</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Запіс</string>
+    <string name="record_notification_message">Ідзе запіс</string>
+    <string name="stop_record">СПЫНІЦЬ ЗАПІС</string>
+    <string name="save_dialog_title">Захаваць запіс?</string>
+    <string name="save_dialog_caption">Каб слухаць запісы, адкрыйце праграму Play Музыка.</string>
+    <string name="favorites">Абраныя</string>
+    <string name="rename">Перайменаваць</string>
 </resources>
