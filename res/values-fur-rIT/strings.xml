@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Radio FM</string>
+    <string name="toast_station_searched">Stazions disponibilis cirudis:</string>
+    <string name="toast_cannot_search">Impussibil cirî la stazion disponibile.</string>
+    <string name="optmenu_speaker">Cassis</string>
+    <string name="optmenu_earphone">Auricolârs</string>
+    <string name="save">Salve</string>
+    <string name="toast_sdcard_missing">E mancje la schede SD!</string>
+    <string name="toast_sdcard_insufficient_space">Spazi su schede SD insuficient!</string>
+    <string name="toast_recorder_internal_error">Al è vignût fûr un erôr interni tal regjistradôr!</string>
+    <string name="btn_save_recording">Salve</string>
+    <string name="btn_discard_recording">Scarte</string>
+    <string name="edit_recording_name_hint">Scrîf achì il non dal file</string>
+    <string name="already_exists">al esist za</string>
+    <string name="not_available">Pal moment no disponibil</string>
+    <string name="talk_prev_station">Stazion prime</string>
+    <string name="talk_decrease">Diminuìs la frecuence</string>
+    <string name="talk_increase">Aumente la frecuence</string>
+    <string name="talk_next_station">Stazion sucessive</string>
+    <string name="talk_add_favorite">Zonte tai preferîts</string>
+    <string name="talk_start_recording">Scomence la regjistrazion</string>
+    <string name="more">"Altri"</string>
+    <string name="recording_tips">Daûr a regjistrâ…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Scolte o distude la radio FM</string>
+    <string name="fm_over_start_record">Scomence la regjistrazion</string>
+    <string name="fm_over_record_list">Regjistrazions salvadis</string>
+    <string name="fm_station_list_menu_refresh">Inzorne</string>
+    <string name="fm_no_headset_text">Par scomençâ a scoltâ, tache lis scufis (dopradis tant che antene).</string>
+    <string name="station_title">Stazions radio</string>
+    <string name="station_searching_tips">Acuisizion stazions</string>
+    <string name="station_empty_text">Nissune stazion cjatade</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Daûr a regjistrâ</string>
+    <string name="record_notification_message">Regjistrazion in cors</string>
+    <string name="stop_record">FERME REGJISTRAZION</string>
+    <string name="save_dialog_title">Salvâ la regjistrazion?</string>
+    <string name="save_dialog_caption">Par scoltâ lis regjistrazions, vierç la aplicazion Play Musiche.</string>
+    <string name="favorites">Preferidis</string>
+    <string name="rename">Cambie non</string>
+    <string name="station_rename_hint">Inserìs il non de stazion</string>
+    <string name="remove_favorite">Gjave preferide</string>
+    <string name="toast_record_saved">Regjistrazion salvade</string>
+    <string name="toast_record_not_saved">Regjistrazion no salvade</string>
+    <string name="toast_listen">SCOLTE</string>
+    <string name="toast_station_renamed">Al è stât cambiât non ae stazion</string>
+</resources>
