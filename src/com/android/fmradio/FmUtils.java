@@ -324,7 +324,7 @@ public class FmUtils {
         editor.commit();
     }
 
-    public static boolean hasMtkFmShortAntennaSupport() {
-        return SystemProperties.get("ro.vendor.mtk_fm_short_antenna_support").equals("1");
+    public static boolean hasBuiltInFmAntennaSupport() {
+        return SystemProperties.get("ro.vendor.builtin_fm_antenna_support").equals("1");
     }
 }

@@ -363,7 +363,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
      * @return true, antenna available; false, antenna not available
      */
     public boolean isAntennaAvailable() {
-        if (FmUtils.hasMtkFmShortAntennaSupport()) {
+        if (FmUtils.hasBuiltInFmAntennaSupport()) {
             return true; // Support wireless FM Radio on MTK chips
         }
         return mAudioManager.isWiredHeadsetOn();
