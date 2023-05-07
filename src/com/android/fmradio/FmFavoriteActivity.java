@@ -513,7 +513,7 @@ public class FmFavoriteActivity extends Activity {
                     bundle = msg.getData();
                     boolean isHeadset = bundle.getBoolean(FmListener.KEY_IS_SWITCH_ANTENNA);
                     // if receive headset plugout, need set headset mode on ui
-                    if (!isHeadset && !FmUtils.hasMtkFmShortAntennaSupport()) {
+                    if (!isHeadset && !FmUtils.hasBuiltInFmAntennaSupport()) {
                         finish();
                     }
                     break;
