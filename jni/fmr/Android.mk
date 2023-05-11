@@ -21,13 +21,17 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
+LOCAL_MODULE := libfmjni
+LOCAL_MODULE_TAGS := optional
+
 LOCAL_SRC_FILES := \
     fmr_core.cpp \
     fmr_err.cpp \
     libfm_jni.cpp \
     common.cpp
 
-LOCAL_C_INCLUDES := $(JNI_H_INCLUDE) \
+LOCAL_C_INCLUDES := \
+    $(JNI_H_INCLUDE) \
     frameworks/base/include/media
 
 LOCAL_SHARED_LIBRARIES := \
@@ -35,9 +39,6 @@ LOCAL_SHARED_LIBRARIES := \
     libdl \
     libmedia \
     liblog
-
-LOCAL_MODULE := libfmjni
-LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
 
