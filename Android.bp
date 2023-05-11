@@ -1,0 +1,46 @@
+//
+// Copyright (C) 2014 The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+android_library {
+    name: "FMRadio_static",
+    srcs: ["__builtin_func:filter-out src/com/android/fmradio/%Activity.java src/com/android/fmradio/dialogs/% src/com/android/fmradio/views/%  src/**/*.java"],
+}
+
+android_app {
+    name: "FMRadio",
+    certificate: "platform",
+    srcs: ["src/**/*.java"],
+
+    privileged: true,
+    platform_apis: true,
+
+    static_libs: ["androidx.cardview_cardview"],
+    jni_libs: ["libfmjni"],
+    required: ["privapp_whitelist_com.android.fmradio.xml"],
+
+    aaptflags: ["--auto-add-overlay"],
+    optimize: {
+        enabled: false,
+    },
+}
+
+prebuilt_etc {
+    name: "privapp_whitelist_com.android.fmradio.xml",
+
+    src: "privapp_whitelist_com.android.fmradio.xml",
+    relative_install_path: "permissions",
+
+}
