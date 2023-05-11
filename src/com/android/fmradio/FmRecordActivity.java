@@ -19,7 +19,8 @@ package com.android.fmradio;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.Notification;
-import android.app.Notification.Builder;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.ContentResolver;
@@ -62,6 +63,7 @@ public class FmRecordActivity extends Activity implements
     private static final String TAG_SAVE_RECORDINGD = "SaveRecording";
     private static final int MSG_UPDATE_NOTIFICATION = 1000;
     private static final int TIME_BASE = 60;
+    private static final String CHANNEL_ID = "record";
     private Context mContext;
     private TextView mMintues;
     private TextView mSeconds;
@@ -173,6 +175,15 @@ public class FmRecordActivity extends Activity implements
     }
 
     private void updateRecordingNotification(long recordTime) {
+        NotificationManager notificationManager = getSystemService(NotificationManager.class);
+        if (notificationManager.getNotificationChannel(CHANNEL_ID) == null) {
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
+                    getString(R.string.channel_record_name), NotificationManager.IMPORTANCE_LOW);
+            channel.setDescription(getString(R.string.channel_record_description));
+            channel.setBlockable(true);
+            notificationManager.createNotificationChannel(channel);
+        }
+
         if (mNotificationBuilder == null) {
             Intent intent = new Intent(FM_STOP_RECORDING);
             intent.setClass(mContext, FmRecordActivity.class);
@@ -182,7 +193,7 @@ public class FmRecordActivity extends Activity implements
 
             Bitmap largeIcon = FmUtils.createNotificationLargeIcon(mContext,
                     FmUtils.formatStation(mCurrentStation));
-            mNotificationBuilder = new Builder(this)
+            mNotificationBuilder = new Notification.Builder(this, CHANNEL_ID)
                     .setContentText(getText(R.string.record_notification_message))
                     .setShowWhen(false)
                     .setAutoCancel(true)
