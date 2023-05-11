@@ -19,6 +19,8 @@ package com.android.fmradio;
 import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.Notification.BigTextStyle;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
@@ -99,6 +101,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
     // Notification id
     private static final int NOTIFICATION_ID = 1;
+    private static final String CHANNEL_ID = "playback";
 
     // ignore audio data
     private static final int AUDIO_FRAMES_TO_IGNORE_COUNT = 3;
@@ -1820,8 +1823,19 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         aIntent.setClassName(getPackageName(), mTargetClassName);
         PendingIntent pAIntent = PendingIntent.getActivity(mContext, 0, aIntent, 0);
 
+        NotificationManager notificationManager = getSystemService(NotificationManager.class);
+        if (notificationManager.getNotificationChannel(CHANNEL_ID) == null) {
+            CharSequence name = getString(R.string.channel_playback_name);
+            String description = getString(R.string.channel_playback_description);
+            int importance = NotificationManager.IMPORTANCE_LOW;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            channel.setBlockable(true);
+            notificationManager.createNotificationChannel(channel);
+        }
+
         if (null == mNotificationBuilder) {
-            mNotificationBuilder = new Notification.Builder(mContext);
+            mNotificationBuilder = new Notification.Builder(mContext, CHANNEL_ID);
             mNotificationBuilder.setSmallIcon(R.mipmap.ic_launcher);
             mNotificationBuilder.setShowWhen(false);
             mNotificationBuilder.setAutoCancel(true);
