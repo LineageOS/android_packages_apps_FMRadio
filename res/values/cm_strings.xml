@@ -18,4 +18,8 @@
     <string name="notif_previous">Previous</string>
     <string name="notif_stop">Stop</string>
     <string name="notif_next">Next</string>
+    <string name="channel_playback_name">FM playback</string>
+    <string name="channel_playback_description">FM playback controls in notification bar</string>
+    <string name="channel_record_name">FM recorder</string>
+    <string name="channel_record_description">FM radio recorder controls in notification bar</string>
 </resources>
