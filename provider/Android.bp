@@ -14,32 +14,23 @@
 // limitations under the License.
 //
 
-android_library {
-    name: "FMRadio_static",
-    srcs: ["__builtin_func:filter-out src/com/android/fmradio/%Activity.java src/com/android/fmradio/dialogs/% src/com/android/fmradio/views/%  src/**/*.java"],
-}
-
 android_app {
-    name: "FMRadio",
+    name: "FmRecordingsProvider",
     certificate: "platform",
+    sdk_version: "current",
     srcs: ["src/**/*.java"],
 
-    privileged: true,
-    platform_apis: true,
+    required: ["default-permissions-com.android.fmradio.recordings.xml"],
+    static_libs: ["androidx.core_core"],
 
-    static_libs: ["androidx.cardview_cardview"],
-    jni_libs: ["libfmjni"],
-    required: ["privapp_whitelist_com.android.fmradio.xml", "FmRecordingsProvider"],
-
-    aaptflags: ["--auto-add-overlay"],
     optimize: {
         enabled: false,
     },
 }
 
 prebuilt_etc {
-    name: "privapp_whitelist_com.android.fmradio.xml",
+    name: "default-permissions-com.android.fmradio.recordings.xml",
 
-    src: "privapp_whitelist_com.android.fmradio.xml",
-    relative_install_path: "permissions",
+    src: "default-permissions-com.android.fmradio.recordings.xml",
+    relative_install_path: "default-permissions",
 }
