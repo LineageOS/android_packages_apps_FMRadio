@@ -769,6 +769,8 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         // if fm power down by other app, should enable power menu, make it to
         // powerup.
         refreshActionMenuItem(isSeeking ? false : isPowerUp);
+        refreshPopupMenuItem(isSeeking ? false : isPowerUp);
+        refreshImageButton(isSeeking ? false : isPowerUp);
         refreshPlayButton(isSeeking ? false
                 : (isPowerUp || (isPowerdown && !mIsDisablePowerMenu)));
         mMenuItemHeadset.setIcon(isSpeakerUsed ? R.drawable.btn_fm_speaker_selector
