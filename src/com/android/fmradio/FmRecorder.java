@@ -404,10 +404,8 @@ public class FmRecorder implements AudioRecorder.Callback {
                 new String[] {
                     MediaStore.Audio.Playlists._ID
                 },
-                MediaStore.Audio.Playlists.DATA + "=?",
-                new String[] {
-                    FmUtils.getPlaylistPath(context) + RECORDING_FILE_SOURCE
-                },
+                MediaStore.Audio.Playlists.NAME + "=?",
+                new String[] { RECORDING_FILE_SOURCE },
                 null);
         int playlistId = -1;
         if (null != playlistCursor) {
