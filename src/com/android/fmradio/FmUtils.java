@@ -23,7 +23,6 @@ import android.graphics.Bitmap;
 import android.os.Environment;
 import android.os.StatFs;
 import android.os.SystemProperties;
-import android.os.storage.StorageManager;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View.MeasureSpec;
@@ -64,8 +63,6 @@ public class FmUtils {
     private static final String FM_IS_FIRST_TIME_PLAY = "fm_is_first_time_play";
     private static final String FM_IS_SPEAKER_MODE = "fm_is_speaker_mode";
     private static final String FM_IS_FIRST_ENTER_STATION_LIST = "fm_is_first_enter_station_list";
-    // StorageManager For FM record
-    private static StorageManager sStorageManager = null;
 
     /**
      * Whether the frequency is valid.
@@ -152,37 +149,6 @@ public class FmUtils {
      */
     public static String getDefaultStoragePath() {
         return Environment.getExternalStorageDirectory().getPath();
-    }
-
-    /**
-     * Get the default storage state
-     *
-     * @return The default storage state
-     */
-    public static String getDefaultStorageState(Context context) {
-        ensureStorageManager(context);
-        String state = sStorageManager.getVolumeState(getDefaultStoragePath());
-        return state;
-    }
-
-    private static void ensureStorageManager(Context context) {
-        if (sStorageManager == null) {
-            sStorageManager = (StorageManager) context.getSystemService(Context.STORAGE_SERVICE);
-        }
-    }
-
-    /**
-     * Get the FM play list path
-     *
-     * @param context The context
-     *
-     * @return The FM play list path
-     */
-    public static String getPlaylistPath(Context context) {
-        ensureStorageManager(context);
-        String[] externalStoragePaths = sStorageManager.getVolumePaths();
-        String path = externalStoragePaths[0] + "/Playlists/";
-        return path;
     }
 
     /**
