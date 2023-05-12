@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3131b676_a129f2e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-05-12T21:40:18Z",
+      "side": 1,
+      "message": "change the comment too (if still interested with it), don\u0027t keep it as \"MTK\"",
+      "revId": "0d1348f14bf633d69decbeeb7c3863b02deb5e35",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
