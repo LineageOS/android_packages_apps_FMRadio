@@ -65,7 +65,7 @@ public class FmRecordActivity extends Activity implements
     private static final int TIME_BASE = 60;
     private static final String CHANNEL_ID = "record";
     private Context mContext;
-    private TextView mMintues;
+    private TextView mMinutes;
     private TextView mSeconds;
     private TextView mFrequency;
     private View mStationInfoLayout;
@@ -89,7 +89,7 @@ public class FmRecordActivity extends Activity implements
         mFragmentManager = getFragmentManager();
         setContentView(R.layout.fm_record_activity);
 
-        mMintues = (TextView) findViewById(R.id.minutes);
+        mMinutes = (TextView) findViewById(R.id.minutes);
         mSeconds = (TextView) findViewById(R.id.seconds);
 
         mFrequency = (TextView) findViewById(R.id.frequency);
@@ -408,24 +408,28 @@ public class FmRecordActivity extends Activity implements
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
+            long recordTimeInMillis = 0;
             switch (msg.what) {
                 case FmListener.MSGID_REFRESH:
                     if (mService != null) {
-                        long recordTimeInMillis = mService.getRecordTime();
-                        long recordTimeInSec = recordTimeInMillis / 1000L;
-                        mMintues.setText(addPaddingForString(recordTimeInSec / TIME_BASE));
-                        mSeconds.setText(addPaddingForString(recordTimeInSec % TIME_BASE));
                         checkStorageSpaceAndStop();
+                        recordTimeInMillis = mService.getRecordTime();
+                        long recordTimeInSec = recordTimeInMillis / 1000L;
+                        mMinutes.setText(addPaddingForString(recordTimeInSec / TIME_BASE));
+                        mSeconds.setText(addPaddingForString(recordTimeInSec % TIME_BASE));
                     }
-                    mHandler.sendEmptyMessageDelayed(FmListener.MSGID_REFRESH, 1000);
+                    mHandler.sendEmptyMessageDelayed(FmListener.MSGID_REFRESH,
+                            1000 - (recordTimeInMillis % 1000));
                     break;
 
                 case MSG_UPDATE_NOTIFICATION:
                     if (mService != null) {
-                        updateRecordingNotification(mService.getRecordTime());
                         checkStorageSpaceAndStop();
+                        recordTimeInMillis = mService.getRecordTime();
+                        updateRecordingNotification(recordTimeInMillis);
                     }
-                    mHandler.sendEmptyMessageDelayed(MSG_UPDATE_NOTIFICATION, 1000);
+                    mHandler.sendEmptyMessageDelayed(MSG_UPDATE_NOTIFICATION,
+                            1000 - (recordTimeInMillis % 1000));
                     break;
 
                 case FmListener.LISTEN_RECORDSTATE_CHANGED:
