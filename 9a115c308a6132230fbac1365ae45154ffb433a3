@@ -22,6 +22,30 @@
       },
       "revId": "9a115c308a6132230fbac1365ae45154ffb433a3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c76c9bc_058b5ac9",
+        "filename": "Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-05-13T14:53:15Z",
+      "side": 1,
+      "message": "I don\u0027t think there are any users by now, but it was in the original Android.mk - should I remove it?",
+      "parentUuid": "0abf1233_930759b2",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 1
+      },
+      "revId": "9a115c308a6132230fbac1365ae45154ffb433a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
