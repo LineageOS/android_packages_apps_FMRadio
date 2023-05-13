@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20986d95_6a7dc9b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-05-13T12:50:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0dcb2d1_a8af1030",
+      "revId": "b55c53174fab623b178dc37379146b0ed698f7c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93f4feb5_b8578cd2",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-05-13T12:02:15Z",
       "side": 1,
       "message": "don\u0027t need all these variables, can use the calls in the constructor and setters directly",
+      "revId": "b55c53174fab623b178dc37379146b0ed698f7c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8715da7_a6be51a8",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1828,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-05-13T12:50:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93f4feb5_b8578cd2",
       "revId": "b55c53174fab623b178dc37379146b0ed698f7c2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
