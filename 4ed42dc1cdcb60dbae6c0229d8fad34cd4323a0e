@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce4927b2_0c23d52c",
+        "filename": "provider/src/com/android/fmradio/recordings/PlayRecording.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-05-13T12:50:03Z",
+      "side": 1,
+      "message": "\"path\" is the path to the exact recording we are opening, not the folder it\u0027s in.\nI believe it\u0027s useful keep \"type\" outside of this middleman, as FMRadio is responsible for deciding the type, and I do play on adding a setting to choose the recording file type in the future, due to the lack of player support for 3GPP.",
+      "parentUuid": "62244ef7_794fb972",
+      "revId": "4ed42dc1cdcb60dbae6c0229d8fad34cd4323a0e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bde64756_b11a11c4",
         "filename": "provider/src/com/android/fmradio/recordings/PlayRecording.java",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2023-05-13T12:07:02Z",
       "side": 1,
       "message": "line length",
+      "revId": "4ed42dc1cdcb60dbae6c0229d8fad34cd4323a0e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42bd34ac_83094183",
+        "filename": "provider/src/com/android/fmradio/recordings/PlayRecording.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-05-13T12:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bde64756_b11a11c4",
       "revId": "4ed42dc1cdcb60dbae6c0229d8fad34cd4323a0e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
