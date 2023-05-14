@@ -36,6 +36,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7a76252_4b4e00e2",
+        "filename": "provider/src/com/android/fmradio/recordings/PlayRecording.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-05-14T09:26:13Z",
+      "side": 1,
+      "message": "Resolved",
+      "parentUuid": "ce4927b2_0c23d52c",
+      "revId": "4ed42dc1cdcb60dbae6c0229d8fad34cd4323a0e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bde64756_b11a11c4",
