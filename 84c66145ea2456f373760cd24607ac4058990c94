@@ -16,6 +16,23 @@
       "message": "please ping the mtg maintainers in discord #devrel",
       "revId": "84c66145ea2456f373760cd24607ac4058990c94",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82a112d6_0c8c69e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2023-05-17T13:25:16Z",
+      "side": 1,
+      "message": "to alert them of this",
+      "revId": "84c66145ea2456f373760cd24607ac4058990c94",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
