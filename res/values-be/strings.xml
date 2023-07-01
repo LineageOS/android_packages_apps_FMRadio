@@ -22,13 +22,14 @@
     <string name="btn_discard_recording">Адхіліць</string>
     <string name="already_exists">ужо існуе</string>
     <string name="not_available">Зараз недаступна</string>
+    <string name="talk_prev_station">Папярэдняя станцыя</string>
     <string name="talk_decrease">Паменшыць частату</string>
     <string name="talk_increase">Павялічыць частату</string>
     <string name="talk_next_station">Наступная станцыя</string>
     <string name="more">"Яшчэ"</string>
-    <string name="recording_tips">Адбываецца запіс…</string>
     <string name="fm_symbol">FM</string>
     <string name="fm_station_list_menu_refresh">Абнавіць</string>
+    <string name="station_title">Радыёстанцыі</string>
     <string name="station_searching_tips">Пошук станцый</string>
     <string name="station_empty_text">Станцыі не знойдзены</string>
     <string name="timer_default">00</string>
@@ -40,5 +41,8 @@
     <string name="favorites">Абраныя</string>
     <string name="rename">Перайменаваць</string>
     <string name="station_rename_hint">Увядзіце назву станцыі</string>
+    <string name="remove_favorite">Выдаліць з абраных</string>
+    <string name="toast_record_saved">Запіс захаваны</string>
+    <string name="toast_record_not_saved">Запіс не захаваны</string>
     <string name="toast_listen">СЛУХАЦЬ</string>
 </resources>
