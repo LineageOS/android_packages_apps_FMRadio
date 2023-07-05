@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b6b12c9_a9472e9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-07-05T18:27:54Z",
+      "side": 1,
+      "message": "note that this actually is not the way i\u0027d like most, but moving fm app to another shared uid is bound to break during dirty flash, not sure how to handle it",
+      "revId": "b21f239f73337834d218457c377e09058cae0682",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
