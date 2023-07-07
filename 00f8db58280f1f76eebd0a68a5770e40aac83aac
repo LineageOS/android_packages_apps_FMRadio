@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "173a6446_2881ac2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-07-07T19:57:52Z",
+      "side": 1,
+      "message": "didn\u0027t point out all of them in PlayRecording.java - there are more",
+      "revId": "00f8db58280f1f76eebd0a68a5770e40aac83aac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe67c317_8a97380b",
+        "filename": "provider/src/com/android/fmradio/recordings/PlayRecording.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-07-07T19:57:52Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "00f8db58280f1f76eebd0a68a5770e40aac83aac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "764c5e9a_6e47f2a3",
+        "filename": "provider/src/com/android/fmradio/recordings/PlayRecording.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-07-07T19:57:52Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "00f8db58280f1f76eebd0a68a5770e40aac83aac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e630ee6_f45aa774",
+        "filename": "src/com/android/fmradio/FmMainActivity.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-07-07T19:57:52Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "00f8db58280f1f76eebd0a68a5770e40aac83aac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
