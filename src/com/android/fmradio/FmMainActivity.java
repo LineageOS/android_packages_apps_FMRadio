@@ -17,7 +17,10 @@
 package com.android.fmradio;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.ActivityNotFoundException;
@@ -27,6 +30,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.media.AudioManager;
@@ -70,6 +74,8 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
     private static final int REQUEST_CODE_FAVORITE = 1;
 
     public static final int REQUEST_CODE_RECORDING = 2;
+
+    private static final int PERMISSION_REQUEST_POWER_ON = 100;
 
     // Extra for result of request REQUEST_CODE_RECORDING
     public static final String EXTRA_RESULT_STRING = "result_string";
@@ -939,6 +945,22 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         refreshActionMenuItem(false);
         refreshPopupMenuItem(false);
         refreshPlayButton(false);
+
+        int recordAudioPermission = checkSelfPermission(Manifest.permission.RECORD_AUDIO);
+        List<String> mPermissionStrings = new ArrayList<String>();
+        boolean mRequest = false;
+
+        if (recordAudioPermission != PackageManager.PERMISSION_GRANTED) {
+            mPermissionStrings.add(Manifest.permission.RECORD_AUDIO);
+            mRequest = true;
+        }
+        if (mRequest == true) {
+            String[] mPermissionList = new String[mPermissionStrings.size()];
+            mPermissionList = mPermissionStrings.toArray(mPermissionList);
+            requestPermissions(mPermissionList, PERMISSION_REQUEST_POWER_ON);
+            return;
+        }
+        mService.setRecordingPermission(true);
         mService.powerUpAsync(FmUtils.computeFrequency(mCurrentStation));
     }
 
@@ -1242,5 +1264,32 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         mNoHeadsetImgViewWrap.setVisibility(View.VISIBLE);
         mNoHeadsetLayout.setVisibility(View.VISIBLE);
         mNoHeadsetImgViewWrap.setElevation(mMiddleShadowSize);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            int[] grantResults) {
+        boolean granted = true;
+        boolean mShowPermission = true;
+        if (permissions.length <= 0 || grantResults.length <= 0) {
+            Log.d(TAG, "permission length not sufficient");
+            showToast(getString(R.string.missing_required_permission));
+            return;
+        }
+        if (requestCode == PERMISSION_REQUEST_POWER_ON) {
+            granted = (grantResults[0] == PackageManager.PERMISSION_GRANTED);
+            if (!granted) {
+                mShowPermission = shouldShowRequestPermissionRationale(permissions[0]);
+            }
+            Log.i(TAG, "<onRequestPermissionsResult> Power on fm granted" + granted);
+            if (granted == true) {
+                if (mService != null) {
+                    mService.setRecordingPermission(true);
+                    powerUpFm();
+                }
+            } else if (!mShowPermission) {
+                showToast(getString(R.string.missing_required_permission));
+            }
+        }
     }
 }

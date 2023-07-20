@@ -177,6 +177,8 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     private boolean mIsFmFavoriteForeground = false;
     // FmRecordActivity foreground
     private boolean mIsFmRecordForeground = false;
+    // Flag to check if recording permission is present
+    private boolean mIsRecordingPermissible = false;
     // Instance variables
     private Context mContext = null;
     private AudioManager mAudioManager = null;
@@ -293,7 +295,8 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                  * If ear phone insert and activity is
                  * foreground. power up FM automatic
                  */
-                if ((0 == mValueHeadSetPlug) && isActivityForeground()) {
+                if ((0 == mValueHeadSetPlug) && isActivityForeground() &&
+                    mIsRecordingPermissible) {
                     powerUpAsync(FmUtils.computeFrequency(mCurrentStation));
                 } else if (1 == mValueHeadSetPlug) {
                     mFmServiceHandler.removeMessages(FmListener.MSGID_SCAN_FINISHED);
@@ -2683,6 +2686,14 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
      */
     public void setFmRecordActivityForeground(boolean isForeground) {
         mIsFmRecordForeground = isForeground;
+    }
+
+    /**
+     * mark recording permission
+     * @param isPermissionEnabled
+     */
+    public void setRecordingPermission(boolean isPermissionEnabled) {
+        mIsRecordingPermissible = isPermissionEnabled;
     }
 
     /**
