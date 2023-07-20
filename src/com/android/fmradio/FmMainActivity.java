@@ -16,6 +16,8 @@
 
 package com.android.fmradio;
 
+import java.lang.reflect.Field;
+
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.ActivityNotFoundException;
@@ -56,8 +58,6 @@ import com.android.fmradio.dialogs.FmFavoriteEditDialog;
 import com.android.fmradio.views.FmScroller;
 import com.android.fmradio.views.FmSnackBar;
 import com.android.fmradio.views.FmScroller.EventListener;
-
-import java.lang.reflect.Field;
 
 /**
  * This class interact with user, provide FM basic function.

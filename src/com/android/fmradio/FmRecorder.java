@@ -48,10 +48,10 @@ public class FmRecorder implements AudioRecorder.Callback {
     // file extension
     public static final String RECORDING_FILE_EXTENSION = ".3gpp";
     // recording file folder
-    public static final String FM_RECORD_FOLDER = "FM Recording";
+    public static final String FM_RECORD_FOLDER = "Documents/FM Recording";
     public static final Uri RECORDINGS_URI = Uri.parse("content://" +
                                 "com.android.externalstorage.documents/document/" +
-                                "primary%3AFM%20Recording");
+                                "primary%3ADocuments%2FFM%20Recording");
     private static final String RECORDING_FILE_TYPE = "audio/3gpp";
     private static final String RECORDING_FILE_SOURCE = "FM Recordings";
     // error type no sdcard
@@ -497,7 +497,11 @@ public class FmRecorder implements AudioRecorder.Callback {
         ContentValues cv = new ContentValues(2);
         cv.put(MediaStore.Audio.Playlists.Members.AUDIO_ID, recordingId);
         cv.put(MediaStore.Audio.Playlists.Members.PLAY_ORDER, order);
-        context.getContentResolver().insert(uri, cv);
+        try {
+            context.getContentResolver().insert(uri, cv);
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        }
     }
 
     private void stopRecorder() {

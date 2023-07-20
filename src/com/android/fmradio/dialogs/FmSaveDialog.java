@@ -208,7 +208,7 @@ public class FmSaveDialog extends DialogFragment {
         @Override
         public void onClick(View v) {
 
-            File recordingFolderPath = new File(mRecordingSdcard, "FM Recording");
+            File recordingFolderPath = new File(mRecordingSdcard, FmRecorder.FM_RECORD_FOLDER);
 
             switch (v.getId()) {
                 case R.id.save_dialog_button_save:
