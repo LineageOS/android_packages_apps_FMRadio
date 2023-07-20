@@ -16,6 +16,8 @@
 
 package com.android.fmradio;
 
+import java.lang.reflect.Field;
+
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.ActivityNotFoundException;
@@ -56,8 +58,6 @@ import com.android.fmradio.dialogs.FmFavoriteEditDialog;
 import com.android.fmradio.views.FmScroller;
 import com.android.fmradio.views.FmSnackBar;
 import com.android.fmradio.views.FmScroller.EventListener;
-
-import java.lang.reflect.Field;
 
 /**
  * This class interact with user, provide FM basic function.
@@ -832,7 +832,8 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                         playMusicIntent = new Intent(Intent.ACTION_VIEW);
                         playMusicIntent.setDataAndType(Uri.parse("content://" +
                                 "com.android.externalstorage.documents/document/" +
-                                "primary%3AFM%20Recording"), "vnd.android.document/directory");
+                                "primary%3ADocuments%2FFM%20Recording"),
+                                "vnd.android.document/directory");
                         startActivity(playMusicIntent);
                     } catch (ActivityNotFoundException e2) {
                         // No activity respond
