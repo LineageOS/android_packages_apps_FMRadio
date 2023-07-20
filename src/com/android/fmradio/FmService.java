@@ -1824,7 +1824,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         aIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         aIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         aIntent.setClassName(getPackageName(), mTargetClassName);
-        PendingIntent pAIntent = PendingIntent.getActivity(mContext, 0, aIntent, 0);
+        PendingIntent pAIntent = PendingIntent.getActivity(mContext, 0, aIntent, PendingIntent.FLAG_IMMUTABLE);
 
         NotificationManager notificationManager = getSystemService(NotificationManager.class);
         if (notificationManager.getNotificationChannel(CHANNEL_ID) == null) {
@@ -1843,17 +1843,17 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
             Intent intent = new Intent(FM_SEEK_PREVIOUS);
             intent.setClass(mContext, FmService.class);
-            PendingIntent pIntent = PendingIntent.getService(mContext, 0, intent, 0);
+            PendingIntent pIntent = PendingIntent.getService(mContext, 0, intent, PendingIntent.FLAG_IMMUTABLE);
             mNotificationBuilder.addAction(R.drawable.btn_fm_prevstation,
                     getString(R.string.notif_previous), pIntent);
             intent = new Intent(FM_TURN_OFF);
             intent.setClass(mContext, FmService.class);
-            pIntent = PendingIntent.getService(mContext, 0, intent, 0);
+            pIntent = PendingIntent.getService(mContext, 0, intent, PendingIntent.FLAG_IMMUTABLE);
             mNotificationBuilder.addAction(R.drawable.btn_fm_rec_stop_enabled,
                     getString(R.string.notif_stop), pIntent);
             intent = new Intent(FM_SEEK_NEXT);
             intent.setClass(mContext, FmService.class);
-            pIntent = PendingIntent.getService(mContext, 0, intent, 0);
+            pIntent = PendingIntent.getService(mContext, 0, intent, PendingIntent.FLAG_IMMUTABLE);
             mNotificationBuilder.addAction(R.drawable.btn_fm_nextstation,
                     getString(R.string.notif_next) , pIntent);
         }
