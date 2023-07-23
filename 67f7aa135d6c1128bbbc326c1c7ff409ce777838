@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9b2ce1d_ef68a213",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2023-07-23T15:43:48Z",
+      "side": 1,
+      "message": "While this is a completely fine workaround, I\u0027d really prefer devices to be fixed",
+      "revId": "67f7aa135d6c1128bbbc326c1c7ff409ce777838",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
