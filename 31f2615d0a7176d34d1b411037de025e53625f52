@@ -34,6 +34,24 @@
       "parentUuid": "88b5ebf9_a470d5e8",
       "revId": "31f2615d0a7176d34d1b411037de025e53625f52",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c495ebd0_878c39f3",
+        "filename": "jni/fmr/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2023-07-23T16:22:00Z",
+      "side": 0,
+      "message": "Acknowledged",
+      "parentUuid": "04a65d55_f38822a2",
+      "revId": "31f2615d0a7176d34d1b411037de025e53625f52",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
