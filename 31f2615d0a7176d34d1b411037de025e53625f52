@@ -16,6 +16,24 @@
       "message": "is that change needed? it just moves stuff around",
       "revId": "31f2615d0a7176d34d1b411037de025e53625f52",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04a65d55_f38822a2",
+        "filename": "jni/fmr/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-07-23T15:39:52Z",
+      "side": 0,
+      "message": "not needed, just looks better",
+      "parentUuid": "88b5ebf9_a470d5e8",
+      "revId": "31f2615d0a7176d34d1b411037de025e53625f52",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
