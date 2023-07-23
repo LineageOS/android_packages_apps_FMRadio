@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8db933df_d942fa70",
+        "filename": "src/com/android/fmradio/FmMainActivity.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2023-07-23T15:41:07Z",
+      "side": 1,
+      "message": "can you move that outside as a variable?",
+      "range": {
+        "startLine": 831,
+        "startChar": 55,
+        "endLine": 833,
+        "endChar": 59
+      },
+      "revId": "5212e8474e4678a9665205ab50a455638ce90acd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
