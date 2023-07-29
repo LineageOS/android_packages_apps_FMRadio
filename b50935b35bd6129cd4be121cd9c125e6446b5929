@@ -22,6 +22,30 @@
       },
       "revId": "b50935b35bd6129cd4be121cd9c125e6446b5929",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0d667b2_a29a7a5e",
+        "filename": "res/values/cm_strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-07-29T20:41:01Z",
+      "side": 1,
+      "message": "https://review.lineageos.org/c/LineageOS/android_packages_apps_FMRadio/+/362723",
+      "parentUuid": "bc55855d_9f580b92",
+      "range": {
+        "startLine": 27,
+        "startChar": 47,
+        "endLine": 27,
+        "endChar": 67
+      },
+      "revId": "b50935b35bd6129cd4be121cd9c125e6446b5929",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
