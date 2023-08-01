@@ -19,6 +19,7 @@
     <string name="optmenu_speaker">Дынамік</string>
     <string name="optmenu_earphone">Навушнікі</string>
     <string name="save">Захаваць</string>
+    <string name="toast_sdcard_missing">SD-картка не ўстаўлена!</string>
     <string name="toast_sdcard_insufficient_space">Недастаткова месца на SD-картцы!</string>
     <string name="toast_recorder_internal_error">Адбылася ўнутраная памылка дыктафона!</string>
     <string name="btn_save_recording">Захаваць</string>
