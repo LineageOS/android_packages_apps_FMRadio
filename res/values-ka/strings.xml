@@ -45,7 +45,7 @@
     <string name="fm_no_headset_text">მოსასმენად შეაერთეთ ყურსასმენი (გამოიყენება ანტენად).</string>
     <string name="station_title">რადიო სადგურები</string>
     <string name="station_searching_tips">სადგურების მიღება</string>
-    <string name="station_empty_text">არ სადგურები გამოჩენას</string>
+    <string name="station_empty_text">სადგურები ვერ მოიძებნა.</string>
     <string name="minutes_label">ო</string>
     <string name="seconds_label">სამხრ.</string>
     <string name="timer_default">00</string>
