@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Ṛṛadyu FM</string>
+    <string name="optmenu_speaker">Amsimγur usiwel</string>
+    <string name="save">Sekles</string>
+    <string name="btn_save_recording">Sekles</string>
+    <string name="btn_discard_recording">Ignorer</string>
+    <string name="talk_start_recording">Bdu asekles</string>
+    <string name="more">"Ugar"</string>
+    <string name="recording_tips">Asekles…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_over_start_record">Bdu asekles</string>
+    <string name="fm_over_record_list">Ikalasen yettwaskelsen</string>
+    <string name="fm_station_list_menu_refresh">Sismeḍ</string>
+    <string name="minutes_label">A</string>
+    <string name="seconds_label">Sed</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Asekles</string>
+    <string name="record_notification_message">Asekles itteddu</string>
+    <string name="stop_record">SEḤBES ASEKLES</string>
+    <string name="save_dialog_title">Sekles akalas?</string>
+    <string name="save_dialog_caption">Akken ad tesleḍ i yikalasen, ldi asnas Urar Aẓawan.</string>
+    <string name="favorites">Ismenyifen</string>
+    <string name="rename">Snifel isem</string>
+    <string name="toast_record_saved">Akalas yettwasekles</string>
+    <string name="toast_record_not_saved">Akalas ur yettwasekles ara</string>
+    <string name="toast_listen">SƔED</string>
+</resources>

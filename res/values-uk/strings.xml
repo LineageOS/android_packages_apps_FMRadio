@@ -21,7 +21,7 @@
     <string name="optmenu_speaker">Динамік</string>
     <string name="optmenu_earphone">Навушник</string>
     <string name="save">Зберегти</string>
-    <string name="toast_sdcard_missing">Немає корти SD</string>
+    <string name="toast_sdcard_missing">Нема SD-картки</string>
     <string name="toast_sdcard_insufficient_space">Недостатньо місця на карті SD</string>
     <string name="toast_recorder_internal_error">Сталася внутрішня помилка під час запису</string>
     <string name="btn_save_recording">Зберегти</string>

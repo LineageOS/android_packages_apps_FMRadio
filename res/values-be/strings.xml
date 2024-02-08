@@ -15,6 +15,41 @@
      limitations under the License.
 -->
 <resources>
+    <string name="toast_station_searched">Даступныя станцыі:</string>
+    <string name="optmenu_speaker">Дынамік</string>
+    <string name="optmenu_earphone">Навушнікі</string>
+    <string name="save">Захаваць</string>
+    <string name="toast_sdcard_missing">SD-картка не ўстаўлена!</string>
+    <string name="toast_sdcard_insufficient_space">Недастаткова месца на SD-картцы!</string>
+    <string name="toast_recorder_internal_error">Адбылася ўнутраная памылка дыктафона!</string>
+    <string name="btn_save_recording">Захаваць</string>
     <string name="btn_discard_recording">Адхіліць</string>
+    <string name="edit_recording_name_hint">Увядзіце назву файла</string>
+    <string name="already_exists">ужо існуе</string>
+    <string name="not_available">Зараз недаступна</string>
+    <string name="talk_prev_station">Папярэдняя станцыя</string>
+    <string name="talk_decrease">Паменшыць частату</string>
+    <string name="talk_increase">Павялічыць частату</string>
+    <string name="talk_next_station">Наступная станцыя</string>
+    <string name="talk_start_recording">Пачаць запіс</string>
+    <string name="more">"Яшчэ"</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_over_start_record">Пачаць запіс</string>
     <string name="fm_station_list_menu_refresh">Абнавіць</string>
+    <string name="station_title">Радыёстанцыі</string>
+    <string name="station_searching_tips">Пошук станцый</string>
+    <string name="station_empty_text">Станцыі не знойдзены</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Запіс</string>
+    <string name="record_notification_message">Ідзе запіс</string>
+    <string name="stop_record">СПЫНІЦЬ ЗАПІС</string>
+    <string name="save_dialog_title">Захаваць запіс?</string>
+    <string name="save_dialog_caption">Каб слухаць запісы, адкрыйце праграму Play Музыка.</string>
+    <string name="favorites">Абраныя</string>
+    <string name="rename">Перайменаваць</string>
+    <string name="station_rename_hint">Увядзіце назву станцыі</string>
+    <string name="remove_favorite">Выдаліць з абраных</string>
+    <string name="toast_record_saved">Запіс захаваны</string>
+    <string name="toast_record_not_saved">Запіс не захаваны</string>
+    <string name="toast_listen">СЛУХАЦЬ</string>
 </resources>

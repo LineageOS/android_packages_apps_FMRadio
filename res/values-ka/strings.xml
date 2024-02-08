@@ -15,9 +15,9 @@
      limitations under the License.
 -->
 <resources>
-    <string name="app_name">FM რადიო</string>
-    <string name="toast_station_searched">გამოიკვლევა არსებული სადგურების:</string>
-    <string name="toast_cannot_search">ვერ მოძიებაში ხელმისაწვდომი სადგური.</string>
+    <string name="app_name">FM-რადიო</string>
+    <string name="toast_station_searched">ამორჩეული ხელმისაწვდომი სადგურები:</string>
+    <string name="toast_cannot_search">ვერ ამოარჩია ხელმისაწვდომი სადგურები.</string>
     <string name="optmenu_speaker">მიკროფონი</string>
     <string name="optmenu_earphone">ყურსასმენების</string>
     <string name="save">შენახვა</string>
@@ -38,14 +38,14 @@
     <string name="more">"მეტი"</string>
     <string name="recording_tips">ჩაწერა ...</string>
     <string name="fm_symbol">FM</string>
-    <string name="fm_turn_on">ითამაშოთ ან შეწყვიტოს FM რადიო</string>
+    <string name="fm_turn_on">FM-რადიოს ჩართვა ან გათიშვა</string>
     <string name="fm_over_start_record">ჩაწერის დაწყება</string>
     <string name="fm_over_record_list">შენახული ჩანაწერები</string>
     <string name="fm_station_list_menu_refresh">განახლება</string>
-    <string name="fm_no_headset_text">უნდა დაიწყოს მოსმენის, დანამატის ყურსასმენები (გამოიყენება როგორც ანტენის).</string>
+    <string name="fm_no_headset_text">მოსასმენად შეაერთეთ ყურსასმენი (გამოიყენება ანტენად).</string>
     <string name="station_title">რადიო სადგურები</string>
-    <string name="station_searching_tips">მიღების სადგურები</string>
-    <string name="station_empty_text">არ სადგურები გამოჩენას</string>
+    <string name="station_searching_tips">სადგურების მიღება</string>
+    <string name="station_empty_text">სადგურები ვერ მოიძებნა.</string>
     <string name="minutes_label">ო</string>
     <string name="seconds_label">სამხრ.</string>
     <string name="timer_default">00</string>
