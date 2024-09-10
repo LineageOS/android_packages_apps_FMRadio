@@ -125,6 +125,9 @@ enum {
 // seek threshold
 #define FM_SEEKTH_LEVEL_DEFAULT 4
 
+#define RSSI_TH -296
+#define FM_NOISE_FLOOR_OFFSET 10
+
 struct fm_tune_parm {
     uint8_t err;
     uint8_t band;
