@@ -66,18 +66,12 @@
 #define FM_DEV_NAME "/dev/fm"
 
 #define FM_RDS_PS_LEN 8
+#define FMR_MAX_FAKE_CHANS 6
 
 struct fm_fake_channel
 {
     int freq;
     int rssi_th;
-    int reserve;
-};
-
-struct fm_fake_channel_t
-{
-    int size;
-    struct fm_fake_channel *chan;
 };
 
 struct CUST_cfg_ds
@@ -92,8 +86,9 @@ struct CUST_cfg_ds
     int32_t scan_sort;
     int32_t short_ana_sup;
     int32_t rssi_th_l2;
+    int32_t fake_channels;
     bool noise_floor_detect;
-    struct fm_fake_channel_t *fake_chan;
+    struct fm_fake_channel fake_chan[FMR_MAX_FAKE_CHANS];
 };
 
 struct fm_cbk_tbl {
@@ -132,10 +127,8 @@ struct fmr_ds {
     uint16_t cur_freq;
     uint16_t backup_freq;
     void *priv;
-    void *custom_handler;
     struct CUST_cfg_ds cfg_data;
     struct fm_cbk_tbl tbl;
-    CUST_func_type get_cfg;
     void *init_handler;
     init_func_type init_func;
     RDSData_Struct rds;
@@ -185,7 +178,7 @@ void FMR_seterr(int err);
 
 //fmr_core.cpp
 int FMR_init(void);
-int FMR_get_cfgs(int idx);
+void FMR_get_cfgs(int idx);
 int FMR_open_dev(int idx);
 int FMR_close_dev(int idx);
 int FMR_pwr_up(int idx, int freq);

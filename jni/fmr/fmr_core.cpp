@@ -30,6 +30,9 @@
 
 #include "fmr.h"
 
+#include <sstream>
+#include <android-base/properties.h>
+
 #ifdef LOG_TAG
 #undef LOG_TAG
 #endif
@@ -47,37 +50,45 @@ struct fmr_ds *pfmr_data[FMR_MAX_IDX] = {0};
 #define FMR_seek_space(idx) ((pfmr_data[idx])->cfg_data.seek_space)
 #define FMR_max_scan_num(idx) ((pfmr_data[idx])->cfg_data.max_scan_num)
 #define FMR_cbk_tbl(idx) ((pfmr_data[idx])->tbl)
-#define FMR_cust_hdler(idx) ((pfmr_data[idx])->custom_handler)
-#define FMR_get_cfg(idx) ((pfmr_data[idx])->get_cfg)
 
-int FMR_get_cfgs(int idx)
+#define FM_PROP_PREFIX "ro.fm."
+
+using ::android::base::GetProperty;
+using ::android::base::GetIntProperty;
+using ::android::base::GetBoolProperty;
+
+void FMR_get_cfgs(int idx)
 {
-    int ret = -1;
-    FMR_cust_hdler(idx) = NULL;
-    FMR_get_cfg(idx) = NULL;
+    std::istringstream is;
+    struct CUST_cfg_ds* cfg = &(pfmr_data[idx]->cfg_data);
 
-    FMR_cust_hdler(idx) = dlopen(CUST_LIB_NAME, RTLD_NOW);
-    if (FMR_cust_hdler(idx) == NULL) {
-        LOGE("%s failed, %s\n", __FUNCTION__, dlerror());
-        //FMR_seterr(ERR_LD_LIB);
-    } else {
-        *(void **) (&FMR_get_cfg(idx)) = dlsym(FMR_cust_hdler(idx), "CUST_get_cfg");
-        if (FMR_get_cfg(idx) == NULL) {
-            LOGE("%s failed, %s\n", __FUNCTION__, dlerror());
-            //FMR_seterr(ERR_FIND_CUST_FNUC);
-        } else {
-            LOGI("Go to run cust function\n");
-            (*FMR_get_cfg(idx))(&(pfmr_data[idx]->cfg_data));
-            LOGI("OK\n");
-            ret = 0;
-        }
-        //dlclose(FMR_cust_hdler(idx));
-        FMR_cust_hdler(idx) = NULL;
-        FMR_get_cfg(idx) = NULL;
+    cfg->chip = GetIntProperty(FM_PROP_PREFIX "chip", 0);
+    cfg->band = GetIntProperty(FM_PROP_PREFIX "band", 0);
+    cfg->low_band = GetIntProperty(FM_PROP_PREFIX "low_band", 0);
+    cfg->high_band = GetIntProperty(FM_PROP_PREFIX "high_band", 0);
+    cfg->seek_space = GetIntProperty(FM_PROP_PREFIX "seek_space", 0);
+    cfg->max_scan_num = GetIntProperty(FM_PROP_PREFIX "max_scan_num", 0);
+    cfg->seek_lev = GetIntProperty(FM_PROP_PREFIX "seek_lev", 0);
+    cfg->scan_sort = GetIntProperty(FM_PROP_PREFIX "scan_sort", 0);
+    cfg->short_ana_sup = GetIntProperty(FM_PROP_PREFIX "short_ana_sup", 0);
+    cfg->rssi_th_l2 = GetIntProperty(FM_PROP_PREFIX "rssi_th_l2", 0);
+    cfg->noise_floor_detect = GetBoolProperty(FM_PROP_PREFIX "noise_floor_detect", 0);
+    cfg->fake_channels = GetIntProperty(FM_PROP_PREFIX "fake_chans", 0);
+
+    if (cfg->fake_channels > FMR_MAX_FAKE_CHANS) {
+        LOGE("%s: fake_chan.size > FMR_MAX_FAKE_CHANS", __FUNCTION__);
+        return;
     }
-    LOGI("%s successfully. chip: 0x%x, lband: %d, hband: %d, seek_space: %d, max_scan_num: %d\n", __FUNCTION__, FMR_chip(idx), FMR_low_band(idx), FMR_high_band(idx), FMR_seek_space(idx), FMR_max_scan_num(idx));
 
-    return ret;
+    for (int i = 0; i < cfg->fake_channels; i++) {
+        struct fm_fake_channel *chan = &cfg->fake_chan[i];
+        std::string property = FM_PROP_PREFIX "fake_chan_" + std::to_string(i);
+
+        is = std::istringstream(GetProperty(property, ""));
+        is >> chan->freq >> chan->rssi_th;
+    }
+
+    LOGI("%s successfully. chip: 0x%x, lband: %d, hband: %d, seek_space: %d, max_scan_num: %d\n", __FUNCTION__, FMR_chip(idx), FMR_low_band(idx), FMR_high_band(idx), FMR_seek_space(idx), FMR_max_scan_num(idx));
 }
 
 int FMR_chk_cfg_data(int idx __unused)
@@ -108,11 +119,7 @@ int FMR_init()
     pfmr_data[idx] = &fmr_data;
     memset(pfmr_data[idx], 0, sizeof(struct fmr_ds));
 
-    if (FMR_get_cfgs(idx) < 0) {
-        LOGI("FMR_get_cfgs failed\n");
-        goto fail;
-    }
-
+    FMR_get_cfgs(idx);
     if (FMR_chk_cfg_data(idx) < 0) {
         LOGI("FMR_chk_cfg_data failed\n");
         goto fail;
@@ -274,14 +281,14 @@ fm_bool FMR_DensenseDetect(fm_s32 idx, fm_u16 ChannelNo, fm_s32 RSSI)
 fm_bool FMR_SevereDensense(fm_u16 ChannelNo, fm_s32 RSSI)
 {
     fm_s32 i = 0;
-    struct fm_fake_channel_t *chan_info = fmr_data.cfg_data.fake_chan;
+    struct CUST_cfg_ds *cfg = &fmr_data.cfg_data;
 
     ChannelNo /= 10;
 
-    for (i=0; i<chan_info->size; i++) {
-        if (ChannelNo == chan_info->chan[i].freq) {
+    for (i = 0; i < cfg->fake_channels; i++) {
+        if (ChannelNo == cfg->fake_chan[i].freq) {
             //if (RSSI < FM_SEVERE_RSSI_TH)
-            if (RSSI < chan_info->chan[i].rssi_th) {
+            if (RSSI < cfg->fake_chan[i].rssi_th) {
                 LOGI(" SevereDensense[%d] RSSI[%d]\n", ChannelNo,RSSI);
                 return fm_true;
             } else {
