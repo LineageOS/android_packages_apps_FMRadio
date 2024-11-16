@@ -18,4 +18,9 @@
     <string name="notif_previous">Poprzedni</string>
     <string name="notif_stop">Zatrzymaj</string>
     <string name="notif_next">Następny</string>
+    <string name="channel_playback_name">Odtwarzanie FM</string>
+    <string name="channel_playback_description">Sterowanie odtwarzaniem FM na pasku powiadomień</string>
+    <string name="channel_record_name">Rejestrator FM</string>
+    <string name="channel_record_description">Sterowanie rejestratorem radia FM na pasku powiadomień</string>
+    <string name="missing_required_permission">Odmowa uprawnień. Możesz je zmienić w ustawieniach aplikacji.</string>
 </resources>

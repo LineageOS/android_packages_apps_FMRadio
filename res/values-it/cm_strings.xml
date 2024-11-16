@@ -17,5 +17,10 @@
 <resources>
     <string name="notif_previous">Precedente</string>
     <string name="notif_stop">Ferma</string>
-    <string name="notif_next">Sucessivo</string>
+    <string name="notif_next">Successivo</string>
+    <string name="channel_playback_name">Riproduzione FM</string>
+    <string name="channel_playback_description">Comandi di riproduzione FM nella barra di notifica</string>
+    <string name="channel_record_name">Registratore FM</string>
+    <string name="channel_record_description">Comandi di registrazione radio FM nella barra di notifica</string>
+    <string name="missing_required_permission">Autorizzazioni negate. È possibile modificarli in Impostazioni &gt; App.</string>
 </resources>

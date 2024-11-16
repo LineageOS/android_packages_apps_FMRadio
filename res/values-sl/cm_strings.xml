@@ -18,4 +18,9 @@
     <string name="notif_previous">Prejšnja</string>
     <string name="notif_stop">Ustavi</string>
     <string name="notif_next">Naslednja</string>
+    <string name="channel_playback_name">Predvajalnik FM</string>
+    <string name="channel_playback_description">Nadzorne tipke predvajalnika FM v vrstici za obvestila</string>
+    <string name="channel_record_name">Snemalnik FM</string>
+    <string name="channel_record_description">Nadzorne tipke snemalnika FM v vrstici za obvestila</string>
+    <string name="missing_required_permission">Dovoljenja zavrnjena. Spremenite jih lahko v Nastavitvah in Aplikacijah.</string>
 </resources>

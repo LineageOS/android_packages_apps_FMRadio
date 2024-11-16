@@ -18,4 +18,9 @@
     <string name="notif_previous">Trước</string>
     <string name="notif_stop">Dừng</string>
     <string name="notif_next">Tiếp theo</string>
+    <string name="channel_playback_name">Phát lại FM</string>
+    <string name="channel_playback_description">Điều khiển phát lại FM trên thanh thông báo</string>
+    <string name="channel_record_name">Máy ghi âm FM</string>
+    <string name="channel_record_description">Điều khiển máy ghi âm radio FM trên thanh thông báo</string>
+    <string name="missing_required_permission">Quyền bị từ chối. Bạn có thể thay đổi chúng trong Cài đặt &gt; Ứng dụng.</string>
 </resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Записи радио</string>
+    <string name="info_toast">Для воспроизведения записей радио требуется разрешение на доступ к медиа.</string>
+    <string name="denied_toast">Для воспроизведения записей радио требуется разрешение на доступ к медиа. Включите его в настройках.</string>
+</resources>

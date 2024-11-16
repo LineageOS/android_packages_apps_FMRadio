@@ -53,7 +53,6 @@
     <string name="record_notification_message">Εγγραφή σε εξέλιξη</string>
     <string name="stop_record">ΔΙΑΚΟΠΗ ΕΓΓΡΑΦΗΣ</string>
     <string name="save_dialog_title">Αποθήκευση εγγραφής;</string>
-    <string name="save_dialog_caption">Για να ακούσετε ηχογραφήσεις, ανοίξτε την εφαρμογή Μουσική Play.</string>
     <string name="favorites">Αγαπημένα</string>
     <string name="rename">Μετονομασία</string>
     <string name="station_rename_hint">Εισαγάγετε όνομα σταθμού</string>

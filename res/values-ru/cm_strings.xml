@@ -18,4 +18,9 @@
     <string name="notif_previous">Предыдущая</string>
     <string name="notif_stop">Прервать</string>
     <string name="notif_next">Следующая</string>
+    <string name="channel_playback_name">Воспроизведение радио</string>
+    <string name="channel_playback_description">Управление воспроизведением радио из панели уведомлений</string>
+    <string name="channel_record_name">Запись радио</string>
+    <string name="channel_record_description">Управление записью радио из панели уведомлений</string>
+    <string name="missing_required_permission">Разрешение отсутствует. Вы можете предоставить его в Настройках &gt; Приложениях.</string>
 </resources>

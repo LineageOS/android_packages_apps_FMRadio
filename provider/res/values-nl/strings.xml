@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FM-opnames</string>
+    <string name="info_toast">FM-opnames hebben mediamachtigingen nodig om opnames af te spelen.</string>
+    <string name="denied_toast">FM-opnames hebben mediamachtigingen nodig om opnames af te spelen. Geef alstublieft mediamachtigingen in instellingen.</string>
+</resources>

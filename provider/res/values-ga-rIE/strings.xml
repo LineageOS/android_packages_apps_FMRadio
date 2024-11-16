@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Taifeadtaí FM</string>
+    <string name="info_toast">Teastaíonn ceadanna meán ó thaifeadtaí FM chun taifeadtaí a imirt ar ais.</string>
+    <string name="denied_toast">Teastaíonn ceadanna meán ó thaifeadtaí FM chun taifeadtaí a imirt ar ais. Tabhair ceadanna meán sna Socruithe le do thoil.</string>
+</resources>

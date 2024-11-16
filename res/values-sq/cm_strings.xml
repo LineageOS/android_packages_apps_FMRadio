@@ -18,4 +18,9 @@
     <string name="notif_previous">E mëparshmja</string>
     <string name="notif_stop">Ndalo</string>
     <string name="notif_next">Tjetra</string>
+    <string name="channel_playback_name">Riprodhimi FM</string>
+    <string name="channel_playback_description">Kontrollet e riprodhimit FM në shiritin e njoftimeve</string>
+    <string name="channel_record_name">Regjistrues FM</string>
+    <string name="channel_record_description">Kontrollet e regjistruesit të radios FM në shiritin e njoftimeve</string>
+    <string name="missing_required_permission">Lejet u refuzuan.  Mund t\'i ndryshoni te Cilësimet &gt;  Aplikacionet.</string>
 </resources>

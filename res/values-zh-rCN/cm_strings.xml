@@ -18,4 +18,9 @@
     <string name="notif_previous">上一个</string>
     <string name="notif_stop">停止</string>
     <string name="notif_next">下一个</string>
+    <string name="channel_playback_name">FM 回放</string>
+    <string name="channel_playback_description">通知栏中的 FM 播放控件</string>
+    <string name="channel_record_name">FM 录音机</string>
+    <string name="channel_record_description">通知栏中的 FM 收音机录音控件</string>
+    <string name="missing_required_permission">权限不足。你可以在设置&gt;应用中进行修改。</string>
 </resources>

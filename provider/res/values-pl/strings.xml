@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nagrania FM</string>
+    <string name="info_toast">Nagrania FM potrzebują uprawnień mediów, aby odtwarzać nagrania.</string>
+    <string name="denied_toast">Nagrania FM potrzebują uprawnień mediów do odtwarzania nagrań. Przyznaj uprawnienia mediom w ustawieniach.</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FM 録音</string>
+    <string name="info_toast">FM 録音は録音を再生するためにメディアの権限が必要です。</string>
+    <string name="denied_toast">FM 録音には録音を再生するためにメディア権限が必要です。設定でメディア権限を許可してください。</string>
+</resources>

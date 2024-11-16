@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Registrazioni FM</string>
+    <string name="info_toast">È necessaria l\'autorizzazione ad accedere ai contenuti multimediali per riprodurre le registrazioni.</string>
+    <string name="denied_toast">È necessaria l\'autorizzazione ad accedere ai contenuti multimediali per riprodurre le registrazioni.. Si prega di concedere l\'autorizzazione nelle Impostazioni.</string>
+</resources>

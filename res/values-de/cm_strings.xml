@@ -18,4 +18,9 @@
     <string name="notif_previous">Zurück</string>
     <string name="notif_stop">Stopp</string>
     <string name="notif_next">Weiter</string>
+    <string name="channel_playback_name">FM-Wiedergabe</string>
+    <string name="channel_playback_description">FM-Wiedergabesteuerung in der Benachrichtigungsleiste</string>
+    <string name="channel_record_name">FM-Rekorder</string>
+    <string name="channel_record_description">FM-Aufnahmesteuerung in der Benachrichtigungsleiste</string>
+    <string name="missing_required_permission">Berechtigungen verweigert. Du kannst sie unter Einstellungen &gt; Apps ändern.</string>
 </resources>

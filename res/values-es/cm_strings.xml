@@ -18,4 +18,9 @@
     <string name="notif_previous">Anterior</string>
     <string name="notif_stop">Detener</string>
     <string name="notif_next">Siguiente</string>
+    <string name="channel_playback_name">Reproducción de radio FM</string>
+    <string name="channel_playback_description">Controles de reproducción de radio FM en la barra de notificaciones</string>
+    <string name="channel_record_name">Grabadora de radio FM</string>
+    <string name="channel_record_description">Controles de la grabadora de radio FM en la barra de notificaciones</string>
+    <string name="missing_required_permission">Permisos denegados. Puedes cambiarlos en Ajustes &gt; Aplicaciones.</string>
 </resources>

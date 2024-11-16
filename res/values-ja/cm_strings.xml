@@ -18,4 +18,9 @@
     <string name="notif_previous">前へ</string>
     <string name="notif_stop">停止</string>
     <string name="notif_next">次へ</string>
+    <string name="channel_playback_name">FM 再生</string>
+    <string name="channel_playback_description">通知バー内の FM 再生コントロール</string>
+    <string name="channel_record_name">FM 録音</string>
+    <string name="channel_record_description">通知バー内の FM 録音制御</string>
+    <string name="missing_required_permission">権限が拒否されました。設定 &gt; アプリで変更できます。</string>
 </resources>

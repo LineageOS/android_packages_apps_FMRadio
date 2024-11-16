@@ -18,4 +18,9 @@
     <string name="notif_previous">Vorige</string>
     <string name="notif_stop">Stoppen</string>
     <string name="notif_next">Volgende</string>
+    <string name="channel_playback_name">FM afspelen</string>
+    <string name="channel_playback_description">FM afspeelknoppen in notificatiebalk</string>
+    <string name="channel_record_name">FM recorder</string>
+    <string name="channel_record_description">FM radiorecorder bediening in notificatiebalk</string>
+    <string name="missing_required_permission">Machtiging geweigerd. U kunt dit aanpassen in Instellingen &gt; Apps.</string>
 </resources>

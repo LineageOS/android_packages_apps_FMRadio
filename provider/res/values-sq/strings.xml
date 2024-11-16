@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Regjistrimet FM</string>
+    <string name="info_toast">Regjistrimet FM kanë nevojë për leje mediatike për të riprodhuar regjistrimet.</string>
+    <string name="denied_toast">Regjistrimet FM kanë nevojë për leje mediatike për të riprodhuar regjistrimet.  Jepni lejet e medias te \"Cilësimet\".</string>
+</resources>

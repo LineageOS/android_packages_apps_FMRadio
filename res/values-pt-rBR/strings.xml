@@ -53,7 +53,6 @@
     <string name="record_notification_message">Gravação em andamento</string>
     <string name="stop_record">PARAR GRAVAÇÃO</string>
     <string name="save_dialog_title">Deseja salvar a gravação?</string>
-    <string name="save_dialog_caption">Para ouvir as gravações, abra o aplicativo Play Music.</string>
     <string name="favorites">Favoritas</string>
     <string name="rename">Renomear</string>
     <string name="station_rename_hint">Digite o nome da estação</string>

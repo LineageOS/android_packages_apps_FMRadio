@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bản ghi âm FM</string>
+    <string name="info_toast">Bản ghi FM cần có quyền truy cập phương tiện để phát lại bản ghi.</string>
+    <string name="denied_toast">Bản ghi FM cần có quyền phương tiện để phát lại bản ghi. Vui lòng cấp quyền phương tiện trong Cài đặt.</string>
+</resources>

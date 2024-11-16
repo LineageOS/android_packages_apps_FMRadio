@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FM-felvételek</string>
+    <string name="info_toast">A visszajátszáshoz az FM-felvételeknek hozzá kell férnie a készüléken található médiafájlokhoz.</string>
+    <string name="denied_toast">A visszajátszáshoz az FM-felvételeknek hozzá kell férnie a készüléken található médiafájlokhoz. A Beállításokban adja meg a jogosultságot.</string>
+</resources>

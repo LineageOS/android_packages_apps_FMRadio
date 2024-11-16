@@ -18,4 +18,9 @@
     <string name="notif_previous">Előző</string>
     <string name="notif_stop">Megállítás</string>
     <string name="notif_next">Következő</string>
+    <string name="channel_playback_name">FM-visszajátszás</string>
+    <string name="channel_playback_description">Vezérlők az értesítési sávban az FM-visszajátszáshoz</string>
+    <string name="channel_record_name">FM-hangrögzítés</string>
+    <string name="channel_record_description">Vezérlők az értesítési sávban az FM-hangrögzítéshez</string>
+    <string name="missing_required_permission">Hozzáférés megtagadva! A Beállítások &gt; Alkalmazások menüben módosíthat.</string>
 </resources>

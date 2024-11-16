@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Grabaciones de FM</string>
+    <string name="info_toast">Las grabaciones de FM necesitan permisos multimedia para reproducir grabaciones.</string>
+    <string name="denied_toast">Las grabaciones de FM necesitan permisos multimedia para reproducir grabaciones. Concede permisos multimedia en Ajustes.</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FM səsyazmaları</string>
+    <string name="info_toast">FM səsyazmalarının oxudulması üçün media icazələrinə ehtiyacı var.</string>
+    <string name="denied_toast">FM səsyazmalarının oxudulması üçün media icazələrinə ehtiyacı var. Lütfən Ayarlarda media icazələrini verin.</string>
+</resources>

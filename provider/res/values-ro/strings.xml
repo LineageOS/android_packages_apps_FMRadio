@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Înregistrări FM</string>
+    <string name="info_toast">Înregistrările FM au nevoie de permisiuni media pentru a reda înregistrările.</string>
+    <string name="denied_toast">Înregistrările FM au nevoie de permisiuni media pentru a reda înregistrările. Vă rugăm să acordați permisiunile media în Setări.</string>
+</resources>

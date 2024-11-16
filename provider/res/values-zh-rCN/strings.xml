@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FM 录音</string>
+    <string name="info_toast">FM 录音需要媒体访问权限才能播放回放。</string>
+    <string name="denied_toast">FM 录音需要媒体权限才能播放录音。请在“设置”中授予媒体权限。</string>
+</resources>

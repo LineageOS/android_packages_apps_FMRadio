@@ -18,4 +18,9 @@
     <string name="notif_previous">Əvvəlki</string>
     <string name="notif_stop">Dayandır</string>
     <string name="notif_next">Sonrakı</string>
+    <string name="channel_playback_name">FM oxutma</string>
+    <string name="channel_playback_description">Bildiriş çubuğunda FM oxutma kontrolları</string>
+    <string name="channel_record_name">FM səsyazanı</string>
+    <string name="channel_record_description">Bildiriş çubuğunda FM radio səsyazan kontrolları</string>
+    <string name="missing_required_permission">İcazə rədd edildi. Onu Ayarlar &gt; \"Tətbiqlər\"də dəyişdirə bilərsiniz.</string>
 </resources>

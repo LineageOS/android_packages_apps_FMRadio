@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gravacions d\'FM</string>
+    <string name="info_toast">Les gravacions d\'FM necessiten permisos multimèdia per reproduir enregistraments.</string>
+    <string name="denied_toast">Les gravacions d\'FM necessiten permisos multimèdia per reproduir enregistraments. Concediu els permisos multimèdia a la Configuració.</string>
+</resources>

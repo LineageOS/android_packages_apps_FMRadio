@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FM-Aufnahmen</string>
+    <string name="info_toast">FM-Aufnahmen erfordern Medienberechtigungen zur Wiedergabe von Aufnahmen.</string>
+    <string name="denied_toast">FM-Aufnahmen erfordern Medienberechtigungen zur Wiedergabe von Aufnahmen. Bitte Medienberechtigungen in den Einstellungen gewähren.</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Posnetki FM</string>
+    <string name="info_toast">Posnetki FM potrebuje dovoljenje predstavnosti za predvajanje posnetkov</string>
+    <string name="denied_toast">Posnetki FM potrebuje dovoljenje predstavnosti za predvajanje posnetkov. Odobrite ga v Nastavitvah.</string>
+</resources>

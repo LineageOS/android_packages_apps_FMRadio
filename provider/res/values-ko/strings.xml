@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FM 녹음</string>
+    <string name="info_toast">FM 녹음을 하려면 미디어 권한이 필요합니다.</string>
+    <string name="denied_toast">FM 녹음을 하려면 미디어 권한이 필요합니다. 설정에서 미디어 권한을 허용해 주세요.</string>
+</resources>
