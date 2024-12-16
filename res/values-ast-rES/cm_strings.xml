@@ -17,10 +17,7 @@
 <resources>
     <string name="notif_previous">Anterior</string>
     <string name="notif_stop">Parar</string>
-    <string name="notif_next">Próxima</string>
-    <string name="channel_playback_name">Reprodução FM</string>
-    <string name="channel_playback_description">Controles de reprodução FM na barra de notificações</string>
-    <string name="channel_record_name">Gravador FM</string>
-    <string name="channel_record_description">Controles do gravador de rádio RM na barra de notificações</string>
-    <string name="missing_required_permission">Permissões rejeitadas. Você pode mudá-las em Configurações &gt; Apps.</string>
+    <string name="notif_next">Siguiente</string>
+    <string name="channel_playback_name">Reproducción FM</string>
+    <string name="channel_record_name">Grabadora FM</string>
 </resources>
