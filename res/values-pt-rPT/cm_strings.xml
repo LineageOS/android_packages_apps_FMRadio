@@ -18,4 +18,9 @@
     <string name="notif_previous">Anterior</string>
     <string name="notif_stop">Parar</string>
     <string name="notif_next">Seguinte</string>
+    <string name="channel_playback_name">Reprodução FM</string>
+    <string name="channel_playback_description">Controlos de reprodução FM na barra de notificações</string>
+    <string name="channel_record_name">Gravador FM</string>
+    <string name="channel_record_description">Controlos do gravador de rádio FM na barra de notificações</string>
+    <string name="missing_required_permission">Permissões recusadas. Pode alterá-las em Definições &gt; Aplicações.</string>
 </resources>

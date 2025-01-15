@@ -18,4 +18,9 @@
     <string name="notif_previous">Précédent</string>
     <string name="notif_stop">Arrêt</string>
     <string name="notif_next">Suivant</string>
+    <string name="channel_playback_name">Lecture FM</string>
+    <string name="channel_playback_description">Contrôles de lecture FM dans la barre de notification</string>
+    <string name="channel_record_name">Enregistreur FM</string>
+    <string name="channel_record_description">Contrôles de l\'enregistreur de radio FM dans la barre de notifications</string>
+    <string name="missing_required_permission">Autorisations refusées. Vous pouvez les modifier dans Paramètres &gt; Applications.</string>
 </resources>

@@ -23,7 +23,7 @@
     <string name="save">Salvar</string>
     <string name="toast_sdcard_missing">Não há cartão SD</string>
     <string name="toast_sdcard_insufficient_space">Espaço insuficiente no cartão SD</string>
-    <string name="toast_recorder_internal_error">Ocorreu um erro interno no gravador</string>
+    <string name="toast_recorder_internal_error">Ocorreu um erro interno no gravador!</string>
     <string name="btn_save_recording">Salvar</string>
     <string name="btn_discard_recording">Descartar</string>
     <string name="edit_recording_name_hint">Digite o nome do arquivo</string>

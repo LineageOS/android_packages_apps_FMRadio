@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Enregistrements FM</string>
+    <string name="info_toast">Les enregistrements FM nécessitent des autorisations d\'accès aux fichiers multimédias pour être lus.</string>
+    <string name="denied_toast">Les enregistrements FM nécessitent des autorisations d\'accès aux fichiers multimédias pour être lus. Veuillez accorder ces autorisations dans les paramètres.</string>
+</resources>
