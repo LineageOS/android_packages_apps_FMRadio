@@ -14,17 +14,31 @@
 // limitations under the License.
 //
 
-soong_namespace {
-}
-
 cc_library_shared {
     name: "libfmjni",
 
-    srcs: [
-        "fmr_core.cpp",
-        "fmr_err.cpp",
-        "libfm_jni.cpp",
-        "common.cpp",
+    cflags: select(soong_config_variable("libfmjni", "no_fm_firmware"), {
+        true: ["-DQCOM_NO_FM_FIRMWARE"],
+        default: [],
+    }),
+
+    srcs: select(soong_config_variable("libfmjni", "vendor"), {
+        "qcom": [":libfmjni-qcom-srcs"],
+        default: [
+            "fmr_core.cpp",
+            "fmr_err.cpp",
+            "libfm_jni.cpp",
+            "common.cpp",
+        ],
+    }),
+
+    header_libs: select(soong_config_variable("libfmjni", "vendor"), {
+        "qcom": ["libfmjni-qcom-headers"],
+        default: [],
+    }),
+
+    include_dirs: [
+        "frameworks/base/core/jni/include",
     ],
 
     shared_libs: [
