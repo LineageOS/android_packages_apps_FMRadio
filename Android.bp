@@ -23,7 +23,11 @@ android_app {
     platform_apis: true,
     privileged: true,
 
-    jni_libs: ["libfmjni"],
+
+    jni_libs: select(soong_config_variable("libfmjni", "module_name"), {
+        any @ module_name: [module_name],
+        default: ["libfmjni-fmr"],
+    }),
 
     required: [
         "privapp_whitelist_com.android.fmradio.xml",
