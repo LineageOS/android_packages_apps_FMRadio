@@ -16,6 +16,24 @@
       "message": "I assume these changes are done to support opensource lib on mtk devices and drop the prebuilt?",
       "revId": "192f16b02eeeeb00beac60a8633f5ba2a483507f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aca2f39_adb9109d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32253
+      },
+      "writtenOn": "2025-02-07T19:31:53Z",
+      "side": 1,
+      "message": "Yep, although we noticed that FMRadio won\u0027t reproduce any sounds since we upgraded to lineage-22.1 (that also includes my msm8953 devices). Haven\u0027t got time to debug it yet.",
+      "parentUuid": "710d33ca_6621fff8",
+      "revId": "192f16b02eeeeb00beac60a8633f5ba2a483507f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
