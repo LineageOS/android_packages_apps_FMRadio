@@ -14,11 +14,9 @@
 // limitations under the License.
 //
 
-soong_namespace {
-}
-
 cc_library_shared {
-    name: "libfmjni",
+    name: "libfmjni-fmr",
+    stem: "libfmjni",
 
     srcs: [
         "fmr_core.cpp",
