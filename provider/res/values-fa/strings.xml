@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">اف‌ام‌های ضبط شده</string>
+    <string name="info_toast">ضبط‌های FM برای پخش فایل‌های ضبط‌شده به مجوز رسانه نیاز دارند.</string>
+    <string name="denied_toast">ضبط‌های FM برای پخش فایل‌های ضبط‌شده به مجوز رسانه نیاز دارند. لطفاً مجوزهای رسانه را در تنظیمات اعطا کنید.</string>
+</resources>
