@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Regjistrazions FM</string>
+    <string name="info_toast">Par podê riprodusi lis regjistrazions FM, chestis a àn bisugne dai permès multimediâi.</string>
+    <string name="denied_toast">Par podê riprodusi lis regjistrazions FM, chestis a àn bisugne dai permès multimediâi. Concêt i permès multimediâi tes Impostazions.</string>
+</resources>
