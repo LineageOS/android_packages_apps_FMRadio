@@ -18,4 +18,5 @@
     <string name="notif_previous">Sebelumnya</string>
     <string name="notif_stop">Hentikan</string>
     <string name="notif_next">Berikutnya</string>
+    <string name="channel_record_name">Perekam FM</string>
 </resources>
