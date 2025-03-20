@@ -410,7 +410,9 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
        // need to create new audio record and audio play back track,
        // because input/output device may be changed.
        if (mAudioRecord != null) {
-           mAudioRecord.stop();
+if (mAudioRecord.getRecordingState() == AudioRecord.RECORDSTATE_RECORDING) {
+               mAudioRecord.stop();
+           }
            mAudioRecord.release();
            mAudioRecord = null;
        }
