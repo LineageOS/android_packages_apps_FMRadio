@@ -32,6 +32,7 @@ import android.database.ContentObserver;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -180,7 +181,7 @@ public class FmRecordActivity extends Activity implements
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
                     getString(R.string.channel_record_name), NotificationManager.IMPORTANCE_LOW);
             channel.setDescription(getString(R.string.channel_record_description));
-            channel.setBlockable(true);
+            if(Build.Version.SDK_INT >=Build.VERSION_CODES.TIRAMISU) channel.setBlockable(true);
             notificationManager.createNotificationChannel(channel);
         }
 
