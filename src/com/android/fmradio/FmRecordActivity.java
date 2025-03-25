@@ -180,7 +180,9 @@ public class FmRecordActivity extends Activity implements
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
                     getString(R.string.channel_record_name), NotificationManager.IMPORTANCE_LOW);
             channel.setDescription(getString(R.string.channel_record_description));
-            channel.setBlockable(true);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                channel.setBlockable(true);
+            }
             notificationManager.createNotificationChannel(channel);
         }
 
