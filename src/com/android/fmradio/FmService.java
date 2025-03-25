@@ -50,6 +50,7 @@ import android.media.AudioTrack;
 import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -1851,7 +1852,9 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
                     getString(R.string.channel_playback_name), NotificationManager.IMPORTANCE_LOW);
             channel.setDescription(getString(R.string.channel_playback_description));
-            channel.setBlockable(true);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                channel.setBlockable(true);
+            }
             notificationManager.createNotificationChannel(channel);
         }
 
