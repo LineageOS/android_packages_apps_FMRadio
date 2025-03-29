@@ -16,6 +16,24 @@
       "message": "no one-liners, especially not with those line lengths",
       "revId": "3c2a49906c7ac70a42f1520f681e9b5bc73e5ed2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0c30557_f4535daa",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 35067
+      },
+      "writtenOn": "2025-03-29T09:07:50Z",
+      "side": 1,
+      "message": "It seems,it was fixed.",
+      "parentUuid": "1fc102e8_aafda37b",
+      "revId": "3c2a49906c7ac70a42f1520f681e9b5bc73e5ed2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

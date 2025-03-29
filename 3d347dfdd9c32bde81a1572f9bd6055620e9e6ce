@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c70bab38_74459a06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35067
+      },
+      "writtenOn": "2025-03-29T09:07:50Z",
+      "side": 1,
+      "message": "I hope,all issues for two commit was solved.",
+      "revId": "3d347dfdd9c32bde81a1572f9bd6055620e9e6ce",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
