@@ -1330,10 +1330,14 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     // Thread 1: onCreate() or startRender()
     // Thread 2: onAudioPatchListUpdate() or startRender()
     private synchronized void initAudioRecordSink() {
-        mAudioRecord = new AudioRecord(MediaRecorder.AudioSource.RADIO_TUNER,
-                SAMPLE_RATE, CHANNEL_CONFIG, AUDIO_FORMAT, RECORD_BUF_SIZE);
-        mAudioTrack = new AudioTrack(AudioManager.STREAM_MUSIC,
-                SAMPLE_RATE, CHANNEL_CONFIG, AUDIO_FORMAT, RECORD_BUF_SIZE, AudioTrack.MODE_STREAM);
+        if (mAudioRecord == null) {
+            mAudioRecord = new AudioRecord(MediaRecorder.AudioSource.RADIO_TUNER,
+                    SAMPLE_RATE, CHANNEL_CONFIG, AUDIO_FORMAT, RECORD_BUF_SIZE);
+        }
+        if (mAudioTrack == null) {
+            mAudioTrack = new AudioTrack(AudioManager.STREAM_MUSIC,
+                    SAMPLE_RATE, CHANNEL_CONFIG, AUDIO_FORMAT, RECORD_BUF_SIZE, AudioTrack.MODE_STREAM);
+        }
     }
 
     private synchronized int createAudioPatch() {
