@@ -1473,7 +1473,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
     @Override
     public void onDestroy() {
-        mAudioManager.setParameters("AudioFmPreStop=1");
+        mAudioManager.setParameters("AudioFmPreStop=0");
         setMute(true);
         // stop rds first, avoid blocking other native method
         if (isRdsSupported()) {
