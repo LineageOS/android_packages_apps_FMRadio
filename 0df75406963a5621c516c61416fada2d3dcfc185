@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35d971e5_8843f3df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35067
+      },
+      "writtenOn": "2025-03-29T18:35:42Z",
+      "side": 1,
+      "message": "Whether now all ok? I noticed the issue,when i try recording of fm station program. As i debugged,it connected with incorrecting geting of path to record,because from android 6 we should request special runtime permission,or you should use methods of Context class to get correct path to recording files,usual inside application folder,which not require special permissions.",
+      "revId": "0df75406963a5621c516c61416fada2d3dcfc185",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
