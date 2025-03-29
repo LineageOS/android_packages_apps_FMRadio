@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b79795c_3ea6050e",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1333,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-03-29T18:18:50Z",
+      "side": 1,
+      "message": "space after if",
+      "revId": "0f131a707c41831cc8f30837450e5a0c6ed480e3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0874516_aaaa8666",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-03-29T18:18:50Z",
+      "side": 1,
+      "message": "this indentation is wrong",
+      "revId": "0f131a707c41831cc8f30837450e5a0c6ed480e3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ae614f1_ac46fc9d",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1337,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-03-29T18:18:50Z",
+      "side": 1,
+      "message": "space after if",
+      "revId": "0f131a707c41831cc8f30837450e5a0c6ed480e3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e41bf0f3_5e89325a",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-03-29T18:18:50Z",
+      "side": 1,
+      "message": "this indentation is wrong",
+      "revId": "0f131a707c41831cc8f30837450e5a0c6ed480e3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
