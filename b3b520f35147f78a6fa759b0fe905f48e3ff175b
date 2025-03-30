@@ -16,6 +16,23 @@
       "message": "Besides the code being fixed, we have the app per-branch and thus this change doesn\u0027t really make sense to me on 22.1 since api level is not lower than 33 there",
       "revId": "b3b520f35147f78a6fa759b0fe905f48e3ff175b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffcd8ee2_fdea72b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35067
+      },
+      "writtenOn": "2025-03-30T21:07:11Z",
+      "side": 1,
+      "message": "At first you can merge this change for older versions of lineage os too,for example for 19.1 (not lower),and at second in manifest you declared min sdk as 26. Also in manifest you set target sdk as 30,not 33. Also this change was included at lineage-20.0. So please save this check for lineage-22.1 and above,and allso bellow till lineage-20.0 (including it). Also please pay attention on my issue connected with recording and my feature request to you connected with Media buttons handling.",
+      "revId": "b3b520f35147f78a6fa759b0fe905f48e3ff175b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
