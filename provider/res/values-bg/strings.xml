@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FM записи</string>
+    <string name="info_toast">FM записи изисква достъп до медия, за да възпроизвежда звукови записи.</string>
+    <string name="denied_toast">FM записи изисква достъп до медия, за да възпроизвежда звукови записи. Моля, разрешете достъп до медия в Настройки.</string>
+</resources>
