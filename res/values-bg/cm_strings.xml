@@ -18,4 +18,9 @@
     <string name="notif_previous">Предишна</string>
     <string name="notif_stop">Стоп</string>
     <string name="notif_next">Следваща</string>
+    <string name="channel_playback_name">FM аудио</string>
+    <string name="channel_playback_description">FM аудио управление в панела за известия</string>
+    <string name="channel_record_name">Записване на FM радио</string>
+    <string name="channel_record_description">Управление на FM радио записване от панела за известия</string>
+    <string name="missing_required_permission">Отказан достъп: Може да го промените в Настройки &gt; Приложения</string>
 </resources>

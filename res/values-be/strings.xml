@@ -15,6 +15,5 @@
      limitations under the License.
 -->
 <resources>
-    <string name="btn_discard_recording">Адхіліць</string>
     <string name="fm_station_list_menu_refresh">Абнавіць</string>
 </resources>
