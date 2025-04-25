@@ -33,6 +33,23 @@
       "message": "At first you can merge this change for older versions of lineage os too,for example for 19.1 (not lower),and at second in manifest you declared min sdk as 26. Also in manifest you set target sdk as 30,not 33. Also this change was included at lineage-20.0. So please save this check for lineage-22.1 and above,and allso bellow till lineage-20.0 (including it). Also please pay attention on my issue connected with recording and my feature request to you connected with Media buttons handling.",
       "revId": "b3b520f35147f78a6fa759b0fe905f48e3ff175b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3866953f_93cf3895",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35067
+      },
+      "writtenOn": "2025-04-25T20:29:29Z",
+      "side": 1,
+      "message": "What about merging of my changes? It seems,all formatting issues was fixed. About sdk checks,this fix allow to use this version of fm radio for api 26,because in manifest we have min version 26.",
+      "revId": "b3b520f35147f78a6fa759b0fe905f48e3ff175b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
