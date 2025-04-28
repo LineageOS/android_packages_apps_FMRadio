@@ -34,6 +34,23 @@
       "parentUuid": "1662bbd7_a7b81b01",
       "revId": "928854f54feb05991532cded47e7a8366b291030",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e487017_2c5e64e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-04-28T21:02:20Z",
+      "side": 1,
+      "message": "abandon, we are going with mn/target sdk change",
+      "revId": "928854f54feb05991532cded47e7a8366b291030",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
