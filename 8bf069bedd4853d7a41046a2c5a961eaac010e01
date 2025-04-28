@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df65491a_4345c3d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-04-28T17:37:12Z",
+      "side": 1,
+      "message": "change owner is legally blind and Gerrit is not friendly to accessibility. propagating his V+1 from the HEAD change per his notes in DM",
+      "revId": "8bf069bedd4853d7a41046a2c5a961eaac010e01",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
