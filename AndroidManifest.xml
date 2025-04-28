@@ -23,8 +23,8 @@
 
     <!-- FM uses AudioPatch which is new in sdk 21 -->
     <uses-sdk
-        android:minSdkVersion="26"
-        android:targetSdkVersion="30"
+        android:minSdkVersion="33"
+        android:targetSdkVersion="33"
         android:usesCleartextTraffic="false" />
 
     <uses-permission android:name="android.permission.ACCESS_BROADCAST_RADIO" />
