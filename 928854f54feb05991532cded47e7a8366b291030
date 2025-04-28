@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1662bbd7_a7b81b01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-04-28T17:47:53Z",
+      "side": 1,
+      "message": "As noted, we are sdk 35 on this branch, so change isn\u0027t relevant there at all. Don\u0027t think we need it",
+      "revId": "928854f54feb05991532cded47e7a8366b291030",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
