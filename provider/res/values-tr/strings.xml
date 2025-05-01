@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FM kayıtları</string>
+    <string name="info_toast">FM kayıtları, kayıtları oynatmak için medya izinlerine ihtiyaç duyar.</string>
+    <string name="denied_toast">FM kayıtları, kayıtları oynatmak için medya izinlerine ihtiyaç duyar. Lütfen Ayarlar\'da medya izinlerini verin.</string>
+</resources>
