@@ -18,4 +18,9 @@
     <string name="notif_previous">Önceki</string>
     <string name="notif_stop">Durdur</string>
     <string name="notif_next">İleri</string>
+    <string name="channel_playback_name">FM oynatma</string>
+    <string name="channel_playback_description">Bildirim çubuğunda FM çalma kontrolleri</string>
+    <string name="channel_record_name">FM kaydedici</string>
+    <string name="channel_record_description">Bildirim çubuğunda FM radyo kaydedici kontrolleri</string>
+    <string name="missing_required_permission">İzinler reddedildi. Bunları Ayarlar &gt; Uygulamalar bölümünden değiştirebilirsiniz.</string>
 </resources>
