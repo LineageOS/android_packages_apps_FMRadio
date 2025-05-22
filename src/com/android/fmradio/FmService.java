@@ -48,6 +48,8 @@ import android.media.AudioRecord;
 import android.media.AudioSystem;
 import android.media.AudioTrack;
 import android.media.MediaRecorder;
+import android.media.session.MediaSession;
+import android.media.session.PlaybackState;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.Bundle;
@@ -61,6 +63,7 @@ import android.os.PowerManager.WakeLock;
 import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 
 import com.android.fmradio.FmStation.Station;
 
@@ -114,6 +117,87 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
     // FM recorder
     FmRecorder mFmRecorder = null;
+    private FMMediaButtonIntentReceiver mMediaButtonIntentReceiver =
+            new FMMediaButtonIntentReceiver();
+    private FMMediaButtonIntentReceiver.MediaHandleListener listener =
+            new FMMediaButtonIntentReceiver.MediaHandleListener() {
+        @Override
+        public boolean handleIntent(Intent intent) {
+            KeyEvent event = (KeyEvent) intent.getParcelableExtra("android.intent.extra.KEY_EVENT");
+            boolean result = false;
+            if (event == null) {
+                return result;
+            }
+            if (event.getAction() != KeyEvent.ACTION_DOWN) return result;
+            int keyCode = event.getKeyCode();
+            int repeatCount = event.getRepeatCount();
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_HEADSETHOOK:
+                case KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE:
+                    if (repeatCount == 0) {
+                        if (mPowerStatus != POWER_UP) {
+                            powerUpAsync(FmUtils.computeFrequency(getFrequency()));
+                        }
+                        else {
+                            powerDownAsync();
+                        }
+                        result = true;
+                    }
+                    break;
+                case KeyEvent.KEYCODE_MEDIA_PAUSE:
+                    if (repeatCount == 0) {
+                        if (mPowerStatus != POWER_DOWN) {
+                            powerDownAsync();
+                            result = true;
+                        }
+                    }
+                    break;
+                case KeyEvent.KEYCODE_MEDIA_PLAY:
+                    if (repeatCount == 0) {
+                        if (mPowerStatus != POWER_UP) {
+                            powerUpAsync(FmUtils.computeFrequency(getFrequency()));
+                            result = true;
+                        }
+                    }
+                    break;
+                case KeyEvent.KEYCODE_MEDIA_STOP:
+                    if (repeatCount == 0) {
+                        stopSelf();
+                        result = true;
+                    }
+                    break;
+                case KeyEvent.KEYCODE_MEDIA_SKIP_BACKWARD:
+                case KeyEvent.KEYCODE_MEDIA_STEP_BACKWARD:
+                case KeyEvent.KEYCODE_MEDIA_SKIP_FORWARD:
+                case KeyEvent.KEYCODE_MEDIA_STEP_FORWARD:
+                    if (repeatCount == 0) {
+                        tuneStationAsync(keyCode == KeyEvent.KEYCODE_MEDIA_SKIP_BACKWARD ||
+                                keyCode == KeyEvent.KEYCODE_MEDIA_STEP_BACKWARD?
+                                FmUtils.computeDecreaseStation(mCurrentStation):
+                                FmUtils.computeIncreaseStation(mCurrentStation));
+                        result = true;
+                        break;
+                    }
+                    else {
+                        keyCode = keyCode == KeyEvent.KEYCODE_MEDIA_SKIP_BACKWARD
+                                || keyCode == KeyEvent.KEYCODE_MEDIA_STEP_BACKWARD ?
+                                KeyEvent.KEYCODE_MEDIA_PREVIOUS : KeyEvent.KEYCODE_MEDIA_NEXT;
+                        result = true;
+                    }
+                case KeyEvent.KEYCODE_MEDIA_PREVIOUS:
+                case KeyEvent.KEYCODE_MEDIA_NEXT:
+                    if (repeatCount == 0) {
+                        seekStationAsync(FmUtils.computeFrequency(mCurrentStation),
+                                keyCode == KeyEvent.KEYCODE_MEDIA_NEXT);
+                        result = true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            return result;
+        }
+    };
     private BroadcastReceiver mSdcardListener = null;
     private int mRecordState = FmRecorder.STATE_INVALID;
     private int mRecorderErrorType = -1;
@@ -182,6 +266,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     // Instance variables
     private Context mContext = null;
     private AudioManager mAudioManager = null;
+    private MediaSession mMediaSession = null;
     private ActivityManager mActivityManager = null;
     //private MediaPlayer mFmPlayer = null;
     private WakeLock mWakeLock = null;
@@ -1271,6 +1356,26 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         super.onCreate();
         mContext = getApplicationContext();
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        mMediaButtonIntentReceiver.setMediaHandleListener(listener);
+        IntentFilter filter = new IntentFilter(Intent.ACTION_MEDIA_BUTTON);
+        filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
+        registerReceiver(mMediaButtonIntentReceiver, filter);
+        mMediaSession = new MediaSession(mContext, TAG);
+        Intent i = new Intent(this, FMMediaButtonIntentReceiver.class)
+                .setFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+        mMediaSession.setMediaButtonReceiver(PendingIntent.getBroadcast(this, 0, i, 0));
+        mMediaSession.setActive(true);
+        mMediaSession.setCallback(new MediaSession.Callback() {
+            @Override
+            public boolean onMediaButtonEvent(Intent mediaButtonIntent) {
+                return listener.handleIntent(mediaButtonIntent);
+            }
+        });
+        mMediaSession.setPlaybackState(new PlaybackState.Builder().setActions(
+                PlaybackState.ACTION_PAUSE | PlaybackState.ACTION_PLAY
+                | PlaybackState.ACTION_PLAY_PAUSE | PlaybackState.ACTION_STOP
+                | PlaybackState.ACTION_REWIND | PlaybackState.ACTION_SKIP_TO_PREVIOUS
+                | PlaybackState.ACTION_SKIP_TO_NEXT).build());
         mActivityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
         mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
@@ -1488,6 +1593,10 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     public void onDestroy() {
         mAudioManager.setParameters("AudioFmPreStop=0");
         setMute(true);
+        mMediaSession.setMediaButtonReceiver(null);
+        mMediaSession.setActive(false);
+        mMediaSession.release();
+        unregisterReceiver(mMediaButtonIntentReceiver);
         // stop rds first, avoid blocking other native method
         if (isRdsSupported()) {
             stopRdsThread();
