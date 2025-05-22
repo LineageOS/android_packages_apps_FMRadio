@@ -397,6 +397,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         @Override
         public void onServiceDisconnected(ComponentName className) {
         }
+
     };
 
     private class NoHeadsetAlpaOutListener implements AnimationListener {
@@ -733,6 +734,11 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
             mService.unregisterFmRadioListener(mFmRadioListener);
         }
         mFmRadioListener = null;
+        if (mIsServiceBinded) {
+            unbindService(mServiceConnection);
+            mIsServiceBinded = false;
+        }
+
         mScroller.closeAdapterCursor();
         mScroller.unregisterListener(mEventListener);
         super.onDestroy();
