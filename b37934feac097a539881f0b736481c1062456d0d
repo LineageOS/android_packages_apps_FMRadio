@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f867d59f_b214e38c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-23T17:04:54Z",
+      "side": 1,
+      "message": "I appreciate this change and it looks good, it just seems that were some formatting errors. In addition to the comments, please add a space after the `if` statements in `FMService.java`, lines 129, 135, 147, 155, 163, 172, and 183. Thanks!",
+      "revId": "b37934feac097a539881f0b736481c1062456d0d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79b66368_78293fa0",
+        "filename": "src/com/android/fmradio/FMMediaButtonIntentReceiver.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-23T17:04:54Z",
+      "side": 1,
+      "message": "Is this import necessary?",
+      "revId": "b37934feac097a539881f0b736481c1062456d0d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94b69a62_10701f0a",
+        "filename": "src/com/android/fmradio/FMMediaButtonIntentReceiver.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-23T17:04:54Z",
+      "side": 1,
+      "message": "Maybe add space around the null check.\n```suggestion\n        if(listener !\u003d null) listener.handleIntent(intent);\n```",
+      "revId": "b37934feac097a539881f0b736481c1062456d0d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed2b8bd8_b0b8796a",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-23T17:04:54Z",
+      "side": 1,
+      "message": "Maybe add spaces here: \n```suggestion\n            boolean result \u003d false;\n```",
+      "revId": "b37934feac097a539881f0b736481c1062456d0d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b1cd5e8_72fd5d32",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-23T17:04:54Z",
+      "side": 1,
+      "message": "Maybe add spaces here: \n```suggestion\n            if(event.getAction() !\u003d KeyEvent.ACTION_DOWN) return result;\n```",
+      "revId": "b37934feac097a539881f0b736481c1062456d0d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b63adb87_1b2c3581",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-23T17:04:54Z",
+      "side": 1,
+      "message": "Maybe add spaces here: \n```suggestion\n            int repeatCount \u003d event.getRepeatCount();\n```",
+      "revId": "b37934feac097a539881f0b736481c1062456d0d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e47f0fb1_6da6a0cc",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-23T17:04:54Z",
+      "side": 1,
+      "message": "Add a space after \u003d.\n```suggestion\n    private MediaSession mMediaSession \u003d null;\n```",
+      "revId": "b37934feac097a539881f0b736481c1062456d0d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
