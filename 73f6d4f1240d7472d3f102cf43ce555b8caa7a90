@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c6bed9a_6f76dc5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-23T22:11:44Z",
+      "side": 1,
+      "message": "Thanks! I also noted some possible accidental indentation. Could you fix that?",
+      "revId": "73f6d4f1240d7472d3f102cf43ce555b8caa7a90",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab8e0125_a5db4f32",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-23T22:11:44Z",
+      "side": 1,
+      "message": "Was this an accidental indentation? It doesn\u0027t seem to be needed?",
+      "revId": "73f6d4f1240d7472d3f102cf43ce555b8caa7a90",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a0c1c38_c054e8e8",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-23T22:11:44Z",
+      "side": 1,
+      "message": "Incorrect Indentation.",
+      "revId": "73f6d4f1240d7472d3f102cf43ce555b8caa7a90",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "888c79a3_1f6af923",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1814,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-23T22:11:44Z",
+      "side": 1,
+      "message": "Incorrect Indentation.",
+      "revId": "73f6d4f1240d7472d3f102cf43ce555b8caa7a90",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd3af386_01cdfb4c",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1836,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-23T22:11:44Z",
+      "side": 1,
+      "message": "Incorrect Indentation",
+      "revId": "73f6d4f1240d7472d3f102cf43ce555b8caa7a90",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
