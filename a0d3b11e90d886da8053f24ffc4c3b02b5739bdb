@@ -33,6 +33,29 @@
       "message": "It looks good now. I\u0027m guessing a space just got added when you were making the code changes.",
       "revId": "a0d3b11e90d886da8053f24ffc4c3b02b5739bdb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cef90a23_d046d15c",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-24T22:31:15Z",
+      "side": 1,
+      "message": "These spaces also need to be removed: \n```suggestion\n       // need to create new audio record and audio play back track,\n       // because input/output device may be changed.\n       releaseAudioRecorder();\n       releaseAudioTrack();\n       initAudioRecordSink();\n\n```\nSorry, missed these before.",
+      "range": {
+        "startLine": 495,
+        "startChar": 7,
+        "endLine": 500,
+        "endChar": 0
+      },
+      "revId": "a0d3b11e90d886da8053f24ffc4c3b02b5739bdb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
