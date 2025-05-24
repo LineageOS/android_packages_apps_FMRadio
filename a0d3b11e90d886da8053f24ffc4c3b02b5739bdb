@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c64cdf4_03996991",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35067
+      },
+      "writtenOn": "2025-05-24T19:26:48Z",
+      "side": 1,
+      "message": "I tryed to fix this,but why in this case we should remove one space? I ask it for future,because i blind and not understand,how it looks for sited. Whether for now all ok?",
+      "revId": "a0d3b11e90d886da8053f24ffc4c3b02b5739bdb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
