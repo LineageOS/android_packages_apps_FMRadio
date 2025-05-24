@@ -97,6 +97,30 @@
       },
       "revId": "a0d3b11e90d886da8053f24ffc4c3b02b5739bdb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dce33f8d_7a8262f4",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-05-24T23:48:59Z",
+      "side": 1,
+      "message": "Nonsense. The original code is properly indented.",
+      "parentUuid": "42551124_c4398a10",
+      "range": {
+        "startLine": 495,
+        "startChar": 7,
+        "endLine": 500,
+        "endChar": 0
+      },
+      "revId": "a0d3b11e90d886da8053f24ffc4c3b02b5739bdb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
