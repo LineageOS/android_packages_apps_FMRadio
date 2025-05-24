@@ -492,11 +492,11 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
         exitRenderThread();
 
-        // need to create new audio record and audio play back track,
-        // because input/output device may be changed.
-        releaseAudioRecorder();
-        releaseAudioTrack();
-        initAudioRecordSink();
+       // need to create new audio record and audio play back track,
+       // because input/output device may be changed.
+       releaseAudioRecorder();
+       releaseAudioTrack();
+       initAudioRecordSink();
 
         mIsRender = true;
         createRenderThread();
