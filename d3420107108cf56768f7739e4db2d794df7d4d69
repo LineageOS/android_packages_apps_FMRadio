@@ -16,6 +16,52 @@
       "message": "About lines,connected with logging of fail with audiopatches,it\u0027s probably your lines,so i not removed it.",
       "revId": "d3420107108cf56768f7739e4db2d794df7d4d69",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69bd8bf4_bac7377f",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1520,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-24T18:33:25Z",
+      "side": 1,
+      "message": "It seems there was an unnecessary space here.\n```suggestion\n                       Log.d(TAG, \"onAudioPatchListUpdate: fallback as createAudioPatch failed\");\n                       startRender();\n```",
+      "range": {
+        "startLine": 1519,
+        "startChar": 23,
+        "endLine": 1520,
+        "endChar": 38
+      },
+      "revId": "d3420107108cf56768f7739e4db2d794df7d4d69",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a9f8846_ddaf659c",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1843,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-24T18:33:25Z",
+      "side": 1,
+      "message": "And a space added here. \n```suggestion\n                   Log.d(TAG, \"startPatchOrRender: fallback as createAudioPatch failed\");\n                   startRender();\n```",
+      "range": {
+        "startLine": 1842,
+        "startChar": 20,
+        "endLine": 1843,
+        "endChar": 34
+      },
+      "revId": "d3420107108cf56768f7739e4db2d794df7d4d69",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
