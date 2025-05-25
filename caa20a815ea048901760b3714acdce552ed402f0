@@ -16,6 +16,24 @@
       "message": "I am a blind developer,so it not so easy follow for indentations,but i aggri do it,if this connected of my code. But you try to ask me fix indentations of other code,which wasn\u0027t written by me. Forgive me if i a little harsh,but it annoying to me fix other parts of code. I not understand,what do you want from me in other comments,so i left it unresolved.",
       "revId": "caa20a815ea048901760b3714acdce552ed402f0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b28599e_2e4c1a18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-25T17:54:19Z",
+      "side": 1,
+      "message": "@k.sasha1994@gmail.com Do you want someone to fix the whitespace changes and re-upload the commit? I would be willing to do that. I am also very sorry for the confusion. Thanks!",
+      "parentUuid": "e03a39f4_94dd4566",
+      "revId": "caa20a815ea048901760b3714acdce552ed402f0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
