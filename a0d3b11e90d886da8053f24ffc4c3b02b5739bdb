@@ -172,6 +172,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fbda375a_518ec651",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-25T01:14:31Z",
+      "side": 1,
+      "message": "Sorry for the confusion. My original suggestion was to move the formatting back to the original code. My apologies if I wasn\u0027t clear.",
+      "parentUuid": "fd748985_9ec3d195",
+      "range": {
+        "startLine": 495,
+        "startChar": 7,
+        "endLine": 500,
+        "endChar": 0
+      },
+      "revId": "a0d3b11e90d886da8053f24ffc4c3b02b5739bdb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3304e451_83f7458b",
         "filename": "src/com/android/fmradio/FmService.java",
         "patchSetId": 6
