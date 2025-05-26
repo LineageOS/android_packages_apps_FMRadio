@@ -34,6 +34,23 @@
       "parentUuid": "e03a39f4_94dd4566",
       "revId": "caa20a815ea048901760b3714acdce552ed402f0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66111a8e_f68390b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35067
+      },
+      "writtenOn": "2025-05-26T11:56:29Z",
+      "side": 1,
+      "message": "Any news about my pr? What should i do?",
+      "revId": "caa20a815ea048901760b3714acdce552ed402f0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
