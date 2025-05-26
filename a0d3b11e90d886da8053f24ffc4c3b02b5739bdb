@@ -125,6 +125,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de087669_073de592",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-26T20:01:46Z",
+      "side": 1,
+      "message": "Line 384 needs to be reverted back to the original. Two lines instead of one.",
+      "parentUuid": "5c4ad7e8_bd9924a5",
+      "range": {
+        "startLine": 384,
+        "startChar": 16,
+        "endLine": 384,
+        "endChar": 100
+      },
+      "revId": "a0d3b11e90d886da8053f24ffc4c3b02b5739bdb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cef90a23_d046d15c",
         "filename": "src/com/android/fmradio/FmService.java",
         "patchSetId": 6
@@ -292,6 +316,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10339a90_5acd2263",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-26T20:01:46Z",
+      "side": 1,
+      "message": "Lines 495-499, need to have the added space removed so they are reverted back to the original formatting.",
+      "parentUuid": "68ca8367_2f1e5fbf",
+      "range": {
+        "startLine": 495,
+        "startChar": 7,
+        "endLine": 500,
+        "endChar": 0
+      },
+      "revId": "a0d3b11e90d886da8053f24ffc4c3b02b5739bdb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3304e451_83f7458b",
         "filename": "src/com/android/fmradio/FmService.java",
         "patchSetId": 6
@@ -327,6 +375,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "3304e451_83f7458b",
+      "range": {
+        "startLine": 927,
+        "startChar": 12,
+        "endLine": 927,
+        "endChar": 49
+      },
+      "revId": "a0d3b11e90d886da8053f24ffc4c3b02b5739bdb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f53f693_45a88bfb",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-26T20:01:46Z",
+      "side": 1,
+      "message": "Line 927 needs to be reverted back to the previous formatting. 3 lines instead of 1.",
+      "parentUuid": "f9d43673_eaf6ff4c",
       "range": {
         "startLine": 927,
         "startChar": 12,

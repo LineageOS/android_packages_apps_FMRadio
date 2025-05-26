@@ -51,6 +51,24 @@
       "message": "Any news about my pr? What should i do?",
       "revId": "caa20a815ea048901760b3714acdce552ed402f0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b96872e_331cb465",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35350
+      },
+      "writtenOn": "2025-05-26T20:01:46Z",
+      "side": 1,
+      "message": "Sorry for the trouble. These formatting errors just need to be fixed, and then you should be good to go.",
+      "parentUuid": "66111a8e_f68390b2",
+      "revId": "caa20a815ea048901760b3714acdce552ed402f0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
