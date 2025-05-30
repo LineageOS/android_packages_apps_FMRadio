@@ -259,9 +259,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                             changeToMainLayout();
                         }
                     } else {
-                        mMenuItemHeadset.setIcon(R.drawable.btn_fm_headset_selector);
-                        mMenuItemHeadset.setContentDescription(getString(
-                                R.string.optmenu_earphone));
+                        toggleSpeaker(false);
                         if (mIsActivityForeground) {
                             cancelMainAnimation();
                             playNoHeadsetAnimation();
@@ -785,10 +783,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         refreshImageButton(isSeeking ? false : isPowerUp);
         refreshPlayButton(isSeeking ? false
                 : (isPowerUp || (isPowerdown && !mIsDisablePowerMenu)));
-        mMenuItemHeadset.setIcon(isSpeakerUsed ? R.drawable.btn_fm_speaker_selector
-                : R.drawable.btn_fm_headset_selector);
-        mMenuItemHeadset.setContentDescription(getString(isSpeakerUsed ? R.string.optmenu_speaker
-                : R.string.optmenu_earphone));
+toggleSpeaker(isSpeakerUsed);
         return true;
     }
 
@@ -816,15 +811,11 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
 
             case R.id.earphone_menu:
                 setSpeakerPhoneOn(false);
-                mMenuItemHeadset.setIcon(R.drawable.btn_fm_headset_selector);
-                mMenuItemHeadset.setIcon(R.drawable.btn_fm_speaker_selector);
                 invalidateOptionsMenu();
                 break;
 
             case R.id.speaker_menu:
                 setSpeakerPhoneOn(true);
-                mMenuItemHeadset.setIcon(R.drawable.btn_fm_speaker_selector);
-                mMenuItemHeadset.setContentDescription(R.string.optmenu_speaker);
                 invalidateOptionsMenu();
                 break;
 
@@ -983,12 +974,18 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         mService.powerDownAsync();
     }
 
-    private void setSpeakerPhoneOn(boolean isSpeaker) {
-        if (isSpeaker) {
-            mService.setSpeakerPhoneOn(true);
-        } else {
-            mService.setSpeakerPhoneOn(false);
+    private void toggleSpeaker(boolean isSpeaker) {
+        if (mMenuItemHeadset != null) {
+            mMenuItemHeadset.setIcon(isSpeaker ? R.drawable.btn_fm_speaker_selector
+                    : R.drawable.btn_fm_headset_selector);
+            mMenuItemHeadset.setContentDescription(getString(isSpeaker ? R.string.optmenu_speaker
+                    : R.string.optmenu_earphone));
         }
+    }
+
+    private void setSpeakerPhoneOn(boolean isSpeaker) {
+        mService.setSpeakerPhoneOn(isSpeaker);
+        toggleSpeaker(isSpeaker);
     }
 
     /**
@@ -1143,11 +1140,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         refreshPlayButton(fmStatus ? false
                 : (isPowerUp || (isPowerdown && !mIsDisablePowerMenu)));
         if (null != mMenuItemHeadset) {
-            mMenuItemHeadset.setIcon(isSpeakerUsed ? R.drawable.btn_fm_speaker_selector
-                    : R.drawable.btn_fm_headset_selector);
-            mMenuItemHeadset.setContentDescription(getString(
-                    isSpeakerUsed ? R.string.optmenu_speaker : R.string.optmenu_earphone));
-
+toggleSpeaker(isSpeakerUsed);
         }
 
     }
