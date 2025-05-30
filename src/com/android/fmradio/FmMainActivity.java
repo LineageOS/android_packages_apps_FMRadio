@@ -260,6 +260,8 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                         }
                     } else {
                         mMenuItemHeadset.setIcon(R.drawable.btn_fm_headset_selector);
+                        mMenuItemHeadset.setContentDescription(getString(
+                                R.string.optmenu_earphone));
                         if (mIsActivityForeground) {
                             cancelMainAnimation();
                             playNoHeadsetAnimation();
@@ -785,6 +787,8 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                 : (isPowerUp || (isPowerdown && !mIsDisablePowerMenu)));
         mMenuItemHeadset.setIcon(isSpeakerUsed ? R.drawable.btn_fm_speaker_selector
                 : R.drawable.btn_fm_headset_selector);
+        mMenuItemHeadset.setContentDescription(getString(isSpeakerUsed ? R.string.optmenu_speaker
+                : R.string.optmenu_earphone));
         return true;
     }
 
@@ -813,12 +817,14 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
             case R.id.earphone_menu:
                 setSpeakerPhoneOn(false);
                 mMenuItemHeadset.setIcon(R.drawable.btn_fm_headset_selector);
+                mMenuItemHeadset.setIcon(R.drawable.btn_fm_speaker_selector);
                 invalidateOptionsMenu();
                 break;
 
             case R.id.speaker_menu:
                 setSpeakerPhoneOn(true);
                 mMenuItemHeadset.setIcon(R.drawable.btn_fm_speaker_selector);
+                mMenuItemHeadset.setContentDescription(R.string.optmenu_speaker);
                 invalidateOptionsMenu();
                 break;
 
@@ -1139,6 +1145,9 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         if (null != mMenuItemHeadset) {
             mMenuItemHeadset.setIcon(isSpeakerUsed ? R.drawable.btn_fm_speaker_selector
                     : R.drawable.btn_fm_headset_selector);
+            mMenuItemHeadset.setContentDescription(getString(isSpeakerUsed
+                    ? R.string.optmenu_speaker : R.string.optmenu_earphone));
+
         }
 
     }
