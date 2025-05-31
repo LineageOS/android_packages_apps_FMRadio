@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "717a8f69_8965c203",
+        "filename": "src/com/android/fmradio/FmMainActivity.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-05-31T19:33:08Z",
+      "side": 1,
+      "message": "indentation wrong",
+      "revId": "de94c3ef91ff350da0093442b2f5635c92767014",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb7e82ac_aa2aaf94",
+        "filename": "src/com/android/fmradio/FmMainActivity.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-05-31T19:33:08Z",
+      "side": 1,
+      "message": "indentation wrong",
+      "revId": "de94c3ef91ff350da0093442b2f5635c92767014",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
