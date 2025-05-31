@@ -178,10 +178,11 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                         result = true;
                         break;
                     }
-                    else {
+                    else if (repeatCount == 1) {
                         keyCode = keyCode == KeyEvent.KEYCODE_MEDIA_SKIP_BACKWARD
                                 || keyCode == KeyEvent.KEYCODE_MEDIA_STEP_BACKWARD ?
                                 KeyEvent.KEYCODE_MEDIA_PREVIOUS : KeyEvent.KEYCODE_MEDIA_NEXT;
+                        repeatCount = 0;
                         result = true;
                     }
                 case KeyEvent.KEYCODE_MEDIA_PREVIOUS:
