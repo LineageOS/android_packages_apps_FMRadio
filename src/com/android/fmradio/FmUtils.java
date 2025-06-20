@@ -137,7 +137,7 @@ public class FmUtils {
      * @return string like 87.5
      */
     public static String formatStation(int station) {
-        float frequency = (float) station / CONVERT_RATE;
+        float frequency = computeFrequency(station);
         DecimalFormat decimalFormat = new DecimalFormat("0.0");
         return decimalFormat.format(frequency);
     }
