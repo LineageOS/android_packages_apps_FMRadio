@@ -45,7 +45,7 @@ public class FmUtils {
     // maximum station frequency
     private static final int HIGHEST_STATION = 1080;
     // minimum station frequency
-    private static final int LOWEST_STATION = 875;
+    private static final int LOWEST_STATION = 760;
     // station step
     private static final int STEP = 1;
     // convert rate
@@ -137,7 +137,7 @@ public class FmUtils {
      * @return string like 87.5
      */
     public static String formatStation(int station) {
-        float frequency = (float) station / CONVERT_RATE;
+        float frequency = computeFrequency(station);
         DecimalFormat decimalFormat = new DecimalFormat("0.0");
         return decimalFormat.format(frequency);
     }

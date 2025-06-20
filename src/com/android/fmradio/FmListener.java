@@ -41,8 +41,10 @@ public interface FmListener {
     // FM record error occur
     int LISTEN_RECORDERROR = 0x00100110; // 1048848
 
+    //record success start
+    int LISTEN_RECORDSUCCESS = 0x00100111; // 1048849
     // FM record mode change
-    int LISTEN_RECORDMODE_CHANGED = 0x00100111; // 4018849
+    int LISTEN_RECORDMODE_CHANGED = 0x00100112; // 4018850
 
     // FM Record state changed
     int LISTEN_SPEAKER_MODE_CHANGED = 0x00101000; // 1052672
@@ -72,6 +74,8 @@ public interface FmListener {
     // For change speaker/earphone mode
     String KEY_IS_SPEAKER_MODE = "key_is_speaker_mode";
 
+    //to check,whether we should start recording after saving.
+    String START_RECORDING_AFTER_SAVING = "start_recording_after_saving";
     /**
      * handle message: call back from service to activity
      */
