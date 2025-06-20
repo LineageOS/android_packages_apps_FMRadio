@@ -69,6 +69,8 @@ public class FmRecorder implements AudioRecorder.Callback {
     public static final int STATE_RECORDING = 6;
     // FM Recorder state playing
     public static final int STATE_PLAYBACK = 7;
+    // error state
+    public static final int STATE_ERROR = 8;
     // FM Recorder state invalid, need to check
     public static final int STATE_INVALID = -1;
 
@@ -240,13 +242,14 @@ public class FmRecorder implements AudioRecorder.Callback {
         }
 
         File newRecordFile = new File(mRecordFile.getParent(), newName + RECORDING_FILE_EXTENSION);
-        boolean succuss = mRecordFile.renameTo(newRecordFile);
-        if (succuss) {
+        boolean success = mRecordFile.renameTo(newRecordFile);
+        if (success) {
             mRecordFile = newRecordFile;
         }
         mIsRecordingFileSaved = true;
         // insert recording file info to database
         addRecordingToDatabase(context);
+        mRecordFile = null;
     }
 
     /**
@@ -290,6 +293,12 @@ public class FmRecorder implements AudioRecorder.Callback {
         void onRecorderStateChanged(int state);
 
         /**
+         * notify FM recorder success message
+         *
+         */
+        void onRecordSuccess();
+
+        /**
          * notify FM recorder error message
          *
          * @param error error type
@@ -302,9 +311,12 @@ public class FmRecorder implements AudioRecorder.Callback {
         Log.e(TAG, "onError, what = " + what);
         stopRecorder();
         setError(ERROR_RECORDER_INTERNAL);
-        if (STATE_RECORDING == mInternalState) {
-            setState(STATE_IDLE);
-        }
+    }
+
+    @Override
+    public void onSuccess() {
+        Log.e(TAG, "recording started successfully" );
+        mStateListener.onRecordSuccess();
     }
 
     /**
@@ -327,6 +339,7 @@ public class FmRecorder implements AudioRecorder.Callback {
         if (mStateListener != null) {
             mStateListener.onRecorderError(error);
         }
+        setState(STATE_ERROR);
     }
 
     /**
@@ -335,9 +348,11 @@ public class FmRecorder implements AudioRecorder.Callback {
      * @param state FM recorder current state
      */
     private void setState(int state) {
-        mInternalState = state;
-        if (mStateListener != null) {
-            mStateListener.onRecorderStateChanged(state);
+        if (mInternalState != state) {
+            mInternalState = state;
+            if (mStateListener != null) {
+                mStateListener.onRecorderStateChanged(state);
+            }
         }
     }
 
