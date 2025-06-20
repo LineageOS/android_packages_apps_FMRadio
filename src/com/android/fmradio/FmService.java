@@ -89,7 +89,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     // HandlerThread Keys
     private static final String FM_FREQUENCY = "frequency";
     private static final String OPTION = "option";
-    private static final String RECODING_FILE_NAME = "name";
+    public static final String RECORDING_FILE_NAME = "name";
 
     // RDS events
     // PS
@@ -121,84 +121,82 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
             new FMMediaButtonIntentReceiver();
     private FMMediaButtonIntentReceiver.MediaHandleListener listener =
             new FMMediaButtonIntentReceiver.MediaHandleListener() {
-        @Override
-        public boolean handleIntent(Intent intent) {
-            KeyEvent event = (KeyEvent) intent.getParcelableExtra("android.intent.extra.KEY_EVENT");
-            boolean result = false;
-            if (event == null) {
-                return result;
-            }
-            if (event.getAction() != KeyEvent.ACTION_DOWN) return result;
-            int keyCode = event.getKeyCode();
-            int repeatCount = event.getRepeatCount();
-            switch (keyCode) {
-                case KeyEvent.KEYCODE_HEADSETHOOK:
-                case KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE:
-                    if (repeatCount == 0) {
-                        if (mPowerStatus != POWER_UP) {
-                            powerUpAsync(FmUtils.computeFrequency(getFrequency()));
-                        }
-                        else {
-                            powerDownAsync();
-                        }
-                        result = true;
+                @Override
+                public boolean handleIntent(Intent intent) {
+                    KeyEvent event = (KeyEvent) intent.getParcelableExtra("android.intent.extra.KEY_EVENT");
+                    boolean result = false;
+                    if (event == null) {
+                        return result;
                     }
-                    break;
-                case KeyEvent.KEYCODE_MEDIA_PAUSE:
-                    if (repeatCount == 0) {
-                        if (mPowerStatus != POWER_DOWN) {
-                            powerDownAsync();
-                            result = true;
-                        }
+                    if (event.getAction() != KeyEvent.ACTION_DOWN) return result;
+                    int keyCode = event.getKeyCode();
+                    int repeatCount = event.getRepeatCount();
+                    switch (keyCode) {
+                        case KeyEvent.KEYCODE_HEADSETHOOK:
+                        case KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE:
+                            if (repeatCount == 0) {
+                                togglePowerAsync();
+                                result = true;
+                            }
+                            break;
+                        case KeyEvent.KEYCODE_MEDIA_PAUSE:
+                            if (repeatCount == 0) {
+                                if (mPowerStatus != POWER_DOWN) {
+                                    powerDownAsync();
+                                    result = true;
+                                }
+                            }
+                            break;
+                        case KeyEvent.KEYCODE_MEDIA_PLAY:
+                            if (repeatCount == 0) {
+                                if (mPowerStatus != POWER_UP) {
+                                    powerUpAsync(FmUtils.computeFrequency(getFrequency()));
+                                    result = true;
+                                }
+                            }
+                            break;
+                        case KeyEvent.KEYCODE_MEDIA_STOP:
+                            if (repeatCount == 0) {
+                                stopSelf();
+                                result = true;
+                            }
+                            break;
+                        case KeyEvent.KEYCODE_MEDIA_SKIP_BACKWARD:
+                        case KeyEvent.KEYCODE_MEDIA_STEP_BACKWARD:
+                        case KeyEvent.KEYCODE_MEDIA_SKIP_FORWARD:
+                        case KeyEvent.KEYCODE_MEDIA_STEP_FORWARD:
+                            if (repeatCount == 0) {
+                                tuneStationAsync(keyCode == KeyEvent.KEYCODE_MEDIA_SKIP_BACKWARD ||
+                                        keyCode == KeyEvent.KEYCODE_MEDIA_STEP_BACKWARD?
+                                        FmUtils.computeDecreaseStation(mCurrentStation):
+                                        FmUtils.computeIncreaseStation(mCurrentStation));
+                                result = true;
+                                break;
+                            }
+                            else if (repeatCount == 1) {
+                                keyCode = keyCode == KeyEvent.KEYCODE_MEDIA_SKIP_BACKWARD
+                                        || keyCode == KeyEvent.KEYCODE_MEDIA_STEP_BACKWARD ?
+                                        KeyEvent.KEYCODE_MEDIA_PREVIOUS : KeyEvent.KEYCODE_MEDIA_NEXT;
+                                repeatCount = 0;
+                                result = true;
+                            }
+                        case KeyEvent.KEYCODE_MEDIA_PREVIOUS:
+                        case KeyEvent.KEYCODE_MEDIA_NEXT:
+                            if (repeatCount == 0) {
+                                seekStationAsync(FmUtils.computeFrequency(mCurrentStation),
+                                        keyCode == KeyEvent.KEYCODE_MEDIA_NEXT);
+                                result = true;
+                            }
+                            break;
+                        case KeyEvent.KEYCODE_MEDIA_RECORD:
+                            toggleRecordingAsync();
+                            break;
+                        default:
+                            break;
                     }
-                    break;
-                case KeyEvent.KEYCODE_MEDIA_PLAY:
-                    if (repeatCount == 0) {
-                        if (mPowerStatus != POWER_UP) {
-                            powerUpAsync(FmUtils.computeFrequency(getFrequency()));
-                            result = true;
-                        }
-                    }
-                    break;
-                case KeyEvent.KEYCODE_MEDIA_STOP:
-                    if (repeatCount == 0) {
-                        stopSelf();
-                        result = true;
-                    }
-                    break;
-                case KeyEvent.KEYCODE_MEDIA_SKIP_BACKWARD:
-                case KeyEvent.KEYCODE_MEDIA_STEP_BACKWARD:
-                case KeyEvent.KEYCODE_MEDIA_SKIP_FORWARD:
-                case KeyEvent.KEYCODE_MEDIA_STEP_FORWARD:
-                    if (repeatCount == 0) {
-                        tuneStationAsync(keyCode == KeyEvent.KEYCODE_MEDIA_SKIP_BACKWARD ||
-                                keyCode == KeyEvent.KEYCODE_MEDIA_STEP_BACKWARD?
-                                FmUtils.computeDecreaseStation(mCurrentStation):
-                                FmUtils.computeIncreaseStation(mCurrentStation));
-                        result = true;
-                        break;
-                    }
-                    else if (repeatCount == 1) {
-                        keyCode = keyCode == KeyEvent.KEYCODE_MEDIA_SKIP_BACKWARD
-                                || keyCode == KeyEvent.KEYCODE_MEDIA_STEP_BACKWARD ?
-                                KeyEvent.KEYCODE_MEDIA_PREVIOUS : KeyEvent.KEYCODE_MEDIA_NEXT;
-                        repeatCount = 0;
-                        result = true;
-                    }
-                case KeyEvent.KEYCODE_MEDIA_PREVIOUS:
-                case KeyEvent.KEYCODE_MEDIA_NEXT:
-                    if (repeatCount == 0) {
-                        seekStationAsync(FmUtils.computeFrequency(mCurrentStation),
-                                keyCode == KeyEvent.KEYCODE_MEDIA_NEXT);
-                        result = true;
-                    }
-                    break;
-                default:
-                    break;
-            }
-            return result;
-        }
-    };
+                    return result;
+                }
+            };
     private BroadcastReceiver mSdcardListener = null;
     private int mRecordState = FmRecorder.STATE_INVALID;
     private int mRecorderErrorType = -1;
@@ -382,7 +380,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                  * foreground. power up FM automatic
                  */
                 if ((0 == mValueHeadSetPlug) && isActivityForeground() &&
-                    mIsRecordingPermissible) {
+                        mIsRecordingPermissible) {
                     powerUpAsync(FmUtils.computeFrequency(mCurrentStation));
                 } else if (1 == mValueHeadSetPlug) {
                     mFmServiceHandler.removeMessages(FmListener.MSGID_SCAN_FINISHED);
@@ -493,11 +491,10 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
         exitRenderThread();
 
-       // need to create new audio record and audio play back track,
-       // because input/output device may be changed.
-       releaseAudioRecorder();
-       releaseAudioTrack();
-       initAudioRecordSink();
+        // need to create new audio record and audio play back track, because input/output device may be changed.
+        releaseAudioRecorder();
+        releaseAudioTrack();
+        initAudioRecordSink();
 
         mIsRender = true;
         createRenderThread();
@@ -926,7 +923,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
             // call. Do not return any stations. stationsInShort = null;
             // if cancel scan, return invalid station -100
             stationsInShort = new short[] {
-                -100
+                    -100
             };
             mIsStopScanCalled = false;
         }
@@ -1196,29 +1193,31 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         mFmServiceHandler.sendEmptyMessage(FmListener.MSGID_STARTRECORDING_FINISHED);
     }
 
-    private void startRecording() {
+    private boolean startRecording() {
         sRecordingSdcard = FmUtils.getDefaultStoragePath();
         if (sRecordingSdcard == null || sRecordingSdcard.isEmpty()) {
             Log.d(TAG, "startRecording, may be no sdcard");
+            mRecordState = FmRecorder.STATE_ERROR;
             onRecorderError(FmRecorder.ERROR_SDCARD_NOT_PRESENT);
-            return;
+            return false;
         }
-
-        if (mFmRecorder == null) {
-            mFmRecorder = new FmRecorder(mAudioRecord.getFormat());
-            mFmRecorder.registerRecorderStateListener(FmService.this);
-        }
-
         if (isSdcardReady(sRecordingSdcard)) {
+            if (mFmRecorder == null) {
+                mFmRecorder = new FmRecorder(mAudioRecord.getFormat());
+                mFmRecorder.registerRecorderStateListener(FmService.this);
+            }
             mFmRecorder.startRecording(mContext);
-            if (mAudioPatch != null) {
+            /*if (mAudioPatch != null) {
                 Log.d(TAG, "Switching to SW rendering on recording start");
                 releaseAudioPatch();
                 startRender();
-            }
+            }*/
         } else {
             onRecorderError(FmRecorder.ERROR_SDCARD_NOT_PRESENT);
+            mRecordState = FmRecorder.STATE_ERROR;
+            return false;
         }
+        return true;
     }
 
     private boolean isSdcardReady(String sdcardPath) {
@@ -1239,6 +1238,24 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         mFmServiceHandler.sendEmptyMessage(FmListener.MSGID_STOPRECORDING_FINISHED);
     }
 
+    private void togglePowerAsync() {
+        if (mPowerStatus != POWER_UP) {
+            powerUpAsync(FmUtils.computeFrequency(getFrequency()));
+        }
+        else {
+            powerDownAsync();
+        }
+    }
+
+    private void toggleRecordingAsync() {
+        if (getPowerStatus() != POWER_UP) return;
+        if (getRecorderState() != FmRecorder.STATE_RECORDING) {
+            startRecordingAsync();
+        } else {
+
+            stopRecordingAsync();
+        }
+    }
     private boolean stopRecording() {
         if (mFmRecorder == null) {
             Log.e(TAG, "stopRecording, called without a valid recorder!!");
@@ -1256,14 +1273,19 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
      *
      * @param newName New recording file name
      */
-    public void saveRecordingAsync(String newName) {
+    public void saveRecordingAsync(String newName,boolean startRecordingAfterSaving) {
         mFmServiceHandler.removeMessages(FmListener.MSGID_SAVERECORDING_FINISHED);
-        final int bundleSize = 1;
-        Bundle bundle = new Bundle(bundleSize);
-        bundle.putString(RECODING_FILE_NAME, newName);
+        Bundle bundle = new Bundle(3);
+        bundle.putInt(FmListener.CALLBACK_FLAG,FmListener.MSGID_SAVERECORDING_FINISHED);
+        bundle.putString(RECORDING_FILE_NAME, newName);
+        bundle.putBoolean(FmListener.START_RECORDING_AFTER_SAVING,startRecordingAfterSaving);
         Message msg = mFmServiceHandler.obtainMessage(FmListener.MSGID_SAVERECORDING_FINISHED);
         msg.setData(bundle);
         mFmServiceHandler.sendMessage(msg);
+    }
+
+    public void saveRecordingAsync(String newName) {
+        saveRecordingAsync(newName,false);
     }
 
     private void saveRecording(String newName) {
@@ -1337,7 +1359,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         if (null != mFmRecorder) {
             return mFmRecorder.getState();
         }
-        return FmRecorder.STATE_IDLE;
+        return mRecordState;
     }
 
     /**
@@ -1350,6 +1372,20 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
             return mFmRecorder.getRecordFileName();
         }
         return null;
+    }
+
+    public String generateSaveName(String stationName,String recordingName) {
+        if (stationName == null) stationName="";
+        return FmRecorder.RECORDING_FILE_PREFIX + "_" + stationName + "_"
+                + recordingName;
+    }
+
+    public String generateSaveName(String recordingName) {
+        return generateSaveName(FmStation.getStationName(mContext,mCurrentStation),recordingName);
+    }
+
+    public String generateSaveName() {
+        return generateSaveName(getRecordingName());
     }
 
     @Override
@@ -1374,9 +1410,9 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         });
         mMediaSession.setPlaybackState(new PlaybackState.Builder().setActions(
                 PlaybackState.ACTION_PAUSE | PlaybackState.ACTION_PLAY
-                | PlaybackState.ACTION_PLAY_PAUSE | PlaybackState.ACTION_STOP
-                | PlaybackState.ACTION_REWIND | PlaybackState.ACTION_SKIP_TO_PREVIOUS
-                | PlaybackState.ACTION_SKIP_TO_NEXT).build());
+                        | PlaybackState.ACTION_PLAY_PAUSE | PlaybackState.ACTION_STOP
+                        | PlaybackState.ACTION_REWIND | PlaybackState.ACTION_SKIP_TO_PREVIOUS
+                        | PlaybackState.ACTION_SKIP_TO_NEXT).build());
         mActivityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
         mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
@@ -1520,8 +1556,8 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                     stopRender();
                     status = createAudioPatch();
                     if (status != AudioManager.SUCCESS){
-                       Log.d(TAG, "onAudioPatchListUpdate: fallback as createAudioPatch failed");
-                       startRender();
+                        Log.d(TAG, "onAudioPatchListUpdate: fallback as createAudioPatch failed");
+                        startRender();
                     }
                 }
             }
@@ -1579,6 +1615,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         filter.addAction(Intent.ACTION_SCREEN_ON);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         filter.addAction(Intent.ACTION_HEADSET_PLUG);
+        filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
         mBroadcastReceiver = new FmServiceBroadcastReceiver();
         registerReceiver(mBroadcastReceiver, filter);
     }
@@ -1743,7 +1780,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                         } else if (mPowerStatus == POWER_DOWN) {
                             Log.d(TAG, "startRdsThread, fm is power down, do nothing.");
                         } else {
-                            int iFreq = FmNative.activeAf();
+                            int iFreq = activeAf();
                             if (FmUtils.isValidStation(iFreq)) {
                                 // if the new frequency is not equal to current
                                 // frequency.
@@ -1821,7 +1858,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         if (enable) {
             if ((mPowerStatus != POWER_UP) || !mIsAudioFocusHeld) {
                 Log.d(TAG, "enableFmAudio, current not available return.mIsAudioFocusHeld:"
-                    + mIsAudioFocusHeld);
+                        + mIsAudioFocusHeld);
                 return;
             }
 
@@ -1843,8 +1880,8 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                 stopRender();
                 status = createAudioPatch();
                 if (status != AudioManager.SUCCESS){
-                   Log.d(TAG, "startPatchOrRender: fallback as createAudioPatch failed");
-                   startRender();
+                    Log.d(TAG, "startPatchOrRender: fallback as createAudioPatch failed");
+                    startRender();
                 }
             } else {
                 if (!isRendering()) {
@@ -1921,33 +1958,13 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                 || (getRecorderState() == FmRecorder.STATE_RECORDING)) {
             return;
         }
-        String stationName = "";
-        String radioText = "";
-        ContentResolver resolver = mContext.getContentResolver();
-        Cursor cursor = null;
-        try {
-            cursor = resolver.query(
-                    Station.CONTENT_URI,
-                    FmStation.COLUMNS,
-                    Station.FREQUENCY + "=?",
-                    new String[] { String.valueOf(mCurrentStation) },
-                    null);
-            if (cursor != null && cursor.moveToFirst()) {
-                // If the station name is not exist, show program service(PS) instead
-                stationName = cursor.getString(cursor.getColumnIndex(Station.STATION_NAME));
-                if (TextUtils.isEmpty(stationName)) {
-                    stationName = cursor.getString(cursor.getColumnIndex(Station.PROGRAM_SERVICE));
-                }
-                radioText = cursor.getString(cursor.getColumnIndex(Station.RADIO_TEXT));
-
-            } else {
-                Log.d(TAG, "showPlayingNotification, cursor is null");
-            }
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
+        String[] stationInfo =FmStation.getStationInfo(mContext,mCurrentStation);
+        if (stationInfo == null) {
+            Log.d(TAG, "showPlayingNotification, cursor is null");
+            return;
         }
+        String stationName = stationInfo[1];
+        String radioText = stationInfo[2];
 
         Intent aIntent = new Intent(Intent.ACTION_MAIN);
         aIntent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -2105,6 +2122,14 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         Bundle bundle = new Bundle(2);
         bundle.putInt(FmListener.CALLBACK_FLAG, FmListener.LISTEN_RECORDERROR);
         bundle.putInt(FmListener.KEY_RECORDING_ERROR_TYPE, mRecorderErrorType);
+        notifyActivityStateChanged(bundle);
+    }
+
+    @Override
+    public void onRecordSuccess() {
+        // Ff recording started successfully, notify the activity about it to start recording activity or fragment.
+        Bundle bundle = new Bundle(1);
+        bundle.putInt(FmListener.CALLBACK_FLAG, FmListener.LISTEN_RECORDSUCCESS);
         notifyActivityStateChanged(bundle);
     }
 
@@ -2552,7 +2577,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
         @Override
         public void handleMessage(Message msg) {
-            Bundle bundle;
+            Bundle bundle = msg.getData();
             boolean isPowerup = false;
             boolean isSwitch = true;
 
@@ -2560,7 +2585,6 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
                 // power up
                 case FmListener.MSGID_POWERUP_FINISHED:
-                    bundle = msg.getData();
                     handlePowerUp(bundle);
                     break;
 
@@ -2588,7 +2612,6 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
                 // switch antenna
                 case FmListener.MSGID_SWITCH_ANTENNA:
-                    bundle = msg.getData();
                     int value = bundle.getInt(FmListener.SWITCH_ANTENNA_VALUE);
 
                     // if ear phone insert, need dismiss plugin earphone
@@ -2616,7 +2639,6 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
                 // tune to station
                 case FmListener.MSGID_TUNE_FINISHED:
-                    bundle = msg.getData();
                     float tuneStation = bundle.getFloat(FM_FREQUENCY);
                     boolean isTune = tuneStation(tuneStation);
                     // if tune fail, pass current station to update ui
@@ -2633,7 +2655,6 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
                 // seek to station
                 case FmListener.MSGID_SEEK_FINISHED:
-                    bundle = msg.getData();
                     mIsSeeking = true;
                     float seekStation = seekStation(bundle.getFloat(FM_FREQUENCY),
                             bundle.getBoolean(OPTION));
@@ -2699,18 +2720,15 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
                 // audio focus changed
                 case FmListener.MSGID_AUDIOFOCUS_CHANGED:
-                    bundle = msg.getData();
                     int focusState = bundle.getInt(FmListener.KEY_AUDIOFOCUS_CHANGED);
                     updateAudioFocus(focusState);
                     break;
 
                 case FmListener.MSGID_SET_RDS_FINISHED:
-                    bundle = msg.getData();
                     setRds(bundle.getBoolean(OPTION));
                     break;
 
                 case FmListener.MSGID_SET_MUTE_FINISHED:
-                    bundle = msg.getData();
                     setMute(bundle.getBoolean(OPTION));
                     break;
 
@@ -2720,21 +2738,38 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
 
                 /********** recording **********/
                 case FmListener.MSGID_STARTRECORDING_FINISHED:
-                    startRecording();
-                    break;
-
+                    // Save files before starting a new recording.
+                    String recordingName = getRecordingName();
+                    if (recordingName != null) {
+                        saveRecordingAsync(generateSaveName(),true);
+                        return;
+                    }
+                    if (startRecording()) {
+                        bundle.putInt(FmListener.CALLBACK_FLAG, FmListener.MSGID_STARTRECORDING_FINISHED);
+                        notifyActivityStateChanged(bundle);
+                        break;
+                    }
                 case FmListener.MSGID_STOPRECORDING_FINISHED:
                     stopRecording();
+                    if (!mIsFmRecordForeground) {
+                        // Record activity is in background, so save our recording.
+                        saveRecording(generateSaveName());
+                        return;
+                    }
+                    bundle.putInt(FmListener.CALLBACK_FLAG,FmListener.MSGID_STOPRECORDING_FINISHED);
+                    notifyActivityStateChanged(bundle);
                     break;
 
                 case FmListener.MSGID_RECORD_MODE_CHANED:
-                    bundle = msg.getData();
                     setRecordingMode(bundle.getBoolean(OPTION));
                     break;
 
                 case FmListener.MSGID_SAVERECORDING_FINISHED:
-                    bundle = msg.getData();
-                    saveRecording(bundle.getString(RECODING_FILE_NAME));
+                    saveRecording(bundle.getString(RECORDING_FILE_NAME));
+                    notifyActivityStateChanged(bundle);
+                    if (bundle.getBoolean(FmListener.START_RECORDING_AFTER_SAVING)) {
+                    startRecordingAsync();
+                    }
                     break;
 
                 default:

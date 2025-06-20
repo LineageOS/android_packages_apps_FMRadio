@@ -16,6 +16,7 @@
 
 package com.android.fmradio;
 
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -36,7 +37,7 @@ public class FmStation {
     // use to composite content provider uri
     public static final String STATION = "station";
     // store current station in share preference with this key
-    public static final String CURRENT_STATION = "curent_station";
+    public static final String CURRENT_STATION = "current_station";
 
     public static final String[] COLUMNS = new String[] {
         Station._ID,
@@ -262,6 +263,36 @@ public class FmStation {
         return stationName;
     }
 
+    // Returns string array which contains station ID ,station name, and rds text.
+    public static String[] getStationInfo(Context context,int currentStation) {
+        String[] stationInfo = new String[3];
+        ContentResolver resolver = context.getContentResolver();
+        Cursor cursor = null;
+        try {
+            cursor = resolver.query(
+                    Station.CONTENT_URI,
+                    FmStation.COLUMNS,
+                    Station.FREQUENCY + "=?",
+                    new String[] { String.valueOf(currentStation) },
+                    null);
+            if (cursor != null && cursor.moveToFirst()) {
+                stationInfo[0] = cursor.getInt(cursor.getColumnIndex(Station._ID))+"";
+                // If the station name does not exist, show program service (PS) instead.
+                stationInfo[1] = cursor.getString(cursor.getColumnIndex(
+                        Station.STATION_NAME));
+                if (TextUtils.isEmpty(stationInfo[1])) {
+                    stationInfo[1] = cursor.getString(cursor.getColumnIndex(Station.PROGRAM_SERVICE));
+                }
+                stationInfo[2] = cursor.getString(cursor.getColumnIndex(Station.RADIO_TEXT));
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+                return stationInfo;
+            }
+            return null;
+        }
+    }
     /**
      * Judge whether station is a favorite station
      *
