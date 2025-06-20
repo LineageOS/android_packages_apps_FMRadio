@@ -210,6 +210,8 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                         powerUpFm();
                     }
                     break;
+                case R.id.station_value:
+                    tuneStation(7289);
                 default:
                     Log.d(TAG, "mButtonClickListener.onClick, invalid view id");
                     break;
@@ -226,11 +228,10 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
             Log.d(TAG,
                     "mHandler.handleMessage, what = " + msg.what + ",hashcode:"
                             + mHandler.hashCode());
-            Bundle bundle;
+            Bundle bundle = msg.getData();
             switch (msg.what) {
 
                 case FmListener.MSGID_POWERUP_FINISHED:
-                    bundle = msg.getData();
                     boolean isPowerup = (mService.getPowerStatus() == FmService.POWER_UP);
                     int station = bundle.getInt(FmListener.KEY_TUNE_TO_STATION);
                     mCurrentStation = station;
@@ -247,7 +248,6 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                     break;
 
                 case FmListener.MSGID_SWITCH_ANTENNA:
-                    bundle = msg.getData();
                     boolean hasAntenna = bundle.getBoolean(FmListener.KEY_IS_SWITCH_ANTENNA) ||
                             FmUtils.hasBuiltInFmAntennaSupport();
                     // if receive headset plug out, need set headset mode on ui
@@ -270,7 +270,6 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                     break;
 
                 case FmListener.MSGID_POWERDOWN_FINISHED:
-                    bundle = msg.getData();
                     refreshImageButton(false);
                     refreshActionMenuItem(false);
                     refreshPopupMenuItem(false);
@@ -278,7 +277,6 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                     break;
 
                 case FmListener.MSGID_TUNE_FINISHED:
-                    bundle = msg.getData();
                     boolean isTune = bundle.getBoolean(FmListener.KEY_IS_TUNE);
                     boolean isPowerUp = (mService.getPowerStatus() == FmService.POWER_UP);
 
@@ -309,7 +307,6 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                     break;
 
                 case FmListener.LISTEN_RDSSTATION_CHANGED:
-                    bundle = msg.getData();
                     int rdsStation = bundle.getInt(FmListener.KEY_RDS_STATION);
                     refreshStationUI(rdsStation);
                     break;
@@ -337,12 +334,49 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                     }
                     break;
 
+                case FmListener.LISTEN_RECORDERROR:
+                    int errorType = bundle.getInt(FmListener.KEY_RECORDING_ERROR_TYPE);
+                    handleRecordError(errorType);
+                    break;
+
+                case FmListener.LISTEN_RECORDSUCCESS:
+                    onStartRecording();
+                    break;
+
                 default:
                     break;
             }
         }
     };
 
+    private void handleRecordError(int errorType) {
+        Log.d(TAG, "handleRecordError, errorType = " + errorType);
+        String showString = null;
+        switch (errorType) {
+            case FmRecorder.ERROR_SDCARD_NOT_PRESENT:
+                showString = getString(R.string.toast_sdcard_missing);
+                break;
+
+            case FmRecorder.ERROR_SDCARD_INSUFFICIENT_SPACE:
+                showString = getString(R.string.toast_sdcard_insufficient_space);
+                break;
+
+            case FmRecorder.ERROR_RECORDER_INTERNAL:
+                showString = getString(R.string.toast_recorder_internal_error);
+                break;
+
+            case FmRecorder.ERROR_SDCARD_WRITE_FAILED:
+                showString = getString(R.string.toast_recorder_internal_error);
+                break;
+            default:
+                Log.w(TAG, "handleRecordError, invalid record error");
+                break;
+        }
+        if (showString != null) {
+            Toast.makeText(mContext, showString, Toast.LENGTH_SHORT).show();
+
+        }
+    }
     // When call bind service, it will call service connect. register call back
     // listener and initial device
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
@@ -385,8 +419,10 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                     // Need to exit FM for this case
                     exitService();
                     finish();
+                    return;
                 }
             }
+            if (mService.getRecorderState() == FmRecorder.STATE_RECORDING) onStartRecording();
         }
 
         /**
@@ -598,7 +634,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         }
         // TODO it's on UI thread, change to sub thread
         // Change the station frequency displayed.
-        mTextStationValue.setText(FmUtils.formatStation(station));
+        mTextStationValue.setText(FmUtils.formatStation(mCurrentStation));
         // Show or hide the favorite icon
         if (FmStation.isFavoriteStation(mContext, station)) {
             mButtonAddToFavorite.setImageResource(R.drawable.btn_fm_favorite_on_selector);
@@ -606,33 +642,13 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
             mButtonAddToFavorite.setImageResource(R.drawable.btn_fm_favorite_off_selector);
         }
 
-        String stationName = "";
-        String radioText = "";
-        ContentResolver resolver = mContext.getContentResolver();
-        Cursor cursor = null;
-        try {
-            cursor = resolver.query(
-                    Station.CONTENT_URI,
-                    FmStation.COLUMNS,
-                    Station.FREQUENCY + "=?",
-                    new String[] { String.valueOf(mCurrentStation) },
-                    null);
-            if (cursor != null && cursor.moveToFirst()) {
-                // If the station name is not exist, show program service(PS) instead
-                stationName = cursor.getString(cursor.getColumnIndex(Station.STATION_NAME));
-                if (TextUtils.isEmpty(stationName)) {
-                    stationName = cursor.getString(cursor.getColumnIndex(Station.PROGRAM_SERVICE));
-                }
-                radioText = cursor.getString(cursor.getColumnIndex(Station.RADIO_TEXT));
-
-            } else {
-                Log.d(TAG, "showPlayingNotification, cursor is null");
-            }
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
+        String[] stationInfo = FmStation.getStationInfo(mContext,mCurrentStation);
+        if (stationInfo == null) {
+            Log.d(TAG, "showPlayingNotification, cursor is null");
+            return;
         }
+        String stationName = stationInfo[1];
+        String radioText = stationInfo[2];
         mTextStationName.setText(stationName);
         mTextRds.setText(radioText);
     }
@@ -820,9 +836,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
                 break;
 
             case R.id.fm_start_record:
-                Intent recordIntent = new Intent(this, FmRecordActivity.class);
-                recordIntent.putExtra(FmStation.CURRENT_STATION, mCurrentStation);
-                startActivityForResult(recordIntent, REQUEST_CODE_RECORDING);
+mService.startRecordingAsync();
                 break;
 
             case R.id.fm_record_list:
@@ -988,6 +1002,11 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         toggleSpeaker(isSpeaker);
     }
 
+    private void onStartRecording() {
+        Intent recordIntent = new Intent(this, FmRecordActivity.class);
+        recordIntent.putExtra(FmStation.CURRENT_STATION, mCurrentStation);
+        startActivityForResult(recordIntent, REQUEST_CODE_RECORDING);
+    }
     /**
      * Tune a station
      *
@@ -1184,6 +1203,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
         mButtonPrevStation.setOnClickListener(mButtonClickListener);
         mButtonNextStation.setOnClickListener(mButtonClickListener);
         mButtonPlay.setOnClickListener(mButtonClickListener);
+        mTextStationValue.setOnClickListener(mButtonClickListener);
     }
 
     /**
@@ -1272,7 +1292,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            int[] grantResults) {
+                                           int[] grantResults) {
         boolean granted = true;
         boolean mShowPermission = true;
         if (permissions.length <= 0 || grantResults.length <= 0) {
