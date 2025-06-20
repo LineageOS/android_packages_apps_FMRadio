@@ -148,6 +148,7 @@ class AudioRecorder extends HandlerThread implements Handler.Callback {
         mOutFormat = mCodec.getOutputFormat();
         mMuxerTrack = mMuxer.addTrack(mOutFormat);
         mMuxer.start();
+        unSuccess();
     }
 
     @Override
@@ -236,8 +237,8 @@ class AudioRecorder extends HandlerThread implements Handler.Callback {
 
     private void onError(String s, Exception e) {
         Log.e(TAG, s, e);
+        finish();
         mFinished = true;
-        stopAndRelease();
         mCallbackHandler.post(new Runnable() {
             @Override
             public void run() {
@@ -249,10 +250,25 @@ class AudioRecorder extends HandlerThread implements Handler.Callback {
         });
     }
 
+    private void unSuccess() {
+        mCallbackHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                //quitSafely();
+                if (mCallback != null) {
+                    mCallback.onSuccess();
+                }
+            }
+        });
+    }
+
     private void finish() {
-        assert mFinalSem != null;
-        stopAndRelease();
+    assert mFinalSem != null;
+    stopAndRelease();
+    if (mFinalSem != null) {
         mFinalSem.release();
+        mFinalSem = null;
+        }
     }
 
     private void stopAndRelease() {
@@ -260,11 +276,23 @@ class AudioRecorder extends HandlerThread implements Handler.Callback {
         if (mCodec != null) {
             mCodec.stop();
             mCodec.release();
+            mCodec = null;
         }
 
         if (mMuxer != null) {
-            mMuxer.stop();
-            mMuxer.release();
+            //dirty trick
+            while (true) {
+                try {
+                    mMuxer.stop();
+                    mMuxer.release();
+                    mMuxer = null;
+                    break;
+                }
+                catch (IllegalStateException e) {
+                    continue;
+                }
+            }
+
         }
     }
 
@@ -299,6 +327,7 @@ class AudioRecorder extends HandlerThread implements Handler.Callback {
 
     public interface Callback {
         void onError(int what);
+        void onSuccess();
     }
 
     class AudioRecorderCodecCallback extends MediaCodec.Callback {
