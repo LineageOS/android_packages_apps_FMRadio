@@ -80,6 +80,25 @@ public class FmRecordActivity extends Activity implements
     private boolean mRecordingStarted = false;
     private int mCurrentStation = FmUtils.DEFAULT_STATION;
     private Notification.Builder mNotificationBuilder = null;
+    private boolean mIsServiceBinded = false;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mIsServiceBinded = bindService(new Intent(this, FmService.class), mServiceConnection,
+                Context.BIND_AUTO_CREATE);
+    }
+
+    private void setInfoFromIntent(Intent intent) {
+        if (intent.hasExtra(FmStation.CURRENT_STATION)) {
+            mCurrentStation = intent.getIntExtra(FmStation.CURRENT_STATION,
+                    FmUtils.DEFAULT_STATION);
+        }
+            /*
+            mRecordState = intent.getIntExtra("last_record_state", FmRecorder.STATE_INVALID);
+            mRecordingStarted = intent.getBooleanExtra("recording_started", false);
+            */
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,64 +133,41 @@ public class FmRecordActivity extends Activity implements
             mRecordState = savedInstanceState.getInt("last_record_state");
             mRecordingStarted = savedInstanceState.getBoolean("recording_started", false);
         } else {
-            Intent intent = getIntent();
-            mCurrentStation = intent.getIntExtra(FmStation.CURRENT_STATION,
-                    FmUtils.DEFAULT_STATION);
-            mRecordState = intent.getIntExtra("last_record_state", FmRecorder.STATE_INVALID);
-            mRecordingStarted = intent.getBooleanExtra("recording_started", false);
+            setInfoFromIntent(getIntent());
         }
-        bindService(new Intent(this, FmService.class), mServiceConnection,
-                Context.BIND_AUTO_CREATE);
         updateUi();
     }
 
     private void updateUi() {
         // TODO it's on UI thread, change to sub thread
-        ContentResolver resolver = mContext.getContentResolver();
         mFrequency.setText("FM " + FmUtils.formatStation(mCurrentStation));
-        Cursor cursor = null;
-        try {
-            cursor = resolver.query(
-                    Station.CONTENT_URI,
-                    FmStation.COLUMNS,
-                    Station.FREQUENCY + "=?",
-                    new String[] { String.valueOf(mCurrentStation) },
-                    null);
-            if (cursor != null && cursor.moveToFirst()) {
-                // If the station name does not exist, show program service(PS) instead
-                String stationName = cursor.getString(cursor.getColumnIndex(Station.STATION_NAME));
-                if (TextUtils.isEmpty(stationName)) {
-                    stationName = cursor.getString(cursor.getColumnIndex(Station.PROGRAM_SERVICE));
-                }
-                String radioText = cursor.getString(cursor.getColumnIndex(Station.RADIO_TEXT));
-                mStationName.setText(stationName);
-                mRadioText.setText(radioText);
-                int id = cursor.getInt(cursor.getColumnIndex(Station._ID));
-
-                if (mWatchedId != id) {
-                    if (mWatchedId != -1) {
-                        resolver.unregisterContentObserver(mContentObserver);
-                    }
-                    resolver.registerContentObserver(
-                            ContentUris.withAppendedId(Station.CONTENT_URI, id),
-                            false, mContentObserver);
-                    mWatchedId = id;
-                }
-                // If no station name and no radio text, hide the view
-                if ((!TextUtils.isEmpty(stationName))
-                        || (!TextUtils.isEmpty(radioText))) {
-                    mStationInfoLayout.setVisibility(View.VISIBLE);
-                } else {
-                    mStationInfoLayout.setVisibility(View.GONE);
-                }
-                Log.d(TAG, "updateUi, frequency = " + mCurrentStation + ", stationName = "
-                        + stationName + ", radioText = " + radioText);
+        String[] stationInfo = FmStation.getStationInfo(mContext,mCurrentStation);
+        if (stationInfo == null) return;
+        ContentResolver resolver = mContext.getContentResolver();
+        int id = Integer.parseInt(stationInfo[0]);
+        if (mWatchedId != id) {
+            if (mWatchedId != -1) {
+                resolver.unregisterContentObserver(mContentObserver);
             }
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
+            resolver.registerContentObserver(
+                    ContentUris.withAppendedId(Station.CONTENT_URI, id),
+                    false, mContentObserver);
+            mWatchedId = id;
         }
+        String stationName = stationInfo[1];
+        String radioText = stationInfo[2];
+        // If no station name and no radio text, hide the view
+        if ((!TextUtils.isEmpty(stationName))
+                || (!TextUtils.isEmpty(radioText))) {
+            mStationInfoLayout.setVisibility(View.VISIBLE);
+            mStationName.setText(stationName);
+            mRadioText.setText(radioText);
+        } else {
+            mStationInfoLayout.setVisibility(View.GONE);
+        }
+        Log.d(TAG, "updateUi, frequency = " + mCurrentStation + ", stationName = "
+                + stationName + ", radioText = " + radioText);
+
     }
 
     private void updateRecordingNotification(long recordTime) {
@@ -222,8 +218,13 @@ public class FmRecordActivity extends Activity implements
 
     @Override
     public void onNewIntent(Intent intent) {
-        if (intent != null && intent.getAction() != null) {
+        if (intent != null) {
             String action = intent.getAction();
+            if (action == null) {
+                int oldStation = mCurrentStation;
+                setInfoFromIntent(intent);
+                if (oldStation != mCurrentStation) updateUi();
+            }
             if (FM_STOP_RECORDING.equals(action)) {
                 // If click stop button in notification, need to stop recording
                 if (mService != null && !isStopRecording()) {
@@ -257,21 +258,22 @@ public class FmRecordActivity extends Activity implements
 
         mCurrentStation = mService.getFrequency();
         mRecordState = mService.getRecorderState();
-
         mService.setFmRecordActivityForeground(true);
         removeNotification();
         switch (mRecordState) {
             case FmRecorder.STATE_IDLE:
                 if (!mRecordingStarted) {
-                    // start the new recording
-                    mRecordingStarted = true;
-                    mService.startRecordingAsync();
+                    //we dont need start recording,because when we start activity,recording is alredy started.
+                    //mRecordingStarted = true;
+                    //mService.startRecordingAsync();
                     break;
                 }
 
                 // recording was stopped while we were away
                 if (!isSaveDialogShown()) {
-                    showSaveDialog();
+                    //showSaveDialog();
+                    // Finish, as we already saved recording in the service
+                    finish();
                     break;
                 }
 
@@ -280,6 +282,11 @@ public class FmRecordActivity extends Activity implements
                 return;
 
             case FmRecorder.STATE_RECORDING:
+                dismissSaveDialogIfNeeded();
+                break;
+
+            case FmRecorder.STATE_ERROR:
+                finish();
                 break;
 
             case FmRecorder.STATE_INVALID:
@@ -337,14 +344,28 @@ public class FmRecordActivity extends Activity implements
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        mIsServiceBinded = false;
+        if (mIsServiceBinded) {
+            unbindService(mServiceConnection);
+            mIsServiceBinded = false;
+        }
+    }
+
+    @Override
     protected void onDestroy() {
         removeNotification();
         mHandler.removeCallbacksAndMessages(null);
         if (mService != null) {
             mService.unregisterFmRadioListener(mFmListener);
         }
-        unbindService(mServiceConnection);
-        if (mWatchedId != -1) {
+        if (mIsServiceBinded) {
+            unbindService(mServiceConnection);
+            mIsServiceBinded = false;
+            mService = null;
+        }
+                if (mWatchedId != -1) {
             mContext.getContentResolver().unregisterContentObserver(mContentObserver);
         }
         super.onDestroy();
@@ -365,11 +386,10 @@ public class FmRecordActivity extends Activity implements
 
         if (recordingName != null && mService != null) {
             mService.saveRecordingAsync(recordingName);
-            returnResult(recordingName, getString(R.string.toast_record_saved));
         } else {
             returnResult(null, getString(R.string.toast_record_not_saved));
+            finish();
         }
-        finish();
     }
 
     @Override
@@ -387,7 +407,7 @@ public class FmRecordActivity extends Activity implements
         public void onServiceConnected(ComponentName name, android.os.IBinder service) {
             mService = ((FmService.ServiceBinder) service).getService();
             mService.registerFmRadioListener(mFmListener);
-
+            mRecordingStarted = mService.getRecorderState() == FmRecorder.STATE_RECORDING;
             onResumeWithService();
         };
 
@@ -408,6 +428,7 @@ public class FmRecordActivity extends Activity implements
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
+            Bundle bundle = msg.getData();
             long recordTimeInMillis = 0;
             switch (msg.what) {
                 case FmListener.MSGID_REFRESH:
@@ -440,6 +461,7 @@ public class FmRecordActivity extends Activity implements
                             + ", mRecordState = " + mRecordState);
                     if (mRecordState == FmRecorder.STATE_IDLE
                             && newState == FmRecorder.STATE_RECORDING) {
+                        dismissSaveDialogIfNeeded();
                         Log.d(TAG, "Recording started");
                     } else if (mRecordState == FmRecorder.STATE_RECORDING
                             && newState == FmRecorder.STATE_IDLE) {
@@ -451,13 +473,14 @@ public class FmRecordActivity extends Activity implements
                     }
                     mRecordState = newState;
                     break;
-
-                case FmListener.LISTEN_RECORDERROR:
-                    Bundle bundle = msg.getData();
-                    int errorType = bundle.getInt(FmListener.KEY_RECORDING_ERROR_TYPE);
-                    handleRecordError(errorType);
+                case FmListener.MSGID_SAVERECORDING_FINISHED:
+                    dismissSaveDialogIfNeeded();
+                    if (!bundle.getBoolean(FmListener.START_RECORDING_AFTER_SAVING)) {
+                        returnResult(bundle.getString(FmService.RECORDING_FILE_NAME)
+                                , getString(R.string.toast_record_saved));
+                        finish();
+                    }
                     break;
-
                 default:
                     break;
             }
@@ -479,39 +502,6 @@ public class FmRecordActivity extends Activity implements
                         R.string.toast_sdcard_insufficient_space,
                         Toast.LENGTH_SHORT).show();
             }
-        }
-    }
-
-    private void handleRecordError(int errorType) {
-        Log.d(TAG, "handleRecordError, errorType = " + errorType);
-        String showString = null;
-        switch (errorType) {
-            case FmRecorder.ERROR_SDCARD_NOT_PRESENT:
-                showString = getString(R.string.toast_sdcard_missing);
-                returnResult(null, showString);
-                finish();
-                break;
-
-            case FmRecorder.ERROR_SDCARD_INSUFFICIENT_SPACE:
-                showString = getString(R.string.toast_sdcard_insufficient_space);
-                returnResult(null, showString);
-                finish();
-                break;
-
-            case FmRecorder.ERROR_RECORDER_INTERNAL:
-                showString = getString(R.string.toast_recorder_internal_error);
-                Toast.makeText(mContext, showString, Toast.LENGTH_SHORT).show();
-                break;
-
-            case FmRecorder.ERROR_SDCARD_WRITE_FAILED:
-                showString = getString(R.string.toast_recorder_internal_error);
-                returnResult(null, showString);
-                finish();
-                break;
-
-            default:
-                Log.w(TAG, "handleRecordError, invalid record error");
-                break;
         }
     }
 
@@ -562,13 +552,8 @@ public class FmRecordActivity extends Activity implements
         }
         String sdcard = FmService.getRecordingSdcard();
         String recordingName = mService.getRecordingName();
-        String saveName = null;
-        if (TextUtils.isEmpty(mStationName.getText())) {
-            saveName = FmRecorder.RECORDING_FILE_PREFIX +  "_" + recordingName;
-        } else {
-            saveName = FmRecorder.RECORDING_FILE_PREFIX + "_" + mStationName.getText() + "_"
-                    + recordingName;
-        }
+        String saveName = mService.generateSaveName(
+                mStationName.getText().toString(),recordingName);
         FmSaveDialog newFragment = new FmSaveDialog(sdcard, recordingName, saveName);
         newFragment.show(mFragmentManager, TAG_SAVE_RECORDINGD);
         mFragmentManager.executePendingTransactions();
@@ -587,5 +572,14 @@ public class FmRecordActivity extends Activity implements
         FmSaveDialog saveDialog = (FmSaveDialog)
                 mFragmentManager.findFragmentByTag(TAG_SAVE_RECORDINGD);
         return saveDialog != null;
+    }
+
+    private void dismissSaveDialogIfNeeded() {
+        FmSaveDialog dialog = (FmSaveDialog)
+                mFragmentManager.findFragmentByTag(TAG_SAVE_RECORDINGD);
+        if (dialog != null) {
+            dialog.dismiss();
+            dialog = null;
+        }
     }
 }
