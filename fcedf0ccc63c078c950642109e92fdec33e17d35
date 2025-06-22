@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "269252f2_8a3f1aa9",
+        "filename": "src/com/android/fmradio/FmListener.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-06-22T22:29:31Z",
+      "side": 0,
+      "message": "why? What does this do? Need to document this stuff....",
+      "revId": "fcedf0ccc63c078c950642109e92fdec33e17d35",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1b8835f_f87669b7",
+        "filename": "src/com/android/fmradio/FmRecordActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-06-22T22:29:31Z",
+      "side": 0,
+      "message": "don\u0027t touch things you don\u0027t need to?",
+      "revId": "fcedf0ccc63c078c950642109e92fdec33e17d35",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2eb9add_95f26d89",
+        "filename": "src/com/android/fmradio/FmRecordActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-06-22T22:29:31Z",
+      "side": 0,
+      "message": "don\u0027t touch things you don\u0027t need to",
+      "revId": "fcedf0ccc63c078c950642109e92fdec33e17d35",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6697726f_40b52e91",
+        "filename": "src/com/android/fmradio/FmRecorder.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-06-22T22:29:31Z",
+      "side": 0,
+      "message": "Why?",
+      "revId": "fcedf0ccc63c078c950642109e92fdec33e17d35",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35c7207a_46c86ea4",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-06-22T22:29:31Z",
+      "side": 0,
+      "message": "I get that this is correct, but stop touching things that are unrelated.\n\nIf you want, you can do \"Introduce X feature\" in this commit and \"Mass cleanup\" in the next one - but do not tangle them together.",
+      "revId": "fcedf0ccc63c078c950642109e92fdec33e17d35",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6f7bda6_30095d4e",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-06-22T22:29:31Z",
+      "side": 0,
+      "message": "again, don\u0027t touch this.",
+      "revId": "fcedf0ccc63c078c950642109e92fdec33e17d35",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb857530_3c23b539",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-06-22T22:29:31Z",
+      "side": 0,
+      "message": "this whole block, same as the above.",
+      "revId": "fcedf0ccc63c078c950642109e92fdec33e17d35",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb9f2101_972dfa0d",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1378,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-06-22T22:29:31Z",
+      "side": 0,
+      "message": "don\u0027t touch things you don\u0027t need to",
+      "revId": "fcedf0ccc63c078c950642109e92fdec33e17d35",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
