@@ -466,7 +466,7 @@ public class FmRecordActivity extends Activity implements
                     // State change from STATE_RECORDING to STATE_IDLE mean stop recording
                     int newState = mService.getRecorderState();
                     Log.d(TAG, "handleMessage, record state changed: newState = " + newState
-                        + ", mRecordState = " + mRecordState);
+                            + ", mRecordState = " + mRecordState);
                     if (mRecordState == FmRecorder.STATE_IDLE
                             && newState == FmRecorder.STATE_RECORDING) {
                         dismissSaveDialogIfNeeded();
