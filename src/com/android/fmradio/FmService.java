@@ -1556,7 +1556,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                     stopRender();
                     status = createAudioPatch();
                     if (status != AudioManager.SUCCESS){
-                       Log.d(TAG, "onAudioPatchListUpdate: fallback as createAudioPatch failed");
+                        Log.d(TAG, "onAudioPatchListUpdate: fallback as createAudioPatch failed");
                        startRender();
                     }
                 }
@@ -1880,7 +1880,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                 stopRender();
                 status = createAudioPatch();
                 if (status != AudioManager.SUCCESS){
-                   Log.d(TAG, "startPatchOrRender: fallback as createAudioPatch failed");
+                    Log.d(TAG, "startPatchOrRender: fallback as createAudioPatch failed");
                     startRender();
                 }
             } else {
