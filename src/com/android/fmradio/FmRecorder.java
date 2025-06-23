@@ -48,7 +48,7 @@ public class FmRecorder implements AudioRecorder.Callback {
     // file extension
     public static final String RECORDING_FILE_EXTENSION = ".3gpp";
     // recording file folder
-    public static final String FM_RECORD_FOLDER = "Documents/FM Recording";
+    public static final String FM_RECORD_FOLDER = "FM Recording";
     public static final Uri RECORDINGS_URI = Uri.parse("content://" +
                                 "com.android.externalstorage.documents/document/" +
                                 "primary%3ADocuments%2FFM%20Recording");
