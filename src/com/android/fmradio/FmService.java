@@ -176,7 +176,8 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                             else if (repeatCount == 1) {
                                 keyCode = keyCode == KeyEvent.KEYCODE_MEDIA_SKIP_BACKWARD
                                         || keyCode == KeyEvent.KEYCODE_MEDIA_STEP_BACKWARD ?
-                                        KeyEvent.KEYCODE_MEDIA_PREVIOUS : KeyEvent.KEYCODE_MEDIA_NEXT;
+                                        KeyEvent.KEYCODE_MEDIA_PREVIOUS :
+                                        KeyEvent.KEYCODE_MEDIA_NEXT;
                                 repeatCount = 0;
                                 result = true;
                             }
@@ -923,7 +924,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
             // call. Do not return any stations. stationsInShort = null;
             // if cancel scan, return invalid station -100
             stationsInShort = new short[] {
-                -100
+                    -100
             };
             mIsStopScanCalled = false;
         }
@@ -1556,7 +1557,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                     stopRender();
                     status = createAudioPatch();
                     if (status != AudioManager.SUCCESS){
-                       Log.d(TAG, "onAudioPatchListUpdate: fallback as createAudioPatch failed");
+                        Log.d(TAG, "onAudioPatchListUpdate: fallback as createAudioPatch failed");
                        startRender();
                     }
                 }
@@ -1880,8 +1881,8 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
                 stopRender();
                 status = createAudioPatch();
                 if (status != AudioManager.SUCCESS){
-                   Log.d(TAG, "startPatchOrRender: fallback as createAudioPatch failed");
-                   startRender();
+                    Log.d(TAG, "startPatchOrRender: fallback as createAudioPatch failed");
+                    startRender();
                 }
             } else {
                 if (!isRendering()) {
