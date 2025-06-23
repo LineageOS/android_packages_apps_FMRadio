@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "222dbdef_b750ac3d",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-06-23T16:56:30Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "f27129113e14e2051175b071db292059dfeb353f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e590ffb6_3fb96ec3",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-06-23T16:56:30Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "f27129113e14e2051175b071db292059dfeb353f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6187a39b_59d36ec5",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-06-23T16:56:30Z",
+      "side": 1,
+      "message": "don\u0027t touch this",
+      "revId": "f27129113e14e2051175b071db292059dfeb353f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01c072f3_a4898c34",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1884,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-06-23T16:56:30Z",
+      "side": 1,
+      "message": "don\u0027t touch this line",
+      "revId": "f27129113e14e2051175b071db292059dfeb353f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71d95edd_0ef4e2c1",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 2130,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-06-23T16:56:30Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "f27129113e14e2051175b071db292059dfeb353f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
