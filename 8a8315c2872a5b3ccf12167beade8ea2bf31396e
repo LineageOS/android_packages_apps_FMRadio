@@ -1,0 +1,659 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bd09457_b140c6ad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "every time you stumble across a \"and\" in a commit message you should stop yourself and ask \"is this in any way related to what the patch is doing? (e.g. fixing a typo in code I am already touching might be ok, somewhere else? not so much)",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7a67abd_4e756f4c",
+        "filename": "src/com/android/fmradio/AudioRecorder.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "\"unSuccess\"? should be \"onSuccess\" maybe?",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc0f867c_5ab59531",
+        "filename": "src/com/android/fmradio/AudioRecorder.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "\"unSuccess\"? should be \"onSuccess\" maybe?",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6501e662_6b4b4a00",
+        "filename": "src/com/android/fmradio/AudioRecorder.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "indent",
+      "range": {
+        "startLine": 266,
+        "startChar": 4,
+        "endLine": 270,
+        "endChar": 25
+      },
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e6a634c_b80412b4",
+        "filename": "src/com/android/fmradio/AudioRecorder.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "unsure why there is the need for a dirty trick and why it is dirty and what it has to do with this patch",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ec2d4d5_8f62f4a0",
+        "filename": "src/com/android/fmradio/AudioRecorder.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "catch into same line as }",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09202e66_2dbbd2f6",
+        "filename": "src/com/android/fmradio/FmMainActivity.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "these two lines sound like you added them for your own purpose only?",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 38
+      },
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bd29a2c_ad033dd3",
+        "filename": "src/com/android/fmradio/FmMainActivity.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "same as above with such a change: makes sense, but not in this context",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcd1a620_1bfd96e8",
+        "filename": "src/com/android/fmradio/FmMainActivity.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "can\u0027t this stay in the other class you removed it from? maybe made public if needed?",
+      "range": {
+        "startLine": 352,
+        "startChar": 4,
+        "endLine": 379,
+        "endChar": 5
+      },
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d75d67a_dff86f25",
+        "filename": "src/com/android/fmradio/FmMainActivity.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "outlined already: in itself fine, not belonging to the patch",
+      "range": {
+        "startLine": 645,
+        "startChar": 0,
+        "endLine": 651,
+        "endChar": 42
+      },
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b7f6222_78d275f6",
+        "filename": "src/com/android/fmradio/FmRecordActivity.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "keeping this locally to the case where it\u0027s used makes more sense since that\u0027s only used there",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca091dcc_900b47cc",
+        "filename": "src/com/android/fmradio/FmRecordActivity.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "refactoring not needed for this change?",
+      "range": {
+        "startLine": 563,
+        "startChar": 8,
+        "endLine": 564,
+        "endChar": 65
+      },
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea8b12ca_1937d406",
+        "filename": "src/com/android/fmradio/FmRecorder.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "doesn\u0027t belong to this change?",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be1f3bc4_ccdaed02",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "generally correct, not for this change, though?",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23cebdb7_c0794347",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "not related to change at all",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "156e7914_4274358e",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "all this indentation makes it harder to find what you actually changed.",
+      "range": {
+        "startLine": 124,
+        "startChar": 8,
+        "endLine": 200,
+        "endChar": 14
+      },
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf933e2f_955021b6",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "unnecessary change",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d608cd37_54e9a51c",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "if code is no longer required, remove. Neither do I nor any other future reader of the code have a clue why it\u0027s commented now",
+      "range": {
+        "startLine": 1211,
+        "startChar": 0,
+        "endLine": 1215,
+        "endChar": 15
+      },
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8538370_5a9c210a",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "even if method is needless, \"else\" goes into the line with the closing \"}\"",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffe9b036_efa1865d",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "method is a needless change",
+      "range": {
+        "startLine": 1242,
+        "startChar": 4,
+        "endLine": 1249,
+        "endChar": 5
+      },
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bfcfc48_6798f936",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "since a default bundle grows automatically anyway, no need to specify the size (it wasn\u0027t needed for the \"1\", either, but when expanding it we can simply remove the size argument completely)",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf989274_77695a03",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "space after comma",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a24071c5_4dac8602",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 1282,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "space after comma",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30b1290c_16a24c16",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "space before and after \"\u003d\"",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43fcd4b9_3109d3df",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "space after commas",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2466db15_528c1a9b",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 1619,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "not related?",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e50442bb_67a6c249",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 1962,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "space after comma",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2f2a63f_ed104fea",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 1968,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "while I can get behind some of the refactoring in general, this whole block is not related to the change at hand",
+      "range": {
+        "startLine": 1962,
+        "startChar": 0,
+        "endLine": 1968,
+        "endChar": 42
+      },
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0fe9eb4_0b15d52f",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 2584,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "same here: change would be fine generally, but isn\u0027t related to what this patch is trying to achieve",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98672ccb_d03353bd",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 2749,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "space after comma",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "158f54be_555ec4c8",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 2752,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a75d0d09_2d1e176e",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 2776,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "indent",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3336cd2d_da8a10c2",
+        "filename": "src/com/android/fmradio/FmStation.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "generally fine but not for this patch",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c7179ed_e2119701",
+        "filename": "src/com/android/fmradio/FmStation.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "as stated, this makes sense to have - but its not related to the patch",
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3caf4eaf_0442bb5b",
+        "filename": "src/com/android/fmradio/FmUtils.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-06-24T20:32:07Z",
+      "side": 1,
+      "message": "change itself fine - not for this patch, though",
+      "range": {
+        "startLine": 141,
+        "startChar": 22,
+        "endLine": 141,
+        "endChar": 35
+      },
+      "revId": "8a8315c2872a5b3ccf12167beade8ea2bf31396e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
