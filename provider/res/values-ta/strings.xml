@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">பண்பலைப்பதிவுகள்</string>
+    <string name="info_toast">பண்பலைப்பதிவுகளுக்குப் பதிவுகளை மீண்டும் இயக்க ஊடக அனுமதிகள் தேவை</string>
+    <string name="denied_toast">பண்பலைப்பதிவுகளுக்குப் பதிவுகளை மீண்டும் இயக்க ஊடக அனுமதிகள் தேவை. அமைப்புகளில் ஊடக அனுமதிகளை வழங்கவும்.</string>
 </resources>
