@@ -1360,7 +1360,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         mMediaButtonIntentReceiver.setMediaHandleListener(listener);
         IntentFilter filter = new IntentFilter(Intent.ACTION_MEDIA_BUTTON);
         filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
-        registerReceiver(mMediaButtonIntentReceiver, filter);
+        registerReceiver(mMediaButtonIntentReceiver, filter, Context.RECEIVER_NOT_EXPORTED);
         mMediaSession = new MediaSession(mContext, TAG);
         Intent i = new Intent(this, FMMediaButtonIntentReceiver.class)
                 .setFlags(Intent.FLAG_RECEIVER_FOREGROUND);
@@ -1580,7 +1580,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         filter.addAction(Intent.ACTION_HEADSET_PLUG);
         mBroadcastReceiver = new FmServiceBroadcastReceiver();
-        registerReceiver(mBroadcastReceiver, filter);
+        registerReceiver(mBroadcastReceiver, filter, Context.RECEIVER_NOT_EXPORTED);
     }
 
     private void unregisterFmBroadcastReceiver() {
@@ -2041,7 +2041,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         filter.addAction(Intent.ACTION_MEDIA_MOUNTED);
         filter.addAction(Intent.ACTION_MEDIA_UNMOUNTED);
         filter.addAction(Intent.ACTION_MEDIA_EJECT);
-        registerReceiver(mSdcardListener, filter);
+        registerReceiver(mSdcardListener, filter, Context.RECEIVER_NOT_EXPORTED);
     }
 
     private void unregisterSdcardListener() {
