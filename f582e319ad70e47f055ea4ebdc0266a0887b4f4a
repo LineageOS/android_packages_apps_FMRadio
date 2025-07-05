@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9328b1b_8e2f2ced",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28270
+      },
+      "writtenOn": "2025-07-05T16:39:20Z",
+      "side": 1,
+      "message": "Move to lineage-23 once branch is added",
+      "revId": "f582e319ad70e47f055ea4ebdc0266a0887b4f4a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
