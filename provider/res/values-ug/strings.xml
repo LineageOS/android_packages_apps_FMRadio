@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FM ئۈن خاتىرە</string>
+    <string name="info_toast">FM ئۈن خاتىرەدىكى ئاۋازنى قويۇشتا ۋاسىتە ئىجازىتى زۆرۈر.</string>
+    <string name="denied_toast">FM ئۈن خاتىرەدىكى ئاۋازنى قويۇشتا ۋاسىتە ئىجازىتى زۆرۈر. تەڭشەكتىن ۋاسىتە ئىجازىتى بېرىڭ.</string>
+</resources>
