@@ -25,7 +25,7 @@
     <string name="toast_sdcard_insufficient_space">‏אין מספיק מקום בכרטיס ה-SD.</string>
     <string name="toast_recorder_internal_error">אירעה שגיאה פנימית במקליט.</string>
     <string name="btn_save_recording">שמור</string>
-    <string name="btn_discard_recording">מחק</string>
+    <string name="btn_discard_recording">ביטול</string>
     <string name="edit_recording_name_hint">הקלד כאן את שם הקובץ</string>
     <string name="already_exists">כבר קיים</string>
     <string name="not_available">לא זמין כעת</string>

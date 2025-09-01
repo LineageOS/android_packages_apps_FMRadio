@@ -16,6 +16,11 @@
 -->
 <resources>
     <string name="notif_previous">הקודם</string>
-    <string name="notif_stop">עצור</string>
+    <string name="notif_stop">עצירה</string>
     <string name="notif_next">הבא</string>
+    <string name="channel_playback_name">השמעת FM</string>
+    <string name="channel_playback_description">פקדי השמעת FM בסרגל ההתראות</string>
+    <string name="channel_record_name">מקליט FM</string>
+    <string name="channel_record_description">פקדי הקלטת רדיו FM בסרגל ההתראות</string>
+    <string name="missing_required_permission">ההרשאות נדחו. ניתן לשנות אותן בהגדרות &gt; אפליקציות.</string>
 </resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">הקלטות FM</string>
+    <string name="info_toast">הקלטות FM זקוקות להרשאות מדיה כדי להשמיע הקלטות.</string>
+    <string name="denied_toast">הקלטות FM זקוקות להרשאות מדיה כדי להשמיע הקלטות. נא להעניק הרשאות מדיה בהגדרות.</string>
+</resources>
