@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FM nahrávky</string>
+    <string name="info_toast">FM nahrávky vyžadují oprávnění médií k přehrávání nahrávek.</string>
+    <string name="denied_toast">FM nahrávky vyžadují oprávnění médií k přehrávání nahrávek. Udělte prosím oprávnění přístupu k médiím v Nastavení.</string>
+</resources>

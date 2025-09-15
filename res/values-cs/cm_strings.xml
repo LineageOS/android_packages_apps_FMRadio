@@ -18,4 +18,9 @@
     <string name="notif_previous">Předchozí</string>
     <string name="notif_stop">Zastavit</string>
     <string name="notif_next">Další</string>
+    <string name="channel_playback_name">FM přehrávání</string>
+    <string name="channel_playback_description">Ovládání přehrávání FM v panelu oznámení</string>
+    <string name="channel_record_name">FM záznamník</string>
+    <string name="channel_record_description">Ovládání FM rádiového záznamníku v panelu oznámení</string>
+    <string name="missing_required_permission">Oprávnění odepřena. Můžete je změnit v Nastavení &gt; Aplikace</string>
 </resources>
