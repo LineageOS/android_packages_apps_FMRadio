@@ -16,6 +16,23 @@
       "message": "Move to lineage-23 once branch is added",
       "revId": "f582e319ad70e47f055ea4ebdc0266a0887b4f4a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5403fe8b_03bcca6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32245
+      },
+      "writtenOn": "2025-09-24T05:43:55Z",
+      "side": 1,
+      "message": "let\u0027s move the commit(s) to lineage-23.0 branch now?",
+      "revId": "f582e319ad70e47f055ea4ebdc0266a0887b4f4a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
