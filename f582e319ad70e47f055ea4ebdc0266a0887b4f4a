@@ -85,6 +85,23 @@
       "message": "Does this apply to 22.2 as well?",
       "revId": "f582e319ad70e47f055ea4ebdc0266a0887b4f4a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b016c166_bc6199b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-09-25T17:06:10Z",
+      "side": 1,
+      "message": "grep packages dir in 22, there are hundreds of uses of it",
+      "revId": "f582e319ad70e47f055ea4ebdc0266a0887b4f4a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
