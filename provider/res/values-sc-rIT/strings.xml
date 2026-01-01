@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Registratziones de FM</string>
+    <string name="info_toast">Is registratziones de FM tenent bisòngiu de permissos multimediales pro riproduire àudio.</string>
+    <string name="denied_toast">Is registratziones de FM tenent bisòngiu de permissos multimediales pro riproduire àudio. Cuntzede is permissos multimediales in sa Cunfiguratzione.</string>
+</resources>
