@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FM-opptak</string>
+    <string name="info_toast">FM-opptak treng medieløyve for å spela av opptak.</string>
+    <string name="denied_toast">FM-opptak treng medieløyve for å spela av opptak. Gje tilgang i Innstillingar.</string>
+</resources>
