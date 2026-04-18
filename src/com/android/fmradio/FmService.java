@@ -512,7 +512,14 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
         mIsRender = false;
         // HACK: Set volume to 0 to squelch any output between the call to
         // stopRender and the render thread calling AudioTrack.stop
-        mAudioTrack.setVolume(0.0f);
+        AudioTrack track = mAudioTrack;
+        if (track != null) {
+            try {
+                track.setVolume(0.0f);
+            } catch (IllegalStateException ise) {
+                Log.w(TAG, "stopRender: setVolume on released AudioTrack", ise);
+            }
+        }
     }
 
     private synchronized void createRenderThread() {
@@ -523,9 +530,13 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
     }
 
     private synchronized void exitRenderThread() {
-        mRenderThread.interrupt();
+        Thread thread = mRenderThread;
+        if (thread == null) {
+            return;
+        }
+        thread.interrupt();
         try {
-            mRenderThread.join();
+            thread.join();
         } catch (InterruptedException ie) {
             Log.e(TAG, "Failed to join render thread");
         }
@@ -2137,6 +2148,9 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
      * @return true for plug in; false for plug out
      */
     private boolean isHeadSetIn() {
+        if (FmUtils.hasBuiltInFmAntennaSupport()) {
+            return true;
+        }
         return (0 == mValueHeadSetPlug);
     }
 
