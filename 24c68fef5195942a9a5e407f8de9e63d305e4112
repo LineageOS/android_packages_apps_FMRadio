@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e32b2c88_cf1f6a33",
+        "filename": "src/com/android/fmradio/FmService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2153,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-04-20T14:52:13Z",
+      "side": 1,
+      "message": "this is not covered in the commit message and apparently has nothing to do with the change at all",
+      "range": {
+        "startLine": 2151,
+        "startChar": 8,
+        "endLine": 2153,
+        "endChar": 9
+      },
+      "revId": "24c68fef5195942a9a5e407f8de9e63d305e4112",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
