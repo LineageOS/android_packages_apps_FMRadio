@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">ڕادیۆی FM</string>
+    <string name="toast_station_searched">وێستگە بەردەستەکان دۆزرانەوە:</string>
+    <string name="toast_cannot_search">ناتوانرێت وێستگە بەردەستەکان بدۆزرێتەوە.</string>
+    <string name="optmenu_speaker">بڵندگۆ</string>
+    <string name="optmenu_earphone">بیستۆک</string>
+    <string name="save">پاشەکەوت بکە</string>
+    <string name="toast_sdcard_missing">کارتی SD بوونی نییە!</string>
+    <string name="toast_sdcard_insufficient_space">شوێنی پێویست لە کارتی SD نییە!</string>
+    <string name="toast_recorder_internal_error">هەڵەیەکی ناوخۆیی لە تۆمارکەرەکەدا ڕوویدا!</string>
+    <string name="btn_save_recording">پاشەکەوت بکە</string>
+    <string name="btn_discard_recording">ڕەتی بکەرەوە</string>
+    <string name="edit_recording_name_hint">ناوی پەڕگە لێرە بنووسە</string>
+    <string name="already_exists">پێشتر هەیە</string>
+    <string name="not_available">لە ئێستادا بەردەست نییە</string>
+    <string name="talk_prev_station">وێستگەی پێشوو</string>
+    <string name="talk_decrease">لەرەلەر کەم بکەرەوە</string>
+    <string name="talk_increase">لەرەلەر زیاد بکەرەوە</string>
+    <string name="talk_next_station">وێستگەی دواتر</string>
+    <string name="talk_add_favorite">بیکە بە دڵخواز</string>
+    <string name="talk_start_recording">دەست بە تۆمارکردن بکە</string>
+    <string name="more">"\"زیاتر\""</string>
+    <string name="recording_tips">تۆمار دەکرێت…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">ڕادیۆ لێ بدە یان بیوەستێنە</string>
+    <string name="fm_over_start_record">دەست بە تۆمارکردن بکە</string>
+    <string name="fm_over_record_list">تۆمارە پاشەکەوتکراوەکان</string>
+    <string name="fm_station_list_menu_refresh">نوێ بکەرەوە</string>
+    <string name="fm_no_headset_text">بۆ دەستکردن بە گوێگرتن، بیستۆک ببەستە (وەک ئەنتێنە بەکاردێت).</string>
+    <string name="station_title">وێستگەکانی ڕادیۆ</string>
+    <string name="station_searching_tips">وێستگەکان وەردەگیرێن</string>
+    <string name="station_empty_text">هیچ وێستگەیەک نەدۆزرایەوە</string>
+    <string name="minutes_label">خ</string>
+    <string name="seconds_label">چ</string>
+    <string name="timer_default">٠٠</string>
+    <string name="record_title">تۆمارکردن</string>
+    <string name="record_notification_message">تۆمارکردن لە کاردایە</string>
+    <string name="stop_record">تۆمارکردن بوەستێنە</string>
+    <string name="save_dialog_title">تۆمارەکە پاشەکەوت بکرێت؟</string>
+    <string name="favorites">دڵخوازەکان</string>
+    <string name="rename">ناونانەوە</string>
+    <string name="station_rename_hint">ناوی وێستگەکە بنووسە</string>
+    <string name="remove_favorite">لە دڵخوازەکان لایبەر</string>
+    <string name="toast_record_saved">تۆمارەکە پاشەکەوت کرا</string>
+    <string name="toast_record_not_saved">تۆمارەکە پاشەکەوت نەکرا</string>
+    <string name="toast_listen">گوێ بگرە</string>
+    <string name="toast_station_renamed">ناوی وێستگەکە گۆڕدرا</string>
+</resources>
