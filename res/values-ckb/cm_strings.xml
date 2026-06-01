@@ -22,5 +22,5 @@
     <string name="channel_playback_description">کۆنتڕۆڵەکانی لێدانی FM لە شریتی ئاگادارکردنەوەدا</string>
     <string name="channel_record_name">تۆمارکەری FM</string>
     <string name="channel_record_description">کۆنتڕۆڵەکانی تۆمارکەری ڕادیۆی FM لە شریتی ئاگادارکردنەوەدا</string>
-    <string name="missing_required_permission">مۆڵەتەکان ڕەت کرانەوە. دەتوانیت لە ڕێکخستنەکان &gt; ئەپەکاندا بیگۆڕیت.</string>
+    <string name="missing_required_permission">مۆڵەتەکان ڕەت کرانەوە. دەتوانیت لە ڕێکخستنەکان &gt; بەرنامەکاندا بیگۆڕیت.</string>
 </resources>
