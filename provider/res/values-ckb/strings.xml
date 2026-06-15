@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">تۆمارەکانی FM</string>
-    <string name="info_toast">تۆمارەکانی FM پێویستیی بە مۆڵەتەکانی مێدیا هەیە بۆ لێدانی تۆمارکراوەکان.</string>
-    <string name="denied_toast">تۆمارەکانی FM پێویستیی بە مۆڵەتەکانی مێدیا هەیە بۆ لێدانی تۆمارکراوەکان. تکایە لە ڕێکخستنەکان مۆڵەتی مێدیا بدە.</string>
+    <string name="info_toast">تۆمارەکانی FM پێویستیی بە ڕێپێدانەکانی مێدیا هەیە بۆ لێدانی تۆمارکراوەکان.</string>
+    <string name="denied_toast">تۆمارەکانی FM پێویستیی بە ڕێپێدانەکانی مێدیا هەیە بۆ لێدانی تۆمارکراوەکان. تکایە لە ڕێکخستنەکان ڕێپێدانی مێدیا بدە.</string>
 </resources>
