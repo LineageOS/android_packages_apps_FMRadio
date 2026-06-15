@@ -46,9 +46,9 @@
     <string name="station_title">وێستگەکانی ڕادیۆ</string>
     <string name="station_searching_tips">وێستگەکان وەردەگیرێن</string>
     <string name="station_empty_text">هیچ وێستگەیەک نەدۆزرایەوە</string>
-    <string name="minutes_label">خ</string>
-    <string name="seconds_label">چ</string>
-    <string name="timer_default">٠٠</string>
+    <string name="minutes_label"> خولەک </string>
+    <string name="seconds_label"> چرکە </string>
+    <string name="timer_default">00</string>
     <string name="record_title">تۆمارکردن</string>
     <string name="record_notification_message">تۆمارکردن لە کاردایە</string>
     <string name="stop_record">تۆمارکردن بوەستێنە</string>
