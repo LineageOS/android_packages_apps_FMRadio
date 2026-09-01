@@ -22,5 +22,5 @@
     <string name="channel_playback_description">Bildiriş çubuğunda FM oxutma kontrolları</string>
     <string name="channel_record_name">FM səsyazanı</string>
     <string name="channel_record_description">Bildiriş çubuğunda FM radio səsyazan kontrolları</string>
-    <string name="missing_required_permission">İcazə rədd edildi. Onu Ayarlar &gt; \"Tətbiqlər\"də dəyişdirə bilərsiniz.</string>
+    <string name="missing_required_permission">İzin rədd edildi. Onu Ayarlar &gt; \"Tətbiqlər\"də dəyişdirə bilərsiniz.</string>
 </resources>
