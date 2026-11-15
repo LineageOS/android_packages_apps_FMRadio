@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="info_toast">FM 錄音需要媒體權限才能播放錄音。</string>
+    <string name="denied_toast">FM 錄音需要媒體權限才能播放錄音。請在「設定」中授予媒體權限。</string>
+</resources>
