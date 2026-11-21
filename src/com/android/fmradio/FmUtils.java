@@ -43,9 +43,9 @@ public class FmUtils {
     public static final int DEFAULT_STATION = 1000;
     public static final float DEFAULT_STATION_FLOAT = computeFrequency(DEFAULT_STATION);
     // maximum station frequency
-    private static final int HIGHEST_STATION = 1080;
+    private static final int HIGHEST_STATION = SystemProperties.getInt("ro.fm.high_band", 1080);
     // minimum station frequency
-    private static final int LOWEST_STATION = 875;
+    private static final int LOWEST_STATION = SystemProperties.getInt("ro.fm.low_band", 875);
     // station step
     private static final int STEP = 1;
     // convert rate
